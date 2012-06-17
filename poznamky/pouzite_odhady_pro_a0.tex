@@ -1,0 +1,50 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+
+\setlength{\textheight}{597pt} %% cca 21cm
+\setlength{\textwidth}{426pt} %% cca 15cm 
+\setlength{\topmargin}{25pt}
+\setlength{\oddsidemargin}{32pt}
+
+\usepackage{pdflscape}
+\usepackage{amsmath}
+
+\newcommand{\intpa}{\int p_\theta^{1+\alpha}(x) \, \mathrm{d}x }
+\newcommand{\fn}{\frac{1}{n} \sum_{i=1}^n p_{\theta}^{\alpha}\left( x_i \right)}
+\newcommand{\fln}{\frac{1}{n} \sum_{i=1}^n \ln p_{\theta}\left( x_i \right)}
+\newcommand{\Cat}{C_\alpha\left( \theta \right)}
+\newcommand{\amtiT}{\arg \max_{\theta \in \Theta}}
+\newcommand{\fa}{\frac{\alpha}{1+\alpha}}
+
+\begin{document}
+Statistiky použité místo/jako MLE pro Rényiho odhady s parametrem $ \alpha = 0 $.
+
+\section*{Cauchy}
+\begin{eqnarray}
+p_{(\mu,\sigma)}(x) & = & \frac{1}{\pi \sigma} \left( 1 + \left( \frac{x - \mu}{\sigma} \right) ^2 \right)^{-1} \nonumber \\
+\hat{\mu} & = & \frac{X_{1-p} + X_{p}}{2}, \; p = 0.5565 \nonumber \\
+\hat{\sigma} & = & \frac{X_{0.75} - X_{0.25}}{2} \nonumber
+\end{eqnarray}
+
+\section*{Laplace}
+\begin{eqnarray}
+p_{(\mu,\theta)}(x) & = &  {\frac{1}{2\theta} \exp{ \left[ -\frac{|x -\mu |}{\theta } \right] }} \nonumber \\
+\hat{\mu} & = & X_{0.5} \nonumber \\
+\hat{\theta} & = & \frac{1}{n} \sum_{i=1}^n |x_i-\hat{\mu}| \nonumber
+\end{eqnarray}
+
+\section*{Normální}
+\begin{eqnarray}
+p_{(\mu,\sigma^2)}(x) & = &  {\frac{1}{\sqrt{2\pi\sigma^2}} \exp{ \left[ -\frac{(x -\mu )^2}{2\sigma^2} \right] }} \nonumber \\
+\hat{\mu} & = & \frac{1}{n} \sum_{i=1}^n x_i  \nonumber \\
+\hat{\sigma^2} & = & \frac{1}{n} \sum_{i=1}^n (x_i-\hat{\mu})^2 \nonumber
+\end{eqnarray}
+
+
+
+
+
+\end{document}
+

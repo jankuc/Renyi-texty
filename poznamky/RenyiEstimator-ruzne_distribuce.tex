@@ -1,13 +1,19 @@
-\documentclass[11pt]{article}
+\documentclass[11pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+
+\setlength{\textheight}{597pt} %% cca 21cm
+\setlength{\textwidth}{426pt} %% cca 15cm 
+\setlength{\topmargin}{25pt}
+\setlength{\oddsidemargin}{32pt}
 
 \usepackage{pdflscape}
 \usepackage{amsmath}
 
 \newcommand{\intpa}{\int p_\theta^{1+\alpha}(x) \, \mathrm{d}x }
-\newcommand{\fn}{\frac{1}{n} \sum_{i=1}^n p_{\theta}^{\alpha}\left( X_i \right)}
-\newcommand{\fln}{\frac{1}{n} \sum_{i=1}^n \ln p_{\theta}\left( X_i \right)}
+\newcommand{\fn}{\frac{1}{n} \sum_{i=1}^n p_{\theta}^{\alpha}\left( x_i \right)}
+\newcommand{\fln}{\frac{1}{n} \sum_{i=1}^n \ln p_{\theta}\left( x_i \right)}
 \newcommand{\Cat}{C_\alpha\left( \theta \right)}
 \newcommand{\amtiT}{\arg \max_{\theta \in \Theta}}
 \newcommand{\fa}{\frac{\alpha}{1+\alpha}}
@@ -39,12 +45,12 @@ substituujeme $ y = \frac{(1+\alpha)(x-\mu)}{\theta} $, tedy $\mathrm{d}y = \fra
 
 \begin{eqnarray}
 \intpa & = & \frac{1}{\theta^{ 1 + \alpha}} \int_{0}^{\infty } {\frac{\theta}{1+\alpha} \exp{ \left[ -y \right] }} \, \mathrm{d}x \nonumber\\
-& = & \frac{\theta ^{-\alpha }}{1+\alpha }
+& = & \frac{\theta ^{-\alpha }}{1+\alpha }.
 \end{eqnarray}
-tedy 
+Následující postup nefunguje, protože v empirické distribuci stále ještě není zahrnut interval, na kterém je rozdělení definováno.
 \begin{eqnarray}
-	\theta_{\alpha,n} &= &\amtiT \left( \frac{\theta ^{-\alpha }}{1+\alpha } \right)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \frac{1}{\theta^\alpha} \exp \left[-\alpha\frac{X_i-\mu}{\theta} \right] \nonumber\\
-	&=&\amtiT \theta^{-\frac{\alpha}{1+\alpha}} \frac{1}{n}\sum_{i=1}^n \exp \left[-\alpha\frac{X_i-\mu}{\theta} \right]
+	\theta_{\alpha,n} &= &\amtiT \left( \frac{\theta ^{-\alpha }}{1+\alpha } \right)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \frac{1}{\theta^\alpha} \exp \left[-\alpha\frac{x_i-\mu}{\theta} \right] \nonumber\\
+	&=&\amtiT \theta^{-\frac{\alpha}{1+\alpha}} \frac{1}{n}\sum_{i=1}^n \exp \left[-\alpha\frac{x_i-\mu}{\theta} \right]
 \end{eqnarray}
 
 
@@ -68,8 +74,8 @@ substituujeme $ y = \frac{(1+\alpha)(x-\mu)}{\theta} $, tedy $\mathrm{d}y = \fra
 \end{eqnarray}
 tedy 
 \begin{eqnarray}
-	\theta_{\alpha,n} &= &\amtiT \left( \frac{(2\theta)^{-\alpha}}{(1+\alpha)}  \right)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \frac{1}{(2\theta)^{\alpha}} \exp \left[-\alpha\frac{|X_i-\mu|}{\theta} \right] \nonumber\\
-	&=& \amtiT (2\theta)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|X_i-\mu|}{\theta} \right]
+	\theta_{\alpha,n} &= &\amtiT \left( \frac{(2\theta)^{-\alpha}}{(1+\alpha)}  \right)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \frac{1}{(2\theta)^{\alpha}} \exp \left[-\alpha\frac{|x_i-\mu|}{\theta} \right] \nonumber\\
+	&=& \amtiT (2\theta)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\theta} \right]
 \end{eqnarray}
 
 
@@ -84,11 +90,13 @@ tedy
 \begin{equation}
 \intpa = (b-a)^{-\alpha}
 \end{equation}
-tedy 
+Následující postup nefunguje, protože v empirické distribuci stále ještě není zahrnut interval, na kterém je rozdělení definováno. 
 \begin{eqnarray}
-	\theta_{\alpha,n} & = & \amtiT \left( (b-a)^{-\alpha} \right)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \frac{1}{(b-a)^\alpha} \nonumber\\
-	& = & \amtiT (b-a)^{\frac{\alpha^2 - \alpha - \alpha^2}{1+\alpha}}	\nonumber\\
-	& = & \amtiT  (b-a)^{-\frac{\alpha}{1+\alpha}}
+	\theta_{\alpha,n} & = & \amtiT \left( (b-a)^{-\alpha} \right)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \frac{\mathbf{I}_{(a,b)}}{(b-a)^\alpha} \nonumber\\
+	& = & \amtiT \left( (b-a)^{-\alpha} \right)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \frac{\mathbf{I}_{(a,b)}}{\left(2\sqrt{3\mathrm{V}x_i}\right)^\alpha} \nonumber\\
+	& = & \amtiT (b-a)^{\frac{\alpha^2}{1+\alpha}}\frac{1}{\left(2\sqrt{3\mathrm{V}X}\right)^\alpha}	\nonumber\\
+%	& = & \amtiT (b-a)^{\frac{\alpha^2 - \alpha - \alpha^2}{1+\alpha}}	\nonumber\\
+%	& = & \amtiT  (b-a)^{-\frac{\alpha}{1+\alpha}}
 \end{eqnarray}
 
 
@@ -106,9 +114,8 @@ pak
 tedy
 \begin{eqnarray}
 	\theta_{\alpha,n} & = & \amtiT \left( \frac{1}{\pi^{\frac{1}{2}+\alpha}\sigma^\alpha} \frac{\Gamma(\frac{1}{2} + \alpha)}{\Gamma(1+\alpha)} \right)^{-\frac{\alpha}{1+\alpha}} 
-	\frac{1}{n} \sum_{i=1}^n \frac{1}{\pi^\alpha\sigma^\alpha}\left( 1 + \left( \frac{X_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \nonumber \\
-	& = & \amtiT \sigma^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \left( 1 + \left( \frac{X_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \nonumber \\
-	& = & \amtiT \sigma^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \left( \frac{X_i-\mu}{\sigma} \right)^{-2\alpha}
+	\frac{1}{n} \sum_{i=1}^n \frac{1}{\pi^\alpha\sigma^\alpha}\left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \nonumber \\
+	& = & \amtiT \sigma^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \nonumber
 \end{eqnarray}
 
 
@@ -123,12 +130,12 @@ pak
 \begin{equation}
 \intpa = \frac{k^\alpha}{\lambda^\alpha}(1+\alpha)^{-\frac{1+\alpha +k}{k}} \Gamma \left( \frac{1+\alpha +k}{k}\right)
 \end{equation}
-pak
+Následující postup nefunguje, protože v empirické distribuci stále ještě není zahrnut interval, na kterém je rozdělení definováno.
 \begin{eqnarray}
 \theta_{\alpha,n} & = & \amtiT \left(\frac{k^\alpha}{\lambda^\alpha}(1+\alpha)^{-\frac{1+\alpha+k}{k}} \Gamma \left(\frac{1+\alpha+k}{k}\right) \right)^{-\fa} \nonumber \\
-&&  \frac{1}{n} \sum_{i=1}^n \frac{k^\alpha}{\lambda^\alpha} \left( \frac{X_i-\mu}{\lambda}\right)^{\alpha(k-1)} \exp \left[-\alpha \left(\frac{X_i-\mu}{\lambda}\right)^k \right] \nonumber \\
+&&  \frac{1}{n} \sum_{i=1}^n \frac{k^\alpha}{\lambda^\alpha} \left( \frac{x_i-\mu}{\lambda}\right)^{\alpha(k-1)} \exp \left[-\alpha \left(\frac{x_i-\mu}{\lambda}\right)^k \right] \nonumber \\
 & = & \amtiT \left( \frac{k}{\lambda} \right)^\fa (1+\alpha)^{\fa\frac{1+\alpha+k}{k}} \Gamma\left(\frac{1+\alpha+k}{k}\right)^{-\fa} \nonumber\\
-&& \frac{1}{n}\sum_{i=1}^n \left( \frac{X_i-\mu}{\lambda}\right)^{\alpha(k-1)} \exp\left[-\alpha \left(\frac{X_i-\mu}{\lambda}\right)^k\right]
+&& \frac{1}{n}\sum_{i=1}^n \left( \frac{x_i-\mu}{\lambda}\right)^{\alpha(k-1)} \exp\left[-\alpha \left(\frac{x_i-\mu}{\lambda}\right)^k\right]
 \end{eqnarray}
 
 \end{document}
