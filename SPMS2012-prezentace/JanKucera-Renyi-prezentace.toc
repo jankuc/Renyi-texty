@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.10pt}
+\beamer@sectionintoc {1}{Decomposable pseudo-distance}{3}{0}{1}
+\beamer@sectionintoc {2}{R\IeC {\'e}nyi pseudo-distance}{5}{0}{2}
+\beamer@sectionintoc {3}{Applications for distributions}{7}{0}{3}
+\beamer@subsectionintoc {3}{1}{Normal distribution}{7}{0}{3}
+\beamer@subsectionintoc {3}{2}{Laplace distribution}{15}{0}{3}
+\beamer@subsectionintoc {3}{3}{Exponential distribution}{19}{0}{3}
+\beamer@subsectionintoc {3}{4}{Weibull distribution}{22}{0}{3}

@@ -1,0 +1,95 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amstext}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\newcommand{\iid}{i.i.d. }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{abstract}
+In this contribution we study Rényi pseudodistance estimators which are based on minimization of information-theoretic divergences between empirical and hypothetical probability distribution. These distances are more robust (than e.g. MLE estimators) against outliers and other measurement errors potentially present in the data sets. Robustness of these estimators is described by influence function. In \cite{Vajda2009} and \cite{Demut2010} authors found explicit formulas for enumeration of Rényi distances in normal families and for their influence functions. We focus on finding explicit formulas for other families (Weibull, Cauchy, Exponential) and finding influence functions for these estimators. 
+We perform computer simulations for pseudorandom contaminated and uncontaminated data sets, different sample sizes and different Rényi distance parameters. 
+\end{abstract}
+
+\section{Introduction and basic definitions}
+Let $\mathcal{P} = \lbrace P_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$ be set of probability measures on measurable space $\left(\mathcal{X},\mathcal{A}\right)$.
+We will apply the estimators in the statistical model with \iid observations $X_1,\ldots,X_n$ governed by distribution $P_0$. 
+Because we will be interested in robustness, we allow the case $P_0 \notin \mathcal{P}$ and therefore we define another set $\mathcal{P}^+ = \mathcal{P} \cup \lbrace P_r \rbrace $.
+
+\begin{definition}
+	We say that mapping $\mathfrak{D}:\mathcal{P}\times\mathcal{P}^+ \rightarrow \mathbb{R}$ is \emph{pseudodistance} between probability measures $P \in \mathcal{P}$ and $Q \in \mathcal{P}^+$ if it holds
+		\begin{equation*}
+			\mathfrak{D}(P_\theta,Q) \geq 0 \quad \forall \theta \in \Theta \quad \text{and} \quad Q \in \mathcal{P}^+
+		\end{equation*}
+		and 
+		\begin{equation*}
+			\mathfrak{D}(P_\theta,P_{\tilde{\theta}})=0 \; \Leftrightarrow \; \theta=\tilde{\theta}.
+		\end{equation*}
+	This pseudodistance is \emph{ decomposable} if there exist functionals so that
+		 $\mathfrak{D}^0:\mathcal{P}\rightarrow\mathbb{R}$, $ \mathfrak{D}^1:\mathcal{P}^+ \rightarrow \mathbb{R}$ and measurable mapping
+		  $\rho_\theta : \mathcal{X} \rightarrow \mathbb{R}$, $ \theta \in \Theta$, so that $\forall \theta \in \Theta$ and $\forall Q \in \mathcal{P}^+$ the expectation $\int{\rho_\theta }\mathrm{d}Q$ exists and
+		\begin{equation*}
+			\mathfrak{D} (P_\theta, Q) = \mathfrak{D}^0 (P_\theta) + \mathfrak{D}^1 (Q) + \int \rho_\theta \mathrm{d}Q.
+		\end{equation*}
+\end{definition}
+
+\begin{definition}
+	We say that a functional $T_\mathcal{D}:\mathcal{Q} \rightarrow \Theta$, for $\mathcal{Q}=\mathcal{P}^+ \cup \mathcal{P}_{\text{emp}}$	defines minimum pseudodistance estimator (min $\mathfrak{D}$-estimator) if $\mathfrak{D}(P_\theta,Q)$ is a decomposable pseudodistance on $\mathcal{P}\times\mathcal{P}^+$ and parameters $T_\mathfrak{D}(Q) \in \Theta$ minimize $\mathfrak{D}^0 + \int{\rho_\theta}\mathrm{d}Q$, that means
+	\begin{equation}
+		T_\mathfrak{D}(Q) = \arg\min_{\theta \in \Theta} \left[ \mathfrak{D}^0 + \int{\rho_\theta}\mathrm{d}Q \right] \quad \forall Q \in \mathcal{Q}.
+	\end{equation}
+\end{definition}
+
+
+
+
+
+
+
+\pagebreak
+
+\begin{thebibliography}{99.}
+
+\bibitem{Vajda2009}
+Michel Broniatowski, Igor Vajda.
+\newblock {\em Several Applications of Divergence Criteria in Continuous Families}.
+\newblock Research report No 2257 September 2009, UTIA AV CR, Prague, 2009.
+
+\bibitem{Vajda1995}
+Igor Vajda.
+\newblock {\em Information - Theoretic Methods in Statistics}.
+\newblock Research report No 1834 October 1995, UTIA AV CR, Prague, 1995.
+
+\bibitem{Decomposable2011}
+Michel Broniatowski, Aida Toma, Igor Vajda.
+\newblock {\em Decomposable Pseudodistances and Applications in Statistical Estimation}.
+\newblock arXiv:1104.1541v1, 2011.
+
+\bibitem{Demut2010}
+Radim Demut
+\newblock {\em Robust properties of minimum divergence density estimators}.
+\newblock Diploma Thesis, ČVUT, Prague 2010.
+
+\bibitem{BasuHarris}
+By Ayanendranath Basu, Ian R. Harris, Nils L. Hjort, M. C. Jones
+\newblock {\em Robust and eficient estimation by minimising a density power divergence}.
+\newblock In Biometrika, 85, 549-559, 1998.
+
+\bibitem{LieseVajda}
+Friedrich Liese, Igor Vajda.
+\newblock {\em On Divergences and Informations in Statistics and Information Theory}.
+\newblock IEEE Transactions on Information Theory, Vol. 52, No. 10,4394-4412, 2006.
+
+\end{thebibliography}
+
+\end{document}
+
