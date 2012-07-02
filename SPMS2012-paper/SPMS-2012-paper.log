@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.30)  2 JUL 2012 13:39
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.30)  2 JUL 2012 23:59
 entering extended mode
  %&-line parsing enabled.
 **SPMS-2012-paper.tex
@@ -328,69 +328,81 @@ Package: amsthm 2004/08/06 v2.20
 \dth@everypar=\toks26
 )
 \c@definition=\count99
- (./SPMS-2012-paper.aux)
+
+
+Package amsthm Warning: Unknown theoremstyle `theorem' on input line 13.
+
+\c@theorem=\count100
+(./SPMS-2012-paper.aux)
 \openout1 = `SPMS-2012-paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
-Overfull \hbox (3.53583pt too wide) in paragraph at lines 19--21
+Overfull \hbox (3.53583pt too wide) in paragraph at lines 20--22
 []\T1/cmr/m/n/10 In this con-tri-bu-tion we study Rényi pseu-dodis-tance es-ti-
 ma-tors which
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 24.
+LaTeX Font Info:    Try loading font information for U+msa on input line 25.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 24.
+LaTeX Font Info:    Try loading font information for U+msb on input line 25.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+euf on input line 29.
+LaTeX Font Info:    Try loading font information for U+euf on input line 30.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./SPMS-2012-paper.aux
-) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (1.16518pt too wide) detected at line 73
+\OMS/cmsy/m/n/10.95 R[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P; Q\OT1/cmr/m/n
+/10.95 ) = [] [] [] + [] [] [] \OMS/cmsy/m/n/10.95 ^^@ [] [] []
+ []
+
+[2] [3] (./SPMS-2012-paper.aux) ) 
 Here is how much of TeX's memory you used:
- 1629 strings out of 495061
- 16915 string characters out of 1182621
- 65609 words of memory out of 3000000
- 4812 multiletter control sequences out of 15000+50000
+ 1636 strings out of 495061
+ 16980 string characters out of 1182621
+ 66609 words of memory out of 3000000
+ 4819 multiletter control sequences out of 15000+50000
  15849 words of font info for 44 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 27i,8n,22p,741b,160s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/
-honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/honza/.texm
-f-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/honza/.texmf-var/fonts
-/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecbx1440.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecrm1000.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.6
-00pk></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
-share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf
--texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pf
-b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/
-share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on SPMS-2012-paper.pdf (2 pages, 146373 bytes).
+ 27i,8n,22p,741b,164s stack positions out of 5000i,500n,10000p,200000b,50000s
+ </home/honza/.texmf-var/fonts/pk/ljfour/jknap
+pen/ec/ecrm0800.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti
+1095.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk>
+ </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/hon
+za/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/honza/.texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/honza/.texmf-var/fonts/pk
+/ljfour/jknappen/ec/ecbx1000.600pk></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cms
+y8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/euler/eufm10.pfb><
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on SPMS-2012-paper.pdf (3 pages, 172613 bytes).
 PDF statistics:
- 255 PDF objects out of 1000 (max. 8388607)
+ 274 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

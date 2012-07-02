@@ -10,7 +10,8 @@
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
-
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}[section]
 \newcommand{\iid}{i.i.d. }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -27,29 +28,62 @@ Because we will be interested in robustness, we allow the case $P_0 \notin \math
 
 \begin{definition}
 	We say that mapping $\mathfrak{D}:\mathcal{P}\times\mathcal{P}^+ \rightarrow \mathbb{R}$ is \emph{pseudodistance} between probability measures $P \in \mathcal{P}$ and $Q \in \mathcal{P}^+$ if it holds
-		\begin{equation*}
+		\begin{equation}
 			\mathfrak{D}(P_\theta,Q) \geq 0 \quad \forall \theta \in \Theta \quad \text{and} \quad Q \in \mathcal{P}^+
-		\end{equation*}
+		\end{equation}
 		and 
-		\begin{equation*}
+		\begin{equation}
 			\mathfrak{D}(P_\theta,P_{\tilde{\theta}})=0 \; \Leftrightarrow \; \theta=\tilde{\theta}.
-		\end{equation*}
+		\end{equation}
 	This pseudodistance is \emph{ decomposable} if there exist functionals so that
 		 $\mathfrak{D}^0:\mathcal{P}\rightarrow\mathbb{R}$, $ \mathfrak{D}^1:\mathcal{P}^+ \rightarrow \mathbb{R}$ and measurable mapping
 		  $\rho_\theta : \mathcal{X} \rightarrow \mathbb{R}$, $ \theta \in \Theta$, so that $\forall \theta \in \Theta$ and $\forall Q \in \mathcal{P}^+$ the expectation $\int{\rho_\theta }\mathrm{d}Q$ exists and
-		\begin{equation*}
+		\begin{equation}
 			\mathfrak{D} (P_\theta, Q) = \mathfrak{D}^0 (P_\theta) + \mathfrak{D}^1 (Q) + \int \rho_\theta \mathrm{d}Q.
-		\end{equation*}
+		\end{equation}
 \end{definition}
 
 \begin{definition}
-	We say that a functional $T_\mathcal{D}:\mathcal{Q} \rightarrow \Theta$, for $\mathcal{Q}=\mathcal{P}^+ \cup \mathcal{P}_{\text{emp}}$	defines minimum pseudodistance estimator (min $\mathfrak{D}$-estimator) if $\mathfrak{D}(P_\theta,Q)$ is a decomposable pseudodistance on $\mathcal{P}\times\mathcal{P}^+$ and parameters $T_\mathfrak{D}(Q) \in \Theta$ minimize $\mathfrak{D}^0 + \int{\rho_\theta}\mathrm{d}Q$, that means
+	We say that a functional $T_\mathfrak{D}:\mathcal{Q} \rightarrow \Theta$, for $\mathcal{Q}=\mathcal{P}^+ \cup \mathcal{P}_{\text{emp}}$	defines minimum pseudodistance estimator (min $\mathfrak{D}$-estimator) if $\mathfrak{D}(P_\theta,Q)$ is a decomposable pseudodistance on $\mathcal{P}\times\mathcal{P}^+$ and parameters $T_\mathfrak{D}(Q) \in \Theta$ minimize $\mathfrak{D}^0 + \int{\rho_\theta}\mathrm{d}Q$, that means
 	\begin{equation}
-		T_\mathfrak{D}(Q) = \arg\min_{\theta \in \Theta} \left[ \mathfrak{D}^0 + \int{\rho_\theta}\mathrm{d}Q \right] \quad \forall Q \in \mathcal{Q}.
+		T_\mathfrak{D}(Q) = \arg\min_{\theta \in \Theta} \left[ \mathfrak{D}^0(P_\theta) + \int{\rho_\theta}\mathrm{d}Q \right] \quad \forall Q \in \mathcal{Q}.
 	\end{equation}
 \end{definition}
 
+In particular, for $Q = P_n = \frac{1}{n}\sum_{i-1}^n \delta_{X_i} \in \mathcal{P}_{emp}$
+\begin{equation}
+	\hat{\theta}_{\mathfrak{D},n} =T_\mathfrak{D}(P_n)  = \arg\min_{\theta \in \Theta}\left[ \mathfrak{D}^0(P_\theta) + \dfrac{1}{n} \sum_{i-1}^n \rho_\theta (X_i) \right].
+\end{equation}
 
+Every min $\mathfrak{D}$-estimator is Fisher consistent in the sense that 
+\begin{equation}
+	T_\mathfrak{D}(P_{\theta_0}) = \arg\min_{\theta \in \Theta} \mathfrak{D}(P_\theta, P_{\theta_0}) = \theta_0,\quad \forall \theta_0 \in \Theta.
+\end{equation}
+
+\begin{theorem}
+Let for some $\beta>0$
+	\begin{equation*}
+			p^\beta, q^\beta,\ln{p} \in \mathrm{L}_1(Q), \quad \forall P \in \mathcal{P}, Q \in \mathcal{P^+}.
+	\end{equation*}
+	holds. Then $\forall \alpha$, $0 < \alpha \leq \beta$, and for $P \in \mathcal{P}, \; Q \in \mathcal{P^+} $ the expression 
+	\begin{equation}
+		\mathcal{R}_\alpha (P,Q) = \dfrac{1}{1+\alpha}\ln{\left( \int{p^\alpha \mathrm{d}P } \right)} +
+		\dfrac{1}{\alpha (1+\alpha)}\ln{\left( \int{q^\alpha \mathrm{d}Q } \right)} -
+		\dfrac{1}{\alpha} \ln{\left( \int{p^\alpha \mathrm{d}Q } \right)}
+	\end{equation}
+		represents the family of pseudodistances decomposable in the sense
+	\begin{equation*}
+		\mathcal{R}_\alpha (P,Q) = \mathcal{R}_\alpha^0 (P) + \mathcal{R}_\alpha^1 (Q) - \dfrac{1}{\alpha} \ln{\left( \int{p^\alpha \mathrm{d}Q } \right)},
+	\end{equation*}	
+	where 
+	\begin{equation*}
+		\mathcal{R}_\alpha^0 (P) = \dfrac{1}{1+\alpha}\ln{\left( \int{p^\alpha \mathrm{d}P } \right)}, \quad \mathcal{R}_\alpha^1 (Q) = \dfrac{1}{\alpha (1+\alpha)}\ln{\left( \int{q^\alpha \mathrm{d}Q } \right)}.
+	\end{equation*}
+	Moreover for $\alpha \searrow 0$ it holds
+	\begin{equation*}
+		\mathcal{R}_0 (P,Q) = \lim_{\alpha \rightarrow 0} \mathcal{R}_\alpha (P,Q) =  \int{\left( \ln{q} - \ln{p} \right)\mathrm{d}Q}
+	\end{equation*}
+\end{theorem}
 
 
 
