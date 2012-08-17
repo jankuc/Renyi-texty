@@ -7,6 +7,11 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{amstext}
+\setlength{\textheight}{597pt} %% cca 21cm
+\setlength{\textwidth}{426pt} %% cca 15cm 
+\setlength{\topmargin}{25pt}
+\setlength{\oddsidemargin}{32pt}
+\usepackage{pdflscape}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -49,12 +54,10 @@ Because we will be interested in robustness, we allow the case $P_0 \notin \math
 		T_\mathfrak{D}(Q) = \arg\min_{\theta \in \Theta} \left[ \mathfrak{D}^0(P_\theta) + \int{\rho_\theta}\mathrm{d}Q \right] \quad \forall Q \in \mathcal{Q}.
 	\end{equation}
 \end{definition}
-
 In particular, for $Q = P_n = \frac{1}{n}\sum_{i-1}^n \delta_{X_i} \in \mathcal{P}_{emp}$
 \begin{equation}
 	\hat{\theta}_{\mathfrak{D},n} =T_\mathfrak{D}(P_n)  = \arg\min_{\theta \in \Theta}\left[ \mathfrak{D}^0(P_\theta) + \dfrac{1}{n} \sum_{i-1}^n \rho_\theta (X_i) \right].
 \end{equation}
-
 Every min $\mathfrak{D}$-estimator is Fisher consistent in the sense that 
 \begin{equation}
 	T_\mathfrak{D}(P_{\theta_0}) = \arg\min_{\theta \in \Theta} \mathfrak{D}(P_\theta, P_{\theta_0}) = \theta_0,\quad \forall \theta_0 \in \Theta.
@@ -81,9 +84,10 @@ Let for some $\beta>0$
 	\end{equation*}
 	Moreover for $\alpha \searrow 0$ it holds
 	\begin{equation*}
-		\mathcal{R}_0 (P,Q) = \lim_{\alpha \rightarrow 0} \mathcal{R}_\alpha (P,Q) =  \int{\left( \ln{q} - \ln{p} \right)\mathrm{d}Q}
+		\mathcal{R}_0 (P,Q) = \lim_{\alpha \searrow 0} \mathcal{R}_\alpha (P,Q) =  \int{\left( \ln{q} - \ln{p} \right)\mathrm{d}Q}.
 	\end{equation*}
 \end{theorem}
+
 
 
 

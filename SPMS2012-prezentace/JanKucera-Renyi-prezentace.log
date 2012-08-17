@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.30)  1 JUL 2012 11:02
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.30)  14 AUG 2012 13:22
 entering extended mode
  %&-line parsing enabled.
 **JanKucera-Renyi-prezentace.tex
@@ -1131,19 +1131,25 @@ File: IF-Laplace-sigma.png Graphic file (type png)
 ]
 [19
 
-] <IF-Exponential-sigma.png, id=709, 805.0075pt x 409.53pt>
+] <IF-Exponential-mu.png, id=709, 727.71875pt x 370.38374pt>
+File: IF-Exponential-mu.png Graphic file (type png)
+
+<use IF-Exponential-mu.png> [20
+
+ <./IF-Exponential-mu.png (PNG copy)>]
+<IF-Exponential-sigma.png, id=742, 805.0075pt x 409.53pt>
 File: IF-Exponential-sigma.png Graphic file (type png)
 
-<use IF-Exponential-sigma.png> [20
+<use IF-Exponential-sigma.png> [21
 
  <./IF-Exponential-sigma.png (PNG copy)>]
-[21
-
-] [22
+[22
 
 ] [23
 
 ] [24
+
+] [25
 
 ]
 \tf@nav=\write6
@@ -1162,42 +1168,45 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 15324 strings out of 495061
- 283735 string characters out of 1182621
+ 15333 strings out of 495061
+ 283903 string characters out of 1182621
  353824 words of memory out of 3000000
- 18001 multiletter control sequences out of 15000+50000
+ 18006 multiletter control sequences out of 15000+50000
  31677 words of font info for 79 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  49i,19n,62p,442b,596s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0700.600pk> </home/h
-onza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0700.600pk> </home/honza/.texmf
--var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/honza/.texmf-var/fonts/
-pk/ljfour/jknappen/ec/ecsi1000.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecss1000.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/
-ecss0900.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.60
-0pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0600.600pk> </home
-/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0800.600pk> </home/honza/.tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/honza/.texmf-var/font
-s/pk/ljfour/jknappen/ec/ecsi1095.600pk> </home/honza/.texmf-var/fonts/pk/ljfour
-/jknappen/ec/ecss0800.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/e
-c/ecss1095.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1440.
-600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0600.600pk></usr
-/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texm
-f-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/f
-onts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/p
-ublic/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi9.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-t
-exlive/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmsy6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
-cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb
-></usr/share/texmf-texlive/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on JanKucera-Renyi-prezentace.pdf (24 pages, 584987 bytes).
+pdfTeX warning (dest): name{Outline0.3.4.22} has been referenced but does not
+ exist, replaced by a fixed one
+
+ </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0700.600pk> </home/hon
+za/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0700.600pk> </home/honza/.texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/honza/.texmf-var/fonts/pk
+/ljfour/jknappen/ec/ecsi1000.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jkn
+appen/ec/ecss1000.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+ss0900.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600p
+k> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0600.600pk> </home/h
+onza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0800.600pk> </home/honza/.texmf
+-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/honza/.texmf-var/fonts/
+pk/ljfour/jknappen/ec/ecsi1095.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecss0800.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/
+ecss1095.600pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1440.60
+0pk> </home/honza/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0600.600pk></usr/s
+hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-
+texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi9.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmsy6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb><
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on JanKucera-Renyi-prezentace.pdf (25 pages, 628773 bytes).
 PDF statistics:
- 1222 PDF objects out of 1440 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
- 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1258 PDF objects out of 1440 (max. 8388607)
+ 59 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 
