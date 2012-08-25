@@ -1,0 +1,125 @@
+\chapter{Rozložitelné pseudovzdálenosti}
+
+V této kapitole se budeme zabývat Rényiho pseudovzdáleností. Nejde o klasickou vzdálenost, protože nepožadujeme symetrii ani splnění trojúhelníkové nerovnosti. 
+
+Nech\v{t} $\mathcal{P} = \lbrace P_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$ je množina rozdělení pravděpodobností na měřitelném prostoru $\left(\mathcal{X},\mathcal{A}\right)$.
+Naše odhady budou založeny na náhodném vektoru $\mathbf{X}_n = (X_1, \ldots ,X_n)$ délky $n$ s nezávislými složkami určenými stejnou distribuční funkcí $P_{r}$. Protože se budeme zabývat robustností, připouštíme $P_r \notin \mathcal{P}$. Zavádíme tedy další množinu $\mathcal{P}^+ = \mathcal{P} \cup \lbrace P_r \rbrace$. Navíc předpokládáme, že každé rozdělení $P \in \mathcal{P}^+$ je dominováno $\sigma$-finitní mírou $\lambda$ a má hustotu 
+\begin{equation}
+p = \dfrac{\mathrm{d}P}{\mathrm{d}\lambda}, \text{ pro každé } P \in \mathcal{P}^+.
+\end{equation}
+Množinu všech empirických distribucí budeme značit $\Pemp$.
+
+\begin{definition}
+	Řekneme, že zobrazení $\mathfrak{D}:\mathcal{P}\times\mathcal{P}^+ \rightarrow \mathbb{R}$ je pseudovzdálenost distribučních funkcí $P \in \mathcal{P}$ a $Q \in \mathcal{P}^+$, pokud platí		
+		\begin{equation}
+			\mathfrak{D}(P_\theta,Q) \geq 0 \text{ pro každé } \theta \in \Theta \text{ a pro každé } Q \in \mathcal{P}^+
+		\end{equation}
+		a	
+		\begin{equation}
+			\mathfrak{D}(P_\theta,P_{\tilde{\theta}})=0 \text{ právě když } \theta=\tilde{\theta}.
+		\end{equation}	
+	Řekneme, že tato pseudovzdálenost je rozložitelná, pokud existují funkcionály 
+		 $\mathfrak{D}^0:\mathcal{P}\rightarrow\mathbb{R}$, $ \mathfrak{D}^1:\mathcal{P}^+ \rightarrow \mathbb{R}$ a měřitelné zobrazení 
+		  $\rho_\theta : \mathcal{X} \rightarrow \mathbb{R}$, $ \theta \in \Theta$ takové, že pro každé $\theta \in \Theta$ a pro každé $Q \in \mathcal{P}^+$ existuje střední hodnota $\int{\rho_\theta }\mathrm{d}Q$ a platí
+		\begin{equation}
+			\mathfrak{D} (P_\theta, Q) = \mathfrak{D}^0 (P_\theta) + \mathfrak{D}^1 (Q) + \int \rho_\theta \mathrm{d}Q.
+		\end{equation}
+\end{definition}
+
+\begin{definition}
+	Řekneme, že funkcionál $T_\mathfrak{D}:\mathcal{Q} \rightarrow \Theta$, pro $\mathcal{Q}=\mathcal{P}^+ \cup \Pemp$	definuje odhad s minimální pseudovzdáleností (min $\mathfrak{D}$-odhad), pokud  $\mathfrak{D}(P_\theta,Q)$ je rozložitelná pseudovzdálenost na $\mathcal{P}\times\mathcal{P}^+$ a parametry  $T_\mathfrak{D}(Q) \in \Theta$ minimalizují $\mathfrak{D}^0 + \int{\rho_\theta}\mathrm{d}Q$, to znamená
+	\begin{equation}
+		T_\mathfrak{D}(Q) = \arg\min_{\theta \in \Theta} \left[ \mathfrak{D}^0(P_\theta) + \int{\rho_\theta}\mathrm{d}Q \right] \quad \forall Q \in \mathcal{Q}.
+	\end{equation}
+\end{definition}
+Speciálně pro $Q = P_n = \frac{1}{n}\sum_{i-1}^n \delta_{X_i} \in \mathcal{P}_{emp}$
+
+\begin{equation}
+	\hat{\theta}_{\mathfrak{D},n} =T_\mathfrak{D}(P_n)  = \arg\min_{\theta \in \Theta}\left[ \mathfrak{D}^0(P_\theta) + \dfrac{1}{n} \sum_{i-1}^n \rho_\theta (X_i) \right].
+\end{equation}
+Každý min $\mathfrak{D}$-odhad je fisherovsky konzistentní, to znamená, že platí
+\begin{equation}
+	T_\mathfrak{D}(P_{\theta_0}) = \arg\min_{\theta \in \Theta} \mathfrak{D}(P_\theta, P_{\theta_0}) = \theta_0,\text{ pro každé }\theta_0 \in \Theta.
+\end{equation}
+Následující věta nám dovolí korektně definovat odhady s minimální Rényiho pseudovzdáleností:
+
+\begin{theorem}
+Nechť pro nějaké $\beta>0$ platí
+	\begin{equation*}
+			p^\beta, q^\beta,\ln{p} \in \mathrm{L}_1(Q), \quad \forall P \in \mathcal{P}, Q \in \mathcal{P^+}.
+	\end{equation*}
+	Potom pro každé $\alpha$ takové, že $0 < \alpha \leq \beta$, a pro $P \in \mathcal{P}, \; Q \in \mathcal{P^+} $ je 
+	\begin{equation}
+		\mathfrak{R}_\alpha (P,Q) = \dfrac{1}{1+\alpha}\ln{\left( \int{p^\alpha \mathrm{d}P } \right)} +
+		\dfrac{1}{\alpha (1+\alpha)}\ln{\left( \int{q^\alpha \mathrm{d}Q } \right)} -
+		\dfrac{1}{\alpha} \ln{\left( \int{p^\alpha \mathrm{d}Q } \right)}
+	\end{equation}
+	třída pseudovzdáleností rozložitelných ve smyslu 
+	\begin{equation*}
+		\mathfrak{R}_\alpha (P,Q) = \mathfrak{R}_\alpha^0 (P) + \mathfrak{R}_\alpha^1 (Q) - \dfrac{1}{\alpha} \ln{\left( \int{p^\alpha \mathrm{d}Q } \right)},
+	\end{equation*}	
+	kde 
+	\begin{equation*}
+		\mathfrak{R}_\alpha^0 (P) = \dfrac{1}{1+\alpha}\ln{\left( \int{p^\alpha \mathrm{d}P } \right)}, \quad \mathfrak{R}_\alpha^1 (Q) = \dfrac{1}{\alpha (1+\alpha)}\ln{\left( \int{q^\alpha \mathrm{d}Q } \right)}.
+	\end{equation*}
+	Navíc pro $\alpha \searrow 0$ platí
+	\begin{equation*}
+		\mathfrak{R}_0 (P,Q) = \lim_{\alpha \searrow 0} \mathfrak{R}_\alpha (P,Q) =  \int{\left( \ln{q} - \ln{p} \right)\mathrm{d}Q}.
+	\end{equation*}
+\end{theorem}
+Pro $Q \in \mathcal{P}^+ \cup \Pemp$ dostáváme odhad s minimální Rényiho pseudovzdáleností ve tvaru
+\begin{equation}
+	T_{\mathfrak{R}_\alpha}(Q) = 
+	\begin{cases}
+		 \displaystyle{ \arg \min_{\theta \in \Theta} \left[\frac{1}{1+\alpha} \ln(\int p_\theta^\alpha\mathrm{d}P_\theta) - \frac{1}{\alpha} \ln(\int p_\theta^\alpha\mathrm{d}Q) \right]} & \text{ pro } 0 < \alpha \leq \beta, \\
+		 \displaystyle{ \arg \min_{\theta \in \Theta} \left[- \ln(\int p_\theta\mathrm{d}Q) \right] }& \text{ pro } \alpha = 0,
+	\end{cases}	
+\end{equation}
+tedy
+\begin{equation}
+	T_{\mathfrak{R}_\alpha}(Q) = 
+	\begin{cases}
+		 \displaystyle{ \arg \max_{\theta \in \Theta} \left[\ln\frac{\int p_\theta^\alpha\mathrm{d}Q}{(\int p_\theta^\alpha\mathrm{d}P_\theta)^{\frac{\alpha}{1+\alpha}}} \right] }& \text{ pro } 0 < \alpha \leq \beta, \\
+		 \displaystyle{ \arg \max_{\theta \in \Theta} \left[\ln(\int p_\theta\mathrm{d}Q) \right] }& \text{ pro } \alpha = 0.
+	\end{cases}	
+\end{equation}
+Pokud za $Q$ dosadíme empirické rozdělení pravděpodobnosti $P_n$ a označíme 
+\begin{equation}
+	C_\alpha (\theta) = \left(\int p_\theta^\alpha\mathrm{d}P_\theta \right)^{\frac{\alpha}{1+\alpha}},
+\end{equation}
+dostáváme odhad 
+\begin{equation}
+	\theta_{\alpha,n} = 
+	\begin{cases}
+		\displaystyle{ \arg \max_{\theta \in \Theta} C_\alpha\left( \theta \right)^{-1} \frac{1}{n} \sum_{i=1}^n p_{\theta}^{\alpha}\left( X_i \right) } & \text{ pro } 0 < \alpha \leq \beta, \\
+		\displaystyle{ \arg \max_{\theta \in \Theta}  \frac{1}{n} \sum_{i=1}^n \ln p_{\theta}\left( X_i \right) } & \text{ pro } \alpha = 0.
+	\end{cases}	
+	\label{Renyi-estimator_formula}
+\end{equation}
+
+V \cite{Vajda2009} autor odvozuje tvar influenční funkce pro odhady s minimální Rényiho pseudovzdáleností. Pokud označíme 
+\begin{center}
+	\begin{tabular}{r l}
+	$s_\theta = \dfrac{\mathrm{d}}{\mathrm{d}\theta} \ln p_\theta, \quad$ & $ \dot{s}_\theta = \left( \dfrac{\mathrm{d}}{\mathrm{d}\theta} \right)^T s_\theta,$ \\ 
+	
+	$c_\alpha(\theta) = \dfrac{\int p_\theta^{1+\alpha}s_\theta \mathrm{d}\lambda}{\int p_\theta^{1+\alpha} \mathrm{d}\lambda}, \quad$ & $\dot{c}_\alpha(\theta)= \left( \dfrac{\mathrm{d}}{\mathrm{d}\theta} \right)^T c_\alpha(\theta),$  \\ 
+	\end{tabular} 
+\end{center}
+
+
+\begin{equation}
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\theta) = -\mathbf{I}^{-1}_{\alpha}(\theta) \left[ p_\theta^\alpha(x) (s_\theta (x) - c_\alpha (x)) \right], \label{IF}
+\end{equation}
+kde používáme značení
+
+and 
+\begin{equation}
+\mathbf{I}_{\alpha}(\theta) = \int{ \left[\dot{s}_\theta - \dot{c}_\alpha(\theta) - \alpha(s_\theta - c_\alpha(\theta))(c^T_\alpha(\theta) - s^T_\theta) \right] p_\theta^{1+\alpha} \mathrm{d}\lambda}.
+\end{equation}
+
+We will use these influence functions to demonstrate robustness of minimal R\'{e}nyi pseudodistance estimator. There are more important characteristics, but we will be interested in two. First one is gross-error sensitivity characterized as $\gamma^* = \sup_x |\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\theta)|$. We want it to be finite, in other words, we want the influence function to be bounded. The other one is called rejection point and is defined as 
+$\rho^* = \inf\lbrace  r > 0 \; | \; \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\theta) = 0 \; \mathrm{for} \; |x|> r \rbrace$. It describes values of samples, which will be treated as outliers and rejected.
+
+\section{Application to specific families}
+
+In \cite{Vajda2009} authors present formulas for computing and evaluating R\'{e}nyi pseudodistance estimator in normal family. Our goal was to study these estimators in other families. In the next chapter we present our results together with some examples.
