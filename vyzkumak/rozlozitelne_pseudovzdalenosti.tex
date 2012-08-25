@@ -41,8 +41,7 @@ Každý min $\mathfrak{D}$-odhad je fisherovsky konzistentní, to znamená, že 
 \begin{equation}
 	T_\mathfrak{D}(P_{\theta_0}) = \arg\min_{\theta \in \Theta} \mathfrak{D}(P_\theta, P_{\theta_0}) = \theta_0,\text{ pro každé }\theta_0 \in \Theta.
 \end{equation}
-Následující věta nám dovolí korektně definovat odhady s minimální Rényiho pseudovzdáleností:
-
+Následující věta nám dovolí korektně definovat odhady s minimální Rényiho pseudovzdáleností.
 \begin{theorem}
 Nechť pro nějaké $\beta>0$ platí
 	\begin{equation*}
@@ -99,27 +98,18 @@ dostáváme odhad
 
 V \cite{Vajda2009} autor odvozuje tvar influenční funkce pro odhady s minimální Rényiho pseudovzdáleností. Pokud označíme 
 \begin{center}
-	\begin{tabular}{r l}
+	\begin{tabular}{c c}
 	$s_\theta = \dfrac{\mathrm{d}}{\mathrm{d}\theta} \ln p_\theta, \quad$ & $ \dot{s}_\theta = \left( \dfrac{\mathrm{d}}{\mathrm{d}\theta} \right)^T s_\theta,$ \\ 
-	
+	&\\
 	$c_\alpha(\theta) = \dfrac{\int p_\theta^{1+\alpha}s_\theta \mathrm{d}\lambda}{\int p_\theta^{1+\alpha} \mathrm{d}\lambda}, \quad$ & $\dot{c}_\alpha(\theta)= \left( \dfrac{\mathrm{d}}{\mathrm{d}\theta} \right)^T c_\alpha(\theta),$  \\ 
 	\end{tabular} 
 \end{center}
-
-
+pak má influenční funkce tvar 
 \begin{equation}
-	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\theta) = -\mathbf{I}^{-1}_{\alpha}(\theta) \left[ p_\theta^\alpha(x) (s_\theta (x) - c_\alpha (x)) \right], \label{IF}
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\theta) = -\mathbf{I}^{-1}_{\alpha}(\theta) \left[ p_\theta^\alpha(x) (s_\theta (x) - c_\alpha (x)) \right], 
+	\label{IF}
 \end{equation}
-kde používáme značení
-
-and 
+kde 
 \begin{equation}
 \mathbf{I}_{\alpha}(\theta) = \int{ \left[\dot{s}_\theta - \dot{c}_\alpha(\theta) - \alpha(s_\theta - c_\alpha(\theta))(c^T_\alpha(\theta) - s^T_\theta) \right] p_\theta^{1+\alpha} \mathrm{d}\lambda}.
 \end{equation}
-
-We will use these influence functions to demonstrate robustness of minimal R\'{e}nyi pseudodistance estimator. There are more important characteristics, but we will be interested in two. First one is gross-error sensitivity characterized as $\gamma^* = \sup_x |\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\theta)|$. We want it to be finite, in other words, we want the influence function to be bounded. The other one is called rejection point and is defined as 
-$\rho^* = \inf\lbrace  r > 0 \; | \; \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\theta) = 0 \; \mathrm{for} \; |x|> r \rbrace$. It describes values of samples, which will be treated as outliers and rejected.
-
-\section{Application to specific families}
-
-In \cite{Vajda2009} authors present formulas for computing and evaluating R\'{e}nyi pseudodistance estimator in normal family. Our goal was to study these estimators in other families. In the next chapter we present our results together with some examples.

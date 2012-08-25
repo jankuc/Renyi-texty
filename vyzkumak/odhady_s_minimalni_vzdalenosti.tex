@@ -1,20 +1,29 @@
 \chapter{Odhady s minimální vzdáleností}
 
-V této kapitole budeme uvažovat parametrizovanou množinu distribučních funkcí $\mathcal{P} = \lbrace P_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$, indexovanou parametrem z metrického prostoru $\Theta \subset \mathbb{R}^m$ vybaveného eukleidovskou vzdáleností 
+V této kapitole budeme uvažovat parametrizovanou množinu distribučních funkcí $\mathcal{F} = \lbrace F_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$, indexovanou parametrem z metrického prostoru $\Theta \subset \mathbb{R}^m$ vybaveného eukleidovskou vzdáleností 
 \begin{equation}
 	\rho (\theta_1,\theta_2) = \sqrt{(\theta_1-\theta_2)(\theta_1-\theta_2)^T}. 
 \end{equation}
-Dále budeme předpokládat identifikovatelnost rodiny $\mathcal{P}$, tedy 
+Dále budeme předpokládat identifikovatelnost rodiny $\mathcal{F}$, tedy 
 \begin{equation}
-\theta_1 \neq \theta_2 \Rightarrow P_{\theta_1} \neq P_{\theta_2}
+\theta_1 \neq \theta_2 \Rightarrow F_{\theta_1} \neq F_{\theta_2}
 \end{equation}
-a také měřitelnost všech $\mathcal{P}_\theta(x), x \in \mathbb{R}$. Naše odhady budou založeny na náhodném vektoru $\mathbf{X}_n = (X_1, \ldots ,X_n)$ délky $n$ s nezávislými složkami určenými stejnou distribuční funkcí $P_{\theta_0} \in \mathcal{P}$. Potom $P_{\theta_0}$ nazýváme skutečnou distribuční funkcí a $\theta_0 \in \Theta$ skutečným parametrem. 
+a také měřitelnost všech $\mathcal{F}_\theta(x), x \in \mathbb{R}$. Naše odhady budou založeny na náhodném vektoru $\mathbf{X}_n = (X_1, \ldots ,X_n)$ délky $n$ s nezávislými složkami určenými stejnou distribuční funkcí $F_{\theta_0} \in \mathcal{F}$. Potom $F_{\theta_0}$ nazýváme skutečnou distribuční funkcí a $\theta_0 \in \Theta$ skutečným parametrem. 
 
-Předpokládáme, že je rodina $\mathcal{P}$ dominována $\sigma$-finitní mírou $\lambda$. Pak označíme Radon-Nikodymovu hustotu 
+Předpokládáme, že je rodina $\mathcal{F}$ dominována $\sigma$-finitní mírou $\lambda$. Pak označíme Radon-Nikodymovu hustotu 
 \begin{equation}
-p_\theta = \dfrac{\mathrm{d} P_\theta}{\mathrm{d} \lambda}.
+p_\theta = \dfrac{\mathrm{d} F_\theta}{\mathrm{d} \lambda}.
 \end{equation}
 
 \begin{definition}
-	Nech\v{t} 
+	Nech\v{t} $\mathfrak{D}(F.G)$ je vzdálenost na $\mathcal{F}(\mathbb{R})$ a $F_n$ je nějaký odhad distribuční funkce $F_{\theta_0}$. Měřitelnou funkci $\hat{\theta}_n$ takovou, že spl\v{n}uje podmínku
+	\begin{equation}
+		\mathfrak{D}(F_n, F_{\hat{\theta}_n}) = \inf_{\theta \in \Theta}(F_n, F_{\theta_0}) \quad s.j.
+		\label{MDE}
+	\end{equation}
+	nazýváme odhadem s minimální vzdáleností (MDE). Pokud je $\mathcal{F}$ dominována $\lambda$, pak $f_{\hat{\theta}_n}$  je odhad hustoty s minimální vzdáleností. Pokud místo podmínky \eqref{MDE} platí 
+	\begin{equation}
+		\mathfrak{D}(F_n, F_{\hat{\theta}_n}) - \inf_{\theta \in \Theta}(F_n, F_{\theta_0}) = o_p(n^{-\frac{1}{2}}), 
+	\end{equation}
+	říkáme, že $\hat{\theta}_n$ je přibližný odhad s minimální vzdáleností (AMDE) a příslušný  $f_{\hat{\theta}_n}$ pak přibližný odhad hustoty s minimální vzdáleností.
 \end{definition}
