@@ -5,14 +5,20 @@ V této kapitole použijeme min $\mathfrak{R}_\alpha$-odhady v různých rozděl
 
 \section{Laplaceovo rozdělení pravděpodobnosti}
 
-Zde použijeme min $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\theta = (\mu,\lambda)$ pro případ Laplaceova rozdělení. Hustota pravděpodobnosti má tvar 
+Zde použijeme min $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\theta = (\mu,\lambda)$ pro případ Laplaceova rozdělení. Hustota pravděpodobnosti má tedy tvar
 \begin{equation}
-	p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}}, 
+	p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}}.
 \end{equation}
-takže můžeme náš odhad podle \eqref{Renyi-estimator_formula}  psát jako 
+Pro $\alpha = 0$ se odhad rovná maximálně věrohodnému odhadu 
+\begin{eqnarray}
+	\theta_{\alpha,n} & = & \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{2\lambda}\exp \left[-\frac{|x_i-\mu|}{\lambda} \right] \right] \nonumber \\
+	& = & \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{2\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{|x_i-\mu|}{\lambda} \right].
+\end{eqnarray}
+Podmínka \eqref{beta-podminka} platí pro každé $\beta>0$, takže pak pro $\alpha>0$ můžeme  min $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} pro Laplaceovo rozdělení psát jako 
 \begin{equation}
 	\theta_{\alpha,n} = \arg \max_{\theta \in \Theta} \left[ (2\lambda)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\lambda} \right] \right].
 \end{equation}
+
 % tabulka a obrazek eref %%%%%%
 
 \begin{table}[htb] \footnotesize
