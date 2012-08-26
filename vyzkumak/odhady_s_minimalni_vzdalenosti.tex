@@ -16,6 +16,15 @@ p_\theta = \dfrac{\mathrm{d} F_\theta}{\mathrm{d} \lambda}.
 \end{equation}
 
 \begin{definition}
+%	Řekneme, že posloupnost náhodných veličin $\lbrace X_n \rbrace$ s distribučními funkcemi $\lbrace F_n \rbrace$ je omezená v pravděpodobnosti, pokud pro každé $\varepsilon > 0 $ existují $M$ a $N$ takové, že 
+%	\begin{equation}
+%		F_n(M) - F_n(-M) > 1-\varepsilon, \quad \forall n > N.
+%	\end{equation}
+%	Tuto skutečnost značíme $X_n = O_p(1)$.
+	Nech\v{t} $X_n$ je posloupnost náhodných veličin. Pak značíme $X_n = o_p(1)$, pokud $\lim_{n \rightarrow \infty } X_n = 0$ podle pravděpodobnosti a $X_n = o_p(\varepsilon_n)$, pokud $\frac{X_n}{\varepsilon_n} = o_p(1)$ pro nějakou posloupnost $\varepsilon_n \searrow 0$.
+\end{definition}
+
+\begin{definition}
 	Nech\v{t} $\mathfrak{D}(F.G)$ je vzdálenost na $\mathcal{F}(\mathbb{R})$ a $F_n$ je nějaký odhad distribuční funkce $F_{\theta_0}$. Měřitelnou funkci $\hat{\theta}_n$ takovou, že spl\v{n}uje podmínku
 	\begin{equation}
 		\mathfrak{D}(F_n, F_{\hat{\theta}_n}) = \inf_{\theta \in \Theta}(F_n, F_{\theta_0}) \quad s.j.
@@ -27,3 +36,4 @@ p_\theta = \dfrac{\mathrm{d} F_\theta}{\mathrm{d} \lambda}.
 	\end{equation}
 	říkáme, že $\hat{\theta}_n$ je přibližný odhad s minimální vzdáleností (AMDE) a příslušný  $f_{\hat{\theta}_n}$ pak přibližný odhad hustoty s minimální vzdáleností.
 \end{definition}
+

@@ -1,16 +1,15 @@
 
-\chapter{Application to specific families}
+\chapter{Aplikace v konkrétních rodinách distribucí}
 
-In \cite{Vajda2009} authors present formulas for computing and evaluating R\'{e}nyi pseudodistance estimator in normal family. Our goal was to study these estimators in other families. In the next chapter we present our results together with some examples.
+V této kapitole použijeme min $\mathfrak{R}_\alpha$-odhady v různých rozděleních pravděpodobnosti. Výsledky pro normální rozdělení byly uvedeny již v \cite{Demut2010}. My jsem se tedy zaměřili na exponenciální, Laplaceovo, Cauchyho a Weibullovo rozdělení pravděpodobnosti. V případě těchto rodin jsme se snažili o odvození konkrétního tvaru odhadu podle \eqref{Renyi-estimator_formula} a také tvaru influeční funkce \eqref{IF}.
 
-\section{Laplaceova distribuce}
+\section{Laplaceovo rozdělení pravděpodobnosti}
 
-
-We use min R\'{e}nyi estimators for estimating parameter $\theta = (\mu,\lambda)$ in the Laplace family, where the probability density is 
+Zde použijeme min $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\theta = (\mu,\lambda)$ pro případ Laplaceova rozdělení. Hustota pravděpodobnosti má tvar 
 \begin{equation}
-	p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}}
+	p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}}, 
 \end{equation}
-and therefore the estimator according to \eqref{Renyi-estimator_formula} is 
+takže můžeme náš odhad podle \eqref{Renyi-estimator_formula}  psát jako 
 \begin{equation}
 	\theta_{\alpha,n} = \arg \max_{\theta \in \Theta} \left[ (2\lambda)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\lambda} \right] \right].
 \end{equation}
