@@ -1,2 +1,51 @@
 \chapter{Robustnost}
 
+Nech\v{t} $\mathcal{P} = \lbrace P_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$ je množina rozdělení pravděpodobností na měřitelném prostoru $\left(\mathcal{X},\mathcal{A}\right)$. Nech\v{t} $T: \mathcal{P} \rightarrow \mathbb{R}^m$ je fisherovksy konzistentní funkcionál, to znamená, že $T(P_\theta) = \theta$ pro každé $\theta \in \Theta$. Zavedeme značení pro konvexní směs rozdělení. Nech\v{t} $\varepsilon \in [0,1]$ a nech\v{t} $P, Q \in \mathcal{P}$. Pak Konvexní směs těchto rozdělení značíme 
+\begin{equation}
+	P_\varepsilon(Q) = (1-\varepsilon)P + \varepsilon Q.
+\end{equation}
+
+\noindent
+Definujeme nyní influenční funkci, která měří vliv jednoho pozorování s hodnotou $x$ na odhad definovaný pomocí funkcionálu $T$. 
+
+\begin{definition}
+	Nech\v{t} $\delta_x$ označuje rozdělení náhodné veličiny degenerované v bodě $x,\, x \in \mathcal{X}$. Potom influenční funkce $\IF{x}$ funkcionálu $T$ v bodě $P,\, P \in \mathcal{P}$ je definována vztahem
+	\begin{equation}
+		\IF{x} = \lim_{\varepsilon \rightarrow 0_+} \frac{T(P_\varepsilon(\delta_x)) - T(P)}{\varepsilon} = \lim_{\varepsilon \rightarrow 0_+} \frac{T((1-\varepsilon)P + \varepsilon\delta_x) - T(P)}{\varepsilon}
+	\end{equation} 
+\end{definition}
+
+\noindent
+Pokud tedy $\IF{x}$ není omezená, potom i jediné odlehlé pozorování může způsobit naprosté selhání odhadu $T$. 
+
+Nyní zavedeme míry robustnosti, které pokrývají některá možná narušení našeho modelu. 
+
+\begin{definition}
+	Globální citlivostí funkcionálu $T$ pro rozdělení pravděpodobnosti $P$ nazýváme veličinu $\gamma^*$ definovanou jako
+	\begin{equation}
+		\gamma^* = \sup_{x \in \mathcal{X}} |\IF{x}|.
+	\end{equation}
+\end{definition}
+Tato míra přibližně ukazuje nejhorší možný vliv výskytu hrubé chyby v datech na hodnotu odhadu. Požadujeme hlediska míry robustnosti je tedy žádoucí, aby hodnota $\gamma^*$ byla konečná. Takové odhady pak nazýváme B-robustní.
+
+\begin{definition}
+	Lokální citlivostí funkcionálu $T$ pro rozdělení pravděpodobnosti $P$ nazýváme veličinu $\lambda^*$ definovanou jako
+	\begin{equation}
+			\lambda^* = \sup_{x,y \in \mathcal{X},x \neq y}  \left| \frac{\IF{y} - \IF{x}}{y-x} \right|.
+	\end{equation}
+\end{definition}
+
+\noindent Nechť je rozdělení $P$ symetrické okolo nuly. Pak můžeme definovat další míru robustnosti.
+
+\begin{definition}
+	Bod zamítání funkcionálu $T$ pro rozdělení pravděpodobnosti $P$ značíme $\rho^*$ a definujeme jako
+	\begin{equation}
+			\rho^* = \inf \lbrace r>0 \, | \, \IF{x} = 0 \quad pro \quad |x| > r\rbrace.
+	\end{equation}
+\end{definition}
+
+\noindent Existuje-li pro nějaký odhad $\rho^*$ konečné, vyplývá z definice bodu zamítání, že kontaminace pozorováními v oblasti $\lbrace x \, | \, \IF{x} = 0 \rbrace$ nijak neovlivní výsledný odhad. Pokud u zkoumaného odhadu není $\rho^*$ konečné, je z hlediska robustnosti vůči odlehlým pozorováním vhodné, aby platilo alespoň
+\begin{equation}
+	\lim_{|x| \rightarrow \infty} \IF{x} = 0.
+\end{equation}
+
