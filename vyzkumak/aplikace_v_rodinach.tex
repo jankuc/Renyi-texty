@@ -11,7 +11,7 @@ Zde použijeme minimální $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\the
 \end{equation}
 Pro $\alpha = 0$ se odhad podle \eqref{Renyi-estimator_formula} rovná maximálně věrohodnému odhadu
 \begin{eqnarray}
-	\hat{\theta}_{\mathfrak{R}_\alpha,n} & = & \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{2\lambda}\exp \left[-\frac{|x_i-\mu|}{\lambda} \right] \right] \nonumber \\
+	\hat{\theta}_{\mathfrak{R}_0,n} & = & \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{2\lambda}\exp \left[-\frac{|x_i-\mu|}{\lambda} \right] \right] \nonumber \\
 	& = & \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{2\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{|x_i-\mu|}{\lambda} \right].
 \end{eqnarray}
 Podmínka \ref{beta-podminka} platí pro každé $\beta>0$, takže pak pro $\alpha>0$ můžeme  min $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} pro Laplaceovo rozdělení psát jako 
@@ -65,7 +65,7 @@ Nyní použijeme minimální $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\t
 \end{equation}
 Pro $\alpha = 0$ je 
 \begin{eqnarray}
-	\hat{\theta}_{\mathfrak{R}_\alpha,n} & = & \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{\lambda}\exp \left[-\frac{x_i-\mu}{\lambda} \right] \right] \nonumber \\
+	\hat{\theta}_{\mathfrak{R}_0,n} & = & \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{\lambda}\exp \left[-\frac{x_i-\mu}{\lambda} \right] \right] \nonumber \\
 	& = & \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{x_i-\mu}{\lambda} \right].
 \end{eqnarray}
 
@@ -124,7 +124,7 @@ Dalším rozdělením, na které jsme použili Rényiho odhady, je Cauchyovo roz
 \end{equation}
 Pro $\alpha = 0$ je {\mRao} roven
 \begin{eqnarray}
-	\hat{\theta}_{\mathfrak{R}_\alpha,n} & = & \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[  \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}   \right] \nonumber \\
+	\hat{\theta}_{\mathfrak{R}_0,n} & = & \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[  \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}   \right] \nonumber \\
 	& = & \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right].
 \end{eqnarray}
 Ten už však není shodný s maximálně věrohodným odhadem, který má tvar
@@ -146,7 +146,7 @@ Influenční funkci $\eqref{IF}$ se nám podařilo dopočítat jen pro neznámý
 	\label{IF-cauchy-mu}
 \end{equation}
 
-\noindent Z \eqref{IF-cauchy-mu}je vidět, že influenční funkce je pro $\alpha>0$ omezená, a opět pro ni pro $\alpha>0$ platí
+\noindent Z \eqref{IF-cauchy-mu} je vidět, že influenční funkce je pro $\alpha>0$ omezená, a opět pro ni pro $\alpha>0$ platí
 
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0.
@@ -166,12 +166,13 @@ Influenční funkci $\eqref{IF}$ se nám podařilo dopočítat jen pro neznámý
 \noindent Pro neznámý parametr $\theta = \sigma$ vyšla influenční funkce po výpočtu ve \texttt{Wolphram Mathematica} ve tvaru
 
 \begin{eqnarray}
-&-\left[4 \sqrt{\pi } (1+\alpha )^2 \sigma ^{2+\alpha } \left(\frac{\sigma }{(x-\mu )^2+\sigma ^2}\right)^{\alpha } \left(\frac{1}{\sigma }+\frac{\alpha  \left(\frac{1}{\sigma }\right)^{\alpha } \sigma ^{-1+\alpha }}{1+\alpha }-\frac{2 \sigma }{(x-\mu )^2+\sigma ^2}\right) \right. \nonumber \\
-&\left. \cos[\pi  \alpha ] \Gamma[\alpha ] \Gamma[1+\alpha ]  \frac{}{} \right] / \nonumber \\ %prázdný zlomek je tam kvůli roztažení koncové závorky
-&\left(4^{1-\alpha } \sqrt{\pi } \left(\frac{1}{\sigma }\right)^{\alpha } \sigma ^{\alpha } \left(-1+\alpha  \left(-1+\alpha  \left(-2+\left(\frac{1}{\sigma }\right)^{\alpha } \sigma ^{\alpha }\right)\right)\right) \right.\nonumber \\ 
-&\left. \cos[\pi  \alpha ] \Gamma[1+2 \alpha ]+1/(3 (3+4 \alpha  (2+\alpha )))\right. \nonumber \\
-& 8 \pi  (1+\alpha ) \left(-1+\alpha  (1+\alpha )^2\right) \Gamma[\alpha ] \nonumber \\
-&\left. \left(6 (1+\alpha ) ^r_2\mathrm{F}_1\left[\frac{1}{2},2,\frac{1}{2}-\alpha ,1\right]-4^{-\alpha } \Gamma[4+2 \alpha ] ^r_2\mathrm{F}_1\left[\frac{1}{2}+\alpha ,1+\alpha ,-\frac{1}{2}+\alpha ,1\right]\right)\right),
+\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\sigma) &=& -\left[4 \sqrt{\pi } (1+\alpha )^2 \sigma ^{2+\alpha } \left(\frac{\sigma }{(x-\mu )^2+\sigma ^2}\right)^{\alpha} \right. \nonumber\\
+&&\left(\frac{1}{\sigma }+\frac{\alpha  \left(\frac{1}{\sigma }\right)^{\alpha } \sigma ^{-1+\alpha }}{1+\alpha }-\frac{2 \sigma }{(x-\mu )^2+\sigma ^2}\right) \left. \cos[\pi  \alpha ] \Gamma[\alpha ] \Gamma[1+\alpha ]  \frac{}{} \right] / \nonumber \\ %prázdný zlomek je tam kvůli roztažení koncové závorky
+&&\left(4^{1-\alpha } \sqrt{\pi } \left(\frac{1}{\sigma }\right)^{\alpha } \sigma ^{\alpha } \left(-1+\alpha  \left(-1+\alpha  \left(-2+\left(\frac{1}{\sigma }\right)^{\alpha } \sigma ^{\alpha }\right)\right)\right) \right.\nonumber \\ 
+&&\left. \cos[\pi  \alpha ] \Gamma[1+2 \alpha ]+1/(3 (3+4 \alpha  (2+\alpha )))\right. \nonumber \\
+&& 8 \pi  (1+\alpha ) \left(-1+\alpha  (1+\alpha )^2\right) \Gamma[\alpha ] \nonumber \\
+&& \left(6 (1+\alpha ) ^r_2\mathrm{F}_1\left[\frac{1}{2},2,\frac{1}{2}-\alpha ,1\right]-4^{-\alpha } \Gamma[4+2 \alpha ] \right. \nonumber \\
+&& \left. \left. ^r_2\mathrm{F}_1\left[\frac{1}{2}+\alpha ,1+\alpha ,-\frac{1}{2}+\alpha ,1\right]\right)\right),
 \end{eqnarray}
 
 \noindent kde $^r_2\mathrm{F}_1[a,b;c;z]$ je regularizovaná hypergeometrická funkce 
@@ -179,11 +180,12 @@ Influenční funkci $\eqref{IF}$ se nám podařilo dopočítat jen pro neznámý
 \begin{equation}
 	^r_2\mathrm{F}_1[a,b;c;z] = {\frac{1}{\Gamma[c]}} {_2\mathrm{F}_1}[a,b;c;z],
 \end{equation}
+přičemž hypergeometrická funkce je definovaná vztahem
 \begin{equation}
-	{_2\mathrm{F}_1}[a,b;c;z]=\sum _{k=0}^{\infty } \frac{(a)_k (b)_k z^k}{ (c)_k k!} \qquad |z|<1, \, \text{ nebo } \, (|z|=1\l  \,\text{a} \,  c>a+b),
+	{_2\mathrm{F}_1}[a,b;c;z]=\sum _{n=0}^{\infty } \frac{(a)_n (b)_n z^n}{ (c)_n n!}, \qquad |z|<1, \, \text{ nebo } \, (|z|=1\l  \,\text{a} \,  c>a+b),
 \end{equation}
 
-\noindent kde $(\cdot)_k$ je Pochhammerův symbol definovaný
+\noindent kde $(a)_n$ je Pochhammerův symbol definovaný
 
 \begin{equation}
 (a)_n=\prod _{k=0}^{n-1} (a+k), \qquad n \in \mathbb{N}.
@@ -191,7 +193,98 @@ Influenční funkci $\eqref{IF}$ se nám podařilo dopočítat jen pro neznámý
 
 \noindent Z definice hypergeometrické funkce tato influenční funkce však neexistuje, protože z definičních podmínek nám vychází $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, tedy $\alpha < -2$, což ale odporuje výběru $\alpha$ z věty \ref{renyi-veta}.
 
+\section{Weibullovo rozdělení} %%%%%%%%%%%%%%%%%%%%%  WEIBULL   %%%%%%%%%%%%%%%%%%%%%%
 
+Weibullovo rozdělení je tříparametrické $\theta = (\mu,\lambda,k)$ s hustotou pravděpodobnosti
+\begin{equation}
+	p_\theta =  \frac{k}{\lambda} \left( \frac{x-\mu}{\lambda} \right)^{k-1} \exp \left[ -\left( \frac{x-\mu}{\lambda} \right)^k \right], \qquad \mu \in \mathbb{R}, \, \lambda>0, \, k>0.
+\end{equation}
+
+\noindent Pro $\alpha = 0$ je {\mRao} roven
+
+\begin{eqnarray}
+	\hat{\theta}_{\mathfrak{R}_0,n} & = &\arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{k}{\lambda} \left( \frac{x_i-\mu}{\lambda} \right)^{k-1} 
+	\exp \left[ -\left( \frac{x_i-\mu}{\lambda} \right)^k \right]\right] \nonumber \\
+	&&\arg \max_{\theta \in \Theta}\left[ \ln \frac{k}{\lambda} + \frac{k-1}{n} \sum^n_{i=1} \ln \left[  \frac{x_i-\mu}{\lambda} \right] - 
+	\frac{1}{n} \sum^n_{i=1} \left(  \frac{x_i-\mu}{\lambda} \right)^k \right]
+\end{eqnarray}
+
+\noindent Podmínka \ref{beta-podminka} opět platí pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} pro Weibullovo rozdělení jako
+
+\begin{eqnarray}
+	\hat{\theta}_{\mathfrak{R}_\alpha,n} & = & \arg \max_{\theta \in \Theta} \left( \frac{k}{\lambda} \right)^\frac{\alpha}{1+\alpha} (1+\alpha)^{\frac{\alpha}{1+\alpha}\frac{1+\alpha+k}{k}} 
+	\Gamma\left(\frac{1+\alpha+k}{k}\right)^{-\frac{\alpha}{1+\alpha}} \nonumber \\
+	&& \frac{1}{n}\sum_{i=1}^n \left( \frac{x_i-\mu}{\lambda}\right)^{\alpha(k-1)} \exp\left[-\alpha \left(\frac{x_i-\mu}{\lambda}\right)^k\right].
+\end{eqnarray}
+
+Influenční funkce $\eqref{IF}$ pro neznámý parametr $\theta = \mu$ a známé $\lambda, k $  má tvar
+
+\begin{equation}
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \frac{(1+\alpha )^{\frac{-2-\alpha +k (3+\alpha )}{k}} \lambda \left(1+k \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right) 
+	 \left(\frac{x-\mu }{\lambda }\right)^{\alpha k-\alpha-1}\exp \left[-\alpha\left(\frac{x-\mu }{\lambda }\right)^k\right]}
+	 {(-1+k) (-1+k+k \alpha ) \Gamma\left[\frac{-2+k+(-1+k) \alpha }{k}\right]}.
+	\label{IF-weibull-mu}
+\end{equation}
+
+\noindent Z použití Eulerovy $\Gamma-$funkce vyplývá podmínka $k >\frac{2+\alpha}{1+\alpha}$. Pro $\alpha > 0$ opět kvůli exponenciálnímu členu platí
+
+\begin{equation}
+	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0.
+\end{equation}
+
+\begin{figure}[!htb]
+\begin{center}
+\begin{tabular}{cc}
+	\epsfig{file=Weib-IF-mu.eps, height=2.2in} & \epsfig{file=Weib-IF-lambda.eps, width=3.2in}
+	\\	
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $, známé $\lambda = 1, \: k = 2$ & $\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1) $, známé $\mu = 0, \: k = 2$
+\end{tabular}
+\caption{Influenční funkce {\mRao}ů $\mu$ a $\lambda$ Weibullovo rozdělení}
+\end{center}
+\label{figJK:weibull-if}
+\end{figure}
+
+\noindent Navíc je funkce opět omezená. Pro odhady parametru $\theta = \lambda$ má influenční funkce tvar
+
+\begin{equation}
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = \frac{(1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \lambda  \left(\alpha +k (1+\alpha ) \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right)
+	\left(\frac{x-\mu}{\lambda}\right)^{\alpha k-\alpha} \exp \left[-\alpha\left(\frac{x-\mu}{\lambda}\right)^k\right]}
+	{k^2 \Gamma\left[2+\alpha -\frac{\alpha }{k}\right]}.
+	\label{IF-weibull-lambda}
+\end{equation}
+
+\noindent Opět z použití $\Gamma$-funkce vyplývá podmínka $k>\frac{\alpha}{2+\alpha}$ Funkce pro $\alpha > 0, \; x\rightarrow \pm \infty$ konverguje k $0$ a je omezená. Pro odhadované $\theta = k$ jsme influenční funkci opět počítali ve \texttt{Wolphram Mathematica}
+
+\begin{eqnarray}
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},k)& = &\left(k^2 (1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \left(e^{-\left(\frac{x-\mu }{\lambda }\right)^k} \left(\frac{x-\mu }{\lambda }\right)^{-1+k}\right)^{\alpha } \right. \nonumber \\
+	&& \left(\alpha  \text{ln}[1+\alpha ]+k \left(1-k (1+\alpha ) \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right.\right. \nonumber \\
+	&& \left.\left.\left.\left.\text{ln}\left[\frac{x-\mu }{\lambda }\right]\right)-\alpha  \psi\left[0,1+\alpha -\frac{\alpha }{k}\right]\right)\right)\right/ \nonumber \\
+	&& \left(\Gamma\left[1+\alpha -\frac{\alpha }{k}\right] (k (k+\ln[1+\alpha ] \right. \nonumber \\
+	&& (-2 k+2 \alpha +(k+(-1+k) \alpha ) \ln[1+\alpha ]))-2 k (-k+\alpha +(k+(-1+k) \alpha ) \nonumber \\
+	&& \ln[1+\alpha ]) \psi\left[0,1+\alpha -\frac{\alpha }{k}\right]+k (k+(-1+k) \alpha ) \nonumber \\
+	&& \left.\left.\psi\left[0,1+\alpha -\frac{\alpha }{k}\right]^2+\left(k^2+(-1+k) k \alpha +\alpha ^2\right) \psi\left[1,1+\alpha -\frac{\alpha }{k}\right]\right)\right),
+	\label{IF-weibull-k}
+\end{eqnarray}
+
+\noindent kde $\psi(n,z)$ je $(n+1)-$tá derivace logaritmu $\Gamma(z)$, tedy
+
+\begin{equation}
+	\psi(n,z) = \frac{\mathrm{d}^{n+1}}{\mathrm{d}z^{n+1}} \ln \Gamma(z).
+\end{equation}
+
+\noindent Kvůli použití $\Gamma$-funkce vzniká podmínka $k > \frac{\alpha}{1+\alpha}$. Funkce je pro $\alpha>0$ opět omezená a pro $x$ rostoucí nade všechny meze konverguje k 0.
+
+\begin{figure}[htb]
+\begin{center}
+\begin{tabular}{cc}	
+	\multicolumn{2}{c}{\epsfig{file=Weib-IF-k.eps, height=2.5in}}
+	\\
+	\multicolumn{2}{c}{$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},k = 2) $, známé $\mu = 0, \: \lambda = 1$}
+\end{tabular}
+\caption{Influenční funkce {\mRao}u $k$ pro Weibullovo rozdělení}
+\end{center}
+\label{figJK:weibull2-if}
+\end{figure}
 
 
 
