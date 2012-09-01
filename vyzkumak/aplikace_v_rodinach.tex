@@ -127,21 +127,16 @@ Dalším rozdělením, na které jsme použili Rényiho odhady, je Cauchyho s pa
 Minimální $\mathfrak{R}_\alpha$-odhad je pro $\alpha=0$ roven
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[  \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}   \right] \nonumber \\
-	& =  \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right].
+	& =  \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right],
 \end{align}
-Ten už však není shodný s maximálně věrohodným odhadem, který má tvar
-\begin{equation}
-	\hat{\theta}_{\mathrm{MLE},n} = \arg \max_{\theta \in \Theta}  \ln \sum^n_{i=1} \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}.
-\end{equation}
-
-\noindent Podmínka \eqref{beta-podminka} platí tak jako v předchozích případech pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} parametrů v Cauchyho modelu jako 
+který je shodný s maximálně věrohodným odhadem. Podmínka \eqref{beta-podminka} platí tak jako v předchozích případech pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} parametrů v Cauchyho modelu jako 
 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ \sigma^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \right].
 	\label{renyi-formula-cauchy}
 \end{equation}
 
-Influenční funkci \eqref{IF} pro minimální $\mathfrak{R}_\alpha$-odhady v Cauchyho rodině se nám podařilo dopočítat jen pro odhady parametru polohy $\theta = \mu$. Za předpokladu znalosti měřítka $\sigma$ má funkce tvar
+Influenční funkci \eqref{IF} pro minimální $\mathfrak{R}_\alpha$-odhady v Cauchyho rodině se nám podařilo dopočítat jen pro odhad parametru polohy $\theta = \mu$. Za předpokladu znalosti měřítka $\sigma$ má funkce tvar
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \sqrt{\pi}\frac{\Gamma\left( 3 + \alpha \right)}{\Gamma\left( \frac{3}{2} + \alpha \right)} \left( \frac{\sigma^2}{\sigma^2 + (x-\mu)^2}\right)^{1+\alpha}(x-\mu).
@@ -165,7 +160,7 @@ Influenční funkci \eqref{IF} pro minimální $\mathfrak{R}_\alpha$-odhady v Ca
 \end{center}
 \end{figure}
 
-\noindent Podle vzorce \eqref{IF} se  nakonec podařilo dopočítat influenční funkci pro odhady měřítka $\theta = \sigma$ při znalosti polohy $\mu$. Následujícího výsledku bylo dosaženo výpočtem ve \texttt{Wolfram Mathematica}. Výsledný tvar je tedy
+\noindent Podle vzorce \eqref{IF} se  nakonec podařilo dopočítat influenční funkci pro odhad měřítka $\theta = \sigma$ při znalosti polohy $\mu$. Následujícího výsledku bylo dosaženo výpočtem ve \texttt{Wolfram Mathematica}. Výsledný tvar je tedy
 
 \begin{eqnarray}
 \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\sigma) &=& -\left[4 \sqrt{\pi } (1+\alpha )^2 \sigma ^{2+\alpha } \left(\frac{\sigma }{(x-\mu )^2+\sigma ^2}\right)^{\alpha} \right. \nonumber\\
@@ -221,7 +216,7 @@ Posledním zpracovávaným rozdělením, bylo tříparametriké Weibullovo s par
 
 \noindent Kvůli použití $\Gamma$-funkce dostáváme dodatečnou podmínku $1+\alpha+k>0$, tedy $\alpha + k > -1$. Tato podmínka je ale splněna automaticky, protože jsou oba parametry kladné. 
 
-Influenční funkce $\eqref{IF}$ pro neznámý parametr $\theta = \mu$ a známé $\lambda, k $  má tvar
+Influenční funkce $\eqref{IF}$ pro odhad polohy $\theta = \mu$ pří známých parametrech $\lambda, k $  má tvar
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \frac{(1+\alpha )^{\frac{-2-\alpha +k (3+\alpha )}{k}} \lambda \left(1+k \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right) 
@@ -230,7 +225,7 @@ Influenční funkce $\eqref{IF}$ pro neznámý parametr $\theta = \mu$ a známé
 	\label{IF-weibull-mu}
 \end{equation}
 
-\noindent Z použití Eulerovy $\Gamma-$funkce vyplývá podmínka $k >\frac{2+\alpha}{1+\alpha}$. Pro $\alpha > 0$ opět kvůli exponenciálnímu členu platí
+\noindent Z použití $\Gamma$-funkce vyplývá podmínka $k > 1 + \frac{1}{1+\alpha}$, tedy $(\forall \alpha> 0) (k > 1)$. Pro $\alpha > 0$ opět kvůli exponenciálnímu členu platí
 
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0.
@@ -244,11 +239,12 @@ Influenční funkce $\eqref{IF}$ pro neznámý parametr $\theta = \mu$ a známé
 	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $, známé $\lambda = 1, \: k = 2$ & $\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1) $, známé $\mu = 0, \: k = 2$
 \end{tabular}
 \caption{Influenční funkce {\mRao}ů $\mu$ a $\lambda$ Weibullovo rozdělení}
-\end{center}
 \label{figJK:weibull-if}
+\end{center}
 \end{figure}
 
-\noindent Navíc je funkce opět omezená. Pro odhady parametru $\theta = \lambda$ má influenční funkce tvar
+\noindent Na obrázku \ref{figJK:weibull-if} je vidět, že je influenční funkce opět omezená. V obrázku není vykreslena funkce pro $\alpha = 0$, protože pro $k=2$ je nutné použít $\alpha >0$.
+Pro odhad měřítka $\theta = \lambda$ při známých $\mu, k$ má influenční funkce tvar
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = \frac{(1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \lambda  \left(\alpha +k (1+\alpha ) \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right)
@@ -257,7 +253,7 @@ Influenční funkce $\eqref{IF}$ pro neznámý parametr $\theta = \mu$ a známé
 	\label{IF-weibull-lambda}
 \end{equation}
 
-\noindent Opět z použití $\Gamma$-funkce vyplývá podmínka $k>\frac{\alpha}{2+\alpha}$ Funkce pro $\alpha > 0, \; x\rightarrow \pm \infty$ konverguje k $0$ a je omezená. Pro odhadované $\theta = k$ jsme influenční funkci opět počítali ve \texttt{Wolphram Mathematica}
+\noindent Opět z použití $\Gamma$-funkce vyplývá $k>\frac{\alpha}{2+\alpha}$. Funkce pro $\alpha > 0$ a $x\rightarrow \pm \infty$ konverguje k $0$ a je omezená. což je vidět i na obrázku \ref{figJK:weibull-if}. Pro odhad parametru $\theta = k$ jsme influenční funkci opět počítali ve \texttt{Wolfram Mathematica}. Funkce vyšla ve tvaru
 
 \begin{eqnarray}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},k)& = &\left(k^2 (1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \left(e^{-\left(\frac{x-\mu }{\lambda }\right)^k} \left(\frac{x-\mu }{\lambda }\right)^{-1+k}\right)^{\alpha } \right. \nonumber \\
@@ -276,7 +272,7 @@ Influenční funkce $\eqref{IF}$ pro neznámý parametr $\theta = \mu$ a známé
 	\psi(n,z) = \frac{\mathrm{d}^{n+1}}{\mathrm{d}z^{n+1}} \ln \Gamma(z).
 \end{equation}
 
-\noindent Kvůli použití $\Gamma$-funkce vzniká podmínka $k > \frac{\alpha}{1+\alpha}$. Funkce je pro $\alpha>0$ opět omezená a pro $x$ rostoucí nade všechny meze konverguje k 0.
+\noindent Kvůli použití $\Gamma$-funkce vzniká podmínka $k > \frac{\alpha}{1+\alpha}$. Funkce je pro $\alpha>0$ opět omezená a pro $x$ rostoucí nade všechny meze konverguje k 0. 
 
 \begin{figure}[htb]
 \begin{center}
