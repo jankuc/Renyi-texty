@@ -14,7 +14,7 @@ Pro $\alpha = 0$ se odhad podle \eqref{Renyi-estimator_formula} rovná maximáln
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{2\lambda}\exp \left[-\frac{|x_i-\mu|}{\lambda} \right] \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{2\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{|x_i-\mu|}{\lambda} \right].
 \end{align}
-Protože podmínka \eqref{beta-podminka} platí pro každé $\beta>0$, takže pak pro $\alpha>0$ můžeme  min $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} parametrů Laplaceova rozdělení počítat jako 
+Protože podmínka \eqref{beta-podminka} platí pro každé $\beta>0$, můžeme tedy min $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} parametrů Laplaceova rozdělení psát pro $\alpha>0$ jako 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ (2\lambda)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\lambda} \right] \right].
 	\label{renyi-formula-laplace}
@@ -22,13 +22,13 @@ Protože podmínka \eqref{beta-podminka} platí pro každé $\beta>0$, takže pa
 
 \noindent Vzorec \eqref{renyi-formula-laplace} je pro současný odhad obou parametrů $\mu, \lambda$. Pokud by byl jeden z parametrů známý a nebylo ho tedy nutné odhadovat, dosadíme jeho hodnotu do vzorce a maximalizujeme pak jen v jedné proměnné. 
 
-Nyní pro {\mRao} v Laplaceově modelu spočítáme influenční funkce podle \eqref{IF}. Pro odhad polohy $\theta = \mu$ při známém rozptylu $\lambda$, nám vychází ve tvaru
+Nyní pro {\mRao} v Laplaceově modelu spočítáme influenční funkce podle \eqref{IF}. Pro odhad polohy $\theta = \mu$ při známém parametru $\lambda$, dostáváme influenční funkci ve tvaru
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
 	\label{IF-laplace-mu}
 \end{equation}
-Pokud prohodíme úlohu parametrů, tedy pokud bude hledaným parametrem rozptyl $\theta = \lambda$ a polohu $ \mu$ budeme považovat za známou, dostaneme 
+Pokud prohodíme úlohu parametrů, tedy pokud budeme odhadovat měřítko $\theta = \lambda$, zatímco polohu $ \mu$ budeme považovat za známou, dostaneme 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = (1 + \alpha)^2 \left(-\lambda + (1 + \alpha)|x-\mu|\right)  e^{-\frac{\alpha|x-\mu|}{\lambda}}	. % IF(x,sigma)
 	\label{IF-laplace-lambda}
@@ -81,13 +81,13 @@ Nyní použijeme minimální $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\t
 
 \noindent Je vidět, že rozdíl oproti \eqref{renyi-formula-laplace} je jen v použití absolutní hodnoty v odhadu Laplaceova modelu. 
 
-Influenční funkce je podle $\eqref{IF}$ v případě odhadovaného parametru polohy $\theta = \mu$ a známého rozptylu $ \lambda$ stejná jako pro Laplaceovo rozdělení $\eqref{IF-laplace-mu}$, tedy 
+Influenční funkce je podle $\eqref{IF}$ v případě odhadu parametru polohy $\theta = \mu$ a známého měřítka $ \lambda$ stejná jako pro Laplaceovo rozdělení $\eqref{IF-laplace-mu}$, tedy 
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
 	\label{IF-exponential-mu}
 \end{equation}
-Pokud je hledaným parametrem naopak rozptyl $\theta = \lambda$ při známé poloze $ \mu $, vychází funkce ve tvaru
+Pokud odhadujeme parametr měřítka $\theta = \lambda$ při známé poloze $ \mu $, vychází funkce ve tvaru
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) =	(1+\alpha )^2 \left( - \lambda +(1+ \alpha)(x-\mu)\right) e^{-\frac{\alpha (x-\mu)}{\lambda }}. % IF(x,lambda),
 	\label{IF-exponential-lambda}
@@ -120,35 +120,35 @@ tedy že velké outliery budou díky konvergenci influenčních funkcí k nule �
 \section{Cauchyovo rozdělení} %%%%%%%%%%%%%%%%%%%%%  Cauchy   %%%%%%%%%%%%%%%%%%%%%%
 
 
-Dalším rozdělením, na které jsme použili Rényiho odhady, je Cauchyovo s parametrem $\theta = (\mu,\sigma)$ a hustotou pravděpodobnosti
+Dalším rozdělením, na které jsme použili Rényiho odhady, je Cauchyho s parametrem $\theta = (\mu,\sigma)$ a hustotou pravděpodobnosti
 \begin{equation}
 	p_\theta = \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x-\mu}{\sigma} \right)^2 \right)^{-1}, \qquad \mu\in \mathbb{R},\, \sigma>0.
 \end{equation}
-Minimální $\mathfrak{R}_\alpha$-odhad je pro $\alpha>0$ roven
+Minimální $\mathfrak{R}_\alpha$-odhad je pro $\alpha=0$ roven
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[  \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}   \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right].
 \end{align}
 Ten už však není shodný s maximálně věrohodným odhadem, který má tvar
 \begin{equation}
-	\hat{\theta}_{\mathrm{MLE},n} = \arg \max_{\theta \in \Theta}  \ln \sum^n_{i=1} \frac{1}{\pi\sigma} \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right].
+	\hat{\theta}_{\mathrm{MLE},n} = \arg \max_{\theta \in \Theta}  \ln \sum^n_{i=1} \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}.
 \end{equation}
 
-\noindent Podmínka \ref{beta-podminka} opět platí pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} pro Cauchyovo rozdělení jako
+\noindent Podmínka \eqref{beta-podminka} platí tak jako v předchozích případech pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} parametrů v Cauchyho modelu jako 
 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ \sigma^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \right].
 	\label{renyi-formula-cauchy}
 \end{equation}
 
-Influenční funkci $\eqref{IF}$ se nám podařilo dopočítat jen pro neznámý parametr $\theta = \mu$. Influenční funkce má pak tvar
+Influenční funkci \eqref{IF} pro minimální $\mathfrak{R}_\alpha$-odhady v Cauchyho rodině se nám podařilo dopočítat jen pro odhady parametru polohy $\theta = \mu$. Za předpokladu znalosti měřítka $\sigma$ má funkce tvar
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \sqrt{\pi}\frac{\Gamma\left( 3 + \alpha \right)}{\Gamma\left( \frac{3}{2} + \alpha \right)} \left( \frac{\sigma^2}{\sigma^2 + (x-\mu)^2}\right)^{1+\alpha}(x-\mu).
 	\label{IF-cauchy-mu}
 \end{equation}
 
-\noindent Z \eqref{IF-cauchy-mu} je vidět, že influenční funkce je pro $\alpha>0$ omezená, a opět pro ni pro $\alpha>0$ platí
+\noindent Z \eqref{IF-cauchy-mu} a obrázku \ref{fig:cauchy-if} je vidět, že influenční funkce je pro $\alpha>0$ omezená. Bod zamítání $\rho^*$ opět není konečný, ale pro $\alpha>0$ platí alespoň limita
 
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0.
@@ -161,11 +161,11 @@ Influenční funkci $\eqref{IF}$ se nám podařilo dopočítat jen pro neznámý
 	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ při $\sigma = 1$ známém
 \end{tabular}
 \caption{Influenční funkce {\mRao}ů pro Cauchyovo rozdělení}
-\end{center}
 \label{fig:cauchy-if}
+\end{center}
 \end{figure}
 
-\noindent Pro neznámý parametr $\theta = \sigma$ vyšla influenční funkce po výpočtu ve \texttt{Wolphram Mathematica} ve tvaru
+\noindent Podle vzorce \eqref{IF} se  nakonec podařilo dopočítat influenční funkci pro odhady měřítka $\theta = \sigma$ při znalosti polohy $\mu$. Následujícího výsledku bylo dosaženo výpočtem ve \texttt{Wolfram Mathematica}. Výsledný tvar je tedy
 
 \begin{eqnarray}
 \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\sigma) &=& -\left[4 \sqrt{\pi } (1+\alpha )^2 \sigma ^{2+\alpha } \left(\frac{\sigma }{(x-\mu )^2+\sigma ^2}\right)^{\alpha} \right. \nonumber\\
@@ -193,7 +193,7 @@ přičemž hypergeometrická funkce je definovaná vztahem
 (a)_n=\prod _{k=0}^{n-1} (a+k), \qquad n \in \mathbb{N}.
 \end{equation}
 
-\noindent Z definice hypergeometrické funkce tato influenční funkce však neexistuje, protože z definičních podmínek nám vychází $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, tedy $\alpha < -2$, což ale odporuje výběru $\alpha$ z věty \ref{renyi-veta}.
+\noindent Kvůli definici hypergeometrické funkce tato influenční funkce však nemá smysl, protože z definičních podmínek nám vychází $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, tedy $\alpha < -2$, což ale odporuje výběru $\alpha>0$ z věty \ref{renyi-veta}. 
 
 \section{Weibullovo rozdělení} %%%%%%%%%%%%%%%%%%%%%  WEIBULL   %%%%%%%%%%%%%%%%%%%%%%
 
@@ -202,7 +202,7 @@ Posledním zpracovávaným rozdělením, bylo tříparametriké Weibullovo s par
 	p_\theta =  \frac{k}{\lambda} \left( \frac{x-\mu}{\lambda} \right)^{k-1} \exp \left[ -\left( \frac{x-\mu}{\lambda} \right)^k \right], \qquad \mu \in \mathbb{R}, \, \lambda>0, \, k>0.
 \end{equation}
 
-\noindent Pro $\alpha = 0$ je {\mRao} roven
+\noindent Pro $\alpha = 0$ je minimální Rényiho odhad roven
 
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{k}{\lambda} \left( \frac{x_i-\mu}{\lambda} \right)^{k-1} 
@@ -211,13 +211,15 @@ Posledním zpracovávaným rozdělením, bylo tříparametriké Weibullovo s par
 	\frac{1}{n} \sum^n_{i=1} \left(  \frac{x_i-\mu}{\lambda} \right)^k \right].
 \end{align}
 
-\noindent Podmínka \ref{beta-podminka} opět platí pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} pro Weibullovo rozdělení jako
+\noindent Podmínka \ref{beta-podminka} opět platí pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} parametrů ve Weibullově modelu ve tvaru
 
 \begin{eqnarray}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} & = & \arg \max_{\theta \in \Theta} \left( \frac{k}{\lambda} \right)^\frac{\alpha}{1+\alpha} (1+\alpha)^{\frac{\alpha}{1+\alpha}\frac{1+\alpha+k}{k}} 
 	\Gamma\left(\frac{1+\alpha+k}{k}\right)^{-\frac{\alpha}{1+\alpha}} \nonumber \\
 	&& \frac{1}{n}\sum_{i=1}^n \left( \frac{x_i-\mu}{\lambda}\right)^{\alpha(k-1)} \exp\left[-\alpha \left(\frac{x_i-\mu}{\lambda}\right)^k\right].
 \end{eqnarray}
+
+\noindent Kvůli použití $\Gamma$-funkce dostáváme dodatečnou podmínku $1+\alpha+k>0$, tedy $\alpha + k > -1$. Tato podmínka je ale splněna automaticky, protože jsou oba parametry kladné. 
 
 Influenční funkce $\eqref{IF}$ pro neznámý parametr $\theta = \mu$ a známé $\lambda, k $  má tvar
 
