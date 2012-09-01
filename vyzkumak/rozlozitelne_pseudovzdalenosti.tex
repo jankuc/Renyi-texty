@@ -41,7 +41,10 @@ Každý min $\mathfrak{D}$-odhad je fisherovsky konzistentní, to znamená, že 
 \begin{equation}
 	T_\mathfrak{D}(P_{\theta_0}) = \arg\min_{\theta \in \Theta} \mathfrak{D}(P_\theta, P_{\theta_0}) = \theta_0,\text{ pro každé }\theta_0 \in \Theta.
 \end{equation}
-Následující věta nám dovolí korektně definovat odhady s minimální Rényiho pseudovzdáleností.
+
+\section{Odhady s minimální Rényiho pseudovzdálensostí}
+
+Následující věta nám dovolí definovat odhady s minimální Rényiho pseudovzdáleností.
 \begin{theorem}
 Nechť pro nějaké $\beta>0$ platí
 	\begin{equation}
@@ -53,6 +56,7 @@ Nechť pro nějaké $\beta>0$ platí
 		\mathfrak{R}_\alpha (P,Q) = \dfrac{1}{1+\alpha}\ln{\left( \int{p^\alpha \mathrm{d}P } \right)} +
 		\dfrac{1}{\alpha (1+\alpha)}\ln{\left( \int{q^\alpha \mathrm{d}Q } \right)} -
 		\dfrac{1}{\alpha} \ln{\left( \int{p^\alpha \mathrm{d}Q } \right)}
+		\label{renyi-pseudovzdalenost}
 	\end{equation}
 	třída pseudovzdáleností rozložitelných ve smyslu 
 	\begin{equation*}
@@ -62,13 +66,14 @@ Nechť pro nějaké $\beta>0$ platí
 	\begin{equation*}
 		\mathfrak{R}_\alpha^0 (P) = \dfrac{1}{1+\alpha}\ln{\left( \int{p^\alpha \mathrm{d}P } \right)}, \quad \mathfrak{R}_\alpha^1 (Q) = \dfrac{1}{\alpha (1+\alpha)}\ln{\left( \int{q^\alpha \mathrm{d}Q } \right)}.
 	\end{equation*}
-	Navíc pro $\alpha \searrow 0$ platí
+	Pro $\alpha \rightarrow 0_+$ platí
 	\begin{equation*}
 		\mathfrak{R}_0 (P,Q) = \lim_{\alpha \searrow 0} \mathfrak{R}_\alpha (P,Q) =  \int{\left( \ln{q} - \ln{p} \right)\mathrm{d}Q}.
 	\end{equation*}
 	\label{renyi-veta}
 \end{theorem}
-Pro $Q \in \mathcal{P}^+ \cup \Pemp$ dostáváme odhad s minimální Rényiho pseudovzdáleností ve tvaru
+
+\noindent Pokud použijeme \eqref{renyi-pseudovzdalenost} pro rozdělení $Q \in \mathcal{P}^+ \cup \Pemp$ dostáváme odhad s minimální Rényiho pseudovzdáleností ve tvaru
 \begin{equation}
 	T_{\mathfrak{R}_\alpha}(Q) = 
 	\begin{cases}
@@ -115,4 +120,36 @@ kde
 \begin{equation}
 \mathbf{I}_{\alpha}(\theta) = \int{ \left[\dot{s}_\theta - \dot{c}_\alpha(\theta) - \alpha(s_\theta - c_\alpha(\theta))(c^T_\alpha(\theta) - s^T_\theta) \right] p_\theta^{1+\alpha} \mathrm{d}\lambda}.
 \end{equation}
+
+\section{Aplikace pro normální rozdělení}
+
+Výsledky pro normální model byly prezentovány již v \cite{Vajda2009}, \cite{Demut2010}. Zde je uvádíme jen pro úplnost a protože jsme je použili pro simulace, v kterých jsme odhady testovali i na jiných druzích znečištění než byl použito v \cite{Demut2010}.
+Pro $\alpha = 0$ odhad splývá s maximálně věrohodným odhadem
+
+\begin{equation}
+\theta_{\mathfrak{R}_0,n} = \theta_{\mathfrak{D}_0,n} = \text{argmax}_{\theta} \frac{1}{n}\sum_{i=1}^n \ln \biggl[\frac{1}{\sqrt{2\pi \sigma^2}} \exp\biggl(-\frac{(X_i-\mu)^2}{2\sigma^2}\biggr)\biggr].
+\end{equation}
+
+\noindent Podmínka \eqref{beta-podminka} platí pro každé $\beta > 0$, takže můžeme pro $\alpha>0$ upravit {\mRao} \eqref{Renyi-estimator_formula} do tvaru
+
+\begin{equation}
+	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \text{argmax}_{\theta} \frac{1}{n\sigma^{\alpha/(1+\alpha)}}\sum_{i=1}^n\exp \biggl(-\alpha\frac{(X_i-\mu)^2}{2\sigma^2}\biggr).
+\end{equation}
+
+\noindent Influenční funkce pro odhad rozptylu $\sigma$ při fixované poloze $\mu = 0$ se odvozuje v \cite{Vajda2009} a je tvaru 
+
+\begin{equation}
+	\text{IF}(x;T_{\mathfrak{R}_{\alpha}},\sigma) = \frac{(1+\alpha)^{5/2}\sigma}{2}\biggl[\biggl(\biggl(\frac{x}{\sigma}\biggr)^2-\frac{1}{1+\alpha}\biggr) \exp\biggl(-\frac{\alpha x^2}{2\sigma^2}\biggr)\biggr].
+\end{equation}
+Pro odhad polohy $\mu$ při zafixovaném  $\sigma$ vychází influenční funkce
+\begin{equation}
+	\text{IF}(x;T_{\mathfrak{R}_{\alpha}},\mu) = (1+\alpha )^{3/2} (x-\mu ) \exp\left[{-\alpha\frac{(x-\mu )^2}{2 \sigma ^2}}\right].
+\end{equation}
+Obě funkce jsou pro $\alpha$ omezené, takže je odhad B-robustní. Navíc můžeme něco říct i o robustnosti vůči velkým outlierům. Sice nemáme konečný bod zamítání $\rho^*$, ale pro $\alpha>0$ pro influenční funkce obou parametrů alespoň platí 
+\begin{equation}
+	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0.
+\end{equation}
+
+
+
 

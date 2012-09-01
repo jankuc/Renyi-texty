@@ -1,32 +1,34 @@
 
 \chapter{Aplikace v konkrétních rodinách distribucí}
 
-V této kapitole použijeme minimální Rényiho odhady ($\mathfrak{R}_\alpha$-odhady) v různých rozděleních pravděpodobnosti. Výsledky pro normální rozdělení byly uvedeny již v \cite{Demut2010}. My jsem se tedy zaměřili na exponenciální, Laplaceovo, Cauchyho a Weibullovo rozdělení pravděpodobnosti. V případě těchto rodin jsme se snažili o odvození konkrétního tvaru odhadu podle \eqref{Renyi-estimator_formula} a také tvaru influeční funkce \eqref{IF}.
+V této kapitole použijeme minimální Rényiho odhady ($\mathfrak{R}_\alpha$-odhady) pro konkrétní rozdělení pravděpodobnosti. Výsledky pro normální model byly uvedeny již v \cite{Vajda2009}, \cite{Demut2010}, my jsme se tedy zaměřili na exponenciální, Laplaceovo, Cauchyho a Weibullovo rozdělení. V případě těchto rodin jsme se snažili o odvození konkrétního tvaru odhadu podle \eqref{Renyi-estimator_formula} a také tvaru influeční funkce \eqref{IF}.
 
 \section{Laplaceovo rozdělení} %%%%%%%%%%%%%%%%%%%%%  LAPLACE   %%%%%%%%%%%%%%%%%%%%%%
 
-Zde použijeme minimální $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\theta = (\mu,\lambda)$ pro případ Laplaceova rozdělení. Hustota pravděpodobnosti má tedy tvar
+Zde použijeme minimální $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\theta = (\mu,\lambda)$ pro Laplaceův model. Hustota pravděpodobnosti má tedy tvar
 \begin{equation}
 	p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0.
 \end{equation}
 Pro $\alpha = 0$ se odhad podle \eqref{Renyi-estimator_formula} rovná maximálně věrohodnému odhadu
-\begin{eqnarray}
-	\hat{\theta}_{\mathfrak{R}_0,n} & = & \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{2\lambda}\exp \left[-\frac{|x_i-\mu|}{\lambda} \right] \right] \nonumber \\
-	& = & \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{2\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{|x_i-\mu|}{\lambda} \right].
-\end{eqnarray}
-Podmínka \ref{beta-podminka} platí pro každé $\beta>0$, takže pak pro $\alpha>0$ můžeme  min $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} pro Laplaceovo rozdělení psát jako 
+\begin{align}
+	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{2\lambda}\exp \left[-\frac{|x_i-\mu|}{\lambda} \right] \right] \nonumber \\
+	& =  \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{2\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{|x_i-\mu|}{\lambda} \right].
+\end{align}
+Protože podmínka \eqref{beta-podminka} platí pro každé $\beta>0$, takže pak pro $\alpha>0$ můžeme  min $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} parametrů Laplaceova rozdělení počítat jako 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ (2\lambda)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\lambda} \right] \right].
 	\label{renyi-formula-laplace}
 \end{equation}
 
-Nyní spočítáme influenční funkci podle \eqref{IF}. Položíme-li odhadovaný parametr $\theta = \mu$ při známém $\lambda$, pak nám vychází 
+\noindent Vzorec \eqref{renyi-formula-laplace} je pro současný odhad obou parametrů $\mu, \lambda$. Pokud by byl jeden z parametrů známý a nebylo ho tedy nutné odhadovat, dosadíme jeho hodnotu do vzorce a maximalizujeme pak jen v jedné proměnné. 
+
+Nyní pro {\mRao} v Laplaceově modelu spočítáme influenční funkce podle \eqref{IF}. Pro odhad polohy $\theta = \mu$ při známém rozptylu $\lambda$, nám vychází ve tvaru
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
 	\label{IF-laplace-mu}
 \end{equation}
-Pokud prohodíme úlohu parametrů, tedy pokud bude hledaným parametrem $\theta = \lambda$ a $ \mu$ bude známe, vychází 
+Pokud prohodíme úlohu parametrů, tedy pokud bude hledaným parametrem rozptyl $\theta = \lambda$ a polohu $ \mu$ budeme považovat za známou, dostaneme 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = (1 + \alpha)^2 \left(-\lambda + (1 + \alpha)|x-\mu|\right)  e^{-\frac{\alpha|x-\mu|}{\lambda}}	. % IF(x,sigma)
 	\label{IF-laplace-lambda}
@@ -44,9 +46,10 @@ Pokud prohodíme úlohu parametrů, tedy pokud bude hledaným parametrem $\theta
 	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1)$ při známém $\mu = 0$ 
 	\\
 \end{tabular}
-\caption{Influenční funkce {\mRao}ů pro Laplaceovo rozdělení}
-\end{center}
+\caption{Influenční funkce minimálních $\mathfrak{R}_\alpha$-odhadů parametrů Laplaceova rozdělení}
 \label{fig:laplace-if}
+\end{center}
+%\label{fig:laplace-if}
 \end{figure}
 
 \noindent Z \eqref{IF-laplace-mu} a \eqref{IF-laplace-lambda} vidíme, že jsou obě influenční funkce pro $\alpha>0$ omezené, tedy B-robustní a navíc pro obě funkce platí
@@ -55,7 +58,7 @@ Pokud prohodíme úlohu parametrů, tedy pokud bude hledaným parametrem $\theta
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0.
 \end{equation}
  
-\noindent Nemáme sice konečný bod zamítání $\rho^*$, ale influenční funkce se alespoň limitně blíží s rostoucím $x$ k nule. Tato konvergence je s větším $\alpha$ rychlejší kvůli členu $e^{-\alpha x}$, který se vyskytuje v obou funkcích.
+\noindent Nemáme sice konečný bod zamítání $\rho^*$, ale influenční funkce se alespoň limitně blíží s rostoucím $x$ k nule. Tato konvergence je s větším $\alpha$ rychlejší kvůli členu $e^{-\alpha x}$, který se vyskytuje v obou funkcích. To je vidět i na obrázku \ref{fig:laplace-if}, kde jsou vyobrazeny influenční funkce zvlášť pro oba odhadované parametry a s různými hodnotami $\alpha$. Je vidět, že maximálně věrohodný odhad $(\alpha = 0)$ není omezený, a že se funkce pro větší hodnoty $\alpha$ s rostoucí vzdáleností hodnot $x$ od polohy $\mu=0$ rychleji blíží k nule.
 
 \section{Exponenciální rozdělení} %%%%%%%%%%%%%%%%%%%%%  EXPONENTIAL   %%%%%%%%%%%%%%%%%%%%%%
 
@@ -63,30 +66,30 @@ Nyní použijeme minimální $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\t
 \begin{equation}
 	p_\theta = \frac{1}{\lambda} e^{-\frac{x-\mu}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0, \, x>\mu.
 \end{equation}
-Pro $\alpha = 0$ je 
-\begin{eqnarray}
-	\hat{\theta}_{\mathfrak{R}_0,n} & = & \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{\lambda}\exp \left[-\frac{x_i-\mu}{\lambda} \right] \right] \nonumber \\
-	& = & \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{x_i-\mu}{\lambda} \right].
-\end{eqnarray}
+\noindent Exponenciální hustota je svým tvarem velmi podobná té Laplaceově. Dále uvidíme, že i vzorce týkající se minimálních Rényiho odhadů vycházejí pro oba modely velmi podobně, v některých případech dokonce stejně.  Pro $\alpha = 0$ dostáváme odhad ve tvaru
+\begin{align}
+	\hat{\theta}_{\mathfrak{R}_0,n} & =  \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{\lambda}\exp \left[-\frac{x_i-\mu}{\lambda} \right] \right] \nonumber \\
+	& =  \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{x_i-\mu}{\lambda} \right].
+\end{align}
 
-\noindent Podmínka \ref{beta-podminka} opět platí pro každé $\beta>0$, takže pak pro $\alpha>0$ můžeme  min $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} pro exponenciální rozdělení psát jako 
+\noindent Podmínka \ref{beta-podminka} opět platí pro každé $\beta>0$, minimální Rényiho odhad pro $\alpha>0$ můžeme tedy pro exponenciální rodinu psát ve tvaru
 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \lambda^{-\frac{\alpha}{1+\alpha}} \frac{1}{n}\sum_{i=1}^n \exp \left[-\alpha\frac{x_i-\mu}{\lambda} \right].
 	\label{renyi-formula-exponential}
 \end{equation}
 
-\noindent Je vidět, že rozdíl oproti \eqref{renyi-formula-laplace} je jen v použití absolutní hodnoty u odhadu Laplaceova rozdělení. 
+\noindent Je vidět, že rozdíl oproti \eqref{renyi-formula-laplace} je jen v použití absolutní hodnoty v odhadu Laplaceova modelu. 
 
-Influenční funkce je podle $\eqref{IF}$ v případě odhadovaného parametru $\theta = \mu$ a známého $ \lambda$ stejná jako pro Laplaceovo rozdělení $\eqref{IF-laplace-mu}$, tedy 
+Influenční funkce je podle $\eqref{IF}$ v případě odhadovaného parametru polohy $\theta = \mu$ a známého rozptylu $ \lambda$ stejná jako pro Laplaceovo rozdělení $\eqref{IF-laplace-mu}$, tedy 
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
 	\label{IF-exponential-mu}
 \end{equation}
-Pokud naopak je hledaným parametrem $\theta = \lambda$ a $ \mu $ známe, vychází 
+Pokud je hledaným parametrem naopak rozptyl $\theta = \lambda$ při známé poloze $ \mu $, vychází funkce ve tvaru
 \begin{equation}
-	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) =	(1+\alpha )^2 \left( - \lambda +(1+ \alpha)(x-\mu)\right) e^{-\frac{\alpha (x-\mu)}{\lambda }} % IF(x,lambda),
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) =	(1+\alpha )^2 \left( - \lambda +(1+ \alpha)(x-\mu)\right) e^{-\frac{\alpha (x-\mu)}{\lambda }}. % IF(x,lambda),
 	\label{IF-exponential-lambda}
 \end{equation}
 
@@ -102,31 +105,30 @@ Pokud naopak je hledaným parametrem $\theta = \lambda$ a $ \mu $ známe, vychá
 	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1)$ při známém $\mu = 0$
 	\\
 \end{tabular}
-\caption{Influenční funkce {\mRao}ů pro exponenciální rozdělení}
+\caption{Influenční funkce minimálních $\mathfrak{R}_\alpha$-odhadů parametrů exponenciálního rozdělení}
+\label{fig-exp-if}
 \end{center}
-\label{fig:exponencialni-if}
 \end{figure}
 
-\noindent Z \eqref{IF-exponential-mu} a \eqref{IF-exponential-lambda} opět vidíme, že jsou obě influenční funkce pro $\alpha>0$ omezené, a opět pro obě funkce platí
+\noindent Ze vzorců \eqref{IF-exponential-mu} a \eqref{IF-exponential-lambda} vidíme, že pro obě funkce platí
 
 \begin{equation}
-	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0.
+	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0,
 \end{equation}
- 
-\noindent Přitom platí, že se konvergence kvůli členu $ e^{-\alpha x}$ zrychluje s rostoucím $\alpha$.
+tedy že velké outliery budou díky konvergenci influenčních funkcí k nule částečně ignorovány.  Přitom platí, že se konvergence zrychluje s rostoucím $\alpha$, což je vidět na Obr. \ref{fig-exp-if}, stejně jako to, že jsou funkce pro $\alpha >0$ omezené. 
 
 \section{Cauchyovo rozdělení} %%%%%%%%%%%%%%%%%%%%%  Cauchy   %%%%%%%%%%%%%%%%%%%%%%
 
 
-Dalším rozdělením, na které jsme použili Rényiho odhady, je Cauchyovo rozdělení s parametrem $\theta = (\mu,\sigma)$ a hustotou pravděpodobnosti
+Dalším rozdělením, na které jsme použili Rényiho odhady, je Cauchyovo s parametrem $\theta = (\mu,\sigma)$ a hustotou pravděpodobnosti
 \begin{equation}
 	p_\theta = \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x-\mu}{\sigma} \right)^2 \right)^{-1}, \qquad \mu\in \mathbb{R},\, \sigma>0.
 \end{equation}
-Pro $\alpha = 0$ je {\mRao} roven
-\begin{eqnarray}
-	\hat{\theta}_{\mathfrak{R}_0,n} & = & \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[  \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}   \right] \nonumber \\
-	& = & \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right].
-\end{eqnarray}
+Minimální $\mathfrak{R}_\alpha$-odhad je pro $\alpha>0$ roven
+\begin{align}
+	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[  \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}   \right] \nonumber \\
+	& =  \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right].
+\end{align}
 Ten už však není shodný s maximálně věrohodným odhadem, který má tvar
 \begin{equation}
 	\hat{\theta}_{\mathrm{MLE},n} = \arg \max_{\theta \in \Theta}  \ln \sum^n_{i=1} \frac{1}{\pi\sigma} \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right].
@@ -195,19 +197,19 @@ přičemž hypergeometrická funkce je definovaná vztahem
 
 \section{Weibullovo rozdělení} %%%%%%%%%%%%%%%%%%%%%  WEIBULL   %%%%%%%%%%%%%%%%%%%%%%
 
-Weibullovo rozdělení je tříparametrické $\theta = (\mu,\lambda,k)$ s hustotou pravděpodobnosti
+Posledním zpracovávaným rozdělením, bylo tříparametriké Weibullovo s parametrem $\theta = (\mu,\lambda,k)$ a hustotou pravděpodobnosti
 \begin{equation}
 	p_\theta =  \frac{k}{\lambda} \left( \frac{x-\mu}{\lambda} \right)^{k-1} \exp \left[ -\left( \frac{x-\mu}{\lambda} \right)^k \right], \qquad \mu \in \mathbb{R}, \, \lambda>0, \, k>0.
 \end{equation}
 
 \noindent Pro $\alpha = 0$ je {\mRao} roven
 
-\begin{eqnarray}
-	\hat{\theta}_{\mathfrak{R}_0,n} & = &\arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{k}{\lambda} \left( \frac{x_i-\mu}{\lambda} \right)^{k-1} 
+\begin{align}
+	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{k}{\lambda} \left( \frac{x_i-\mu}{\lambda} \right)^{k-1} 
 	\exp \left[ -\left( \frac{x_i-\mu}{\lambda} \right)^k \right]\right] \nonumber \\
-	&&\arg \max_{\theta \in \Theta}\left[ \ln \frac{k}{\lambda} + \frac{k-1}{n} \sum^n_{i=1} \ln \left[  \frac{x_i-\mu}{\lambda} \right] - 
-	\frac{1}{n} \sum^n_{i=1} \left(  \frac{x_i-\mu}{\lambda} \right)^k \right]
-\end{eqnarray}
+	&=\arg \max_{\theta \in \Theta}\left[ \ln \frac{k}{\lambda} + \frac{k-1}{n} \sum^n_{i=1} \ln \left[  \frac{x_i-\mu}{\lambda} \right] - 
+	\frac{1}{n} \sum^n_{i=1} \left(  \frac{x_i-\mu}{\lambda} \right)^k \right].
+\end{align}
 
 \noindent Podmínka \ref{beta-podminka} opět platí pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} pro Weibullovo rozdělení jako
 
