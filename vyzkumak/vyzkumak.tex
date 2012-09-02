@@ -1,20 +1,24 @@
+
 \input{header.tex}
-
 \begin{document}
-
-
-
-\input{uvodni_strany.tex}
-\tableofcontents 
-\label{Obsah}
-\setcounter{page}{1}
-
-
-\input{odhady_s_minimalni_vzdalenosti.tex}
-\input{robustnost.tex}
-\input{rozlozitelne_pseudovzdalenosti.tex}
-\input{aplikace_v_rodinach.tex}
-\input{simulace.tex}
-\input{bibliografie.tex}
-
+	
+	\input{uvodni_strany.tex}
+	\tableofcontents 
+	\label{Obsah}
+	\setcounter{page}{1}	
+	
+	\input{odhady_s_minimalni_vzdalenosti.tex}
+	\input{robustnost.tex}
+	\input{rozlozitelne_pseudovzdalenosti.tex}
+	\input{aplikace_v_rodinach.tex}
+	\input{simulace.tex}
+	
+	\changetext{}{+12em}{-6em}{-6em}{}
+	\begin{landscape}
+		\input{tab-C01-C010-both.tex}
+		
+	\end{landscape}
+	\changetext{}{-12em}{+6em}{+6em}{}
+	
+	\input{bibliografie.tex}	
 \end{document}
