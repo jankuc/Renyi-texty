@@ -89,11 +89,18 @@ tedy
 		 \displaystyle{ \arg \max_{\theta \in \Theta} \left[\ln(\int p_\theta\mathrm{d}Q) \right] }& \text{ pro } \alpha = 0.
 	\end{cases}	
 \end{equation}
-Pokud za $Q$ dosadíme empirické rozdělení pravděpodobnosti $P_n$ a označíme 
+
+\noindent Označíme
 \begin{equation}
-	C_\alpha (\theta) = \left(\int p_\theta^\alpha\mathrm{d}P_\theta \right)^{\frac{\alpha}{1+\alpha}},
+C_{\alpha}(\theta) = \biggl(\int p_{\theta}^{1+\alpha} \mathrm{d}\lambda\biggr)^{\alpha/{1+\alpha}},
 \end{equation}
-dostáváme odhad 
+pak můžeme pro $0<\alpha \leq \beta$ psát Rényiho odhad ve tvaru $M$-odhadu
+\begin{equation}
+T_{\alpha}(Q) = \text{argmax}_{\theta} M_{\alpha}(Q,\theta), \qquad \text{kde } M_{\alpha}(Q,\theta) = \frac{\int p_{\theta}^{\alpha}\mathrm{d}Q}{C_{\alpha}(\theta)}.
+\end{equation}
+
+\noindent Pokud za $Q$ dosadíme empirické rozdělení pravděpodobnosti $P_n$, dostáváme odhad 
+
 \begin{equation}
 	\theta_{\alpha,n} = 
 	\begin{cases}
@@ -103,7 +110,7 @@ dostáváme odhad
 	\label{Renyi-estimator_formula}
 \end{equation}
 
-V \cite{Vajda2009} autor odvozuje tvar influenční funkce pro odhady s minimální Rényiho pseudovzdáleností. Pokud označíme 
+V \cite{Vajda2009} autor odvozuje podle věty \ref{influencni veta} tvar influenční funkce pro odhady s minimální Rényiho pseudovzdáleností. Pokud označíme 
 \begin{center}
 	\begin{tabular}{c c}
 	$s_\theta = \dfrac{\mathrm{d}}{\mathrm{d}\theta} \ln p_\theta, \quad$ & $ \dot{s}_\theta = \left( \dfrac{\mathrm{d}}{\mathrm{d}\theta} \right)^T s_\theta,$ \\ 

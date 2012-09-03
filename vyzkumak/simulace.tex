@@ -1,6 +1,6 @@
 \chapter{Počítačové experimenty}
 
-V této kapitole ukážeme výsledky výpočtů Rényiho odhadů na námi generovaných datech. 
+V této kapitole ukážeme výsledky výpočtů odhadů s minimální Rényiho pseudovzdáleností na námi generovaných datech. 
 
 \section{Generovaná data}
 Všechny naše experimenty probíhaly na námi náhodně generovaných datech. Pro generování rovnoměrného rozdělení U(0,1) zásadního pro všechna ostatní rozdělení jsme použili vlastní lineární kongruentní generátor náhodných čísel popsaný například v \cite{Virius98}. 
@@ -62,6 +62,23 @@ Radim Demut v \cite{Demut2010} popisuje použití metody na Newcombových datech
 \end{figure}
 
 Trochu jiný charakter má obrázek \ref{fig-distanceE}. Opět jde o vizualizaci Rényiho vzdálenosti na datech, nyní však v exponenciálním modelu. V horní části obrázku okolo správné polohy $\mu = 0$  hodnota pseudovzdálenosti roste směrem k zápornému $\hat{\mu}$ mnohem rychleji, protože většina dat (60\%) se nachází nad touto hranicí v oblasti $x<\mu$, tedy v horní čtvrtině obrázku. Podle \eqref{renyi-formula-exponential} přispívají k maximalizaci mnohem větší měrou, protože je výraz v exponenciální funkci v těchto případech kladný. Lokální minimum okolo bodu (10,1) je pak způsobeno 40\% dat, která měla rozdělení E(10,1).
+
+\section{Výsledky experimentů}
+
+V této části okomentujeme tabelované výsledky různých Rényiho odhadů. Níže se setkáme s následujícími statistikami:
+
+\begin{align*}
+	m(\gamma) = \frac{1}{K}\sum_{i=1}^K \widehat{\gamma}_{i},& \qquad s(\gamma) = \sqrt{\frac{1}{K}\sum_{i=1}^K (\widehat{\gamma}_{i}-\overline{\gamma})^2},\\
+\end{align*}
+kde $\gamma $ je kterýkoliv z odhadovaných parametrů. Ještě jsme pro porovnávání odhadů zavedli relativní eficienci 
+\begin{equation}
+	eref(\gamma) = \sqrt{\dfrac{\frac{1}{K}\sum_{i=1}^K (\widehat{\gamma}_{\mathrm{0} ,i} - \gamma_{\mathrm{real}})^2}{\frac{1}{i}\sum_{k=1}^K (\widehat{\gamma}_{\alpha,i} - \gamma_{\mathrm{real}})^2}},
+\end{equation}
+kde $\gamma_\mathrm{real}$ je hodnota parametru znečišťovaného rozdělení, $\gamma_{0,i}$ je použitý některý ze standardních odhadů daného parametru pro konkrétní rozdělení, $K$ je počet opakování odhadu. Standardní odhad $\gamma_{0,i}$ jsme volili maximálně věrohodný, pokud to šlo. Pro Normální a Laplaceovo jsme použili maximálně věrohodné odhady, stejně tak pro odhad měřítka $\lambda$ exponenciálního a Weibullova rozdělení. Vzhledem k definici exponenciálního rozdělení vzhledem k jeho parametru polohy $\mu$, tedy tomu, že pro všechna $x$ platí $x > \mu$, vzali jsme jako odhad $\mu$ minimální $x$ přítomné v datovém souboru.
+Pro Cauchyovo rozdělení jsme použili odhady
+\begin{equation}
+	\widehat{\mu}  = \frac{X_{1-p} + X_{p}}{2}, \; p = 0.5565 \qquad \widehat{\sigma}  = \frac{X_{0.75} - X_{0.25}}{2}.
+\end{equation}
 
 
 

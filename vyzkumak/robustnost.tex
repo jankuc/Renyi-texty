@@ -24,7 +24,7 @@ Nyní definujeme influenční funkci, která měří vliv jednoho pozorování s
 \noindent
 Pokud tedy $\IF{x}$ není omezená, potom i jediné odlehlé pozorování může způsobit naprosté selhání odhadu $T$. 
 
-Nyní zavedeme míry robustnosti, které pokrývají některá možná narušení našeho modelu. 
+Nyní zavedeme tři míry robustnosti podle \cite{Antoch92}, které pokrývají některá možná narušení našeho modelu. 
 
 \begin{definition}
 	Globální citlivostí funkcionálu $T$ pro rozdělení pravděpodobnosti $P$ nazýváme veličinu $\gamma^*$ definovanou jako
@@ -83,7 +83,7 @@ nebo jako řešení rovnice
 \end{equation}
 Aby byl odhad jednoznačný, je potřeba, aby tato rovnice, popřípadě úloha \eqref{Modhad3} měla jediné řešení.
 
-A nyní již věta, která nám dá návod, jak později počítat influenční funkce pro Rényiho odhady. 
+A nyní již věta, která dovoluje odvodit influenční funkci pro obecný Rényiho odhad. 
 \begin{theorem} 
  Nechť existuje $\psi(\cdot,\theta) =  \frac{\partial}{\partial \theta} \rho(\cdot,\theta)$ a je absolutně spojitá vzhledem k $\theta$. Nech\v{t} rovnice \eqref{Modhad4} má jediné řešení $M(P)$ a nechť existuje influenční funkce $\mathrm{IF}(x;M,P)$. Potom platí
 \begin{equation}
