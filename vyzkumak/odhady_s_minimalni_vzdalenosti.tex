@@ -15,6 +15,8 @@ Předpokládáme, že je rodina $\mathcal{F}$ dominována $\sigma$-finitní mír
 p_\theta = \dfrac{\mathrm{d} F_\theta}{\mathrm{d} \lambda}.
 \end{equation}
 
+
+
 \begin{definition}
 %	Řekneme, že posloupnost náhodných veličin $\lbrace X_n \rbrace$ s distribučními funkcemi $\lbrace F_n \rbrace$ je omezená v pravděpodobnosti, pokud pro každé $\varepsilon > 0 $ existují $M$ a $N$ takové, že 
 %	\begin{equation}
@@ -22,9 +24,32 @@ p_\theta = \dfrac{\mathrm{d} F_\theta}{\mathrm{d} \lambda}.
 %	\end{equation}
 %	Tuto skutečnost značíme $X_n = O_p(1)$.
 	Nech\v{t} $X_n$ je posloupnost náhodných veličin. Pak značíme $X_n = o_p(1)$, pokud $\lim_{n \rightarrow \infty } X_n = 0$ podle pravděpodobnosti a $X_n = o_p(\varepsilon_n)$, pokud $\frac{X_n}{\varepsilon_n} = o_p(1)$ pro nějakou posloupnost $\varepsilon_n \searrow 0$.
-\end{definition}
+\end{definition} 
 
 \begin{definition}
+Odhad $\hat{F}_n$ je konzistentní ve vzdálenosti $\mathfrak{D}$, pokud $\mathfrak{D}(\hat{F}_n, F_{\theta_0})$ je měřitelná a rovná se $o_p (1)$. Podobně bodový odhad $\hat{\theta}_n$ je konzistentní, pokud $\rho(\hat{\theta}_n,\theta_0)$ je měřitelná a rovná se $o_p (1)$. 
+\end{definition}
+
+\noindent Za neparametrický odhad distribuční funkce můžeme vzít empirickou distribuční funkci, definovanou jako
+\begin{equation}
+F_n(x)=\frac{1}{n}\sum_{j=1}^n \textbf{I}_{(-\infty,x]}(X_j), \qquad x\in\mathbb{R}.
+\end{equation}
+%
+%\begin{theorem}[Glivenko-Cantelli]
+%Nech\v{t} jsou $X_1,\dots,X_n$ stejně a nezávisle rozdělené reálné ná\-ho\-dné veličiny s distribuční funkcí $F$ a nechť $F_n(x)$ je empirická distribuční funkce. Pak pro každé $n\in \mathbb{N}$ a $\varepsilon>0$ platí
+%
+%\begin{equation}
+%P\left(\sup_{x\in\mathbb{R}}|F(x)-F_n(x)|>\varepsilon\right) \leq 8(n+1)\exp{\left\{ \frac{-n{\varepsilon}^2}{32}\right\}}.
+%\end{equation}
+%Z Borel-Cantelliho lemma pak plyne
+%\begin{equation}
+%\lim_{n \rightarrow +\infty}\sup_{x \in \mathbb{R}}|F(x)-F_n(x)|=0  \quad \text{s. j.}
+%\end{equation}
+%\end{theorem}
+
+\noindent Nyní definujeme odhad s minimální vzdáleností a přibližný odhad s minimální vzdáleností.
+
+\begin{definition}\label{def-mde}
 	Nech\v{t} $\mathfrak{D}(F.G)$ je vzdálenost na $\mathcal{F}(\mathbb{R})$ a $F_n$ je nějaký odhad distribuční funkce $F_{\theta_0}$. Měřitelnou funkci $\hat{\theta}_n$ takovou, že spl\v{n}uje podmínku
 	\begin{equation}
 		\mathfrak{D}(F_n, F_{\hat{\theta}_n}) = \inf_{\theta \in \Theta}(F_n, F_{\theta_0}) \quad s.j.
@@ -36,4 +61,6 @@ p_\theta = \dfrac{\mathrm{d} F_\theta}{\mathrm{d} \lambda}.
 	\end{equation}
 	říkáme, že $\hat{\theta}_n$ je přibližný odhad s minimální vzdáleností (AMDE) a příslušný  $f_{\hat{\theta}_n}$ pak přibližný odhad hustoty s minimální vzdáleností.
 \end{definition}
+
+
 
