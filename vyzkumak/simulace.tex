@@ -7,7 +7,7 @@ Všechny naše experimenty probíhaly na námi náhodně generovaných datech. P
 
 Vzhledem k tomu, že chceme zkoumat robustnost, bylo nutné nějak  náhodná data znečišťovat. K tomu jsme použili již zmíněné konvexní směsi \eqref{konvex-smes} a pak ještě tzv. řádové chyby. 
 
-Nechť $\varepsilon \in [0,1]$ značí část dat z rozdělení $P \in \mathcal{P}$, kterou chceme kontaminovat a $r \in \mathbb{R}$ značí konstantu, o kterou chceme, aby se data lišila. Pak data s řádovou chybou tvoříme tak, že vygenerujeme požadované množství $n$ dat rozložených podle $P$ a pak z nich náhodně vybereme $\varepsilon n$ hodnot a ty vynásobíme konstantou $r$. Motivací pro tento typ znečištění je například ruční přepis dat, při kterém se občas udělá chyba při zápisu desetinné čárky. Pokud budeme počítat, že taková chyba se stane v 10\% případů a to dohromady při přepisu na obě strany, bude mít směs tvar $0.9P + 0.05P_{10} + 0.05P_{0.1}$.
+Nechť $\varepsilon \in [0,1]$ značí část dat z rozdělení $P \in \mathcal{P}$, kterou chceme kontaminovat a $r \in \mathbb{R}$ značí konstantu, o kterou chceme, aby se data lišila. Pak data s řádovou chybou tvoříme tak, že vygenerujeme požadované množství $n$ dat rozložených podle $P$ a pak z nich náhodně vybereme $\varepsilon n$ hodnot a ty vynásobíme konstantou $r$. Motivací pro tento typ znečištění je například ruční přepis dat, při kterém se občas udělá chyba při zápisu desetinné čárky. Pokud budeme počítat, že taková chyba se stane v 10\% případů, a to dohromady při přepisu na obě strany, bude mít směs tvar $0.9P + 0.05P_{10} + 0.05P_{0.1}$.
 
 \section{Minimalizace}
 Základem našich výpočtů je obecně vícerozměrná minimalizace funkcí definujících Rényiho vzdálenosti na různých rozděleních. Ve všech vzorcích pro výpočet minimálních Rényiho odhadů sice bylo potřeba maximalizovat nějaký výraz, my jsme však tyto výrazy odečetli od jedné, takže je pak potřeba najít argument jejich minima. Tato změna je samozřejmě čistě estetická.
@@ -38,10 +38,12 @@ Dá se tedy říct, že minimalizovaná funkce je poměrně hladká a nejen, že
 
 \begin{enumerate}
 	\item Zvolíme dvourozměrný interval $[a_1,a_2]\times [b_1,b_2]$, ve kterém budeme hledat minimum funkce $f$.
-	\item Zvolíme počáteční krok metody $\varepsilon$ a požadovanou přesnost vyjádříme pomocí $\varepsilon_{\min}$
-	\item Vyhodnotíme funkci v inicializačním bodě $x = (a,b),$ kde $a \in [a_1,a_2],\; b \in [b_1,b_2]$	
+	\item Zvolíme počáteční krok metody $\varepsilon$ a požadovanou přesnost vyjádříme pomocí $\varepsilon_{\min}$.
+	\item Vyhodnotíme funkci v inicializačním bodě $x = (a,b),$ kde $a \in [a_1,a_2],\; b \in [b_1,b_2]$	.
 	\item Najdeme 8 bodů $\lbrace x_1,\ldots,x_8 \rbrace$ na rozích a uprostřed stran čtverce s délkou strany $2\varepsilon$ v jehož středu je bod $x$.	
-	\item Pokud jsou body v námi prohledávané oblasti, najdeme $x_{\min} = \arg\min \lbrace f(x),f(x_1),\ldots,f(x_8)\rbrace$
+	\item Pokud jsou body v námi prohledávané oblasti, najdeme 
+		
+	$x_{\min} = \arg\min \lbrace f(x),f(x_1),\ldots,f(x_8)\rbrace$.
 		\begin{enumerate}
 			\item Pokud je minima dosaženo v bodu $x_i \in \lbrace x_1,\ldots,x_8 \rbrace$, položíme $x := x_i$.
 			\item Pokud je v bodě $x$ stále funkční hodnota nejmenší položíme $\varepsilon:= \frac{\varepsilon}{2}$.
@@ -92,13 +94,19 @@ V této části okomentujeme tabelované výsledky Rényiho odhadů s různými 
 
 Na konci této kapitoly jsou uvedeny tabulky pro odhad s minimální Rényiho pseudovzdá\-le\-nos\-tí. Volili jsme u těchto odhadů různé hodnoty parametru 
 
-\noindent $\alpha \in \lbrace 0;0,01;0,05;0,1;0,2;0,3;0.4;0,5;1 \rbrace$ a ten pak vynesli v nejlevějším sloupci tabulky. Každému odhadu odpovídají dva řádky s vypočítanými statistikami \eqref{stat1} a \eqref{stat2}. V prvním řádku uvádíme hodnoty týkající se parametru polohy $m(\mu), s(\mu), eref(\mu)$ postupně pro odhady z datového souboru o velikosti $n = 20, 50 ,100, 200, 500$. V druhém řádku uvádíme hodnoty statistik pro parametr měřítka $m(\lambda), s(\lambda), eref(\lambda)$. Pro Cauchyho rozdělení samozřejmě nahrazujeme parametrem $\sigma$. Celé pak provedeme opět postupně pro odhady z $n = 20, 50 ,100, 200, 500$ hodnot. Počet opakování volíme $K = 1000$.
-
-
+\noindent $\alpha \in \lbrace 0;0,01;0,05;0,1;0,2;0,3;0.4;0,5;1 \rbrace$ a ten pak vynesli ve sloupci nejvíce vlevo. Každému odhadu odpovídají dva řádky s vypočítanými statistikami \eqref{stat1} a \eqref{stat2}. V prvním řádku uvádíme hodnoty týkající se parametru polohy $m(\mu), s(\mu), eref(\mu)$ postupně pro odhady z datového souboru o velikosti $n = 20, 50 ,100, 200, 500$. V druhém řádku uvádíme hodnoty statistik pro parametr měřítka $m(\lambda), s(\lambda), eref(\lambda)$. Pro Cauchyho rozdělení samozřejmě nahrazujeme parametrem $\sigma$. Celé pak provedeme opět postupně pro odhady z $n = 20, 50 ,100, 200, 500$ hodnot. Počet opakování volíme $K = 1000$.
 
 \begin{figure}[htb]
 	\begin{center}
-		\epsfig{file=Eref-Exp-lambda.eps, height=2.in}
+		\epsfig{file=Eref-Laplace-lambda.eps, height=1.5in}
+		\caption{Empirická relativní eficience $eref({\lambda}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\lambda$ Laplaceova rozdělení v konvexní směsi	$(1-\varepsilon)L(0,1) + \varepsilon L(0,10)$ pro různá znečištění $\varepsilon$, $n=500$.}
+		\label{fig-eref-Laplace-lambda}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+		\epsfig{file=Eref-Exp-lambda.eps, height=1.5in}
 		\caption{Empirická relativní eficience $eref({\lambda}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů $\mu,\lambda$ exponenciálního rozdělení v konvexní směsi 
 		$(1-\varepsilon)E(0,1) + \varepsilon E(0,10)$ pro různá znečištění $\varepsilon$, $n=500$.}
 		\label{fig-eref-Exp-lambda}
@@ -107,33 +115,17 @@ Na konci této kapitoly jsou uvedeny tabulky pro odhad s minimální Rényiho ps
 
 \begin{figure}[htb]
 	\begin{center}
-		\epsfig{file=Eref-Laplace-lambda.eps, height=2.in}
-		\caption{Empirická relativní eficience $eref({\lambda}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\lambda$ Laplaceova rozdělení v konvexní směsi	$(1-\varepsilon)L(0,1) + \varepsilon L(0,10)$ pro různá znečištění $\varepsilon$, $n=500$.}
-		\label{fig-eref-Laplace-lambda}
-	\end{center}
-\end{figure}
-
-\begin{figure}[htb]
-	\begin{center}
-		\epsfig{file=Eref-Cauchy-sigma.eps, height=2.in}
+		\epsfig{file=Eref-Cauchy-sigma.eps, height=1.5in}
 		\caption{Empirická relativní eficience $eref({\sigma}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\sigma$ Cauchyho rozdělení v konvexní směsi	$(1-\varepsilon)C(0,1) + \varepsilon C(0,10)$ pro různá znečištění $\varepsilon$, $n=500$.}
 		\label{fig-eref-Cauchy-sigma}
 	\end{center}
 \end{figure}
 
-Na obrázcích \ref{fig-eref-Exp-lambda}, \ref{fig-eref-Laplace-lambda}, \ref{fig-eref-Cauchy-sigma} je vynesena relativní eficience parametru měřítka pro různé míry znečištění. Grafy pro Laplaceovo a exponenciální rozdělení jsou si velmi podobné. Projevuje se zde jakási "nasycenost" odhadu. Pro dané znečištění eficience odhadů roste a od určitého $\alpha$ se již nijak výrazně nemění, dokonce pomalu klesá. Je to vidět hlavně na hodnotách $\varepsilon = 0.05,01$ i když se podobný průběh dá očekávat i u $\varepsilon = 0.2$, kde už růst eficience také v obou grafech zpomaluje. Trochu jiný případ je u Cauchyho rozdělení, kde eficience rostou stále velmi podobně. 
+Na obrázcích \ref{fig-eref-Laplace-lambda}, \ref{fig-eref-Exp-lambda}, \ref{fig-eref-Cauchy-sigma} je vynesena relativní eficience parametru měřítka pro různé míry znečištění. Grafy pro Laplaceovo a exponenciální rozdělení jsou si velmi podobné. Projevuje se zde jakási "nasycenost" odhadu. Pro dané znečištění eficience odhadů roste a od určitého $\alpha$ se již nijak výrazně nemění, dokonce pomalu klesá. Je to vidět hlavně na hodnotách $\varepsilon = 0.05,01$ i když se podobný průběh dá očekávat i u $\varepsilon = 0.2$, kde už růst eficience také v obou grafech zpomaluje. Trochu jiný případ je u Cauchyho rozdělení, kde eficience rostou stále velmi podobně. 
 
 \begin{figure}[htb]
 	\begin{center}
-		\epsfig{file=Eref-Exp-mu.eps, height=2.in}
-		\caption{ Empirická relativní eficience $eref({\mu}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\lambda$ exponenciálního rozdělení v konvexní směsi	$(1-\varepsilon)E(0,1) + \varepsilon E(0,10)$ pro různá znečištění $\varepsilon $, $n=500$. }
-		\label{fig-eref-Exp-mu}
-	\end{center}
-\end{figure}
-
-\begin{figure}[htb]
-	\begin{center}
-		\epsfig{file=Eref-Laplace-mu.eps, height=2.in}
+		\epsfig{file=Eref-Laplace-mu.eps, height=1.5in}
 		\caption{ Empirická relativní eficience $eref({\mu}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\lambda$ Laplaceova rozdělení v konvexní směsi	$(1-\varepsilon)L(0,1) + \varepsilon L(0,10)$ pro různá znečištění $\varepsilon$, $n=500$. }
 		\label{fig-eref-Laplace-mu}
 	\end{center}
@@ -141,10 +133,71 @@ Na obrázcích \ref{fig-eref-Exp-lambda}, \ref{fig-eref-Laplace-lambda}, \ref{fi
 
 \begin{figure}[htb]
 	\begin{center}
-		\epsfig{file=Eref-Cauchy-mu.eps, height=2.in}
-		\caption{Empirická relativní eficience $eref({\mu}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\sigma$ Cauchyho rozdělení v konvexní směsi	$(1-\varepsilon)C(0,1) + \varepsilon C(0,10)$ pro různá znečištění $\varepsilon$, $n=500$.}
-		\label{fig-eref-Cauchy-sigma}
+		\epsfig{file=Eref-Exp-mu.eps, height=1.5in}
+		\caption{ Empirická relativní eficience $eref({\mu}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\lambda$ exponenciálního rozdělení v konvexní směsi	$(1-\varepsilon)E(0,1) + \varepsilon E(0,10)$ pro různá znečištění $\varepsilon $, $n=500$. }
+		\label{fig-eref-Exp-mu}
 	\end{center}
 \end{figure}
 
-Na obrázcích \ref{fig-eref-Exp-mu}, \ref{fig-eref-Laplace-mu}, \ref{fig-eref-Cauchy-mu} je vynesena stejná veličina, ovšem pro parametr polohy. V tomto případě se již eficience pro všechna znečištění chová velmi podobně, totiž s rostoucím $\alpha$ klesá. 
+\begin{figure}[htb]
+	\begin{center}
+		\epsfig{file=Eref-Cauchy-mu.eps, height=1.5in}
+		\caption{Empirická relativní eficience $eref({\mu}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\sigma$ Cauchyho rozdělení v konvexní směsi	$(1-\varepsilon)C(0,1) + \varepsilon C(0,10)$ pro různá znečištění $\varepsilon$, $n=500$.}
+		\label{fig-eref-Cauchy-mu}
+	\end{center}
+\end{figure}
+
+Na obrázcích \ref{fig-eref-Laplace-mu}, \ref{fig-eref-Exp-mu}, \ref{fig-eref-Cauchy-mu} je vynesena stejná veličina, ovšem pro parametr polohy. V tomto případě se již eficience pro všechna znečištění chová velmi podobně, totiž s rostoucím $\alpha$ klesá. Znečištění je totiž provedeno rozděleními se stejnou polohou, ale větším rozptylem, takže i maximálně věrohodný odhad má poměrně dobrou úspěšnost. Nic to však nemění na tom, že pro exponenciální rozdělení jsou minimální Rényiho odhady pro malá znečištění $\varepsilon = 0, 0.01, 0.05, 0.1$ horší než odhady s maximální věrohodností. Pro velká $\alpha > 0.5$ toto platí i pro znečištěné Laplaceovo rozdělení kromě větší míry znečištění $\varepsilon = 0.2, 0.5$. Jen Rényiho odhady pro Cauchyovo rozdělení mají větší eficienci než maximálně věrohodné odhady pro každé testované $\alpha$ až po $\varepsilon = 0.05$ včetně. Tyto výsledky jsou pak vidět v přiložených tabulkách.
+
+\begin{figure}[htb!]
+	\begin{center}
+		\epsfig{file=Eref-Laplace-lambda-naeps.eps, height=1.5in}
+		\caption{ Empirická relativní eficience $eref({\lambda}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\lambda$ Laplaceova rozdělení v konvexní směsi	$(1-\varepsilon)L(0,1) + \varepsilon L(0,10)$ pro různá $\alpha$ v závislosti na $\varepsilon$, $n=500$. }
+		\label{fig-erefe-Lap-lambda}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb!]
+	\begin{center}
+		\epsfig{file=Eref-Exp-lambda-naeps.eps, height=1.5in}
+		\caption{ Empirická relativní eficience $eref({\lambda}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\lambda$ exponenciálního rozdělení v konvexní směsi	$(1-\varepsilon)E(0,1) + \varepsilon E(0,10)$ pro různá $\alpha$ v závislosti na $\varepsilon$, $n=500$. }
+		\label{fig-erefe-Exp-lambda}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb!]
+	\begin{center}
+		\epsfig{file=Eref-Cauchy-sigma-naeps.eps, height=1.5in}
+		\caption{ Empirická relativní eficience $eref({\sigma}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\sigma$ Cauchyho rozdělení v konvexní směsi	$(1-\varepsilon)C(0,1) + \varepsilon C(0,10)$ pro různá $\alpha$ v závislosti na $\varepsilon$, $n=500$. }
+		\label{fig-erefe-Cauchy-sigma}
+	\end{center}
+\end{figure}
+
+Na obrázcích \ref{fig-erefe-Lap-lambda}, \ref{fig-erefe-Exp-lambda}, \ref{fig-erefe-Cauchy-sigma} je opět vynesena eficience parametru měřítka, tentokrát pro různá $\alpha$ v závislosti na $\varepsilon$. U Laplaceova rozdělení jsou vidět velmi vysoké hodnoty eficience hlavně pro $\alpha = 1$. Poměrně nečekaný je spíše její pokles u znečištění $\varepsilon = 0.5$, protože by Rényiho odhad měl být robustnější. U zbývajících dvou rozdělení má eficience očekávaný tvar a s rostoucím znečištěním roste. Zatímco u exponenciálního rozdělení se chovají Rényiho odhady pro všechna $\alpha$ velmi podobně, s lepšími výsledky pro hodnoty $\alpha = 0.2, 0.3, 0.5$, u Cauchyho rozdělení je volba $\alpha$ velmi patrná. Se zvyšujícím se $\alpha$ roste robustnost odhadu.
+
+\begin{figure}[htb!]
+	\begin{center}
+		\epsfig{file=Eref-Laplace-mu-naeps.eps, height=1.5in}
+		\caption{ Empirická relativní eficience $eref({\mu}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\lambda$ Laplaceova rozdělení v konvexní směsi	$(1-\varepsilon)L(0,1) + \varepsilon L(0,10)$ pro různá $\alpha$ v závislosti na $\varepsilon$, $n=500$. }
+		\label{fig-erefe-Lap-mu}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb!]
+	\begin{center}
+		\epsfig{file=Eref-Exp-mu-naeps.eps, height=1.5in}
+		\caption{ Empirická relativní eficience $eref({\mu}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\lambda$ exponenciálního rozdělení v konvexní směsi	$(1-\varepsilon)E(0,1) + \varepsilon E(0,10)$ pro různá $\alpha$ v závislosti na $\varepsilon$, $n=500$. }
+		\label{fig-erefe-Exp-mu}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb!]
+	\begin{center}
+		\epsfig{file=Eref-Cauchy-mu-naeps.eps, height=1.5in}
+		\caption{ Empirická relativní eficience $eref({\mu}$) minimálního $\mathfrak{R}_\alpha$-odhadu parametrů  $\mu,\sigma$ Cauchyho rozdělení v konvexní směsi	$(1-\varepsilon)C(0,1) + \varepsilon C(0,10)$ pro různá $\alpha$ v závislosti na $\varepsilon$, $n=500$. }
+		\label{fig-erefe-Cauchy-mu}
+	\end{center}
+\end{figure}
+
+Obrázky \ref{fig-erefe-Lap-mu}, \ref{fig-erefe-Exp-mu}, \ref{fig-erefe-Cauchy-mu} opět ukazují eficienci pro polohu. Pro Laplaceovo rozdělení eficience roste v závislosti na $\varepsilon$ pro všechna $\alpha$. Pro exponenciální rodinu naopak velmi závisí na zvoleném $\alpha$, pro jeho větší hodnoty $\alpha = 0.5, 1$ je dokonce odhad mnohem méně eficientní, než odhad s maximální věrohodností. Eficience se však s různými mírami znečištění nijak zvlášť nemění. V Cauchyho rodině opět na volbě $\alpha$ eficience odhadu závisí velmi. Pro malá $\alpha$ je odhad eficientnější pro měnší znečištění, ale pro velká znečištění se zase mnohem lépe jeví volba $\alpha$ větší. Určitým kompromisem se pak může zdát volba $\alpha = 0.2$.
+
