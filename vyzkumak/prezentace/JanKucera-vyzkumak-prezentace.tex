@@ -59,9 +59,23 @@
 		\begin{equation*}
 			\mathfrak{D} (P_\theta, Q) = \mathfrak{D}^0 (P_\theta) + \mathfrak{D}^1 (Q) + \int \rho_\theta \mathrm{d}Q.
 		\end{equation*}
-		\begin{itemize}
-			\item nepožadujeme trojúhelníkovou nerovnost, ani symetrii
-		\end{itemize}			
+
+			Pozn.: Nepožadujeme trojúhelníkovou nerovnost, ani symetrii
+		
+\end{frame}
+
+\begin{frame}{Rozložitelné pseudovzdálenosti}
+		Řekneme, že $\mathfrak{D}:\mathcal{P} \rightarrow \mathbb{R}$ je \emph{pseudovzdálenost}, pokud platí $\forall P,Q\in\mathcal{P}$
+		\begin{equation*}
+			\mathfrak{D}(P,Q) \geq 0  \qquad \text{a} \qquad \mathfrak{D}(P,Q)=0 \; \Leftrightarrow \; P=Q.
+		\end{equation*}
+		 Tato  pseudovzdálenost je  \emph{rozložitelná} pokud existují funkcionály
+		 $\mathfrak{D}^0:\mathcal{P}\rightarrow\mathbb{R}$, $ \mathfrak{D}^1:\mathcal{\tilde{P}} \rightarrow \mathbb{R}$ a měřitelná
+		  $\rho_\theta : \mathcal{X} \rightarrow \mathbb{R}$, $ \theta \in \Theta$ tak, že $\forall \theta \in \Theta$ a $\forall Q \in \mathcal{\tilde{P}}$ existuje konečná $\int{\rho_\theta }\mathrm{d}Q$ a
+		\begin{equation*}
+			\mathfrak{D} (P_\theta, Q) ={\color{red} \mathfrak{D}^0 (P_\theta) }+ \mathfrak{D}^1 (Q) + {\color{red}\int \rho_\theta \mathrm{d}Q}.
+		\end{equation*}
+		Odhad s minimální vzdáleností {\color{red}minimalizuje}
 \end{frame}
 
 %\begin{frame}
@@ -71,12 +85,12 @@
 %	\end{itemize}
 %\end{frame}
 
-\begin{frame}{Odhady s minimální vzdáleností}
-	Funkcionál $T_\mathfrak{D}:\mathcal{\tilde{P}} \rightarrow \Theta$ definuje odhad s minimální vzdáleností, pokud  $\mathfrak{D}(P_\theta,Q)$ je rozložitelná a $T_\mathfrak{D}(Q) \in \Theta$ minimalizuje   
-	\begin{equation*}
-		T_\mathfrak{D}(Q) = \arg \min_{\theta \in \Theta} \left[ \mathfrak{D}^0 (P_\theta) + \int \rho_\theta \mathrm{d}Q \right], \quad \forall Q \in \mathcal{\tilde{P}}
-	\end{equation*}
-\end{frame}
+%\begin{frame}{Odhady s minimální vzdáleností}
+%	Funkcionál $T_\mathfrak{D}:\mathcal{\tilde{P}} \rightarrow \Theta$ definuje odhad s minimální vzdáleností, pokud  $\mathfrak{D}(P_\theta,Q)$ je rozložitelná a $T_\mathfrak{D}(Q) \in \Theta$ minimalizuje   
+%	\begin{equation*}
+%		T_\mathfrak{D}(Q) = \arg \min_{\theta \in \Theta} \left[ \mathfrak{D}^0 (P_\theta) + \int \rho_\theta \mathrm{d}Q \right], \quad \forall Q \in \mathcal{\tilde{P}}
+%	\end{equation*}
+%\end{frame}
 
 \section{Rényiho pseudovzdálenosti} % ************************************************ RENYI PSEUDO-DISTANCE
 
@@ -189,53 +203,53 @@ Pokud nahradíme $Q$ empirickou distribuční funkcí $P_n$, dostáváme
 \end{frame}
 
 \subsection{Laplaceovo rozdělení}    %%%%%%%%%%%%%%    LAPLACE    ********************************************************************************
-\begin{frame}{Laplaceovo rozdělení}
-
-		{\footnotesize \[p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}},\qquad		\theta_{\mathfrak{R}_\alpha,n} = \amtiT (2\lambda)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\lambda} \right] \]}
-\begin{table}[htb] \tiny
-\begin{center}
-\begin{tabular}{ccc}
-	\begin{tabular}{|c|ccc|}
-	\hline
-	$\alpha\backslash n$ &&  $500$ & \\
-	\hline
-	& $m(\mu)$ & $s(\mu)$ & $eref(\mu)$ \\
-	& $m(\lambda)$ & $s(\lambda)$ & $eref(\lambda)$ \\
-	\hline
-	$0.0$ & $ -0.005 $ & $ 0.071 $ & $ 1.000 $\\
-	 & $ 4.593 $ & $ 3.617 $ & $ 1.000 $\\
-	\hline
-	$0.05$ & $ -0.000 $ & $ 0.071 $ & $ 1.018 $\\
-	 & $ 4.168 $ & $ 3.192 $ & $ 1.284 $\\
-	\hline
-	$0.1$ & $ 0.003 $ & $ 0.066 $ & $ 1.163 $\\
-	 & $ 3.719 $ & $ 2.741 $ & $ 1.742 $\\
-	\hline
-	$0.2$ & $ -0.002 $ & $ 0.068 $ & $ 1.098 $\\
-	 & $ 2.888 $ & $ 1.914 $ & $ 3.570 $\\
-	\hline
-	$0.3$ & $ -0.004 $ & $ 0.068 $ & $ 1.108 $\\
-	 & $ 2.215 $ & $ 1.241 $ & $ 8.490 $\\
-	\hline
-	$0.5$ & $ 0.001 $ & $ 0.069 $ & $ 1.056 $\\
-	 & $ 1.546 $ & $ 0.568 $ & $ 40.516 $\\
-	\hline
-	$1.0$ & $ 0.003 $ & $ 0.074 $ & $ 0.927 $\\
-	 & $ 1.221 $ & $ 0.256 $ & $ 199.663 $\\
-	\hline
-	\end{tabular}
-&&
-	\begin{tabular}{c}
-		\includegraphics[width=2in]{Laplace-e04-eref.pdf}
-	\end{tabular}
-\\
-\end{tabular}
-\end{center}
-\caption{\footnotesize R\'{e}nyi: $p_\theta = \mathrm{L}(0,1)$, data: $(1-\varepsilon)\mathrm{L}(0,1) + \varepsilon \mathrm{L}(0,10)$, $\varepsilon =  0.4$}
-\label{tabJK:laplace-eref}
-\end{table}
-
-\end{frame}
+%\begin{frame}{Laplaceovo rozdělení}
+%
+%{\footnotesize \[p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}},\qquad		\theta_{\mathfrak{R}_\alpha,n} = \amtiT (2\lambda)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\lambda} \right] \]}
+%\begin{table}[htb] \tiny
+%\begin{center}
+%\begin{tabular}{ccc}
+%	\begin{tabular}{|c|ccc|}
+%	\hline
+%	$\alpha\backslash n$ &&  $500$ & \\
+%	\hline
+%	& $m(\mu)$ & $s(\mu)$ & $eref(\mu)$ \\
+%	& $m(\lambda)$ & $s(\lambda)$ & $eref(\lambda)$ \\
+%	\hline
+%	$0.0$ & $ -0.005 $ & $ 0.071 $ & $ 1.000 $\\
+%	 & $ 4.593 $ & $ 3.617 $ & $ 1.000 $\\
+%	\hline
+%	$0.05$ & $ -0.000 $ & $ 0.071 $ & $ 1.018 $\\
+%	 & $ 4.168 $ & $ 3.192 $ & $ 1.284 $\\
+%	\hline
+%	$0.1$ & $ 0.003 $ & $ 0.066 $ & $ 1.163 $\\
+%	 & $ 3.719 $ & $ 2.741 $ & $ 1.742 $\\
+%	\hline
+%	$0.2$ & $ -0.002 $ & $ 0.068 $ & $ 1.098 $\\
+%	 & $ 2.888 $ & $ 1.914 $ & $ 3.570 $\\
+%	\hline
+%	$0.3$ & $ -0.004 $ & $ 0.068 $ & $ 1.108 $\\
+%	 & $ 2.215 $ & $ 1.241 $ & $ 8.490 $\\
+%	\hline
+%	$0.5$ & $ 0.001 $ & $ 0.069 $ & $ 1.056 $\\
+%	 & $ 1.546 $ & $ 0.568 $ & $ 40.516 $\\
+%	\hline
+%	$1.0$ & $ 0.003 $ & $ 0.074 $ & $ 0.927 $\\
+%	 & $ 1.221 $ & $ 0.256 $ & $ 199.663 $\\
+%	\hline
+%	\end{tabular}
+%&&
+%	\begin{tabular}{c}
+%		\includegraphics[width=2in]{Laplace-e04-eref.pdf}
+%	\end{tabular}
+%\\
+%\end{tabular}
+%\end{center}
+%\caption{\footnotesize R\'{e}nyi: $p_\theta = \mathrm{L}(0,1)$, data: $(1-\varepsilon)\mathrm{L}(0,1) + \varepsilon \mathrm{L}(0,10)$, $\varepsilon =  0.4$}
+%\label{tabJK:laplace-eref}
+%\end{table}
+%
+%\end{frame}
 
 \begin{frame}{Influenční funkce pro Laplaceovo rozdělení.}
 
@@ -376,61 +390,65 @@ Pokud nahradíme $Q$ empirickou distribuční funkcí $P_n$, dostáváme
 %\end{table}
 %\end{frame}
 
-\subsection{Weibullovo rozdělení}
-\begin{frame}{Weibullovo rozdělení} %%%%%%%%%%%%%%     WEIBULL     *******************************************************
-	\begin{equation*}
-		p_\theta =  \frac{k}{\lambda} \left( \frac{x-\mu}{\lambda} \right)^{k-1} \exp \left[ -\left( \frac{x-\mu}{\lambda} \right)^k \right] 
-	\end{equation*}
-	\begin{eqnarray}
-		\theta_{\mathfrak{R}_\alpha,n} & = & \amtiT \left( \frac{k}{\lambda} \right)^\fa (1+\alpha)^{\fa\frac{1+\alpha+k}{k}} \Gamma\left(\frac{1+\alpha+k}{k}\right)^{-\fa} \nonumber \\
-							&& \frac{1}{n}\sum_{i=1}^n \left( \frac{x_i-\mu}{\lambda}\right)^{\alpha(k-1)} \exp\left[-\alpha \left(\frac{x_i-\mu}{\lambda}\right)^k\right] \nonumber
-	\end{eqnarray}
+%\subsection{Weibullovo rozdělení}
+%\begin{frame}{Weibullovo rozdělení} %%%%%%%%%%%%%%     WEIBULL     *******************************************************
+%	\begin{equation*}
+%		p_\theta =  \frac{k}{\lambda} \left( \frac{x-\mu}{\lambda} \right)^{k-1} \exp \left[ -\left( \frac{x-\mu}{\lambda} \right)^k \right] 
+%	\end{equation*}
+%	\begin{eqnarray}
+%		\theta_{\mathfrak{R}_\alpha,n} & = & \amtiT \left( \frac{k}{\lambda} \right)^\fa (1+\alpha)^{\fa\frac{1+\alpha+k}{k}} \Gamma\left(\frac{1+\alpha+k}{k}\right)^{-\fa} \nonumber \\
+%							&& \frac{1}{n}\sum_{i=1}^n \left( \frac{x_i-\mu}{\lambda}\right)^{\alpha(k-1)} \exp\left[-\alpha \left(\frac{x_i-\mu}{\lambda}\right)^k\right] \nonumber
+%	\end{eqnarray}
+%\end{frame}
+%
+%%\begin{frame}
+%\begin{table}[ht] \footnotesize 
+%\begin{center} 
+%\begin{tabular}{cc}
+%\begin{tabular}{|c|ccc|} 
+%\hline 
+%$\alpha\backslash n$ &&  $500$ & \\ 
+%\hline 
+%& $m(\lambda)$ & $s(\lambda)$ & $eref(\lambda)$ \\ 
+%\hline 
+%$0.0$ & $ 4.713 $ & $ 0.387 $ & $ 1.000 $\\ 
+%\hline 
+%$0.01$ & $ 4.568 $ & $ 0.364 $ & $ 1.130 $\\ 
+%\hline 
+%$0.05$ & $ 4.149 $ & $ 0.373 $ & $ 1.077 $\\ 
+%\hline 
+%$0.1$ &$ 3.511 $ & $ 0.383 $ & $ 1.020 $\\ 
+%\hline 
+%$0.15$ & $ 2.574 $ & $ 0.428 $ & $ 0.815 $\\ 
+%\hline 
+%$0.2$ & $ 1.664 $ & $ 0.261 $ & $ 2.201 $\\ 
+%\hline 
+%$0.3$ &  $ 1.226 $ & $ 0.076 $ & $ 25.766 $\\ 
+%\hline 
+%$0.5$ & $ 1.096 $ & $ 0.057 $ & $ 46.725 $\\ 
+%\hline 
+%$1.0$ & $ 1.043 $ & $ 0.055 $ & $ 49.962 $\\ 
+%\hline 
+%\end{tabular}
+%&
+%\end{tabular}
+%\caption{Renyi: $p = \mathrm{W}(1.5,1)$, data: $(1-\varepsilon)\mathrm{W}(1.5,1) + \varepsilon \mathrm{W}(1.5,10)$, $\varepsilon =  0.3$, $K = 1000$} 
+%\end{center}
+%\end{table}
+%\end{frame}
+%
+\section{}
+\begin{frame}{Shrnutí}
+	Rényiho pseudovzdálenosti
+	\begin{itemize}
+		\item B-robustní		
+		\item robustní vůči outlierům
+  		\item poměrně jednoduše minimalizovatelná funkce
+		
+	\end{itemize}
 \end{frame}
 
-\begin{frame}
-\begin{table}[ht] \footnotesize 
-\begin{center} 
-\begin{tabular}{cc}
-\begin{tabular}{|c|ccc|} 
-\hline 
-$\alpha\backslash n$ &&  $500$ & \\ 
-\hline 
-& $m(\lambda)$ & $s(\lambda)$ & $eref(\lambda)$ \\ 
-\hline 
-$0.0$ & $ 4.713 $ & $ 0.387 $ & $ 1.000 $\\ 
-\hline 
-$0.01$ & $ 4.568 $ & $ 0.364 $ & $ 1.130 $\\ 
-\hline 
-$0.05$ & $ 4.149 $ & $ 0.373 $ & $ 1.077 $\\ 
-\hline 
-$0.1$ &$ 3.511 $ & $ 0.383 $ & $ 1.020 $\\ 
-\hline 
-$0.15$ & $ 2.574 $ & $ 0.428 $ & $ 0.815 $\\ 
-\hline 
-$0.2$ & $ 1.664 $ & $ 0.261 $ & $ 2.201 $\\ 
-\hline 
-$0.3$ &  $ 1.226 $ & $ 0.076 $ & $ 25.766 $\\ 
-\hline 
-$0.5$ & $ 1.096 $ & $ 0.057 $ & $ 46.725 $\\ 
-\hline 
-$1.0$ & $ 1.043 $ & $ 0.055 $ & $ 49.962 $\\ 
-\hline 
-\end{tabular}
-&
-\end{tabular}
-\caption{Renyi: $p = \mathrm{W}(1.5,1)$, data: $(1-\varepsilon)\mathrm{W}(1.5,1) + \varepsilon \mathrm{W}(1.5,10)$, $\varepsilon =  0.3$, $K = 1000$} 
-\end{center}
-\end{table}
-\end{frame}
-%
-%\section{}
-%\begin{frame}{Conclusion}
-%	Rényi pseudo-distance
-%	\begin{itemize}
-%		\item can filter out outliers when distribution is poluted with another distribution with heavier tail
-%		
-%	\end{itemize}
-%\end{frame}
+
 
 \begin{frame}
 	\begin{center}
