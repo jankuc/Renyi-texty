@@ -18,7 +18,7 @@
 \author{Bc. Jan Kučera}
 \title{Robustnost Rényiho odhadů hustot pravděpodobnosti}
 \institute{FJFI, ČVUT\\ $\quad$  \\ Vedoucí práce: Ing. Václav Kůs Ph.D.}
-\date{26.6.2012}
+\date{6.9.2012}
 
 \newcommand{\intpa}{\int p_\theta^{1+\alpha}(x) \, \mathrm{d}x }
 \newcommand{\fn}{\frac{1}{n} \sum_{i=1}^n p_{\theta}^{\alpha}\left( x_i \right)}
@@ -34,24 +34,26 @@
 	\maketitle
 \end{frame}
 
-\begin{frame}{Table of contents}
+\begin{frame}{Obsah}
     	\tableofcontents
 \end{frame}
 
 %
-%\begin{frame}
-%	Let $\mathcal{P} = \lbrace P_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$ be set of probability measures on $\left(\mathcal{X},\mathcal{A}\right)$. \\
-%	Let $Q$ probability measure on $\left(\mathcal{X},\mathcal{A}\right)$. \\
-%	Let $X_1,\ldots,X_n$ be i.i.d observations governed by convex mixtures $\tilde{P} = (1-\epsilon) P_\theta + \epsilon Q$. We denote $\mathcal{\tilde{P}} = \mathcal{P} \cup \lbrace \tilde{P} \rbrace$
-%\end{frame}
+\begin{frame}{Značení}
+\begin{description}
+	\item[$\mathcal{P} = \lbrace P_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$] je množina distribučních funkcí na  $\left(\mathcal{X},\mathcal{A}\right)$ charakterizující použitý model
+	\item[$X_1,\ldots,X_n$] je náhodný výběr z rozdělení $\tilde{P}$. Nepožadujeme, aby platilo $\tilde{P} \in \mathcal{P}$.
+	\item[$\mathcal{\tilde{P}}$] = $\mathcal{P} \cup \lbrace \tilde{P} \rbrace$
+\end{description}
+\end{frame}
 
 \section{Rozložitelné pseudovzdálenosti} %******************************************** PSEUDO-DISTANCE
 \begin{frame}{Rozložitelné pseudovzdálenosti}
-		Řekneme, že $\mathfrak{D}:\mathcal{P} \rightarrow \mathbb{R}$ je pseudovzdálenost, pokud platí $\forall P,Q\in\mathcal{P}$
+		Řekneme, že $\mathfrak{D}:\mathcal{P} \rightarrow \mathbb{R}$ je \emph{pseudovzdálenost}, pokud platí $\forall P,Q\in\mathcal{P}$
 		\begin{equation*}
 			\mathfrak{D}(P,Q) \geq 0  \qquad \text{a} \qquad \mathfrak{D}(P,Q)=0 \; \Leftrightarrow \; P=Q.
 		\end{equation*}
-		 Tato  pseudovzdálenost je  rozložitelná pokud existují funkcionály
+		 Tato  pseudovzdálenost je  \emph{rozložitelná} pokud existují funkcionály
 		 $\mathfrak{D}^0:\mathcal{P}\rightarrow\mathbb{R}$, $ \mathfrak{D}^1:\mathcal{\tilde{P}} \rightarrow \mathbb{R}$ a měřitelná
 		  $\rho_\theta : \mathcal{X} \rightarrow \mathbb{R}$, $ \theta \in \Theta$ tak, že $\forall \theta \in \Theta$ a $\forall Q \in \mathcal{\tilde{P}}$ existuje konečná $\int{\rho_\theta }\mathrm{d}Q$ a
 		\begin{equation*}
@@ -93,7 +95,7 @@
 	\end{equation*}
 	Navíc pro $\alpha \searrow 0$
 	\begin{equation*}
-		\mathcal{R}_0 (P,Q) = \int{\left( \ln{q} - \ln{p} \right)\mathrm{d}Q}
+		\mathcal{R}_0 (P,Q) = \int{\left( \ln{q} - \ln{p} \right)\mathrm{d}Q}.
 	\end{equation*}
 \end{frame}
 
@@ -125,157 +127,6 @@ Pokud nahradíme $Q$ empirickou distribuční funkcí $P_n$, dostáváme
 \end{frame}
 
 \section{Aplikace pro konkrétní rozdělení}
-%\subsection{Normální rozdělení}   %%%%%%%%%%%%%%    NORMAL    ********************************************************************************
-%\begin{frame}{Normální rozdělení}
-%	\begin{equation*}
-%		p_\theta = \frac{1}{\sqrt{2\pi\sigma^2}}\exp{\left[ -\frac{(x-\mu)^2}{2\sigma} \right]}
-%	\end{equation*}
-%	\begin{equation*}
-%		\theta_{\mathfrak{R}_\alpha,n} = \amtiT \frac{1}{n\sigma^{\frac{\alpha}{1+\alpha}}} \sum_{i=1}^n \exp \left[ -\alpha \frac{(x_i - \mu)^2}{2\sigma^2} \right]		
-%	\end{equation*}
-%\end{frame}
-%
-%\begin{frame}
-%	Rényiho pseudovzdálenost v parametrickém prostoru:
-%	\begin{figure}[htb!]
-%	\begin{center}
-%		\includegraphics[width = 3in]{L01-L010-distance-e03-a03_mark2.pdf}
-%		\caption{Ukázka hodnot Rényiho pseudovzdálenosti s parametrem $\alpha = 0.3$ v Laplaceově modelu. Data jsou generována jako konvexní směs Laplaceových distribucí $0.7\mathrm{L}(0,1) + 0.3 \mathrm{L}(0,10)$.}
-%		\label{fig-distanceL}
-%	\end{center}
-%\end{figure}
-%
-%\end{frame}
-%
-%\begin{frame}
-%	\begin{equation*}
-%		\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu ) e^{-\frac{\alpha}{2} (x-\mu )^2} 
-%	\end{equation*}
-%	\begin{center}
-%		\includegraphics[width = 4in]{IF-Normal-mu.png}			
-%	\end{center}
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\begin{equation*}
-%		\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\sigma) = \frac{(1+\alpha)^\frac{5}{2}\sigma}{2} \left(\left(\frac{x}{\sigma} \right)^2 - \frac{1}{1+\alpha} \right) e^{ -\frac{\alpha x^2}{2\sigma^2}}
-%	\end{equation*}
-%	\begin{center}
-%		\includegraphics[width = 4in]{IF-Normal-sigma.png}			
-%	\end{center}
-%\end{frame}
-%
-%\begin{frame}
-%	$\lim_{x\rightarrow \pm\infty}\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0 $ \\
-%	$\rightarrow$ odhad je v limitě robustní proti outlierům \\
-%	$\sup_{x}{|\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot)|}$   je konečné \\
-%		$\rightarrow$ odhad je B-robustní
-%
-%\end{frame}
-%
-%\begin{frame} 
-%\begin{table}[ht] \footnotesize 
-%\begin{center} 
-%\begin{tabular}{|c|ccc|} 
-%\hline 
-%$\alpha\backslash n$ &&  $500$ & \\ 
-%\hline 
-%& $m(\mu)$ & $s(\mu)$ & $eref(\mu)$  \\ 
-%& $m(\sigma)$ & $s(\sigma)$ & $eref(\sigma)$ \\ 
-%\hline 
-%$0.0$ & $ 0.000 $ & $ 0.037 $ & $ 1.000 $\\ 
-% & $ 1.672 $ & $ 0.051 $ & $ 1.000 $\\ 
-%\hline 
-%$0.01$ &  $ -0.000 $ & $ 0.037 $ & $ 1.032 $\\ 
-% & $ 1.652 $ & $ 0.050 $ & $ 1.031 $\\ 
-%\hline 
-%$0.05$ &  $ 0.001 $ & $ 0.033 $ & $ 1.248 $\\ 
-% &$ 1.572 $ & $ 0.046 $ & $ 1.244 $\\ 
-%\hline 
-%$0.1$ & $ -0.000 $ & $ 0.031 $ & $ 1.426 $\\ 
-% &  $ 1.478 $ & $ 0.041 $ & $ 1.560 $\\ 
-%\hline 
-%$0.2$ & $ -0.000 $ & $ 0.029 $ & $ 1.650 $\\ 
-% & $ 1.333 $ & $ 0.035 $ & $ 2.097 $\\ 
-%\hline 
-%$0.5$ & $ -0.000 $ & $ 0.028 $ & $ 1.733 $\\ 
-% &  $ 1.156 $ & $ 0.028 $ & $ 3.295 $\\ 
-%\hline 
-%\end{tabular}
-%\caption{Renyi: $p = \mathrm{N}(0,1)$, data: $(1-\varepsilon)\mathrm{N}(0,1) + \varepsilon \mathrm{N}(0,10)$, $\varepsilon =  0.2$, $K = 10000$} 
-%\end{center}
-%\end{table}
-%\end{frame}
-%
-%\begin{frame}
-%	\begin{table}[ht] \footnotesize 
-%\begin{center} 
-%\begin{tabular}{|c|ccc|} 
-%\hline 
-%$\alpha\backslash n$ &&  $500$ & \\ 
-%\hline 
-%& $m(\mu)$ & $s(\mu)$ & $eref(\mu)$ \\ 
-%& $m(\sigma)$ & $s(\sigma)$ & $eref(\sigma)$\\ 
-%\hline 
-%$0.0$ & $ -0.000 $ & $ 0.021 $ & $ 1.000 $\\ 
-% & $ 0.949 $ & $ 0.016 $ & $ 1.000 $\\ 
-%\hline 
-%$0.01$ &  $ -0.000 $ & $ 0.021 $ & $ 1.002 $\\ 
-% &  $ 0.949 $ & $ 0.016 $ & $ 0.969 $\\ 
-%\hline 
-%$0.05$ & $ 0.001 $ & $ 0.021 $ & $ 0.991 $\\ 
-% &  $ 0.945 $ & $ 0.016 $ & $ 0.967 $\\ 
-%\hline 
-%$0.1$ & $ 0.000 $ & $ 0.021 $ & $ 0.990 $\\ 
-% & $ 0.942 $ & $ 0.017 $ & $ 0.889 $\\ 
-%\hline 
-%$0.2$ &  $ -0.001 $ & $ 0.021 $ & $ 1.032 $\\ 
-% & $ 0.931 $ & $ 0.017 $ & $ 0.865 $\\ 
-%\hline 
-%$0.5$ &  $ -0.000 $ & $ 0.021 $ & $ 0.998 $\\ 
-% & $ 0.905 $ & $ 0.020 $ & $ 0.641 $\\ 
-%\hline 
-%\end{tabular}
-%\caption{Renyi: $p = \mathrm{N}(0,1)$, data: $0.9\mathrm{N}(0,1) + 0.1\mathrm{N}_{0.1x}(0,1)$, $K = 1000$} 
-%\end{center}
-%\end{table}
-%\end{frame}
-%
-%\begin{frame}
-%\begin{table}[ht] \footnotesize 
-%\begin{center} 
-%\begin{tabular}{|c|ccc|} 
-%\hline 
-%$\alpha\backslash n$ &&  $500$ & \\ 
-%\hline 
-%& $m(\mu)$ & $s(\mu)$ & $eref(\mu)$ \\ 
-%& $m(\sigma)$ & $s(\sigma)$ & $eref(\sigma)$ \\ 
-%\hline 
-%$0.0$ & $ -0.002 $ & $ 0.075 $ & $ 1.000 $\\ 
-% &  $ 3.294 $ & $ 0.231 $ & $ 1.000 $\\ 
-%\hline 
-%$0.01$& $ -0.000 $ & $ 0.065 $ & $ 1.327 $\\ 
-% & $ 3.104 $ & $ 0.220 $ & $ 1.103 $\\ 
-%\hline 
-%$0.05$ & $ 0.001 $ & $ 0.040 $ & $ 3.489 $\\ 
-% &  $ 2.118 $ & $ 0.189 $ & $ 1.493 $\\ 
-%\hline 
-%$0.1$ &  $ 0.001 $ & $ 0.026 $ & $ 8.356 $\\ 
-% & $ 1.277 $ & $ 0.053 $ & $ 18.986 $\\ 
-%\hline 
-%$0.2$ &  $ 0.000 $ & $ 0.025 $ & $ 8.796 $\\ 
-% & $ 1.087 $ & $ 0.024 $ & $ 91.365 $\\ 
-%\hline 
-%$0.5$ &$ -0.000 $ & $ 0.026 $ & $ 8.390 $\\ 
-% & $ 1.029 $ & $ 0.021 $ & $ 123.291 $\\ 
-%\hline 
-%\end{tabular}
-%\caption{Renyi: $p = \mathrm{N}(0,1)$, data: $0.9\mathrm{N}(0,1) + 0.1\mathrm{N}_{10.0x}(0,1)$, $K = 1000$} 
-%\end{center}
-%\end{table}
-%\end{frame}
-
 \subsection{Cauchyho rozdělení}    %%%%%%%%%%%%%%    CAUCHY    ********************************************************************************
 \begin{frame}{Cauchyho rozdělení}
 
@@ -326,17 +177,16 @@ Pokud nahradíme $Q$ empirickou distribuční funkcí $P_n$, dostáváme
 \end{frame}
 
 
-
-%	\begin{equation*}
-%		p_\theta = \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x-\mu}{\sigma} \right)^2 \right)^{-1}
-%	\end{equation*}
-%	\begin{equation*}
-%		\theta_{\mathfrak{R}_\alpha,n} = \amtiT \sigma^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \nonumber
-%	\end{equation*}
-%	\begin{equation*}
-%		\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \sqrt{\pi}\frac{\Gamma\left( 3 + \alpha \right)}{\Gamma\left( \frac{3}{2} + \alpha \right)} \left( \frac{1}{1 + (x-\mu)^2}\right)^{1+\alpha}(x-\mu) 
-%	\end{equation*}
-%\end{frame}
+\begin{frame}
+	\begin{figure}
+		\includegraphics[width=2.5in]{L01-L010-distance-e03-a03_mark2.pdf}
+		\caption{Rényiho pseudovzdálenost v Cauchyho modelu pro data tvořená jako směs $0.7\mathrm{C}(0,1) + 0.3\mathrm{C}(0,10)$, $\alpha = 0.3.$}
+	\end{figure}
+	\begin{itemize}
+		\item globální minimum
+		\item jednoduchá minimalizace pomocí algoritmů typu "hill climber"
+	\end{itemize}
+\end{frame}
 
 \subsection{Laplaceovo rozdělení}    %%%%%%%%%%%%%%    LAPLACE    ********************************************************************************
 \begin{frame}{Laplaceovo rozdělení}
@@ -387,65 +237,32 @@ Pokud nahradíme $Q$ empirickou distribuční funkcí $P_n$, dostáváme
 
 \end{frame}
 
-%\begin{frame}
-%	\begin{equation*}
-%		\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}% IF(x,mu)
-%	\end{equation*}
-%
-%	\begin{center}
-%		\includegraphics[width = 3.1in]{IF-Laplace-mu.png}			
-%	\end{center}
-%\end{frame}
-%
-%\begin{frame}
-%	\begin{equation*}
-%		\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = (1 + \alpha)^2 \left(-\lambda + (1 + \alpha)|x|\right)  e^{-\frac{\alpha|x|}{\lambda}}	 % IF(x,sigma)
-%	\end{equation*}
-%	\begin{center}
-%		\includegraphics[width = 3.1in]{IF-Laplace-sigma.png}			
-%	\end{center}
-%\end{frame}
-%
-%\begin{frame}
-%\begin{table}[ht] \tiny 
-%\begin{center} 
-%\begin{tabular}{|c|ccc|} 
-%\hline 
-%$\alpha\backslash n$ &&  $500$ & \\ 
-%\hline 
-%& $m(\mu)$ & $s(\mu)$ & $eref(\mu)$ \\ 
-%& $m(\lambda)$ & $s(\lambda)$ & $eref(\lambda)$ \\ 
-%\hline 
-%$0.0$ & $ 0.000 $ & $ 0.065 $ & $ 1.000 $\\ 
-% & $ 3.723 $ & $ 0.355 $ & $ 1.000 $\\ 
-%\hline 
-%$0.01$ & $ 0.003 $ & $ 0.063 $ & $ 1.090 $\\ 
-% & $ 3.593 $ & $ 0.338 $ & $ 1.102 $\\ 
-%\hline 
-%$0.05$ &  $ 0.002 $ & $ 0.063 $ & $ 1.063 $\\ 
-% &  $ 3.239 $ & $ 0.306 $ & $ 1.348 $\\ 
-%\hline 
-%$0.1$ &  $ -0.002 $ & $ 0.062 $ & $ 1.118 $\\ 
-% &  $ 2.796 $ & $ 0.285 $ & $ 1.556 $\\ 
-%\hline 
-%$0.2$  & $ 0.000 $ & $ 0.062 $ & $ 1.105 $\\ 
-% & $ 2.059 $ & $ 0.205 $ & $ 3.005 $\\ 
-%\hline 
-%$0.3$ & $ -0.003 $ & $ 0.060 $ & $ 1.198 $\\ 
-% &  $ 1.626 $ & $ 0.154 $ & $ 5.326 $\\ 
-%\hline 
-%$0.5$ &  $ 0.000 $ & $ 0.058 $ & $ 1.267 $\\ 
-% &  $ 1.300 $ & $ 0.108 $ & $ 10.756 $\\ 
-%\hline 
-%$1.0$ &  $ -0.001 $ & $ 0.068 $ & $ 0.932 $\\ 
-% &  $ 1.126 $ & $ 0.110 $ & $ 10.386 $\\ 
-%\hline 
-%\end{tabular}
-%\caption{Renyi: $p = \mathrm{L}(0,1)$, data: $(1-\varepsilon)\mathrm{L}(0,1) + \varepsilon \mathrm{L}(0,10)$, $\varepsilon =  0.3$, $K = 1000$} 
-%\end{center}
-%\end{table}
-%\end{frame}
-%
+\begin{frame}{Influenční funkce pro Laplaceovo rozdělení.}
+
+{\footnotesize\[\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}\]}
+{\footnotesize\[\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = (1 + \alpha)^2 \left(-\lambda + (1 + \alpha)|x|\right)  e^{-\frac{\alpha|x|}{\lambda}}\]}
+\vspace*{-0.3in}	
+\begin{figure}[htb]
+\begin{tabular}{lr}
+	\includegraphics[width=1.7in]{Laplace-IF-mu.pdf}
+	&
+	\includegraphics[width=1.7in]{Laplace-IF-lambda.pdf}
+	\\
+	{\footnotesize $\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\widehat{\mu} = 0) $, $\lambda = 1$}
+	&
+	{\footnotesize $\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\widehat{\lambda} = 1)$, $\mu = 0$}
+	\\
+\end{tabular}
+\end{figure}
+\vspace*{-0.1in}	
+{\footnotesize Pro $\alpha> 0$}
+\begin{itemize}
+	\item {\footnotesize Omezené $\rightarrow$ B-robustní}
+	\item {\footnotesize$\lim_{x\rightarrow \infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0 \; \rightarrow$ Robustní proti outlierům}
+\end{itemize}
+
+
+\end{frame}
 
 
 \subsection{Exponencíální rozdělení}
@@ -502,8 +319,8 @@ Pokud nahradíme $Q$ empirickou distribuční funkcí $P_n$, dostáváme
 	\caption{ Rényiho pseudovzdálenost v exponenciálním modelu pro data tvořená jako směs $0.5\mathrm{E}(0,1) + 0.5\mathrm{E}(10,1)$, $\alpha = 0.5.$}
 \end{figure}
 \begin{itemize}
-	\item asymetrie vzdálenosti 
-	\item lokální minimum
+	\item asymetrická vzdálenost 
+	\item problém více lokálních extrémů
 \end{itemize}
 \end{frame}
 
@@ -573,6 +390,7 @@ Pokud nahradíme $Q$ empirickou distribuční funkcí $P_n$, dostáváme
 \begin{frame}
 \begin{table}[ht] \footnotesize 
 \begin{center} 
+\begin{tabular}{cc}
 \begin{tabular}{|c|ccc|} 
 \hline 
 $\alpha\backslash n$ &&  $500$ & \\ 
@@ -597,6 +415,8 @@ $0.5$ & $ 1.096 $ & $ 0.057 $ & $ 46.725 $\\
 \hline 
 $1.0$ & $ 1.043 $ & $ 0.055 $ & $ 49.962 $\\ 
 \hline 
+\end{tabular}
+&
 \end{tabular}
 \caption{Renyi: $p = \mathrm{W}(1.5,1)$, data: $(1-\varepsilon)\mathrm{W}(1.5,1) + \varepsilon \mathrm{W}(1.5,10)$, $\varepsilon =  0.3$, $K = 1000$} 
 \end{center}
