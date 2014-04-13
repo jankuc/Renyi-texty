@@ -1,0 +1,252 @@
+\documentclass[11pt,a4paper,oneside]{book}
+
+%% Nastavení zrcadla sazby
+\usepackage{calc}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6in}
+\setlength\oddsidemargin{(\paperwidth-\textwidth)/2 - 1in}
+\setlength\evensidemargin{(\paperwidth-\textwidth)/2 - 1in}
+\setlength\topmargin{(\paperheight-\textheight-\headheight-\headsep-\footskip)/2 - 1in}
+
+%% Balíčky/nastavení pro sazbu českého textu
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%% AMSLaTeX
+\usepackage{amsmath,amsthm,amssymb}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 1. STRANA (DESKY)
+
+\thispagestyle{empty}
+
+\begin{center}
+
+{\Large ČESKÉ VYSOKÉ UČENÍ TECHNICKÉ V PRAZE} \\[3.5mm]
+{\Large Fakulta jaderná a fyzikálně inženýrská}
+
+\vspace{\stretch{1}}
+
+{\Huge\textbf{DIPLOMOVÁ PRÁCE}}
+
+\vspace{\stretch{1}}
+
+{\Large \hspace*{1cm} 2008 \hfill Jméno Příjmení \hspace*{1cm}}
+
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TITULNÍ STRANA PRÁCE
+
+\newpage
+
+\thispagestyle{empty}
+
+\begin{center}
+
+{\Large ČESKÉ VYSOKÉ UČENÍ TECHNICKÉ V PRAZE} \\[3.5mm]
+{\Large Fakulta jaderná a fyzikálně inženýrská} \\[3.5mm]
+{\Large Katedra matematiky}
+
+\vspace{\stretch{0.75}}
+
+{\Large DIPLOMOVÁ PRÁCE}
+
+\vspace{\stretch{0.5}}
+
+{\LARGE
+\textbf{Název diplomové práce}
+\par}
+
+\vspace{1cm}
+
+{\LARGE
+\textbf{Title of the thesis}
+\par}
+
+\vspace{\stretch{1.25}}
+
+\end{center}
+
+\begin{tabular}{ll} 
+{\Large Posluchač:} & {\Large Jméno Příjmení} \\[1mm]
+{\Large \v{S}kolitel:} & {\Large Jméno Příjmení} \\[2mm]
+{\Large Akademický rok:}     & {\Large xxxx/xxxx}
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ZADÁNÍ PRÁCE
+
+\newpage
+
+\thispagestyle{empty}
+
+\noindent
+{\Large
+Na toto místo přijde svázat \textbf{zadání diplomové práce}!\\
+V jednom z výtisků musí být \textbf{originál} zadání, v ostatních kopie.\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ČESTNÉ PROHLÁŠENÍ
+
+\newpage
+
+\thispagestyle{empty}
+
+\vspace*{\stretch{1}}
+
+\noindent{\bf Čestné prohlášení}
+
+\vspace{0.5cm}
+
+Prohlašuji na tomto místě, že jsem předloženou práci vypracoval samostatně 
+a že jsem uvedl veškerou použitou literaturu.
+
+\vspace{1.5cm}
+
+\noindent
+\begin{minipage}[b]{5cm}
+V Praze dne \today
+\end{minipage}
+\hfill
+\begin{minipage}[t]{5cm}
+\begin{center}
+\dotfill\\
+Jméno Příjmení
+\end{center}
+\end{minipage}
+
+\vspace*{2cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CZ/EN ABSTRAKTY A KLÍČOVÁ SLOVA
+
+\newpage
+
+\thispagestyle{empty}
+
+{
+\setlength{\parindent}{0pt}
+
+\textit{Název práce:}
+\textbf{Zde vložte název práce} \\
+
+\textit{Autor:} Jméno Příjmení \\
+
+\textit{Obor:} Matematické inženýrství / Inženýrská informatika \\
+
+\textit{Zaměření:} Matematické modelování / Softwarové inženýrství a matematická informatika / Tvorba softwaru \\
+
+\textit{Druh práce:} Diplomová práce \\
+
+\textit{Vedoucí práce:}  Jméno Příjmení, katedra, fakulta, vys. škola \\
+
+\textit{Konzultant:}  Jméno Příjmení, katedra, fakulta, vys. škola (pokud není, proškrtnout) \\
+
+\textit{Abstrakt:} 
+Slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo
+slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo
+slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo
+slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo
+slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo
+slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo
+slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo slovo
+slovo slovo slovo slovo slovo (max. 150).\\
+
+\textit{Klíčová slova:}  slovo, slovo, slovo, slovo, slovo (max 5)
+
+\vspace{1.5cm}
+
+\textit{Title:}
+\textbf{English translation of the Czech title} \\
+
+\textit{Author:} Jméno Příjmení\\
+
+\textit{Abstract:} 
+Word word word word word word word word word word word word
+word word word word word word word word word word word word
+word word word word word word word word word word word word
+word word word word word word word word word word word word
+word word word word word word word word word word word word
+word word word word word word word word word word word word
+word word word word word word word word word word word word
+word word word word word word word word word word word word
+word word word word word word word word word word word word
+word word word word word word word word word word word word
+(max. 150). \\
+
+\textit{Key words:}  word, word, word, word, word (max. 5)
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Konec uvodnich stran
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\chapter{Úvod}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae nulla velit. Vivamus adipiscing tincidunt lacus, ut condimentum enim hendrerit eu.
+Nullam vulputate suscipit pellentesque. Suspendisse rhoncus ante et mauris fermentum non feugiat nunc tincidunt. Nullam suscipit purus vel neque cursus
+eu suscipit odio hendrerit. Aliquam in ligula lorem. Sed id feugiat lorem. Donec ultricies fringilla bibendum. Vivamus at nisi ante, et lacinia mi.
+Aenean ultricies, dolor vel convallis feugiat, est dolor gravida risus, vel egestas mi magna vel enim. Vestibulum ante ipsum primis in faucibus orci
+luctus et ultrices posuere cubilia Curae; Mauris et libero mollis ligula pharetra egestas quis ut orci. Integer volutpat condimentum justo ac vestibulum.
+Nunc hendrerit odio eu nisl sagittis ultricies.
+
+\section{Mauris orci risus}
+
+Convallis ac tempus vel, pellentesque id tortor. Etiam sagittis, quam a pretium luctus, nisl magna tincidunt ligula, eget bibendum dolor ante non ipsum.
+Mauris non tortor dui. Sed non tristique neque. Praesent mollis congue dolor, ut adipiscing odio lacinia a. Donec volutpat metus sed libero scelerisque
+varius vitae quis nulla. Curabitur vehicula porttitor metus, in vulputate erat dictum imperdiet. Maecenas tincidunt dolor ut orci egestas id posuere sapien
+consequat. Nam lobortis vestibulum dolor et commodo. Cras condimentum lectus sed velit convallis convallis. Praesent in adipiscing felis.
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce id metus eu lacus pulvinar vulputate ut nec leo. Donec leo urna,
+fringilla sit amet sodales nec, semper ut diam. Praesent sodales auctor purus at consequat. Vestibulum eleifend tortor sed neque suscipit egestas tincidunt libero
+convallis. In augue erat, pellentesque eget mattis sit amet, sodales vel ligula.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+posuere cubilia Curae; Nullam porttitor ultrices feugiat. Etiam quis ligula tortor. Ut felis tortor, porta eget venenatis eget, sollicitudin in ante. Morbi
+vitae nisi non nisl malesuada consequat nec at enim. Sed ac ipsum nisl, eget pretium est. Sed velit nisi, vestibulum nec egestas at, interdum quis lacus.
+Integer porttitor velit a quam faucibus id vulputate dui fringilla. Cras varius semper lectus quis tristique. Morbi sed lorem est, euismod aliquam justo.
+Sed accumsan volutpat augue scelerisque fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed in odio quis
+massa consequat sagittis non sit amet turpis. Donec egestas sapien a metus ultricies pulvinar.
+
+Nunc eleifend, erat ut consectetur lacinia, arcu nisl semper massa, at fringilla leo arcu vel tortor. Proin vitae sollicitudin sapien. Mauris placerat lorem libero,
+sed placerat lectus. Vivamus suscipit, nibh at viverra egestas, lacus massa hendrerit leo, lacinia sollicitudin turpis felis nec metus. Aenean ornare cursus lacinia.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat aliquam blandit. Pellentesque hendrerit eros nec velit tempus euismod. Sed condimentum
+felis id turpis mollis et volutpat lectus porta. Vestibulum porta, dolor eget tincidunt viverra, justo erat suscipit eros, vitae vestibulum tortor lorem eget dolor.
+Aenean tincidunt, mauris et vulputate placerat, purus ipsum imperdiet eros, sed fermentum elit est at est. Ut consectetur euismod lectus, in fermentum purus ullamcorper.
+Maecenas tempor turpis eget nibh malesuada et pellentesque leo imperdiet. Morbi at ipsum id erat sagittis faucibus in eu justo.
+
+\section{Nullam cursus}
+
+Lorem sed interdum aliquam, risus mauris congue velit, non consequat tellus magna sit amet sem. In hac habitasse platea dictumst. Phasellus vestibulum
+imperdiet neque sit amet interdum. Donec eu eros quis arcu rhoncus volutpat. In metus lorem, consequat dignissim ornare vel, sagittis vitae dui. Nam ut nulla a lectus
+venenatis hendrerit sit amet ut est. Sed magna risus, iaculis id condimentum eget, placerat et nisl. Pellentesque consectetur scelerisque nibh in tristique.
+Aliquam sollicitudin semper imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eget urna eget leo semper ornare.
+Maecenas quis ante quam, sed tempor diam. Nullam in lectus purus. Suspendisse sit amet ligula risus. Cras quis orci non purus sagittis aliquam vitae in orci.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam pulvinar leo sed augue fringilla interdum. Morbi non risus justo,
+quis mattis enim. Nulla a turpis eget neque consectetur facilisis. Duis iaculis eros arcu, sed posuere neque. Cras id elit lectus, quis egestas diam. Nulla rutrum
+lacinia eleifend. Nulla pulvinar consectetur suscipit. Integer pharetra, nisi eget dapibus lobortis, nulla turpis molestie dui, a tempus nisi erat ac velit. Pellentesque
+eleifend, lorem sed tristique luctus, ante lacus commodo neque, rhoncus feugiat neque arcu a dui. Donec at urna dolor. Donec molestie aliquet est, nec condimentum lectus
+egestas vitae.
+
+Sed ultrices pulvinar tempor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus lacinia tellus gravida leo feugiat
+malesuada. Sed quis dignissim mauris. Fusce ullamcorper felis quis magna hendrerit sed pellentesque nisi volutpat. Aenean erat justo, pellentesque sed interdum sed,
+feugiat vitae arcu. Phasellus sem odio, eleifend eu pretium ac, euismod id nulla. Vestibulum posuere fringilla odio. Nunc risus quam, faucibus nec elementum ac, sodales
+nec arcu. In facilisis neque sit amet augue malesuada vulputate. Etiam elementum gravida ante, ac blandit lorem dictum id. Vivamus leo neque, tincidunt at euismod ut,
+tempus vitae dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Proin odio lectus, semper at dictum eu, malesuada non felis. Cum sociis
+natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque dolor augue.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+posuere cubilia Curae; Nullam porttitor ultrices feugiat. Etiam quis ligula tortor. Ut felis tortor, porta eget venenatis eget, sollicitudin in ante. Morbi
+vitae nisi non nisl malesuada consequat nec at enim. Sed ac ipsum nisl, eget pretium est. Sed velit nisi, vestibulum nec egestas at, interdum quis lacus.
+Integer porttitor velit a quam faucibus id vulputate dui fringilla.
+
+\end{document}
