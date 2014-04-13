@@ -69,10 +69,89 @@ F_{\theta_0}) = o_p(n^{-\frac{1}{2}}),
 	 instead of condition \eqref{MDE}, we call the function $\hat{\theta}_n$ an asymptotic minimum distance estimator (AMDE) and the corresponding probability density function $f_{\hat{\theta}_n}$ we call an asymptotic minimum distance probability density estimator.
 \end{definition}
 
+\subsection{Decomposable pseudodistances}
 
-			\subsection{Odhady s minimální Rényiho pseudovzdálensostí}
+In this section we will look into \ren pseudodistance. 
+		
+		\begin{definition}
+	We say that the mapping $\mathfrak{D}:\mathcal{P}\times\mathcal{P}^+ \rightarrow \mathbb{R}$ is a pseudo-distance between probability measures $P \in \mathcal{P}$ and $Q \in \mathcal{P}^+$ if it holds		
+		\begin{equation}
+			\mathfrak{D}(P_\theta,Q) \geq 0 \quad \textit{for all } \theta \in \Theta \quad \text{and} \quad Q \in \mathcal{P}^+
+		\end{equation}
+		and 		
+		\begin{equation}
+			\mathfrak{D}(P_\theta,P_{\tilde{\theta}})=0 \; \Leftrightarrow \; \theta=\tilde{\theta}.
+		\end{equation}	
+	This pseudo-distance is decomposable if there exist functionals such that
+		 $\mathfrak{D}^0:\mathcal{P}\rightarrow\mathbb{R}$, $ \mathfrak{D}^1:\mathcal{P}^+ \rightarrow \mathbb{R}$ and measurable mapping
+		  $\rho_\theta : \mathcal{X} \rightarrow \mathbb{R}$, $ \theta \in \Theta$, so that for all $\theta \in \Theta$ and for all $Q \in \mathcal{P}^+$ the expectation $\int{\rho_\theta }\mathrm{d}Q$ exists and
+		\begin{equation}
+			\mathfrak{D} (P_\theta, Q) = \mathfrak{D}^0 (P_\theta) + \mathfrak{D}^1 (Q) + \int \rho_\theta \mathrm{d}Q.
+		\end{equation}
+\end{definition}
 
-			\subsection{Aplikace pro normální rozdělení}
+\begin{definition}
+	We say that a functional $T_\mathfrak{D}:\mathcal{Q} \rightarrow \Theta$, for $\mathcal{Q}=\mathcal{P}^+ \cup \mathcal{P}_{\text{emp}}$	defines minimum pseudo-distance estimator (min $\mathfrak{D}$-estimator) if $\mathfrak{D}(P_\theta,Q)$ is a decomposable pseudo-distance on $\mathcal{P}\times\mathcal{P}^+$ and parameters $T_\mathfrak{D}(Q) \in \Theta$ minimize $\mathfrak{D}^0 + \int{\rho_\theta}\mathrm{d}Q$, that means
+	\begin{equation}
+		T_\mathfrak{D}(Q) = \arg\min_{\theta \in \Theta} \left[ \mathfrak{D}^0(P_\theta) + \int{\rho_\theta}\mathrm{d}Q \right] \quad \forall Q \in \mathcal{Q}.
+	\end{equation}
+\end{definition}
+In particular, for $Q = P_n = \frac{1}{n}\sum_{i-1}^n \delta_{X_i} \in \mathcal{P}_{emp}$
+\begin{equation}
+	\hat{\theta}_{\mathfrak{D},n} =T_\mathfrak{D}(P_n)  = \arg\min_{\theta \in \Theta}\left[ \mathfrak{D}^0(P_\theta) + \dfrac{1}{n} \sum_{i-1}^n \rho_\theta (X_i) \right].
+\end{equation}
+Every min $\mathfrak{D}$-estimator is Fisher consistent in the sense that
+\begin{equation}
+	T_\mathfrak{D}(P_{\theta_0}) = \arg\min_{\theta \in \Theta} \mathfrak{D}(P_\theta, P_{\theta_0}) = \theta_0,\quad \forall \theta_0 \in \Theta.
+\end{equation}
+
+\begin{theorem}
+Let for some $\beta>0$ it holds that
+	\begin{equation*}
+			p^\beta, q^\beta,\ln{p} \in \mathrm{L}_1(Q), \quad \forall P \in \mathcal{P}, Q \in \mathcal{P^+}.
+	\end{equation*}
+	Then for all $\alpha$, $0 < \alpha \leq \beta$, and for $P \in \mathcal{P}, \; Q \in \mathcal{P^+} $ the expression
+	\begin{equation}
+		\mathfrak{R}_\alpha (P,Q) = \dfrac{1}{1+\alpha}\ln{\left( \int{p^\alpha \mathrm{d}P } \right)} +
+		\dfrac{1}{\alpha (1+\alpha)}\ln{\left( \int{q^\alpha \mathrm{d}Q } \right)} -
+		\dfrac{1}{\alpha} \ln{\left( \int{p^\alpha \mathrm{d}Q } \right)}
+	\end{equation}
+		represents the family of pseudodistances decomposable in the sense of
+	\begin{equation*}
+		\mathfrak{R}_\alpha (P,Q) = \mathfrak{R}_\alpha^0 (P) + \mathfrak{R}_\alpha^1 (Q) - \dfrac{1}{\alpha} \ln{\left( \int{p^\alpha \mathrm{d}Q } \right)},
+	\end{equation*}	
+	where
+	\begin{equation*}
+		\mathfrak{R}_\alpha^0 (P) = \dfrac{1}{1+\alpha}\ln{\left( \int{p^\alpha \mathrm{d}P } \right)}, \quad \mathfrak{R}_\alpha^1 (Q) = \dfrac{1}{\alpha (1+\alpha)}\ln{\left( \int{q^\alpha \mathrm{d}Q } \right)}.
+	\end{equation*}
+	Moreover, for $\alpha \searrow 0$ it holds
+	\begin{equation*}
+		\mathfrak{R}_0 (P,Q) = \lim_{\alpha \searrow 0} \mathfrak{R}_\alpha (P,Q) =  \int{\left( \ln{q} - \ln{p} \right)\mathrm{d}Q}.
+	\end{equation*}
+\end{theorem}
+
+\noindent The \ren pseudodistance estimator is then determined by
+
+\begin{equation}
+	T_{\mathfrak{R}_\alpha}(Q) =
+	\begin{cases}
+		 \arg \min_{\theta} \left[\frac{1}{1+\alpha} \ln(\int p_\theta^\alpha\mathrm{d}P_\theta) - \frac{1}{\alpha} \ln(\int p_\theta^\alpha\mathrm{d}Q) \right] & \text{for } 0 < \alpha \leq \beta, \\
+		 \arg \min_{\theta} \left[- \ln(\int p_\theta\mathrm{d}Q) \right] & \text{for } \alpha = 0.
+	\end{cases}	
+\end{equation}
+
+We are interested in the estimators, where we replace the hypothetical distribution $P_r$ with the empirical distribution $P_n$. It means that the family of minimum \ren pseudo-distance estimators defined as $\theta_{n,\alpha} = T_{\mathfrak{R}_\alpha}(P_n)$ for $T_{\mathfrak{R}_\alpha}(Q) \in \Theta$ with $Q \in \mathcal{P}^+$ satisfies the condition
+
+\begin{equation}
+	\theta_{\alpha,n} =
+	\begin{cases}
+		\displaystyle{ \arg \max_{\theta \in \Theta} C_\alpha\left( \theta \right)^{-1} \frac{1}{n} \sum_{i=1}^n p_{\theta}^{\alpha}\left( X_i \right) } & \text{for } 0 < \alpha \leq \beta, \\
+		\displaystyle{ \arg \max_{\theta \in \Theta}  \frac{1}{n} \sum_{i=1}^n \ln p_{\theta}\left( X_i \right) } & \text{for } \alpha = 0.
+	\end{cases}	
+	\label{JK-Renyi-estimator_formula}
+\end{equation}
+		
+		\subsection{Application in Normal family}
 			
 		\subsection{Robustness}
 		
