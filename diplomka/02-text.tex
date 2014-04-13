@@ -1,97 +1,72 @@
 \chapter*{Introduction}
 
 \chapter{Minimum Distances Estimation}
-	\section{MDE definitions}
-	In this section we consider a parametric family $\mathcal{F} = \lbrace 
-F_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$, where $\Theta 
-\subset \mathbb{R}^m$ is metric space with euclidean distance 
+\section{MDE definitions}
+In this section we consider a parametric family $\mathcal{F} = \lbrace F_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$, where $\Theta \subset \mathbb{R}^m$ is metric space with euclidean distance 
 \begin{equation}
-	\rho (\theta_1,\theta_2) = \sqrt{(\theta_1-\theta_2)(\theta_1-\theta_2)^T}. 
+	\rho (\theta_1,\theta_2) = \sqrt{(\theta_1-\theta_2)(\theta_1-\theta_2)^T}
 \end{equation}
-Dále budeme předpokládat identifikovatelnost rodiny $\mathcal{F}$, tedy 
+for $\theta_1,\theta_2 \in \Theta$. Furthermore, we assume identifiability of the family $\mathcal{F}$, which means 
 \begin{equation}
 \theta_1 \neq \theta_2 \Rightarrow F_{\theta_1} \neq F_{\theta_2}
 \end{equation}
-a také měřitelnost všech $\mathcal{F}_\theta(x), x \in \mathbb{R}$. Naše odhady 
-budou založeny na náhodném vektoru $\mathbf{X}_n = (X_1, \ldots ,X_n)$ délky $n$ 
-s nezávislými složkami určenými stejnou distribuční funkcí $F_{\theta_0} \in 
-\mathcal{F}$. Potom $F_{\theta_0}$ nazýváme skutečnou distribuční funkcí a 
-$\theta_0 \in \Theta$ skutečným parametrem. 
+and also measurability of all $\mathcal{F}_\theta(x), x \in \mathbb{R}$. Our estimators will be calculated on the basis of observations  $\mathbf{X}_n = (X_1, \ldots ,X_n)$ of size $n$ of random samples governed by common distribution function $F_{\theta_0} \in \mathcal{F}$. In that case we call $F_{\theta_0}$ the actual distribution function and $\theta_0 \in \Theta$ 
+the actual parameter.
 
-Předpokládáme, že je rodina $\mathcal{F}$ dominována $\sigma$-finitní mírou 
-$\lambda$. Pak označíme Radon-Nikodymovu hustotu 
+Further, we assume that $\mathcal{F}$ is dominated by a $\sigma$-finite measure $\lambda$ with \RN densities
 \begin{equation}
-p_\theta = \dfrac{\mathrm{d} F_\theta}{\mathrm{d} \lambda}.
+f_\theta = \dfrac{\mathrm{d} F_\theta}{\mathrm{d} \lambda} \text{ for all } \theta \in \Theta.
 \end{equation}
 
+\begin{definition} % 1 
+For a set of random variables $X_n$ the notation $X_n = o_p(1)$ means that the limit $\lim_{n \rightarrow \infty } X_n = 0$ holds in probability. The notation $X_n = o_p(\varepsilon_n)$ means that $\frac{X_n}{\varepsilon_n} = o_p(1)$ for some sequence $\varepsilon_n \searrow 0$.
+\end{definition} 
 
+\begin{definition} % 2
+We say that an estimator $\hat{F}_n$ is consistent estimator of $F_{\theta_0}$ in distance $\mathfrak{D}$, if $\mathfrak{D}(\hat{F}_n, F_{\theta_0}) = o_p (1)$ and is measurable.
+\end{definition}
 
-\begin{definition}
-%	Řekneme, že posloupnost náhodných veličin $\lbrace X_n \rbrace$ s 
-distribučními funkcemi $\lbrace F_n \rbrace$ je omezená v pravděpodobnosti, 
-pokud pro každé $\varepsilon > 0 $ existují $M$ a $N$ takové, že 
+%\begin{definition}
+%Řekneme, že posloupnost náhodných veličin $\lbrace X_n \rbrace$ s distribučními funkcemi $\lbrace F_n \rbrace$ je omezená v pravděpodobnosti, pokud pro každé $\varepsilon > 0 $ existují $M$ a $N$ takové, že 
 %	\begin{equation}
 %		F_n(M) - F_n(-M) > 1-\varepsilon, \quad \forall n > N.
 %	\end{equation}
 %	Tuto skutečnost značíme $X_n = O_p(1)$.
-	Nech\v{t} $X_n$ je posloupnost náhodných veličin. Pak značíme $X_n = o_p(1)$, 
-pokud $\lim_{n \rightarrow \infty } X_n = 0$ podle pravděpodobnosti a $X_n = 
-o_p(\varepsilon_n)$, pokud $\frac{X_n}{\varepsilon_n} = o_p(1)$ pro nějakou 
-posloupnost $\varepsilon_n \searrow 0$.
-\end{definition} 
+%\end{definition} 
 
-\begin{definition}
-Odhad $\hat{F}_n$ je konzistentní ve vzdálenosti $\mathfrak{D}$, pokud 
-$\mathfrak{D}(\hat{F}_n, F_{\theta_0})$ je měřitelná a rovná se $o_p (1)$. 
-Podobně bodový odhad $\hat{\theta}_n$ je konzistentní, pokud 
-$\rho(\hat{\theta}_n,\theta_0)$ je měřitelná a rovná se $o_p (1)$. 
-\end{definition}
-
-\noindent Za neparametrický odhad distribuční funkce můžeme vzít empirickou 
-distribuční funkci, definovanou jako
+\noindent As an example of non-parametric estimator of distribution function we can use empirical distribution function defined as 
 \begin{equation}
 F_n(x)=\frac{1}{n}\sum_{j=1}^n \textbf{I}_{(-\infty,x]}(X_j), \qquad 
 x\in\mathbb{R}.
 \end{equation}
+
 %
 %\begin{theorem}[Glivenko-Cantelli]
-%Nech\v{t} jsou $X_1,\dots,X_n$ stejně a nezávisle rozdělené reálné ná\-ho\-dné 
-veličiny s distribuční funkcí $F$ a nechť $F_n(x)$ je empirická distribuční 
-funkce. Pak pro každé $n\in \mathbb{N}$ a $\varepsilon>0$ platí
+%Nech\v{t} jsou $X_1,\dots,X_n$ stejně a nezávisle rozdělené reálné ná\-ho\-dné veličiny s distribuční funkcí $F$ a nechť $F_n(x)$ je empirická distribuční funkce. Pak pro každé $n\in \mathbb{N}$ a $\varepsilon>0$ platí
 %
 %\begin{equation}
-%P\left(\sup_{x\in\mathbb{R}}|F(x)-F_n(x)|>\varepsilon\right) \leq 
-$8(n+1)\exp{\left\{ \frac{-n{\varepsilon}^2}{32}\right\}}.$
+%P\left(\sup_{x\in\mathbb{R}}|F(x)-F_n(x)|>\varepsilon\right) \leq 8(n+1)\exp{\left\{ \frac{-n{\varepsilon}^2}{32}\right\}}.
 %\end{equation}
 %Z Borel-Cantelliho lemma pak plyne
 %\begin{equation}
-%\lim_{n \rightarrow +\infty}\sup_{x \in \mathbb{R}}|F(x)-F_n(x)|=0  \quad 
-$\text{s. j.}$
+%\lim_{n \rightarrow +\infty}\sup_{x \in \mathbb{R}}|F(x)-F_n(x)|=0  \quad \text{s. j.}
 %\end{equation}
 %\end{theorem}
 
-\noindent Nyní definujeme odhad s minimální vzdáleností a přibližný odhad s 
-minimální vzdáleností.
+Now we can define minimum distance estimator (MDE) and asymptotically minimum distance estimator (AMDE).
 
 \begin{definition}\label{def-mde}
-	Nech\v{t} $\mathfrak{D}(F.G)$ je vzdálenost na $\mathcal{F}(\mathbb{R})$ a 
-$F_n$ je nějaký odhad distribuční funkce $F_{\theta_0}$. Měřitelnou funkci 
-$\hat{\theta}_n$ takovou, že spl\v{n}uje podmínku
+	Let $\mathfrak{D}(\cdot, \cdot) $ be distance on $\mathcal{F}(\mathbb{R}) \times \mathcal{F}(\mathbb{R}) $ and $F_n$ is some estimator of distribution function $F_{\theta_0}$. A measurable function $\hat{\theta}_n$ such that it meets the condition
 	\begin{equation}
-		\mathfrak{D}(F_n, F_{\hat{\theta}_n}) = \inf_{\theta \in \Theta}(F_n, 
-F_{\theta_0}) \quad s.j.
+		\mathfrak{D}(F_n, F_{\hat{\theta}_n}) = \inf_{\theta \in \Theta}(F_n, F_{\theta}) \qquad a.s.
 		\label{MDE}
 	\end{equation}
-	nazýváme odhadem s minimální vzdáleností (MDE). Pokud je $\mathcal{F}$ 
-dominována $\lambda$, pak $f_{\hat{\theta}_n}$  je odhad hustoty s minimální 
-vzdáleností. Pokud místo podmínky \eqref{MDE} platí 
+	is called minimum distance estimator (MDE). If the family $\mathcal{F}$ is dominated by some $\sigma-finite $ measure $ \lambda$, then it's \RN density $f_{\hat{\theta}_n}$ is called minimum distance probability density estimator. If the estimator meets at least condition
 	\begin{equation}
 		\mathfrak{D}(F_n, F_{\hat{\theta}_n}) - \inf_{\theta \in \Theta}(F_n, 
 F_{\theta_0}) = o_p(n^{-\frac{1}{2}}), 
 	\end{equation}
-	říkáme, že $\hat{\theta}_n$ je přibližný odhad s minimální vzdáleností (AMDE) 
-a příslušný  $f_{\hat{\theta}_n}$ pak přibližný odhad hustoty s minimální 
-vzdáleností.
+	 instead of condition \eqref{MDE}, we call the function $\hat{\theta}_n$ an asymptotic minimum distance estimator (AMDE) and the corresponding probability density function $f_{\hat{\theta}_n}$ we call an asymptotic minimum distance probability density estimator.
 \end{definition}
 
 
