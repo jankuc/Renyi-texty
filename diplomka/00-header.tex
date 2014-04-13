@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{report}
+%\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\pagestyle{plain}
+\usepackage{pdflscape}
+\usepackage{setspace}
+
+%\usepackage{tikz}
+%PDF
+%\usepackage{lmodern}
+%\usepackage{textcomp}
+%\usepackage{alltt}
+%\usepackage{indentfirst}
+%\usepackage{color}
+%\usepackage{pxfonts}
+
+%\usepackage[ figurename = Fig., tablename = Tab.]{caption}
+
+\hoffset=-3mm
+\voffset=-3mm
+%\textwidth=160mm
+%\textheight=245mm
+
+%\newlength{\defbaselineskip}
+%\setlength{\defbaselineskip}{\baselineskip}
+%\newcommand{\setlinespacing}[1]
+%   {\setlength{\baselineskip}{#1 \defbaselineskip}}
+
+%\usepackage{tikz}
+%PDF
+%\usepackage{lmodern}
+%\usepackage{textcomp}
+%\usepackage{alltt}
+%\usepackage{indentfirst}
+%\usepackage{color}
+%\usepackage{pxfonts}
+
+\usepackage{epsfig}
+\graphicspath{{./images/}}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage[strict]{changepage}
+
+\usepackage{a4wide}
+\setlength{\textheight}{597pt} %% cca 21cm
+\setlength{\textwidth}{426pt}%{426pt} %% cca 15cm 
+\setlength{\topmargin}{25pt}
+\setlength{\oddsidemargin}{32pt}
+
+\frenchspacing % aktivuje pouziti nekterych ceskych typografickych pravidel
+% definice makra pro ceske uvozovky:
+\def\bq{\mbox{\kern.1ex\protect\raisebox{-1.3ex}[0pt][0pt]{''}\kern-.1ex}}
+\def\eq{\mbox{\kern-.1ex``\kern.1ex}}
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax }%
+\ifundefined{uv}%
+        \gdef\uv#1{\bq #1\eq}
+\fi
+
+\newtheorem{theorem}{Theorem}
+\newtheorem {lemma}{Lemma}
+\newtheorem {definition}{Definition}
+\newenvironment{proof}[1][Proof]{\par\noindent{\textbf{#1.}}}{\hfill $\Box$}
+
+\newcommand{\Pemp}{\mathcal{P}_\mathrm{emp}}
+\newcommand{\IF}[1]{\mathrm{IF}({#1};T,P)}
+\newcommand{\mRao}{minimal $\mathfrak{R}_\alpha$-estimator}
+%\newcommand{\IF}{\IF{x}}
