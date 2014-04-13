@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{report}
+\documentclass[11pt,a4paper, oneside]{report}
 %\usepackage[czech]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -6,6 +6,18 @@
 \pagestyle{plain}
 \usepackage{pdflscape}
 \usepackage{setspace}
+
+%% Nastavení zrcadla sazby
+\usepackage{calc}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6in}
+\setlength\oddsidemargin{(\paperwidth-\textwidth)/2 - 1in}
+\setlength\evensidemargin{(\paperwidth-\textwidth)/2 - 1in}
+\setlength\topmargin{(\paperheight-\textheight-\headheight-\headsep-\footskip)/2 
+- 1in}
+
+%% AMSLaTeX
+\usepackage{amsmath,amsthm,amssymb, amsfonts}
 
 %\usepackage{tikz}
 %PDF
@@ -40,26 +52,24 @@
 \usepackage{epsfig}
 \graphicspath{{./images/}}
 
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-
 \usepackage[strict]{changepage}
 
 \usepackage{a4wide}
-\setlength{\textheight}{597pt} %% cca 21cm
-\setlength{\textwidth}{426pt}%{426pt} %% cca 15cm 
-\setlength{\topmargin}{25pt}
-\setlength{\oddsidemargin}{32pt}
+% \setlength{\textheight}{597pt} %% cca 21cm
+% \setlength{\textwidth}{426pt}%{426pt} %% cca 15cm 
+% \setlength{\topmargin}{25pt}
+% \setlength{\oddsidemargin}{32pt}
 
-\frenchspacing % aktivuje pouziti nekterych ceskych typografickych pravidel
-% definice makra pro ceske uvozovky:
-\def\bq{\mbox{\kern.1ex\protect\raisebox{-1.3ex}[0pt][0pt]{''}\kern-.1ex}}
-\def\eq{\mbox{\kern-.1ex``\kern.1ex}}
-\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax }%
-\ifundefined{uv}%
-        \gdef\uv#1{\bq #1\eq}
-\fi
+% aktivuje pouziti nekterych ceskych typografickych pravidel:
+
+% \frenchspacing 
+% % definice makra pro ceske uvozovky:
+% \def\bq{\mbox{\kern.1ex\protect\raisebox{-1.3ex}[0pt][0pt]{''}\kern-.1ex}}
+% \def\eq{\mbox{\kern-.1ex``\kern.1ex}}
+% \def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax }%
+% \ifundefined{uv}%
+%         \gdef\uv#1{\bq #1\eq}
+% \fi
 
 \newtheorem{theorem}{Theorem}
 \newtheorem {lemma}{Lemma}
@@ -68,5 +78,9 @@
 
 \newcommand{\Pemp}{\mathcal{P}_\mathrm{emp}}
 \newcommand{\IF}[1]{\mathrm{IF}({#1};T,P)}
+\newcommand{\pdfs}{probability distribution functions }
+\newcommand{\pdf}{probability distribution function }
+\newcommand{\dfs}{distribution functions }
+\newcommand{\df}{distribution function }
 \newcommand{\mRao}{minimal $\mathfrak{R}_\alpha$-estimator}
 %\newcommand{\IF}{\IF{x}}
