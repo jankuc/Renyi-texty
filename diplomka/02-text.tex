@@ -99,9 +99,9 @@ Here we define influence function by which we measure effect of one measurement 
 	\end{equation} 
 \end{definition}
 
-We can see from the definition, that if $\IF{x}$ is not limited then even one distant measurement can cause a total failure of the estimator $T$.
+We can see from the definition, that if $\IF{x}$ is not bounded then even one distant measurement can cause a total failure of the estimator $T$.
 
-We introduce three measures of robustness from \cite{Antoch92}, which characterize some plausible disruptions of our model. 
+We introduce three measures of robustness from \cite{Antoch92}, which characterize some possible disruptions of our model. 
 
 \begin{definition}
 	By gross error sensitivity measure of functional $T$ for probability distribution $P$ we mean function  $\gamma^*$ defined as 
@@ -152,12 +152,12 @@ then $M_n$ is the solution, or one of the solutions of equation
 \end{equation}
 Functional relevant to $M_n$ is defined as 
 \begin{equation}
-	M(P) = \arg \min_{\theta \in \Theta} \mathrm{E}_{P}\left[ \rho(x,\theta) \right] = \arg \min_{\theta \in \Theta} \int_\mathcal{X} \rho(x,\theta) \mathrm{d}P(x),
+	M(P) = \arg \min_{\theta \in \Theta} \mathrm{E}_{P}\left[ \rho(x,\theta) \right] = \arg \min_{\theta \in \Theta} \int_\mathcal{X} \rho(x,\theta) \, \mathrm{d}P(x),
 	\label{Modhad3}
 \end{equation}
 or as a solution to equation 
 \begin{equation}
-\mathrm{E}_{P}\left[ \psi(x,\theta) \right] =  \int_\mathcal{X} \psi(x,\theta) \mathrm{d}P(x) = 0, \qquad M(P) = \theta \in \Theta.
+\mathrm{E}_{P}\left[ \psi(x,\theta) \right] =  \int_\mathcal{X} \psi(x,\theta) \, \mathrm{d}P(x) = 0, \qquad M(P) = \theta \in \Theta.
 \label{Modhad4}
 \end{equation}
 For the estimator to be unambiguous, it is required for the equation \ref{Modhad4} or for the issue  \ref{Modhad3} to have a single solution.
@@ -166,10 +166,10 @@ Here we present theorem, which allows us to derive influence function for common
 \begin{theorem} 
 Let $\psi(\cdot,\theta) =  \frac{\partial}{\partial \theta} \rho(\cdot,\theta)$ exist and let it be absolute continuous with respect to $\theta$. Let equation \eqref{Modhad4} have single solution $M(P)$. Then if it exists, the influence function $\mathrm{IF}(x;M,P)$ is derived as
 \begin{equation}
- \text{IF}(x;M,P) = -\left(\int_{\mathcal{X}} \dot{\psi} (y,M(P)) \mathrm{d}P(y)\right)^{-1} \psi(x,M(P)),
+ \text{IF}(x;M,P) = -\left(\int_{\mathcal{X}} \dot{\psi} (y,M(P)) \, \mathrm{d}P(y)\right)^{-1} \psi(x,M(P)),
 \end{equation}
 where $\dot{\psi} (y,M(P)) = \left[\left(\frac{\mathrm{d}}{\mathrm{d}\theta}\right)^\mathrm{T}\psi(y,\theta)\right]_{\theta = M(P)}$.
-\label{influencni veta}
+\label{theo:IF}
 \end{theorem}
 
 \section{Decomposable pseudodistances}
@@ -191,9 +191,9 @@ By $\Pemp$ we denote the class of all empirical distribution functions, not nece
 		\end{equation}	
 	This pseudodistance $\mathfrak{D}$ is called decomposable on $\mathcal{P}\times\mathcal{P}^+$ if there exist functionals 
 		 $\mathfrak{D}^0:\mathcal{P}\rightarrow\mathbb{R}$, $ \mathfrak{D}^1:\mathcal{P}^+ \rightarrow \mathbb{R}$ and measurable mapping
-		  $\rho_\theta : \mathbb{R}^d \rightarrow \mathbb{R}$, $ \theta \in \Theta$, so that for all $\theta \in \Theta$ and for all $Q \in \mathcal{P}^+$ the expectation $\int{\rho_\theta }\mathrm{d}Q$ exists and it holds, that
+		  $\rho_\theta : \mathbb{R}^d \rightarrow \mathbb{R}$, $ \theta \in \Theta$, so that for all $\theta \in \Theta$ and for all $Q \in \mathcal{P}^+$ the expectation $\int{\rho_\theta }\, \mathrm{d}Q$ exists and it holds, that
 		\begin{equation}
-			\mathfrak{D} (P_\theta, Q) = \mathfrak{D}^0 (P_\theta) + \mathfrak{D}^1 (Q) + \int \rho_\theta \mathrm{d}Q.
+			\mathfrak{D} (P_\theta, Q) = \mathfrak{D}^0 (P_\theta) + \mathfrak{D}^1 (Q) + \int \rho_\theta \, \mathrm{d}Q.
 		\end{equation}
 \end{definition}
 
@@ -232,6 +232,7 @@ T_\mathfrak{D}(P_{\theta_0}) & = \arg\min_{\theta \in \Theta} \left[ \mathfrak{D
 Let for some $\beta>0$ it holds that
 	\begin{equation*}
 			p^\beta, q^\beta,\ln{p} \in \mathrm{L}_1(Q), \quad \forall P \in \mathcal{P}, Q \in \mathcal{P^+}.
+			\label{eq:betaCond}
 	\end{equation*}
 	Then for all $\alpha$, $0 < \alpha \leq \beta$, and for $P \in \mathcal{P}, \; Q \in \mathcal{P^+} $ the expression
 	\begin{equation}
@@ -260,29 +261,29 @@ If we use \ref{eq:renDecDist} for distributions $Q \in \mathcal{P}^+ \cup \Pemp$
 \begin{equation}
 	T_{\mathfrak{R}_\alpha}(Q) =
 	\begin{cases}
-		 \arg \min_{\theta} \left[\frac{1}{1+\alpha} \ln(\int p_\theta^\alpha\mathrm{d}P_\theta) - \frac{1}{\alpha} \ln(\int p_\theta^\alpha\mathrm{d}Q) \right] & \text{if } 0 < \alpha \leq \beta, \\
-		 \arg \min_{\theta} \left[- \ln(\int p_\theta\mathrm{d}Q) \right] & \text{if } \alpha = 0,
+		 \arg \min_{\theta} \left[\frac{1}{1+\alpha} \ln(\int p_\theta^\alpha\, \mathrm{d}P_\theta) - \frac{1}{\alpha} \ln(\int p_\theta^\alpha\, \mathrm{d}Q) \right] & \text{if } 0 < \alpha \leq \beta, \\
+		 \arg \min_{\theta} \left[- \ln(\int p_\theta\, \mathrm{d}Q) \right] & \text{if } \alpha = 0,
 	\end{cases}	
 \end{equation}
 which is equivalent to 
 \begin{equation}
 	T_{\mathfrak{R}_\alpha}(Q) = 
 	\begin{cases}
-		 \displaystyle{ \arg \max_{\theta \in \Theta} \left[\ln\frac{\int p_\theta^\alpha\mathrm{d}Q}{(\int p_\theta^\alpha\mathrm{d}P_\theta)^{\frac{\alpha}{1+\alpha}}} \right] }& \text{ if } 0 < \alpha \leq \beta, \\[5mm]
-		 \displaystyle{ \arg \max_{\theta \in \Theta} \left[\ln(\int p_\theta\mathrm{d}Q) \right] }& \text{ if } \alpha = 0.
+		 \displaystyle{ \arg \max_{\theta \in \Theta} \left[\ln\frac{\int p_\theta^\alpha\, \mathrm{d}Q}{(\int p_\theta^\alpha\, \mathrm{d}P_\theta)^{\frac{\alpha}{1+\alpha}}} \right] }& \text{ if } 0 < \alpha \leq \beta, \\[5mm]
+		 \displaystyle{ \arg \max_{\theta \in \Theta} \left[\ln(\int p_\theta\, \mathrm{d}Q) \right] }& \text{ if } \alpha = 0.
 	\end{cases}	
 \end{equation}
 
 If we denote
 \begin{equation}
-C_{\alpha}(\theta) = \biggl(\int p_{\theta}^{1+\alpha} \mathrm{d}\lambda\biggr)^{\frac{\alpha}{1+\alpha}} = \left( \int p_\theta^\alpha\mathrm{d}P_\theta \right)^{\frac{\alpha}{1+\alpha}},
+C_{\alpha}(\theta) = \biggl(\int p_{\theta}^{1+\alpha} \, \mathrm{d}\lambda\biggr)^{\frac{\alpha}{1+\alpha}} = \left( \int p_\theta^\alpha\, \mathrm{d}P_\theta \right)^{\frac{\alpha}{1+\alpha}},
 \end{equation}
 for $0<\alpha \leq \beta$ we can write \ren estimator in the form of $M$-estimator
 \begin{equation}
-T_{\alpha}(Q) = \text{argmax}_{\theta} M_{\alpha}(Q,\theta), \qquad \text{where } \quad M_{\alpha}(Q,\theta) = \frac{\int p_{\theta}^{\alpha}\mathrm{d}Q}{C_{\alpha}(\theta)}.
+T_{\alpha}(Q) = \text{argmax}_{\theta} M_{\alpha}(Q,\theta), \qquad \text{where } \quad M_{\alpha}(Q,\theta) = \frac{\int p_{\theta}^{\alpha}\, \mathrm{d}Q}{C_{\alpha}(\theta)}.
 \end{equation}
 
-We are interested in estimators, in which we replace the hypothetical distribution $P_{\theta_0}$ in $\mathfrak{R}_\alpha(P_\theta, P_{\theta_0})$ by empirical distribution $P_n \in \Pemp$. In this case we can write \ren minimum distance estimator in the form
+We are interested in estimators, in which we replace the hypothetical distribution $P_{\theta_0}$ in $\mathfrak{R}_\alpha(P_\theta, P_{\theta_0})$ by empirical distribution $P_n \in \Pemp$. In this case we can write minimum \ren distance estimator in the form
 
 % It means that the family of minimum R\'{e}nyi pseudo-distance estimators defined as $\hat{\theta}_{n,\alpha} = T_{\mathfrak{R}_\alpha}(P_n)$ for $T_{\mathfrak{R}_\alpha}(Q) \in \Theta$ with $Q \in \mathcal{P}^+$ satisfies the condition
 
@@ -297,8 +298,53 @@ We are interested in estimators, in which we replace the hypothetical distributi
 	\label{eq:renEstimator}
 \end{equation}
 		
-		
-		\subsection{Application in Normal family}
+In \cite{Vajda2009} author derives form of influence function for minimum \ren pseudodistance estimator according to theorem \ref{theo:IF}. If we use notation 
+\begin{center}
+	\begin{tabular}{c c}
+	$s_\theta = \dfrac{\mathrm{d}}{\mathrm{d}\theta} \ln p_\theta, \quad$ & $ \dot{s}_\theta = \left( \dfrac{\mathrm{d}}{\mathrm{d}\theta} \right)^T s_\theta,$ \\ 
+	&\\
+	$c_\alpha(\theta) = \dfrac{\int p_\theta^{1+\alpha}s_\theta \mathrm{d}\lambda}{\int p_\theta^{1+\alpha} \mathrm{d}\lambda}, \quad$ & $\dot{c}_\alpha(\theta)= \left( \dfrac{\mathrm{d}}{\mathrm{d}\theta} \right)^T c_\alpha(\theta),$  \\ 
+	\end{tabular} 
+\end{center}
+then the influence function can be written as
+\begin{equation}
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\theta) = -\mathbf{I}^{-1}_{\alpha}(\theta) \left[ p_\theta^\alpha(x) (s_\theta (x) - c_\alpha (x)) \right], 
+	\label{eq:IF}
+\end{equation}
+where 
+\begin{equation}
+\mathbf{I}_{\alpha}(\theta) = \int{ \left[\dot{s}_\theta - \dot{c}_\alpha(\theta) - \alpha(s_\theta - c_\alpha(\theta))(c^T_\alpha(\theta) - s^T_\theta) \right] p_\theta^{1+\alpha} \mathrm{d}\lambda}.
+\end{equation}
+
+\subsection{Applications for normal distribution}
+
+Results for normal model including specific forms of estimator \eqref{eq:renEstimator} and influence function \eqref{eq:IF} were already presented in \cite{Vajda2009} and \cite{Demut2010}. We are presenting them here for completeness and because we used them in simulations in which we tested the estimators on data samples with different kind of contamination from what was used in \cite{Demut2010}. 
+
+Minimum \ren distance estimator for $\alpha = 0$ coincides with maximum likelihood estimator
+\begin{equation}
+\hat{\theta}_{\mathfrak{R}_0,n} = \text{argmax}_{\theta} \frac{1}{n}\sum_{i=1}^n \ln \biggl[\frac{1}{\sqrt{2\pi \sigma^2}} \exp\biggl(-\frac{(X_i-\mu)^2}{2\sigma^2}\biggr)\biggr].
+\end{equation}
+
+Condition\eqref{eq:betaCond} holds for all $\beta > 0$, therefore for $\alpha>0$ we can transform {\mRao} \eqref{eq:renEstimator} to
+
+\begin{equation}
+	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \text{argmax}_{\theta} \frac{1}{n\sigma^{\alpha/(1+\alpha)}}\sum_{i=1}^n\exp \biggl(-\alpha\frac{(X_i-\mu)^2}{2\sigma^2}\biggr).
+\end{equation}
+
+\noindent Influence function for estimator of the standard deviation $\sigma$ with the known mean $\mu = 0$ is derived in \cite{Vajda2009} and has the form
+
+\begin{equation}
+	\text{IF}(x;T_{\mathfrak{R}_{\alpha}},\sigma) = \frac{(1+\alpha)^{5/2}\sigma}{2}\biggl[\biggl(\biggl(\frac{x}{\sigma}\biggr)^2-\frac{1}{1+\alpha}\biggr) \exp\biggl(-\frac{\alpha x^2}{2\sigma^2}\biggr)\biggr].
+\end{equation}
+For the estimator of mean $\mu$ with fixed $\sigma$ the influence function takes the form
+\begin{equation}
+	\text{IF}(x;T_{\mathfrak{R}_{\alpha}},\mu) = (1+\alpha )^{3/2} (x-\mu ) \exp\left[{-\alpha\frac{(x-\mu )^2}{2 \sigma ^2}}\right].
+\end{equation}
+Both functions are bounded for all possible $\alpha$, which means that the estimator is B-robust. Although we do not have finite rejection point $\rho^*$, we can see, that for $\alpha>0$ the limit 
+\begin{equation}
+	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0
+\end{equation}	
+holds for influence functions for both parameters.	
 	
 	\section{Application to specific families}
 		
