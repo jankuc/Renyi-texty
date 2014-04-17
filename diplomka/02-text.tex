@@ -81,7 +81,7 @@ Note that the rate $n^{-\frac{1}{2}}$ is not important and it can be replaced by
 Let $\mathcal{P} = \lbrace P_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$ is set of probability distributions on measurable space $\left(\mathcal{X},\mathcal{A}\right)$. Let $T: \mathcal{P} \rightarrow \mathbb{R}^m$ is fisher consistent functional, that means $T(P_\theta) = \theta$ for all $\theta \in \Theta$. We introduce convex mixtures of distributions.
 
 \begin{definition}
-	Let $\varepsilon \in [0,1]$ and $P, Q \in \mathcal{P}$. We write convex mixture of these distributions as  
+	Let us have $\varepsilon \in [0,1]$ and $P, Q \in \mathcal{P}$. We denote convex mixture of distributions $P, Q$ with coefficient $\varepsilon$ by
 	\begin{equation}
 		P_\varepsilon(Q) = (1-\varepsilon)P + \varepsilon Q.
 		\label{konvex-smes}
@@ -135,19 +135,22 @@ If the rejection point $\rho^*$ is finite for some estimator, it results from th
 holds.
 
 \subsection{$M$-estimators}
-$M$-estimators are generalization of maximum likelihood estimator (MLE). They are estimators defined by maximization or minimization of appropriate function $\rho(X_i,\theta):\mathcal{X}\times \Theta \rightarrow \mathbb{R}$, where $X_1,\ldots,X_n$ is random sample with probability distribution  $P_\theta$ and probability distribution function $p_\theta$. $M$-estimator of parameter $\theta$ is defined as 
+$M$-estimators are generalization of maximum likelihood estimator (MLE). They are estimators defined by maximization or minimization of appropriate function $\rho(\cdot,\cdot):\mathcal{X}\times \Theta \rightarrow \mathbb{R}$. If we have parametric model $\mathcal{P} = \lbrace P_\theta : \theta \in \Theta\rbrace$, then $M$-estimator of parameter $\theta$ is defined as 
 \begin{equation}
-	\hat{\theta_n} = M_n(P_n) = \arg \min_{\theta \in \Theta} \sum_{i=1}^n \rho(X_i,\theta) = \arg \min_{\theta \in \Theta} \mathrm{E}_{P_n}\left[ \rho(X,\theta) \right].
+	\hat{\theta_n} = M_n(P_n) = \arg \min_{\theta \in \Theta} \sum_{i=1}^n \rho(X_i,\theta) = \arg \min_{\theta \in \Theta} \mathrm{E}_{P_n}\left[ \rho(X_i,\theta) \right],
 	\label{Modhad1}
 \end{equation}
-
+where $X_1,\ldots,X_n$ is random sample with probability distribution  $P_\theta$. If the parametric model has probability density function $p_\theta$, then specific example of M-estimator is MLE which is solution of
+\begin{equation}
+	\hat{\theta}_{n, MLE} = \arg\min_{\theta \in \Theta} \sum_{i=1}^n \left( -\ln p_\theta(X_i)\right).
+\end{equation}
 If there exists
 \begin{equation}
-	\psi(X,\theta) = \frac{\partial}{\partial \theta} \rho(X,\theta), 
+	\psi(x,\theta) = \frac{\partial}{\partial \theta} \rho(x,\theta), 
 \end{equation}
 then $M_n$ is the solution, or one of the solutions of equation 
 \begin{equation}
-	\sum_{i=1}^n \psi(X,\theta) = 0, \qquad \theta \in \Theta.
+	\sum_{i=1}^n \psi(X_i,\theta) = 0, \qquad \theta \in \Theta.
 	\label{Modhad2}
 \end{equation}
 Functional relevant to $M_n$ is defined as 
@@ -171,6 +174,7 @@ Let $\psi(\cdot,\theta) =  \frac{\partial}{\partial \theta} \rho(\cdot,\theta)$ 
 where $\dot{\psi} (y,M(P)) = \left[\left(\frac{\mathrm{d}}{\mathrm{d}\theta}\right)^\mathrm{T}\psi(y,\theta)\right]_{\theta = M(P)}$.
 \label{theo:IF}
 \end{theorem}
+Proof can be found in \cite{Demut2010}
 
 \section{Decomposable pseudodistances}
 
@@ -274,20 +278,18 @@ which is equivalent to
 	\end{cases}	
 \end{equation}
 
-If we denote
+If we introduce
 \begin{equation}
 C_{\alpha}(\theta) = \biggl(\int p_{\theta}^{1+\alpha} \, \mathrm{d}\lambda\biggr)^{\frac{\alpha}{1+\alpha}} = \left( \int p_\theta^\alpha\, \mathrm{d}P_\theta \right)^{\frac{\alpha}{1+\alpha}},
 \end{equation}
-for $0<\alpha \leq \beta$ we can write \ren estimator in the form of $M$-estimator
+then we can write \ren estimator for $0<\alpha \leq \beta$ in the form of $M$-estimator
 \begin{equation}
 T_{\alpha}(Q) = \text{argmax}_{\theta} M_{\alpha}(Q,\theta), \qquad \text{where } \quad M_{\alpha}(Q,\theta) = \frac{\int p_{\theta}^{\alpha}\, \mathrm{d}Q}{C_{\alpha}(\theta)}.
 \end{equation}
 
 We are interested in estimators, in which we replace the hypothetical distribution $P_{\theta_0}$ in $\mathfrak{R}_\alpha(P_\theta, P_{\theta_0})$ by empirical distribution $P_n \in \Pemp$. In this case we can write minimum \ren distance estimator in the form
 
-% It means that the family of minimum R\'{e}nyi pseudo-distance estimators defined as $\hat{\theta}_{n,\alpha} = T_{\mathfrak{R}_\alpha}(P_n)$ for $T_{\mathfrak{R}_\alpha}(Q) \in \Theta$ with $Q \in \mathcal{P}^+$ satisfies the condition
-
-
+% It means that the family of minimum \ren pseudo-distance estimators defined as $\hat{\theta}_{n,\alpha} = T_{\mathfrak{R}_\alpha}(P_n)$ for $T_{\mathfrak{R}_\alpha}(Q) \in \Theta$ with $Q \in \mathcal{P}^+$ satisfies the condition
 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} =
