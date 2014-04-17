@@ -1,32 +1,30 @@
 
-V této kapitole použijeme minimální Rényiho odhady ($\mathfrak{R}_\alpha$-odhady) pro konkrétní rozdělení pravděpodobnosti. Výsledky pro normální model byly uvedeny již v \cite{Vajda2009}, \cite{Demut2010}, my jsme se tedy zaměřili na exponenciální, Laplaceovo, Cauchyho a Weibullovo rozdělení. V případě těchto rodin jsme se snažili o odvození konkrétního tvaru odhadu podle \eqref{Renyi-estimator_formula} a také tvaru influeční funkce \eqref{IF}.
+In this section we will use \mRa-estimators for some specific families of probability distributions. As was stated above, results for normal model were already presented in  \cite{Vajda2009}, \cite{Demut2010}. Therefore we focused on exponential, Laplace, Cauchy and Weibull families. In case of these families we focused on deriving specific simple forms of estimator according to \eqref{eq:renEstimator} and also the form of influence function \eqref{eq:IF}.
 
-\section{Laplaceovo rozdělení} %%%%%%%%%%%%%%%%%%%%%  LAPLACE   %%%%%%%%%%%%%%%%%%%%%%
-
-Zde použijeme minimální $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\theta = (\mu,\lambda)$ pro Laplaceův model. Hustota pravděpodobnosti má tedy tvar
+\subsection{Laplace distribution} 
+Here we use \mRa-estimators to estimate parameter $\theta = (\mu,\lambda)$ in Laplace model. Laplace probability density function can be written as 
 \begin{equation}
 	p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0.
 \end{equation}
-Pro $\alpha = 0$ se odhad podle \eqref{Renyi-estimator_formula} rovná maximálně věrohodnému odhadu
+For $\alpha = 0$ is the estimator \eqref{eq:renEstimator} equal to maximum likelihood estimator
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{2\lambda}\exp \left[-\frac{|x_i-\mu|}{\lambda} \right] \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{2\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{|x_i-\mu|}{\lambda} \right].
 \end{align}
-Protože podmínka \eqref{beta-podminka} platí pro každé $\beta>0$, můžeme tedy min $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} parametrů Laplaceova rozdělení psát pro $\alpha>0$ jako 
+Condition \eqref{eq:betaCond} holds for all $\beta>0$, therefore we can \mRa-estimator \eqref{eq:renEstimator} of parameters of Laplace distribution write for $\alpha>0$ as
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ (2\lambda)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\lambda} \right] \right].
 	\label{renyi-formula-laplace}
 \end{equation}
+Via this formula we can estimate simultaneously both parameters $\mu, \lambda$ of the model. If one of the parameters is known and therefore there isn't need for it's estimation, we can simply fix it's value and maximize over the second parameter.
 
-\noindent Vzorec \eqref{renyi-formula-laplace} je pro současný odhad obou parametrů $\mu, \lambda$. Pokud by byl jeden z parametrů známý a nebylo ho tedy nutné odhadovat, dosadíme jeho hodnotu do vzorce a maximalizujeme pak jen v jedné proměnné. 
-
-Nyní pro {\mRao} v Laplaceově modelu spočítáme influenční funkce podle \eqref{IF}. Pro odhad polohy $\theta = \mu$ při známém parametru $\lambda$, dostáváme influenční funkci ve tvaru
+Here we present influence function for \mRa-estimator for Laplace model calculated from \eqref{eq:IF}. For the location estimator $(\hat{\theta} = \mu)$ with$\lambda$ known, we get influence function in the form
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
 	\label{IF-laplace-mu}
 \end{equation}
-Pokud prohodíme úlohu parametrů, tedy pokud budeme odhadovat měřítko $\theta = \lambda$, zatímco polohu $ \mu$ budeme považovat za známou, dostaneme 
+If we switch the role of the parameters, meaning that we estimate the scale $\hat{\theta} = \lambda$, while fixing the $ \mu$, we get 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = (1 + \alpha)^2 \left(-\lambda + (1 + \alpha)|x-\mu|\right)  e^{-\frac{\alpha|x-\mu|}{\lambda}}	. % IF(x,sigma)
 	\label{IF-laplace-lambda}
@@ -39,53 +37,53 @@ Pokud prohodíme úlohu parametrů, tedy pokud budeme odhadovat měřítko $\the
 	&&
 	\epsfig{file=Laplace-IF-lambda.eps, height=2.in} 
 	\\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ při známém $\lambda = 1$ 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ in case of known $\lambda = 1$ 
 	&&
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1)$ při známém $\mu = 0$ 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1)$ in case of known $\mu = 0$ 
 	\\
 \end{tabular}
-\caption{Influenční funkce minimálních $\mathfrak{R}_\alpha$-odhadů parametrů Laplaceova rozdělení}
+\caption{Influence function of \mRa-estimators of parameters of Laplace distribution}
 \label{fig:laplace-if}
 \end{center}
 %\label{fig:laplace-if}
 \end{figure}
 
-\noindent Z \eqref{IF-laplace-mu} a \eqref{IF-laplace-lambda} vidíme, že jsou obě influenční funkce pro $\alpha>0$ omezené, tedy B-robustní a navíc pro obě funkce platí
+From \eqref{IF-laplace-mu} and \eqref{IF-laplace-lambda} we can see, that both influence functions are for $\alpha>0$ bounded, therefore B-robust. 
+
+Moreover for both functions it holds that 
 
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0.
 \end{equation}
  
-\noindent Nemáme sice konečný bod zamítání $\rho^*$, ale influenční funkce se alespoň limitně blíží s rostoucím $x$ k nule. Tato konvergence je s větším $\alpha$ rychlejší kvůli členu $e^{-\alpha x}$, který se vyskytuje v obou funkcích. To je vidět i na obrázku \ref{fig:laplace-if}, kde jsou vyobrazeny influenční funkce zvlášť pro oba odhadované parametry a s různými hodnotami $\alpha$. Je vidět, že maximálně věrohodný odhad $(\alpha = 0)$ není omezený, a že se funkce pro větší hodnoty $\alpha$ s rostoucí vzdáleností hodnot $x$ od polohy $\mu=0$ rychleji blíží k nule.
+\noindent Although the rejection points $\rho^*$ isn't finite, but the limits hold. We can see, that this convergence has exponential development in $\alpha$ due to the component  $e^{-\alpha x}$ in both functions. This means, that the estimator is more robust with higher value of $\alpha$. This can be also seen in the figure \ref{fig:laplace-if}, where the influence functions for both estimated parameters are shown separately for various $\alpha$.  We can see that maximum likelihood estimator $(\alpha = 0)$ isn't bounded and that the functions approach 0 faster with increasing $|x|$ for higher values of $\alpha$.
 
-\section{Exponenciální rozdělení} %%%%%%%%%%%%%%%%%%%%%  EXPONENTIAL   %%%%%%%%%%%%%%%%%%%%%%
-
-Nyní použijeme minimální $\mathfrak{R}_\alpha$-odhady k odhadu parametru $\theta = (\mu,\lambda)$ pro případ exponenciálního rozdělení s hustotou pravděpodobnosti
+\subsection{Exponential distribution} 
+Here we use \mRa-estimators to estimate parameter $\theta = (\mu,\lambda)$ in exponential distribution with probability density function 
 \begin{equation}
 	p_\theta = \frac{1}{\lambda} e^{-\frac{x-\mu}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0, \, x\geq\mu.
 \end{equation}
-\noindent Exponenciální hustota je svým tvarem velmi podobná té Laplaceově. Dále uvidíme, že i vzorce týkající se minimálních Rényiho odhadů vycházejí pro oba modely velmi podobně, v některých případech dokonce stejně.  Pro $\alpha = 0$ dostáváme odhad ve tvaru
+\noindent Exponential density's form is very similar to that of Laplace density. Below we will see, that even formulas for \mRa-estimators are very similar in both models. For $\alpha = 0$ we get \mRa-estimator in the form
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & =  \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{\lambda}\exp \left[-\frac{x_i-\mu}{\lambda} \right] \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{x_i-\mu}{\lambda} \right].
 \end{align}
 
-\noindent Podmínka \ref{beta-podminka} opět platí pro každé $\beta>0$, minimální Rényiho odhad pro $\alpha>0$ můžeme tedy pro exponenciální rodinu psát ve tvaru
-
+\noindent Condition \ref{eq:betaCond} holds again for all  $\beta>0$, therefore we can write \mRa-estimator for exponential family for $\alpha>0$ as
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \lambda^{-\frac{\alpha}{1+\alpha}} \frac{1}{n}\sum_{i=1}^n \exp \left[-\alpha\frac{x_i-\mu}{\lambda} \right].
 	\label{renyi-formula-exponential}
 \end{equation}
 
-\noindent Je vidět, že rozdíl oproti \eqref{renyi-formula-laplace} je jen v použití absolutní hodnoty v odhadu Laplaceova modelu. 
+We can see, that the difference to \eqref{renyi-formula-laplace} is only in the use of absolute value in Laplace model.
 
-Influenční funkce je podle $\eqref{IF}$ v případě odhadu parametru polohy $\theta = \mu$ a známého měřítka $ \lambda$ stejná jako pro Laplaceovo rozdělení $\eqref{IF-laplace-mu}$, tedy 
+For  the estimator of location $\hat{\theta} = \mu$ in case of known $\lambda$, the influence function is the same as in the Laplace family $\eqref{IF-laplace-mu}$, therefore it holds
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
 	\label{IF-exponential-mu}
 \end{equation}
-Pokud odhadujeme parametr měřítka $\theta = \lambda$ při známé poloze $ \mu $, vychází funkce ve tvaru
+If we estimate parameter of scale $\hat{\theta} = \lambda$ in case of known $ \mu $, we get formula
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) =	(1+\alpha )^2 \left( - \lambda +(1+ \alpha)(x-\mu)\right) e^{-\frac{\alpha (x-\mu)}{\lambda }}. % IF(x,lambda),
 	\label{IF-exponential-lambda}
@@ -98,24 +96,24 @@ Pokud odhadujeme parametr měřítka $\theta = \lambda$ při známé poloze $ \m
 	&&
 	\epsfig{file=Exp-IF-lambda.eps, height=2.1in} 
 	\\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ při známém $\lambda = 1$
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ in case of known $\lambda = 1$
 	&&
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1)$ při známém $\mu = 0$
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1)$ in case of known $\mu = 0$
 	\\
 \end{tabular}
-\caption{Influenční funkce minimálních $\mathfrak{R}_\alpha$-odhadů parametrů exponenciálního rozdělení}
+\caption{Influence function of \mRa-estimators of parameters of exponential distribution}
 \label{fig-exp-if}
 \end{center}
 \end{figure}
 
-\noindent Ze vzorců \eqref{IF-exponential-mu} a \eqref{IF-exponential-lambda} vidíme, že pro obě funkce platí
+\noindent We can see from \eqref{IF-exponential-mu} and \eqref{IF-exponential-lambda} that for both functions it holds, that
 
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0,
 \end{equation}
-tedy že velké outliery budou díky konvergenci influenčních funkcí k nule částečně ignorovány.  Přitom platí, že se konvergence zrychluje s rostoucím $\alpha$, což je vidět na Obr. \ref{fig-exp-if}, stejně jako to, že jsou funkce pro $\alpha >0$ omezené. 
+therefore outliers will be partially ignored due to the convergence of influence functions to 0. Again it holds, that the convergence is faster with greater $\alpha$, which can be seen in figure \ref{fig-exp-if}, as well as the fact, that the functions are bounded for all $\alpha >0$.
 
-\section{Cauchyovo rozdělení} %%%%%%%%%%%%%%%%%%%%%  Cauchy   %%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cauchy distribution} 
 
 
 Dalším rozdělením, na které jsme použili Rényiho odhady, je Cauchyho s parametrem $\theta = (\mu,\sigma)$ a hustotou pravděpodobnosti
@@ -127,7 +125,7 @@ Minimální $\mathfrak{R}_\alpha$-odhad je pro $\alpha=0$ roven
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[  \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}   \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right],
 \end{align}
-který je shodný s maximálně věrohodným odhadem. Podmínka \eqref{beta-podminka} platí tak jako v předchozích případech pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} parametrů v Cauchyho modelu jako 
+který je shodný s maximálně věrohodným odhadem. Podmínka \eqref{eq:betaCond} platí tak jako v předchozích případech pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{eq:renEstimator} parametrů v Cauchyho modelu jako 
 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ \sigma^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \right].
@@ -188,7 +186,7 @@ přičemž hypergeometrická funkce je definovaná vztahem
 
 \noindent Kvůli definici hypergeometrické funkce tato influenční funkce však nemá smysl, protože z definičních podmínek nám vychází $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, tedy $\alpha < -2$, což ale odporuje výběru $\alpha>0$ z věty \ref{renyi-veta}. 
 
-\section{Weibullovo rozdělení} %%%%%%%%%%%%%%%%%%%%%  WEIBULL   %%%%%%%%%%%%%%%%%%%%%%
+\subsection{Weibull distribution} 
 
 Posledním zpracovávaným rozdělením, bylo tříparametriké Weibullovo s parametrem $\theta = (\mu,\lambda,k)$ a hustotou pravděpodobnosti
 \begin{equation}
@@ -204,7 +202,7 @@ Posledním zpracovávaným rozdělením, bylo tříparametriké Weibullovo s par
 	\frac{1}{n} \sum^n_{i=1} \left(  \frac{x_i-\mu}{\lambda} \right)^k \right].
 \end{align}
 
-\noindent Podmínka \ref{beta-podminka} opět platí pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{Renyi-estimator_formula} parametrů ve Weibullově modelu ve tvaru
+\noindent Podmínka \ref{eq:betaCond} opět platí pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{eq:renEstimator} parametrů ve Weibullově modelu ve tvaru
 
 \begin{eqnarray}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} & = & \arg \max_{\theta \in \Theta} \left( \frac{k}{\lambda} \right)^\frac{\alpha}{1+\alpha} (1+\alpha)^{\frac{\alpha}{1+\alpha}\frac{1+\alpha+k}{k}} 
