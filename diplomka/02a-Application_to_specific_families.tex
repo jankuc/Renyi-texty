@@ -11,7 +11,7 @@ For $\alpha = 0$ is the estimator \eqref{eq:renEstimator} equal to maximum likel
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{2\lambda}\exp \left[-\frac{|x_i-\mu|}{\lambda} \right] \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{2\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{|x_i-\mu|}{\lambda} \right].
 \end{align}
-Condition \eqref{eq:betaCond} holds for all $\beta>0$, therefore we can \mRa-estimator \eqref{eq:renEstimator} of parameters of Laplace distribution write for $\alpha>0$ as
+Condition \ref{eq:betaCond} holds for all $\beta>0$, therefore we can \mRa-estimator \eqref{eq:renEstimator} of parameters of Laplace distribution write for $\alpha>0$ as
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ (2\lambda)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\lambda} \right] \right].
 	\label{renyi-formula-laplace}
@@ -59,7 +59,7 @@ Moreover for both functions it holds that
 \noindent Although the rejection points $\rho^*$ isn't finite, but the limits hold. We can see, that this convergence has exponential development in $\alpha$ due to the component  $e^{-\alpha x}$ in both functions. This means, that the estimator is more robust with higher value of $\alpha$. This can be also seen in the figure \ref{fig:laplace-if}, where the influence functions for both estimated parameters are shown separately for various $\alpha$.  We can see that maximum likelihood estimator $(\alpha = 0)$ isn't bounded and that the functions approach 0 faster with increasing $|x|$ for higher values of $\alpha$.
 
 \subsection{Exponential distribution} 
-Here we use \mRa-estimators to estimate parameter $\theta = (\mu,\lambda)$ in exponential distribution with probability density function 
+Here we use \mRa-estimators to estimate parameter $\theta = (\mu,\lambda)$ of exponential distribution with probability density function 
 \begin{equation}
 	p_\theta = \frac{1}{\lambda} e^{-\frac{x-\mu}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0, \, x\geq\mu.
 \end{equation}
@@ -114,49 +114,46 @@ If we estimate parameter of scale $\hat{\theta} = \lambda$ in case of known $ \m
 therefore outliers will be partially ignored due to the convergence of influence functions to 0. Again it holds, that the convergence is faster with greater $\alpha$, which can be seen in figure \ref{fig-exp-if}, as well as the fact, that the functions are bounded for all $\alpha >0$.
 
 \subsection{Cauchy distribution} 
-
-
-Dalším rozdělením, na které jsme použili Rényiho odhady, je Cauchyho s parametrem $\theta = (\mu,\sigma)$ a hustotou pravděpodobnosti
+In this section we derive formulas for \mRa-estimators for Cauchy distribution with parameter $\theta = (\mu,\sigma)$ and probability density function
 \begin{equation}
 	p_\theta = \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x-\mu}{\sigma} \right)^2 \right)^{-1}, \qquad \mu\in \mathbb{R},\, \sigma>0.
 \end{equation}
-Minimální $\mathfrak{R}_\alpha$-odhad je pro $\alpha=0$ roven
+Min $\mathfrak{R}_\alpha$-estimator for $\alpha=0$  coincides with the maximum likelihood estimator
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[  \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}   \right] \nonumber \\
-	& =  \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right],
+	& =  \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right].
 \end{align}
-který je shodný s maximálně věrohodným odhadem. Podmínka \eqref{eq:betaCond} platí tak jako v předchozích případech pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{eq:renEstimator} parametrů v Cauchyho modelu jako 
+Condition \ref{eq:betaCond} holds as in previous cases for all $\beta>0$. For $\alpha>0$ we get \mRa-estimator \eqref{eq:renEstimator} in Cauchy model in the form 
 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ \sigma^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \right].
 	\label{renyi-formula-cauchy}
 \end{equation}
 
-Influenční funkci \eqref{IF} pro minimální $\mathfrak{R}_\alpha$-odhady v Cauchyho rodině se nám podařilo dopočítat jen pro odhad parametru polohy $\theta = \mu$. Za předpokladu znalosti měřítka $\sigma$ má funkce tvar
+We were able to calculate influence function \eqref{eq:IF} for \mRa-estimator only for parameter of location $\theta = \mu$. Assuming known scale $\sigma$, we get function
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \sqrt{\pi}\frac{\Gamma\left( 3 + \alpha \right)}{\Gamma\left( \frac{3}{2} + \alpha \right)} \left( \frac{\sigma^2}{\sigma^2 + (x-\mu)^2}\right)^{1+\alpha}(x-\mu).
 	\label{IF-cauchy-mu}
 \end{equation}
 
-\noindent Z \eqref{IF-cauchy-mu} a obrázku \ref{fig:cauchy-if} je vidět, že influenční funkce je pro $\alpha>0$ omezená. Bod zamítání $\rho^*$ opět není konečný, ale pro $\alpha>0$ platí alespoň limita
-
+We can see from  \eqref{IF-cauchy-mu} and figure \ref{fig:cauchy-if}, that the influence function is bounded for all $\alpha>0$. Rejection point $\rho^*$ is not finite, but for $\alpha>0$ at least the limit 
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0.
 \end{equation}
-
+holds.
 \begin{figure}[htb]
 \begin{center}
 \begin{tabular}{c}
 	\epsfig{file=Cauchy-IF-mu.eps, height=2.6in} \\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ při $\sigma = 1$ známém
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ in case of known $\sigma = 1$
 \end{tabular}
-\caption{Influenční funkce {\mRao}ů pro Cauchyovo rozdělení}
+\caption{Influence function of \mRa-estimators of parameter of Cauchy distribution}
 \label{fig:cauchy-if}
 \end{center}
 \end{figure}
 
-\noindent Podle vzorce \eqref{IF} se  nakonec podařilo dopočítat influenční funkci pro odhad měřítka $\theta = \sigma$ při znalosti polohy $\mu$. Následujícího výsledku bylo dosaženo výpočtem ve \texttt{Wolfram Mathematica}. Výsledný tvar je tedy
+According to \eqref{eq:IF} we could find the formula for estimator of scale $\theta = \sigma$ in case of known location $\mu$. The following result is obtained via computation in software tool \texttt{Wolfram Mathematica}
 
 \begin{eqnarray}
 \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\sigma) &=& -\left[4 \sqrt{\pi } (1+\alpha )^2 \sigma ^{2+\alpha } \left(\frac{\sigma }{(x-\mu )^2+\sigma ^2}\right)^{\alpha} \right. \nonumber\\
@@ -168,32 +165,32 @@ Influenční funkci \eqref{IF} pro minimální $\mathfrak{R}_\alpha$-odhady v Ca
 && \left. \left. ^r_2\mathrm{F}_1\left[\frac{1}{2}+\alpha ,1+\alpha ,-\frac{1}{2}+\alpha ,1\right]\right)\right),
 \end{eqnarray}
 
-\noindent kde $^r_2\mathrm{F}_1[a,b;c;z]$ je regularizovaná hypergeometrická funkce 
+\noindent where $^r_2\mathrm{F}_1[a,b;c;z]$ is regularized hypergeometric function
 
 \begin{equation}
 	^r_2\mathrm{F}_1[a,b;c;z] = {\frac{1}{\Gamma[c]}} {_2\mathrm{F}_1}[a,b;c;z],
 \end{equation}
-přičemž hypergeometrická funkce je definovaná vztahem
+where hypergeometric function is defined as
 \begin{equation}
 	{_2\mathrm{F}_1}[a,b;c;z]=\sum _{n=0}^{\infty } \frac{(a)_n (b)_n z^n}{ (c)_n n!}, \qquad |z|<1, \, \text{ nebo } \, (|z|=1\l  \,\text{a} \,  c>a+b),
 \end{equation}
 
-\noindent kde $(a)_n$ je Pochhammerův symbol definovaný
+\noindent where $(a)_n$ is Pochhammer symbol defined as
 
 \begin{equation}
 (a)_n=\prod _{k=0}^{n-1} (a+k), \qquad n \in \mathbb{N}.
 \end{equation}
 
-\noindent Kvůli definici hypergeometrické funkce tato influenční funkce však nemá smysl, protože z definičních podmínek nám vychází $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, tedy $\alpha < -2$, což ale odporuje výběru $\alpha>0$ z věty \ref{renyi-veta}. 
+\noindent Because of the definition of hypergeometric function this influence function doesn't make sense, because from definition constraints we get $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, thus  $\alpha < -2$, which contradicts the constraint  $\alpha>0$ from theorem \ref{eq:betaCond}. 
 
 \subsection{Weibull distribution} 
 
-Posledním zpracovávaným rozdělením, bylo tříparametriké Weibullovo s parametrem $\theta = (\mu,\lambda,k)$ a hustotou pravděpodobnosti
+Last distribution where we got some results was three-parameter Weibull with $\theta = (\mu,\lambda,k)$ and probability density
 \begin{equation}
 	p_\theta =  \frac{k}{\lambda} \left( \frac{x-\mu}{\lambda} \right)^{k-1} \exp \left[ -\left( \frac{x-\mu}{\lambda} \right)^k \right], \qquad \mu \in \mathbb{R}, \, \lambda>0, \, k>0, \, x \geq \mu.
 \end{equation}
 
-\noindent Pro $\alpha = 0$ je minimální Rényiho odhad roven
+\noindent For $\alpha = 0$ is \mRa-estimator equal to
 
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{k}{\lambda} \left( \frac{x_i-\mu}{\lambda} \right)^{k-1} 
@@ -202,7 +199,7 @@ Posledním zpracovávaným rozdělením, bylo tříparametriké Weibullovo s par
 	\frac{1}{n} \sum^n_{i=1} \left(  \frac{x_i-\mu}{\lambda} \right)^k \right].
 \end{align}
 
-\noindent Podmínka \ref{eq:betaCond} opět platí pro každé $\beta>0$. Pro $\alpha>0$ pak vychází minimální $\mathfrak{R}_\alpha$-odhad \eqref{eq:renEstimator} parametrů ve Weibullově modelu ve tvaru
+\noindent Condition \ref{eq:betaCond} holds again for all $\beta>0$. For $\alpha>0$ we get the \mRa-estimator \eqref{eq:renEstimator} in the form
 
 \begin{eqnarray}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} & = & \arg \max_{\theta \in \Theta} \left( \frac{k}{\lambda} \right)^\frac{\alpha}{1+\alpha} (1+\alpha)^{\frac{\alpha}{1+\alpha}\frac{1+\alpha+k}{k}} 
@@ -210,9 +207,9 @@ Posledním zpracovávaným rozdělením, bylo tříparametriké Weibullovo s par
 	&& \frac{1}{n}\sum_{i=1}^n \left( \frac{x_i-\mu}{\lambda}\right)^{\alpha(k-1)} \exp\left[-\alpha \left(\frac{x_i-\mu}{\lambda}\right)^k\right].
 \end{eqnarray}
 
-\noindent Kvůli použití $\Gamma$-funkce dostáváme dodatečnou podmínku $1+\alpha+k>0$, tedy $\alpha + k > -1$. Tato podmínka je ale splněna automaticky, protože jsou oba parametry kladné. 
+\noindent Because of use of $\Gamma$-function we get additional constraint  $1+\alpha+k>0$, thus $\alpha + k > -1$. This constraint is always satisfied, because both members on the left side are positive.
 
-Influenční funkce $\eqref{IF}$ pro odhad polohy $\theta = \mu$ pří známých parametrech $\lambda, k $  má tvar
+Influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} = \mu$ in case of known $\lambda, k $  can be written as
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \frac{(1+\alpha )^{\frac{-2-\alpha +k (3+\alpha )}{k}} \lambda \left(1+k \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right) 
@@ -221,7 +218,7 @@ Influenční funkce $\eqref{IF}$ pro odhad polohy $\theta = \mu$ pří známých
 	\label{IF-weibull-mu}
 \end{equation}
 
-\noindent Z použití $\Gamma$-funkce vyplývá podmínka $k > 1 + \frac{1}{1+\alpha}$, tedy $(\forall \alpha> 0) (k > 1)$. Pro $\alpha > 0$ opět kvůli exponenciálnímu členu platí
+\noindent From the use of $\Gamma$-function we get constraint $k > 1 + \frac{1}{1+\alpha}$, thus $(\forall \alpha> 0) (k > 1)$. Because of the exponential member, for $\alpha > 0$ we again get the limit
 
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0.
@@ -232,15 +229,15 @@ Influenční funkce $\eqref{IF}$ pro odhad polohy $\theta = \mu$ pří známých
 \begin{tabular}{cc}
 	\epsfig{file=Weib-IF-mu.eps, height=2.2in} & \epsfig{file=Weib-IF-lambda.eps, width=3.2in}
 	\\	
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $, známé $\lambda = 1, \: k = 2$ & $\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1) $, známé $\mu = 0, \: k = 2$
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $, in case of known $\lambda = 1, \: k = 2$ & $\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1) $, in case of known $\mu = 0, \: k = 2$
 \end{tabular}
-\caption{Influenční funkce {\mRao}ů $\mu$ a $\lambda$ Weibullovo rozdělení}
+\caption{Influence function of \mRa-estimators of $\mu$ and $\lambda$ in Weibull distribution}
 \label{figJK:weibull-if}
 \end{center}
 \end{figure}
 
-\noindent Na obrázku \ref{figJK:weibull-if} je vidět, že je influenční funkce opět omezená. V obrázku není vykreslena funkce pro $\alpha = 0$, protože pro $k=2$ je nutné použít $\alpha >0$.
-Pro odhad měřítka $\theta = \lambda$ při známých $\mu, k$ má influenční funkce tvar
+\noindent In the figure \ref{figJK:weibull-if} we can see, that influence function is again bounded. There is not function for $\alpha = 0$ in the left figure, because for $k=2$ we have to use $\alpha >0$.
+For the estimation of sccale $\theta = \lambda$ in case of known $\mu, k$, the influence function can be written as
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = \frac{(1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \lambda  \left(\alpha +k (1+\alpha ) \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right)
@@ -249,7 +246,7 @@ Pro odhad měřítka $\theta = \lambda$ při známých $\mu, k$ má influenční
 	\label{IF-weibull-lambda}
 \end{equation}
 
-\noindent Opět z použití $\Gamma$-funkce vyplývá $k>\frac{\alpha}{2+\alpha}$. Funkce pro $\alpha > 0$ a $x\rightarrow \pm \infty$ konverguje k $0$ a je omezená. což je vidět i na obrázku \ref{figJK:weibull-if}. Pro odhad parametru $\theta = k$ jsme influenční funkci opět počítali ve \texttt{Wolfram Mathematica}. Funkce vyšla ve tvaru
+\noindent From the use of $\Gamma$-function we get additional constraint $k>\frac{\alpha}{2+\alpha}$. Function for $\alpha > 0$ and $x\rightarrow \pm \infty$ converges to $0$ and it is bounded, which we can see on figure \ref{figJK:weibull-if}. For the commputation of influence function for the estimated parameter $\hat{\theta} = k$ \texttt{Wolfram Mathematica} to the result of
 
 \begin{eqnarray}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},k)& = &\left(k^2 (1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \left(e^{-\left(\frac{x-\mu }{\lambda }\right)^k} \left(\frac{x-\mu }{\lambda }\right)^{-1+k}\right)^{\alpha } \right. \nonumber \\
@@ -262,22 +259,22 @@ Pro odhad měřítka $\theta = \lambda$ při známých $\mu, k$ má influenční
 	\label{IF-weibull-k}
 \end{eqnarray}
 
-\noindent kde $\psi(n,z)$ je $(n+1)-$tá derivace logaritmu $\Gamma(z)$, tedy
+\noindent where $\psi(n,z)$ is $(n+1)^\text{th}$ differentiation of logarithm of $\Gamma(z)$, thus
 
 \begin{equation}
 	\psi(n,z) = \frac{\mathrm{d}^{n+1}}{\mathrm{d}z^{n+1}} \ln \Gamma(z).
 \end{equation}
 
-\noindent Kvůli použití $\Gamma$-funkce vzniká podmínka $k > \frac{\alpha}{1+\alpha}$. Funkce je pro $\alpha>0$ opět omezená a pro $x$ rostoucí nade všechny meze konverguje k 0. Na obrázku \ref{figJK:weibull2-if} je patrné, že tento odhad bude fungovat kvůli velké absolutní hodnotě influenční funkce lépe pro větší hodnoty $\alpha$.
+\noindent Because of the use of $\Gamma$-function we need $k > \frac{\alpha}{1+\alpha}$. Function is bounded for $\alpha>0$ and for $x$ going to infinity, the function converges to 0.
 
 \begin{figure}[htb]
 \begin{center}
 \begin{tabular}{cc}	
 	\multicolumn{2}{c}{\epsfig{file=Weib-IF-k.eps, height=2.5in}}
 	\\
-	\multicolumn{2}{c}{$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},k = 2) $, známé $\mu = 0, \: \lambda = 1$}
+	\multicolumn{2}{c}{$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},k = 2) $, in case of known $\mu = 0, \: \lambda = 1$}
 \end{tabular}
-\caption{Influenční funkce {\mRao}u $k$ pro Weibullovo rozdělení}
+\caption{Influence function for \mRa-estimator of $k$ in Weibull distribution}
 \label{figJK:weibull2-if}
 \end{center}
 \end{figure}
