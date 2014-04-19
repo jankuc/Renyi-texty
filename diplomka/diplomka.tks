@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TexmakerSession quickmode="3">
-    <document hasfocus="false" master="false" line="27" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/01-front_pages.tex" bookmark3="0"/>
-    <document hasfocus="false" master="false" line="3" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/02-intro.tex" bookmark3="0"/>
-    <document hasfocus="false" master="false" line="88" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/00-header.tex" bookmark3="0"/>
-    <document hasfocus="false" master="true" line="7" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/Diplomova_prace-Jan_Kucera.tex" bookmark3="0"/>
-    <document hasfocus="false" master="false" line="36" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/vyzkumak/rozlozitelne_pseudovzdalenosti.tex" bookmark3="0"/>
-    <document hasfocus="false" master="false" line="20" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/SPMS2012-paper/SPMSarticle-Jan_Kucera.tex" bookmark3="0"/>
-    <document hasfocus="true" master="false" line="6" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/vyzkumak/simulace.tex" bookmark3="0"/>
-    <document hasfocus="false" master="false" line="1" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/02a-Application_to_specific_families.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/02a-Application_to_specific_families.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/01-Intro.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/vyzkumak/rozlozitelne_pseudovzdalenosti.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/vyzkumak/simulace.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/SPMS2012-paper/SPMSarticle-Jan_Kucera.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/00-header.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/10_semestr/PSL/poznamky.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/04-GoF.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/02-MDE.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/06-FNAL-results.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/05-DDT.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/00a-front_pages.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/99-bibliography.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/98-Conclusion.tex" bookmark3="0"/>
+    <document hasfocus="true" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/Diplomova_prace-Jan_Kucera.tex" bookmark3="0"/>
+    <document hasfocus="false" master="false" line="0" bookmark1="0" bookmark2="0" file="/home/kujan/Documents/FJFI/Renyi/texty/diplomka/src/03-FNAL-data.tex" bookmark3="0"/>
 </TexmakerSession>

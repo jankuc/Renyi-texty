@@ -1,0 +1,31 @@
+
+\input{src/00-header.tex}
+
+\begin{document}
+	
+	\input{src/00a-front_pages.tex}
+	\newpage
+	\tableofcontents 
+%	\label{Table of contents}
+	\setcounter{page}{1}	
+	\input{src/01-Intro.tex}	
+	\input{src/02-MDE.tex}	%Warning: this files contains another \input{}
+	\input{src/03-FNAL-data.tex}	
+	\input{src/04-GoF.tex}	
+	\input{src/05-DDT.tex}	
+	\input{src/06-FNAL-results.tex}	
+	\input{src/98-Conclusion.tex}	
+
+% 	\chapter[Tabulky]{$\quad \; \; \quad$Tabulky}
+% 	\changetext{}{+12em}{-6em}{-6em}{}
+% 	\begin{landscape}
+% 		\input{src/tab-L01-L010-both.tex}
+% 		\input{src/tab-E01-E010-both.tex}
+% 		\input{src/tab-C01-C010-both.tex}	
+%		\input{src/E01-shifted-tab.tex}
+% 	\end{landscape}
+% 	\changetext{}{-12em}{+6em}{+6em}{}
+	
+	
+	\input{src/99-bibliography.tex}	
+\end{document}
