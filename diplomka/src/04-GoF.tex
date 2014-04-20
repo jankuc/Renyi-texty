@@ -1,2 +1,18 @@
-\chapter{Goodness of fit tests}	
-vyber promennych
+\chapter{Goodness of fit tests}
+\label{ch:GoF}
+
+Vyber promennych \\
+testy zalozene na divergencnich vzdalenostech \\
+poradi promennych zalozene na div. vzdalenostech\\
+
+
+In this section we consider two i.i.d. random samples $X_1,\ldots, X_m$ and $Y_1, \ldots, Y_n$ with distribution functions $F$ and $G$ respectively. 
+
+We are going to test the hypothesis $H_0: F = G$ against the alternative $H_1: F \neq G$. 
+\section{Kolmogorov-Smirnov test}
+Kolmogorov-Smirnov goodness of fit test is based on Glivenko-Cantelli theorem \ref{theo:glivenko-cantelli}. It uses statistic $D_{m,n}$ defined as 
+\begin{equation}
+D_{m,n} = \sup_{x \in \mathbb{R}} |F_m(x) - G_n(x)|.
+\end{equation}
+If $H_0$ is true, then according to \ref{theo:glivenko-cantelli} it holds, that $D_{m,n} \rightarrow 0$ almost surely for $m \rightarrow \infty$ and $n \rightarrow \infty$. 
+

@@ -40,12 +40,44 @@ We say that an estimator $\hat{F}_n$ is consistent estimator of $F_{\theta_0}$ i
 %	Tuto skutečnost značíme $X_n = O_p(1)$.
 %\end{definition} 
 
-As an example of non-parametric estimator of distribution function we can use empirical distribution function defined as 
-\begin{equation}
-F_n(x)=\frac{1}{n}\sum_{j=1}^n \textbf{I}_{(-\infty,x]}(X_j), \qquad 
-x\in\mathbb{R}.
-\end{equation}
+As an example of non-parametric estimator of cumulative distribution function (CDF) we can use empirical distribution function (ECDF).
+\begin{definition}
+	Let $(X_1, \ldots,X_n)$ be i.i.d. random sample. Then empirical distribution function $F_n(x)$ is defined as 
+	\begin{equation}
+	F_n(x) = \frac{1}{n} \sum_{i=1}^n I_{X_i \leq x} \quad \forall x \in \mathbb{R},
+		\label{eq:ecdf}
+	\end{equation}
+	where $I_{X_i \leq x}$ is the indicator function defined as 
+	\begin{equation}
+	I_{X_i \leq x} = 
+		\begin{cases}
+			1 & \mathrm{if } \: X_i \leq x, \\
+			0 & \mathrm{otherwise}.
+		\end{cases}		
+	\end{equation}
+	\label{def:ecdf}	
+\end{definition}
 
+Glivenko-Cantelli theorem states limit property of ECDF:
+
+\begin{theorem}[Glivenko-Cantelli]
+	Let $(X_1, \ldots,X_n)$ be i.i.d. random sample with distribution function $F$ and let $F_n(x)$ be ECDF of this sample. Then for all $n \in \mathbb{N}$ it holds, that
+	\begin{equation}
+	\lim_{n\rightarrow \infty} \sup_{x\in \mathbb{R}} |F(x) - F_n(x)| = 0  \qquad a.s.
+	\end{equation}
+	\label{theo:glivenko-cantelli}
+\end{theorem}
+\noindent Proof can be found in \cite{Devroye}.
+
+Later, for analysing FNAL data in chapter \ref{ch:GoF}, we will need weighted empirical distribution function.
+\begin{definition}
+	Let us have the assumptions from previous definition. Moreover, let us have vector of sample weights $(w_1, \ldots,w_n) \in \mathbb{R}$. Then weighted empirical distribution function $F^w_n(x)$ is defined as 
+	\begin{equation}
+	F^w_n(x) = \frac{1}{W} \sum_{i=1}^n w_i I_{X_i \leq x} \qquad \forall  x \in \mathbb{R},\qquad \text{ where }  W = \sum_{i=1}^n w_i.
+	\label{eq:wecdf} 
+	\end{equation}	
+		\label{def:wecdf}
+\end{definition}
 %
 %\begin{theorem}[Glivenko-Cantelli]
 %Nech\v{t} jsou $X_1,\dots,X_n$ stejně a nezávisle rozdělené reálné ná\-ho\-dné veličiny s distribuční funkcí $F$ a nechť $F_n(x)$ je empirická distribuční funkce. Pak pro každé $n\in \mathbb{N}$ a $\varepsilon>0$ platí
@@ -58,6 +90,8 @@ x\in\mathbb{R}.
 %\lim_{n \rightarrow +\infty}\sup_{x \in \mathbb{R}}|F(x)-F_n(x)|=0  \quad \text{s. j.}
 %\end{equation}
 %\end{theorem}
+
+
 
 Now we can define minimum distance estimator (MDE) and asymptotically minimum distance estimator (AMDE).
 
@@ -123,7 +157,7 @@ If the studied probability distribution $P$ is symmetrical around point $x=0$, w
 \begin{definition}
 	Rejection point $\rho^*$ for functional $T$ for probability distribution $P$ is defined as 
 	\begin{equation}
-			\rho^* = \inf_{x \in \mathcal{X}} \lbrace r>0 \, | \, \IF{x} = 0 \quad \text{ for all }\quad |x| > r\rbrace.
+			\rho^* = \inf_{x \in \mathcal{X}} \lbrace r>0 \, | \, \IF{x} = 0 \:\; \forall x,\, |x| > r\rbrace.
 	\end{equation}
 	If such constant $r$  does not exist, we set $\rho^* = + \infty.$ 
 \end{definition}
@@ -187,11 +221,11 @@ By $\Pemp$ we denote the class of all empirical distribution functions, not nece
 		\begin{definition}
 	We say that the mapping $\mathfrak{D}:\mathcal{P}\times\mathcal{P}^+ \rightarrow \mathbb{R}$ is a pseudodistance between probability measures $P \in \mathcal{P}$ and $Q \in \mathcal{P}^+$ if it holds, that	
 		\begin{equation}
-			\mathfrak{D}(P_\theta,Q) \geq 0 \qquad \textit{ for all } \theta \in \Theta \: \text{ and for all } Q \in \mathcal{P}^+
+			\mathfrak{D}(P_\theta,Q) \geq 0 \qquad \forall \theta \in \Theta, \: \forall Q \in \mathcal{P}^+
 		\end{equation}
 		and 		
 		\begin{equation}
-			\mathfrak{D}(P_{\theta_1},P_{\theta_2})=0 \; \Leftrightarrow \; \theta_1=\theta_2 \qquad \text{ for all } \theta_1,\: \theta_2 \in \Theta.
+			\mathfrak{D}(P_{\theta_1},P_{\theta_2})=0 \; \Leftrightarrow \; \theta_1=\theta_2 \qquad \forall \theta_1,\: \theta_2 \in \Theta.
 		\end{equation}	
 	This pseudodistance $\mathfrak{D}$ is called decomposable on $\mathcal{P}\times\mathcal{P}^+$ if there exist functionals 
 		 $\mathfrak{D}^0:\mathcal{P}\rightarrow\mathbb{R}$, $ \mathfrak{D}^1:\mathcal{P}^+ \rightarrow \mathbb{R}$ and measurable mapping
