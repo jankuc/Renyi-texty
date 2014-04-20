@@ -32,13 +32,13 @@ If we switch the role of the parameters, meaning that we estimate the scale $\ha
 
 \begin{figure}[htb]
 \begin{center}
-\begin{tabular}{c c c}
+\begin{tabular}{c c}
 	\epsfig{file=Laplace-IF-mu.eps, height=2.in} 
-	&&
+	&
 	\epsfig{file=Laplace-IF-lambda.eps, height=2.in} 
 	\\
 	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ in case of known $\lambda = 1$ 
-	&&
+	&
 	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1)$ in case of known $\mu = 0$ 
 	\\
 \end{tabular}
@@ -172,7 +172,7 @@ According to \eqref{eq:IF} we could find the formula for estimator of scale $\th
 \end{equation}
 where hypergeometric function is defined as
 \begin{equation}
-	{_2\mathrm{F}_1}[a,b;c;z]=\sum _{n=0}^{\infty } \frac{(a)_n (b)_n z^n}{ (c)_n n!}, \qquad |z|<1, \, \text{ nebo } \, (|z|=1\l  \,\text{a} \,  c>a+b),
+	{_2\mathrm{F}_1}[a,b;c;z]=\sum _{n=0}^{\infty } \frac{(a)_n (b)_n z^n}{ (c)_n n!}, \qquad |z|<1, \, \text{ or } \, (|z|=1  \, \text{ and} \,\,  c>a+b),
 \end{equation}
 
 \noindent where $(a)_n$ is Pochhammer symbol defined as
@@ -227,10 +227,11 @@ Influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} = \mu
 \begin{figure}[!htb]
 \begin{center}
 \begin{tabular}{cc}
-	\epsfig{file=Weib-IF-mu.eps, height=2.0in} & \epsfig{file=Weib-IF-lambda.eps, width=3.4in}
+	\epsfig{file=Weib-IF-mu.eps, height=2.0in} &
+	\epsfig{file=Weib-IF-lambda.eps, width=3.3in}
 	\\	
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $, & 
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1) $,
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ & 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1) $
 	\\
 	 in case of known $\lambda = 1, \: k = 2$ & 
 	 in case of known $\mu = 0, \: k = 2$

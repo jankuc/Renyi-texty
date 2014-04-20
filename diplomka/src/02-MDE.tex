@@ -128,13 +128,13 @@ If the studied probability distribution $P$ is symmetrical around point $x=0$, w
 	If such constant $r$  does not exist, we set $\rho^* = + \infty.$ 
 \end{definition}
 
-If the rejection point $\rho^*$ is finite for some estimator, it results from the definition of the rejection point, that contamination of the estimator by measurement in the region  $\lbrace x \, | \, \IF{x} = 0 \rbrace$ does not affect the estimator in any way. If on the other hand the rejection point $\rho^*$ is not finite, it is desirable that at least
+If the rejection point $\rho^*$ is finite for some estimator, it results from its definition, that contamination of the estimator by measurement in the region  $\lbrace x \, | \, \IF{x} = 0 \rbrace$ does not affect the estimator in any way. If on the other hand the rejection point $\rho^*$ is not finite, it is desirable that at least
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \IF{x} = 0
 \end{equation}
 holds.
 
-\subsection{$M$-estimators}
+\subsection{\texorpdfstring{$M$}{M}-estimators}
 $M$-estimators are generalization of maximum likelihood estimator (MLE). They are estimators defined by maximization or minimization of appropriate function $\rho(\cdot,\cdot):\mathcal{X}\times \Theta \rightarrow \mathbb{R}$. If we have parametric model $\mathcal{P} = \lbrace P_\theta : \theta \in \Theta\rbrace$, then $M$-estimator of parameter $\theta$ is defined as 
 \begin{equation}
 	\hat{\theta_n} = M_n(P_n) = \arg \min_{\theta \in \Theta} \sum_{i=1}^n \rho(X_i,\theta) = \arg \min_{\theta \in \Theta} \mathrm{E}_{P_n}\left[ \rho(X_i,\theta) \right],
