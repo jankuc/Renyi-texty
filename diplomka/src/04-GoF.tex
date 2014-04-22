@@ -5,14 +5,60 @@ Vyber promennych \\
 testy zalozene na divergencnich vzdalenostech \\
 poradi promennych zalozene na div. vzdalenostech\\
 
+We need two sample goodness of fit  tests in which we can use WECDF or incorporate the data weights by some other means.
 
-In this section we consider two i.i.d. random samples $X_1,\ldots, X_m$ and $Y_1, \ldots, Y_n$ with distribution functions $F$ and $G$ respectively. 
+In this section we consider two i.i.d. weighted random samples $\mathbf{X}^F = (X^F_1,\ldots, X^F_m)$ and $\mathbf{X}^G = (X^G_1, \ldots, X^G_n)$ with respective weights $\mathbf{w}^F = (w^F_1,\ldots, w^F_m)$ and $\mathbf{w}^G = (w^G_1,\ldots, w^G_n)$ and respective distribution functions $F$ and $G$.   
+
+First we are going to list  tests and ranks which we used for analysing the data.
 
 We are going to test the hypothesis $H_0: F = G$ against the alternative $H_1: F \neq G$. 
 \section{Kolmogorov-Smirnov test}
-Kolmogorov-Smirnov goodness of fit test is based on Glivenko-Cantelli theorem \ref{theo:glivenko-cantelli}. It uses statistic $D_{m,n}$ defined as 
+Kolmogorov-Smirnov goodness of fit test is based on Glivenko-Cantelli theorem \ref{theo:glivenko-cantelli}. It uses statistic $D_{m,n}$ defined as Kolmogorov distances between ECDFs of analysed samples
 \begin{equation}
 D_{m,n} = \sup_{x \in \mathbb{R}} |F_m(x) - G_n(x)|.
 \end{equation}
-If $H_0$ is true, then according to \ref{theo:glivenko-cantelli} it holds, that $D_{m,n} \rightarrow 0$ almost surely for $m \rightarrow \infty$ and $n \rightarrow \infty$. 
+If $H_0$ is true, then according to \ref{theo:glivenko-cantelli} it holds that $D_{m,n} \rightarrow 0$ almost surely for $m \rightarrow \infty$ and $n \rightarrow \infty$. Now we present theorem which can serve as a basis for exact test.
+
+\begin{theorem}[Smirnov]
+	Let us denote $M = \frac{mn}{m+n}$ and let 
+	\begin{equation}
+	K(\lambda) = 1 - 2\sum_{k=1}^{\infty} (-1)^{k+1} \exp\left[ -2k^2\lambda^2\right].
+	\end{equation}
+	Then 
+	\begin{equation}
+	\lim_{m,n \rightarrow \infty} \mathrm{P}(\sqrt{M}D_{m,n} < \lambda) = K(\lambda)
+	\end{equation}
+	holds for all $\lambda$.
+\end{theorem}
+\noindent Proof can be found in \cite{Smirnov1944}. 
+However, in FNAL data samples every event is weighted and to to incorporate these weights into the tests we have to use WECDF in the definition of KS statistic
+\begin{equation}
+D_{m,n} = \sup_{x \in \mathbb{R}} |F^w_m(x) - G^w_n(x)|.
+\end{equation}
+
+\section{Cram\'{e}r-von Mises}
+Two-sample Cram\'er-von Mises goodness of fit test can be found in \cite{Anderson62}, there it is examined in greater depth. Because we need weighted version of the test, the statistic described here will be slightly modified. First let us introduce joint sample $\mathbf{X}^{F\cup G} = (X^{F\cup G}_1, \ldots, X^{F\cup G}_{m+n})$ with weights $\mathbf{w}^{F\cup G} = (w^{F\cup G}_1,\ldots, w^{F\cup G}_{m+n}).$ Joint wECDF is defined as 
+
+\begin{equation}
+T  = \frac{mn}{(m+n)^2}\left( \sum_{i=1}^m \left( F^w_m(X^F_i) - G^w_n(X^F_i)\right)^2 + \sum_{j=1}^n \left( F^w_m(X^G_j) - G^w_n(X^G_j)\right)^2 \right)
+\end{equation}
+
+expected value
+\begin{equation}
+\mathrm{E} [T] = \frac{1}{6} \frac{1}{6(m+n)}
+\end{equation}
+variance 
+\begin{equation}
+\mathrm{Var} [T] = \frac{1}{45} \cdot \frac{m+n+1}{(m+n)^2} \cdot \frac{4mn(m+n) - 3(m^2 + n^2)-2mn}{4mn}
+\end{equation}
+
+We adjust the observed $T$ as
+\begin{equation}
+T_\mathrm{lim} = \frac{T-\mathrm{E}[T]}{\sqrt{45\mathrm{Var}[T]}} + \frac{1}{6}
+\end{equation}
+
+
+
+
+
 
