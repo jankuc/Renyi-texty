@@ -1,7 +1,7 @@
 
 In this section we will use \mRa-estimators for some specific families of probability distributions. As was stated above, results for normal model were already presented in  \cite{Vajda2009}, \cite{Demut2010}. Therefore we focused on exponential, Laplace, Cauchy and Weibull families. In case of these families we focused on deriving specific simple forms of estimator according to \eqref{eq:renEstimator} and also the form of influence function \eqref{eq:IF}.
 
-\subsection{Laplace distribution} 
+\subsection{Laplace Distribution} 
 Here we use \mRa-estimators to estimate parameter $\theta = (\mu,\lambda)$ in Laplace model. Laplace probability density function can be written as 
 \begin{equation}
 	p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0.
@@ -58,7 +58,7 @@ Moreover for both functions it holds that
  
 \noindent Although the rejection points $\rho^*$ isn't finite, but the limits hold. We can see, that this convergence has exponential development in $\alpha$ due to the component  $e^{-\alpha x}$ in both functions. This means, that the estimator is more robust with higher value of $\alpha$. This can be also seen in the figure \ref{fig:laplace-if}, where the influence functions for both estimated parameters are shown separately for various $\alpha$.  We can see that maximum likelihood estimator $(\alpha = 0)$ isn't bounded and that the functions approach 0 faster with increasing $|x|$ for higher values of $\alpha$.
 
-\subsection{Exponential distribution} 
+\subsection{Exponential Distribution} 
 Here we use \mRa-estimators to estimate parameter $\theta = (\mu,\lambda)$ of exponential distribution with probability density function 
 \begin{equation}
 	p_\theta = \frac{1}{\lambda} e^{-\frac{x-\mu}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0, \, x\geq\mu.
@@ -113,7 +113,7 @@ If we estimate parameter of scale $\hat{\theta} = \lambda$ in case of known $ \m
 \end{equation}
 therefore outliers will be partially ignored due to the convergence of influence functions to 0. Again it holds, that the convergence is faster with greater $\alpha$, which can be seen in figure \ref{fig-exp-if}, as well as the fact, that the functions are bounded for all $\alpha >0$.
 
-\subsection{Cauchy distribution} 
+\subsection{Cauchy Distribution} 
 In this section we derive formulas for \mRa-estimators for Cauchy distribution with parameter $\theta = (\mu,\sigma)$ and probability density function
 \begin{equation}
 	p_\theta = \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x-\mu}{\sigma} \right)^2 \right)^{-1}, \qquad \mu\in \mathbb{R},\, \sigma>0.
@@ -183,7 +183,7 @@ where hypergeometric function is defined as
 
 \noindent Because of the definition of hypergeometric function this influence function doesn't make sense, because from definition constraints we get $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, thus  $\alpha < -2$, which contradicts the constraint  $\alpha>0$ from theorem \ref{eq:betaCond}. 
 
-\subsection{Weibull distribution} 
+\subsection{Weibull Distribution} 
 
 Last distribution where we got some results was three-parameter Weibull with $\theta = (\mu,\lambda,k)$ and probability density
 \begin{equation}
