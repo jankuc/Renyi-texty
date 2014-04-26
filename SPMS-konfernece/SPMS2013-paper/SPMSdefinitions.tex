@@ -1,0 +1,78 @@
+\newindex{default}{idx}{ind}{Author Index}
+\setcounter{tocdepth}{0}
+
+
+%% vertikalni
+\setlength{\topmargin}{0pt} \setlength{\headheight}{15pt}
+\setlength{\headsep}{25pt} \setlength{\textheight}{661pt}
+%% horizontalni
+\setlength{\oddsidemargin}{0cm} \setlength{\evensidemargin}{0cm}
+\setlength{\textwidth}{453pt}
+
+
+\def\myhead{
+ \newpage
+ \pagestyle{fancy}
+ \lhead[\thepage]{\it \titles}
+ \chead{}
+ \rhead[{\it \authors}]{\thepage}
+ \lfoot{}
+ \cfoot{}
+ \rfoot{}
+ %\setlength\headrulewidth{0.25pt}
+}
+
+\def\titlehead{
+\vspace*{-2cm} \hspace*{-7mm}
+\begin{minipage}[t]{10cm}
+Stochastic and Physical Monitoring Systems\\
+{\bf  SPMS 2012}\\
+June 25 - June 30, 2012\\
+Zlenice, Czech Republic
+\end{minipage}\hfill
+\begin{minipage}[t]{4cm}
+\vspace*{-5pt} \hspace*{5mm}
+\mbox{\epsfxsize=33mm\epsffile{Logo_BW.eps}}
+\end{minipage}
+\rule[-5mm]{\textwidth}{0.7mm}
+\bigskip
+}
+
+
+\newcommand{\authorshort}[1]{\def\authors{#1}}
+\newcommand{\titleshort}[1]{\def\titles{#1}}
+
+
+\def\Abstract#1{\small \noindent\textbf{Abstract.} #1 \vskip 1.5em}{\normalsize}
+
+\def\Keywords#1{\small \noindent\textbf{Key words: } #1. \vskip 0.5em}{\normalsize}
+
+
+\def\Title#1{\vspace*{0.6cm}\noindent {\Large {\bf #1} }
+\def\titleall{#1}%
+\setcounter{footnote}{0}%
+\setcounter{section}{0}
+\setcounter{equation}{0}%
+\setcounter{figure}{0}%
+\setcounter{table}{0}%
+\setcounter{theorem}{0}%
+\setcounter{remark}{0}%
+\setcounter{lemma}{0}%
+\setcounter{definition}{1}%
+\setcounter{example}{0}%
+}
+\def\Author#1{\vspace*{1.0cm}\noindent {\large #1 }}
+\def\Institution#1{\vspace*{0.4cm}\noindent {#1}}
+\def\Email#1{\vspace*{0.3cm}\noindent Email: \texttt{#1}\vspace*{1cm}}
+
+
+\newtheorem{theorem}{Theorem}
+%\newtheorem{proposition}{Proposition}
+%\newtheorem {corolary}{Corolary}
+\newtheorem {lemma}{Lemma}
+%\newtheorem {exercise}{Exercise}
+\newtheorem {definition}{Definition}
+\newenvironment{proof}[1][Proof]{\par\noindent{\textbf{#1.}
+}}{\hfill $\Box$}
+{\theorembodyfont{\upshape}  \newtheorem{remark}{Remark}}
+{\theorembodyfont{\upshape}  \newtheorem {example}{Example}}
