@@ -32,7 +32,7 @@ O funkcích, které minimalizujeme obecně nevíme, zda jsou diferencovatelné, 
 
 Sice jde jen o příklady, ale i pro jiná data vycházejí velmi podobné vizualizace. Obrázek \ref{fig-distanceC} je v poněkud větším detailu, takže je o něco lépe vidět, že ani ve větším přiblížení nemá funkce nějaké nepříjemné lokální extrémy. 
 
-Dá se tedy říct, že minimalizovaná funkce je poměrně hladká a nejen, že není potřeba procházet celý stavový prostor pomocí metody sítí, ale dá se dokonce použít jednoduše modifikovaný "hill climber," který není zpomalovaný ani náhodným se vracením, které je tak důležité pro simulovaného žíhání. Pokud chceme dosáhnout dobré přesnosti, je potřeba, aby algoritmus procházel stavový prostor v malých krocích. To však není potřeba v průběhu celého běhu algoritmu, ale jen na jeho konci, proto jsme mohli začít s poněkud větším krokem a ten pak v dalších iteracích algoritmu zmenšovat. Náš minimalizační algoritmus tedy vypadá následovně: 
+Dá se tedy říct, že minimalizovaná funkce je poměrně hladká a nejen, že není potřeba procházet celý stavový prostor pomocí metody sítí, ale dá se dokonce použít jednoduše modifikovaný hill climber, který není zpomalovaný ani náhodným se vracením, které je tak důležité pro simulované žíhání. Pokud chceme dosáhnout dobré přesnosti, je potřeba, aby algoritmus procházel stavový prostor v malých krocích. To však není potřeba v průběhu celého běhu algoritmu, ale jen na jeho konci, proto jsme mohli začít s poněkud větším krokem a ten pak v dalších iteracích algoritmu zmenšovat. Náš minimalizační algoritmus tedy vypadá následovně: 
 \vspace{11 pt} \\
 \textbf{Minimalizační algoritmus "hill climber"}
 
