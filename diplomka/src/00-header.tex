@@ -6,9 +6,11 @@
 \pagestyle{plain}
 \usepackage{pdflscape}
 \usepackage{setspace}
-\usepackage{hyperref}
+
 \usepackage{caption}
 \usepackage{subcaption}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
 
 %% Nastavení zrcadla sazby
 \usepackage{calc}
@@ -16,8 +18,7 @@
 \setlength{\textwidth}{6in}
 \setlength\oddsidemargin{(\paperwidth-\textwidth)/2 - 1in}
 \setlength\evensidemargin{(\paperwidth-\textwidth)/2 - 1in}
-\setlength\topmargin{(\paperheight-\textheight-\headheight-\headsep-\footskip)/2 
-- 1in}
+\setlength\topmargin{(\paperheight-\textheight-\headheight-\headsep-\footskip)/2 - 1in}
 
 %% AMSLaTeX
 \usepackage{amsmath,amsthm,amssymb, amsfonts}

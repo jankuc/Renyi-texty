@@ -1,9 +1,11 @@
-\chapter{Goodness of fit tests}
+\chapter{Goodness of Fit Tests}
 \label{ch:GoF}
 
-Vyber promennych \\
+Vyber promennych \newline
 testy zalozene na divergencnich vzdalenostech \\
 poradi promennych zalozene na div. vzdalenostech\\
+ MC vs data\\
+signal vs background\\
 
 Goal of this chapter is having number of tools for measuring similarity of two data samples and for measuring their difference. There are number of two-sample goodness of fit  tests, e.g. Kolmogorov-Smirnov test, Kruskal-Wallis test and many others. 
 
@@ -24,7 +26,7 @@ and with its ECDF $H_{m+n}(x)$.
 First we are going to list  tests and ranks which we used for analysing the data.
 
 We are going to test the hypothesis $H_0: F = G$ against the alternative $H_1: F \neq G$. 
-\section{Kolmogorov-Smirnov test}
+\section{Kolmogorov-Smirnov Test}
 Kolmogorov-Smirnov goodness of fit test is based on Glivenko-Cantelli theorem \ref{theo:glivenko-cantelli}. It uses statistic $D_{m,n}$ defined as Kolmogorov distances between ECDFs of analysed samples
 \begin{equation}
 D_{m,n} = \sup_{x \in \mathbb{R}} |F_m(x) - G_n(x)|.
@@ -63,10 +65,7 @@ T & = \frac{mn}{(m+n)^2}\left( \sum_{i=1}^m \left( F_m(X^F_i) - G_n(X^F_i)\right
 %\begin{equation}
 %T^w = \frac{mn}{(m+n)} \sum_{i=1}^{m+n} w_i^{F\cup G} \left( F_m(X^{F\cup G}_i) - G_n(X^{F\cup G}_i)\right)^2. 
 %\end{equation}
-
-
 expected value
-
 \begin{equation}
 \mathrm{E} [T] = \frac{1}{6} \frac{1}{6(m+n)}
 \end{equation}
@@ -79,8 +78,23 @@ We adjust the observed $T$ as
 \begin{equation}
 T_\mathrm{lim} = \frac{T-\mathrm{E}[T]}{\sqrt{45\mathrm{Var}[T]}} + \frac{1}{6}
 \end{equation}
-Two-sample Cram\'er-von Mises goodness of fit test can be found in \cite{Anderson62} and was examined there in greater depth.
+Two-sample Cram\'er-von Mises goodness of fit test can be found in \cite{Anderson62}, where it was examined in greater depth.
 
-\section{\ren divergence based ranking}
+\section{\ren Divergence Based Ranks}
+\ren divergence has proved in many fields of information theory as a very robust distance. 
 
+Even though there haven't been devised any specific test to go with \ren divergence, we used it to rank the variables, so we had another measure to confirm our results. Moreover, we wanted not only to test similarity of MC and data, we also wanted to now the difference between signal and background channels and there are not tests for that purpose in the literature.
+
+%\ren divergence is a $\phi-$divergence 
+%\begin{equation}
+%\mathfrak{D}_\phi (P,Q) = \int q \,\phi\left( \frac{p}{q} \right)\,\mathrm{d}\mu
+%\end{equation}
+%with the choice 
+%\begin{equation}
+%\phi =  ,
+%\end{equation}
+%so the final form is 
+%\begin{equation}
+%\mathfrak{R}_\alpha = \frac{1}{a(a-1)} \int p^\alpha q^{1-\alpha}
+%\end{equation}
 

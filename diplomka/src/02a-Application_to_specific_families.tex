@@ -47,7 +47,6 @@ If we switch the role of the parameters, meaning that we estimate the scale $\ha
 \end{center}
 %\label{fig:laplace-if}
 \end{figure}
-
 From \eqref{IF-laplace-mu} and \eqref{IF-laplace-lambda} we can see, that both influence functions are for $\alpha>0$ bounded, therefore B-robust. 
 
 Moreover for both functions it holds that 
@@ -74,10 +73,7 @@ Here we use \mRa-estimators to estimate parameter $\theta = (\mu,\lambda)$ of ex
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \lambda^{-\frac{\alpha}{1+\alpha}} \frac{1}{n}\sum_{i=1}^n \exp \left[-\alpha\frac{x_i-\mu}{\lambda} \right].
 	\label{renyi-formula-exponential}
 \end{equation}
-
-We can see, that the difference to \eqref{renyi-formula-laplace} is only in the use of absolute value in Laplace model.
-
-For  the estimator of location $\hat{\theta} = \mu$ in case of known $\lambda$, the influence function is the same as in the Laplace family $\eqref{IF-laplace-mu}$, therefore it holds
+We can see, that the difference to \eqref{renyi-formula-laplace} is only in the use of absolute value in Laplace model. For  the estimator of location $\hat{\theta} = \mu$ in case of known $\lambda$, the influence function is the same as in the Laplace family $\eqref{IF-laplace-mu}$, therefore it holds
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
@@ -130,13 +126,12 @@ Condition \ref{eq:betaCond} holds as in previous cases for all $\beta>0$. For $\
 	\label{renyi-formula-cauchy}
 \end{equation}
 
-We were able to calculate influence function \eqref{eq:IF} for \mRa-estimator only for parameter of location $\theta = \mu$. Assuming known scale $\sigma$, we get function
+\noindent We were able to calculate influence function \eqref{eq:IF} for \mRa-estimator only for parameter of location $\theta = \mu$. Assuming known scale $\sigma$, we get function
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \sqrt{\pi}\frac{\Gamma\left( 3 + \alpha \right)}{\Gamma\left( \frac{3}{2} + \alpha \right)} \left( \frac{\sigma^2}{\sigma^2 + (x-\mu)^2}\right)^{1+\alpha}(x-\mu).
 	\label{IF-cauchy-mu}
 \end{equation}
-
 We can see from  \eqref{IF-cauchy-mu} and figure \ref{fig:cauchy-if}, that the influence function is bounded for all $\alpha>0$. Rejection point $\rho^*$ is not finite, but for $\alpha>0$ at least the limit 
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0.
@@ -170,12 +165,12 @@ According to \eqref{eq:IF} we could find the formula for estimator of scale $\th
 \begin{equation}
 	^r_2\mathrm{F}_1[a,b;c;z] = {\frac{1}{\Gamma[c]}} {_2\mathrm{F}_1}[a,b;c;z],
 \end{equation}
-where hypergeometric function is defined as
+where hypergeometric function is defined by
 \begin{equation}
 	{_2\mathrm{F}_1}[a,b;c;z]=\sum _{n=0}^{\infty } \frac{(a)_n (b)_n z^n}{ (c)_n n!}, \qquad |z|<1, \, \text{ or } \, (|z|=1  \, \text{ and} \,\,  c>a+b),
 \end{equation}
 
-\noindent where $(a)_n$ is Pochhammer symbol defined as
+\noindent where $(a)_n$ is Pochhammer symbol defined by
 
 \begin{equation}
 (a)_n=\prod _{k=0}^{n-1} (a+k), \qquad n \in \mathbb{N}.
@@ -245,10 +240,15 @@ Influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} = \mu
 For the estimation of sccale $\theta = \lambda$ in case of known $\mu, k$, the influence function can be written as
 
 \begin{equation}
-	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = \frac{(1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \lambda  \left(\alpha +k (1+\alpha ) \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right)
-	\left(\frac{x-\mu}{\lambda}\right)^{\alpha k-\alpha} \exp \left[-\alpha\left(\frac{x-\mu}{\lambda}\right)^k\right]}
-	{k^2 \Gamma\left[2+\alpha -\frac{\alpha }{k}\right]}.
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = \frac{(1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \lambda  \left(\alpha +k (1+\alpha ) \left(-1+y^k\right)\right)
+	y^{\alpha( k-1)} \exp \left[-\alpha y^k\right]}
+	{k^2 \Gamma\left[2+\alpha -\frac{\alpha }{k}\right]},
 	\label{IF-weibull-lambda}
+\end{equation}
+where 
+\begin{equation}
+y = \frac{x-\mu}{\lambda}.
+\nonumber
 \end{equation}
 
 \noindent From the use of $\Gamma$-function we get additional constraint $k>\frac{\alpha}{2+\alpha}$. Function for $\alpha > 0$ and $x\rightarrow \pm \infty$ converges to $0$ and it is bounded, which we can see on figure \ref{figJK:weibull-if}. For the commputation of influence function for the estimated parameter $\hat{\theta} = k$ \texttt{Wolfram Mathematica} to the result of
