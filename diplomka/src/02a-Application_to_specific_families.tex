@@ -2,7 +2,7 @@
 In this section we will use \mRa-estimators for some specific families of probability distributions. As was stated above, results for normal model were already presented in  \cite{Vajda2009}, \cite{Demut2010}. Therefore we focused on exponential, Laplace, Cauchy and Weibull families. In case of these families we focused on deriving specific simple forms of estimator according to \eqref{eq:renEstimator} and also the form of influence function \eqref{eq:IF}.
 
 \subsection{Laplace Distribution} 
-Here we use \mRa-estimators to estimate parameter $\theta = (\mu,\lambda)$ in Laplace model. Laplace probability density function can be written as 
+Here we use \mRa-estimators to estimate parameter $\hat{\theta} = (\mu,\lambda)$ in Laplace model. Laplace probability density function can be written as 
 \begin{equation}
 	p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0.
 \end{equation}
@@ -37,9 +37,9 @@ If we switch the role of the parameters, meaning that we estimate the scale $\ha
 	&
 	\epsfig{file=Laplace-IF-lambda.eps, height=2.in} 
 	\\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ in case of known $\lambda = 1$ 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu }= 0) $ in case of known $\lambda = 1$ 
 	&
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1)$ in case of known $\mu = 0$ 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1)$ in case of known $\mu = 0$ 
 	\\
 \end{tabular}
 \caption{Influence function of \mRa-estimators of parameters of Laplace distribution}
@@ -58,7 +58,7 @@ Moreover for both functions it holds that
 \noindent Although the rejection points $\rho^*$ isn't finite, but the limits hold. We can see, that this convergence has exponential development in $\alpha$ due to the component  $e^{-\alpha x}$ in both functions. This means, that the estimator is more robust with higher value of $\alpha$. This can be also seen in the figure \ref{fig:laplace-if}, where the influence functions for both estimated parameters are shown separately for various $\alpha$.  We can see that maximum likelihood estimator $(\alpha = 0)$ isn't bounded and that the functions approach 0 faster with increasing $|x|$ for higher values of $\alpha$.
 
 \subsection{Exponential Distribution} 
-Here we use \mRa-estimators to estimate parameter $\theta = (\mu,\lambda)$ of exponential distribution with probability density function 
+Here we use \mRa-estimators to estimate parameter $\hat{\theta} = (\mu,\lambda)$ of exponential distribution with probability density function 
 \begin{equation}
 	p_\theta = \frac{1}{\lambda} e^{-\frac{x-\mu}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0, \, x\geq\mu.
 \end{equation}
@@ -73,13 +73,13 @@ Here we use \mRa-estimators to estimate parameter $\theta = (\mu,\lambda)$ of ex
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \lambda^{-\frac{\alpha}{1+\alpha}} \frac{1}{n}\sum_{i=1}^n \exp \left[-\alpha\frac{x_i-\mu}{\lambda} \right].
 	\label{renyi-formula-exponential}
 \end{equation}
-We can see, that the difference to \eqref{renyi-formula-laplace} is only in the use of absolute value in Laplace model. For  the estimator of location $\hat{\theta} = \mu$ in case of known $\lambda$, the influence function is the same as in the Laplace family $\eqref{IF-laplace-mu}$, therefore it holds
+We can see, that the difference to \eqref{renyi-formula-laplace} is only in the use of absolute value in Laplace model. For  the estimator of location ($\hat{\theta} = \mu$) in case of known $\lambda$, the influence function is the same as in the Laplace family $\eqref{IF-laplace-mu}$, therefore it holds
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
 	\label{IF-exponential-mu}
 \end{equation}
-If we estimate parameter of scale $\hat{\theta} = \lambda$ in case of known $ \mu $, we get formula
+If we estimate parameter of scale ($\hat{\theta} = \lambda$) in case of known $ \mu $, we get formula
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) =	(1+\alpha )^2 \left( - \lambda +(1+ \alpha)(x-\mu)\right) e^{-\frac{\alpha (x-\mu)}{\lambda }}. % IF(x,lambda),
 	\label{IF-exponential-lambda}
@@ -92,9 +92,9 @@ If we estimate parameter of scale $\hat{\theta} = \lambda$ in case of known $ \m
 	&
 	\epsfig{file=Exp-IF-lambda.eps, height=2.1in} 
 	\\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ in case of known $\lambda = 1$
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu} = 0) $ in case of known $\lambda = 1$
 	&
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1)$ in case of known $\mu = 0$
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1)$ in case of known $\mu = 0$
 	\\
 \end{tabular}
 \caption{Influence function of \mRa-estimators of parameters of exponential distribution}
@@ -110,7 +110,7 @@ If we estimate parameter of scale $\hat{\theta} = \lambda$ in case of known $ \m
 therefore outliers will be partially ignored due to the convergence of influence functions to 0. Again it holds, that the convergence is faster with greater $\alpha$, which can be seen in figure \ref{fig-exp-if}, as well as the fact, that the functions are bounded for all $\alpha >0$.
 
 \subsection{Cauchy Distribution} 
-In this section we derive formulas for \mRa-estimators for Cauchy distribution with parameter $\theta = (\mu,\sigma)$ and probability density function
+In this section we derive formulas for \mRa-estimators for Cauchy distribution with parameter $\hat{\theta} = (\mu,\sigma)$ and probability density function
 \begin{equation}
 	p_\theta = \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x-\mu}{\sigma} \right)^2 \right)^{-1}, \qquad \mu\in \mathbb{R},\, \sigma>0.
 \end{equation}
@@ -126,7 +126,7 @@ Condition \ref{eq:betaCond} holds as in previous cases for all $\beta>0$. For $\
 	\label{renyi-formula-cauchy}
 \end{equation}
 
-\noindent We were able to calculate influence function \eqref{eq:IF} for \mRa-estimator only for parameter of location $\theta = \mu$. Assuming known scale $\sigma$, we get function
+\noindent We were able to calculate influence function \eqref{eq:IF} for \mRa-estimator only for parameter of location ($\hat{\theta} = \mu$). Assuming known scale $\sigma$, we get function
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \sqrt{\pi}\frac{\Gamma\left( 3 + \alpha \right)}{\Gamma\left( \frac{3}{2} + \alpha \right)} \left( \frac{\sigma^2}{\sigma^2 + (x-\mu)^2}\right)^{1+\alpha}(x-\mu).
@@ -141,14 +141,14 @@ holds.
 \begin{center}
 \begin{tabular}{c}
 	\epsfig{file=Cauchy-IF-mu.eps, height=2.6in} \\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ in case of known $\sigma = 1$
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu} = 0) $ in case of known $\sigma = 1$
 \end{tabular}
 \caption{Influence function of \mRa-estimators of parameter of Cauchy distribution}
 \label{fig:cauchy-if}
 \end{center}
 \end{figure}
 
-According to \eqref{eq:IF} we could find the formula for estimator of scale $\theta = \sigma$ in case of known location $\mu$. The following result is obtained via computation in software tool \texttt{Wolfram Mathematica}
+According to \eqref{eq:IF} we could find the formula for estimator of scale ($\hat{\theta} =  \sigma$) in case of known location $\mu$. The following result is obtained via computation in software tool \texttt{Wolfram Mathematica}
 
 \begin{eqnarray}
 \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\sigma) &=& -\left[4 \sqrt{\pi } (1+\alpha )^2 \sigma ^{2+\alpha } \left(\frac{\sigma }{(x-\mu )^2+\sigma ^2}\right)^{\alpha} \right. \nonumber\\
@@ -225,8 +225,8 @@ Influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} = \mu
 	\epsfig{file=Weib-IF-mu.eps, height=2.0in} &
 	\epsfig{file=Weib-IF-lambda.eps, width=3.3in}
 	\\	
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu = 0) $ & 
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda = 1) $
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu} = 0) $ & 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1) $
 	\\
 	 in case of known $\lambda = 1, \: k = 2$ & 
 	 in case of known $\mu = 0, \: k = 2$
@@ -237,7 +237,7 @@ Influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} = \mu
 \end{figure}
 
 \noindent In the figure \ref{figJK:weibull-if} we can see, that influence function is again bounded. There is not function for $\alpha = 0$ in the left figure, because for $k=2$ we have to use $\alpha >0$.
-For the estimation of sccale $\theta = \lambda$ in case of known $\mu, k$, the influence function can be written as
+For the estimation of scale $\hat{\theta}= \lambda$ in case of known $\mu, k$, the influence function can be written as
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = \frac{(1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \lambda  \left(\alpha +k (1+\alpha ) \left(-1+y^k\right)\right)
@@ -251,7 +251,7 @@ y = \frac{x-\mu}{\lambda}.
 \nonumber
 \end{equation}
 
-\noindent From the use of $\Gamma$-function we get additional constraint $k>\frac{\alpha}{2+\alpha}$. Function for $\alpha > 0$ and $x\rightarrow \pm \infty$ converges to $0$ and it is bounded, which we can see on figure \ref{figJK:weibull-if}. For the commputation of influence function for the estimated parameter $\hat{\theta} = k$ \texttt{Wolfram Mathematica} to the result of
+\noindent From the use of $\Gamma$-function we get additional constraint $k>\frac{\alpha}{2+\alpha}$. Function for $\alpha > 0$ and $x\rightarrow \pm \infty$ converges to $0$ and it is bounded, which we can see on figure \ref{figJK:weibull-if}. For the computation of influence function for the estimated parameter $\hat{\theta} = k$, \texttt{Wolfram Mathematica} was used to get to the result of
 
 \begin{eqnarray}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},k)& = &\left(k^2 (1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \left(e^{-\left(\frac{x-\mu }{\lambda }\right)^k} \left(\frac{x-\mu }{\lambda }\right)^{-1+k}\right)^{\alpha } \right. \nonumber \\

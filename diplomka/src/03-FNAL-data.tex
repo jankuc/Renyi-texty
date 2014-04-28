@@ -1,30 +1,35 @@
 \chapter{Fermilab data and separation strategy}
 
-In this chapter we will present data obtained from experiment \dzero in Fermilab. 
+In this chapter we present data analyzed in this paper, which were obtained from experiment \dzero in Fermilab. In the following, we talk about different data sets distinguished by physical properties, completed analysis and so on. Let it be known, that by every mentioned set we actually mean two separate sets. The first one contains real data (or simply data) measured by the detector \dzero. The second set contains Monte Carlo simulations (so called Monte Carlo or shortly MC), which is generated, so that it corresponds with the measured data. It is used for training and testing methods for separating the data. 
+
+In order to cover all the possible effects, there are orders of magnitude more entries in the MC. Because of that, all the entries in MC are re-weighted, so that the volume of the MC set characterized by its weights corresponds to volume of data in the appropriate set. These re-weighted entries (and data entries) are then called events.
 
 \section{\texorpdfstring{\dzero}{D0} Experiment}
-\dzero was one of experiments on synchrotron Tevatron. Main focus of the experiments there was discovery of top quark, particle predicted by Standard model and in 1995 it really was present in the measurements. Its mass is the biggest of all the subatomic particles and is subject to constant changes due to ongoing analyses. The latest value is $m_\mathrm{top} = 173.34 \pm 0.76 \,\mathrm{GeV/c}^2 $, which comes from international collaboration of CERN's experiments ATLAS, CMS on the synchrotron LHC and of Fermilab's CDF, \dzero on Tevatron \cite{jointMass}. Illustration of this result is shown in figure \ref{fig:jointMass}.
+\dzero was one of experiments on Tevatron. Main focus of the experiments on this synchrotron was discovery of top quark, particle which was predicted by Standard model and discovered by Tevatron in 1995. Its mass is the biggest of all the subatomic particles and it is subject to constant changes due to ongoing analyses. The latest value is $m_\mathrm{top} = 173.34 \pm 0.76 \,\mathrm{GeV/c}^2 $, which comes from international collaboration of CERN's experiments ATLAS, CMS on the synchrotron LHC and of Fermilab's CDF, \dzero on Tevatron \cite{jointMass}. Illustration of this result is shown in figure \ref{fig:jointMass}. 
 
-\begin{figure}[htb]
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\textwidth]{Top-Mass-graphic-hr.jpg}
-	\caption{World collaboration arrives at new best value for mass of top quark.}
+	\includegraphics[width=0.6\textwidth]{Top-Mass-graphic-hr.jpg}
+	\caption{World collaboration arrives at the new best value for mass of top quark.}
 	\label{fig:jointMass}
 \end{figure}
 
+The data samples analyzed here were collected with the \dzero experiment in run period designated as Run II, which started in July 2002 and ended in September 2011 \cite{Yuntse}.
+
 \section{Top Quark}
-Top quark is produced mostly in pairs top-antitop quark (written as $t\bar{t}$). In 2009 the collision was detected from which single top quark originated  (without its antiparticle). Because its high mass, top quark (and antitop quark) decays in very short time, even before forming hadrons, through weak interaction almost exclusively to $W-$boson and $b-$quark as can be seen in figure \ref{fig:feynman-ljets}. These two particles then decay in three different ways; They can form one of the leptons (electron, muon or tauon) and jets, two leptons or just jets. Figure \ref{fig:ttbarBranchingFrac} shows probability of these events. 
+Top quark is produced mostly in pairs top-antitop quark (written as $t\bar{t}$). In 2009 the collision was detected from which single top quark originated  (without its antiparticle). Because of its high mass, top quark (and antitop quark) decays in very short time, even before forming hadrons. It happens through weak interaction almost exclusively to $W-$boson and $b-$quark as can be seen in figure \ref{fig:feynman-ljets}. $W-$boson then decays in three different ways. It can form one of the leptons (electron, muon or tauon) and jets, two leptons or just jets. Figure \ref{fig:ttbarBranchingFrac} shows probability of these events. 
 
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.5\textwidth]{top_pair_branching_frac.eps}
-	\caption{Top pair branching fractions}
-	\label{fig:ttbarBranchingFrac}
-\end{figure}
+Another parameter which changes physical properties of the collision is the number of jets present in the decay of $W-$boson. We recognize three categories: $2$ jets, $3$ jets and more than $4$ jets (shortly $4+$ jets).
 
-\begin{figure}[htb]
-    \centering
-	\includegraphics[width=0.35\textwidth]{feynman_ttbar_ljets.png}
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{.55	\textwidth}\centering
+    \includegraphics[width=\textwidth]{top_pair_branching_frac.eps}
+    \caption{Top pair branching fractions}
+    \label{fig:ttbarBranchingFrac}
+  \end{subfigure}\hspace{3mm}
+  \begin{subfigure}{.4\textwidth}\centering
+    \includegraphics[width=\textwidth]{feynman_ttbar_ljets.png}
     \caption{Feynman diagram of top pair decay to lepton+jets: 
     $q - \text{quark}$,
     $\bar{q} - \text{antiquark}$,
@@ -33,13 +38,15 @@ Top quark is produced mostly in pairs top-antitop quark (written as $t\bar{t}$).
     $W - \text{W--boson}$,
     $l - \text{lepton}$,
     $\nu - \text{neutrino}$,
-    $b - \text{bottom quark}$ \cite{Heinson}.}
+    $b - \text{bottom quark}$ \cite{Heinson}}
    	\label{fig:feynman-ljets}
+  \end{subfigure}
+  \caption{Decay of \ttbar pair}
 \end{figure} 
 
-All data are filtered many times due to number of reasons. First preprocessing takes  place in the process of collecting data events, because the data flow was simply to large to store on time. Frequency of collisions recorded by \dzero was around 1.7 MHz, which was reduced by 3 levels of triggers to 150 Hz for storing on tapes \cite{Yuntse}. Other filtering processes took place in dependence on the following analysis. One of the event filters is so called $b-$tagging -- picking those events, in which $b-$quarks are present (with some degree of certainty) as one of the results of top quark decay. This criterion ensures greater percentage of some signals in the data. According to this criterion, 3 groups are distinguished: events before tagging, events with $1\: b-$tag and $2\: b-$tags.
+All data are filtered many times. First preprocessing takes  place in the process of collecting data events, because the data flow was simply too large to store in time. Frequency of collisions recorded by \dzero was around 1.7 MHz, which was reduced by 3 levels of triggers to 150 Hz for storing on tapes \cite{Yuntse}. Other filtering processes took place in dependence on the following analysis. One of the event filters is so called $b-$tagging -- picking those events, in which $b-$quarks are present (with specific degree of certainty) as one of the results of top quark decay. This criterion ensures greater percentage of some signals in the data. According to this criterion, 3 groups are distinguished: events before tagging, events with $1\: b-$tag and $2\: b-$tags.
 
-We have received the lepton + jets data before $b-$tagging. Specifically the Run II setup, therefore all following references will be made to that configuration. This set still has to be divided into 6 channels depending on the type of lepton and number of jets present. We therefore recognize if there is electron, or muon and also if there are $2, 3$ or more than $4$ jets. These channels have to be analysed separately due to their different physical properties.
+Our goal is to find separation criteria for the electron + jets and muon + jets data before $b-$tagging. As stated above, for both sets we recognize subsets with $2, \,3,\, 4+$ jets. That means we have six sets with slightly different physical properties and therefore we have to analyse them separately. 
 
 \section{Data Dimension}
 \dzero detector  produces high dimensional data (number of physical parameters  goes as high as $600$). Because a lot of the parameters are linked, badly modeled by the Monte-Carlo simulations and other reasons, there are steps to lower the dimension by transforming the data, leaving out certain variables. This process is again analysis-dependent.
@@ -47,9 +54,8 @@ We have received the lepton + jets data before $b-$tagging. Specifically the Run
 Data we've obtained contain 25 variables of which not all are useful or even defined in all samples. 
 
 
-dimenze\\
-variables - jmena, nejake charakteristiky\\
-number of dimensions\\
+dimenze \\
+variables - jmena, nejake charakteristiky \\
+number of dimensions \\
 controlploty - pro vsechny promenne? nebo jen pro nektere?\\
-
 

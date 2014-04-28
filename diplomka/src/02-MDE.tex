@@ -40,7 +40,7 @@ We say that an estimator $\hat{F}_n$ is {\em consistent estimator} of $F_{\theta
 
 \noindent As an example of non-parametric estimator of cumulative distribution function (CDF) we can use empirical distribution function (ECDF).
 \begin{definition}
-	Let $(X_1, \ldots,X_n)$ be i.i.d. random sample. Then \emph{empirical distribution function} $F_n(x)$ is defined by 
+	Let $(X_1, \ldots,X_n)$ be i.i.d. observations. Then \emph{empirical distribution function} $F_n(x)$ is defined by 
 	\begin{equation}
 	F_n(x) = \frac{1}{n} \sum_{i=1}^n I_{X_i \leq x} \quad \forall x \in \mathbb{R},
 		\label{eq:ecdf}
@@ -74,7 +74,7 @@ Later, for analysing FNAL data in chapter \ref{ch:GoF}, we will need weighted em
 	F^w_n(x) = \frac{1}{W} \sum_{i=1}^n w_i I_{X_i \leq x} \qquad \forall  x \in \mathbb{R},\qquad \text{ where }  W = \sum_{i=1}^n w_i.
 	\label{eq:wecdf} 
 	\end{equation}	
-		\label{def:wecdf}
+	\label{def:wecdf}
 \end{definition}
 %
 %\begin{theorem}[Glivenko-Cantelli]
@@ -338,7 +338,7 @@ We are interested in estimators, in which we replace the hypothetical distributi
 	\end{cases}	
 	\label{eq:renEstimator}
 \end{equation}
-In \cite{Vajda2009} author derives form of influence function for minimum \ren pseudodistance estimator according to theorem \ref{theo:IF}. If we use notation 
+In \cite{Vajda2009} author derives the influence function for minimum \ren pseudodistance estimator according to theorem \ref{theo:IF}. If we use notation 
 \begin{center}
 	\begin{tabular}{c c}
 	$s_\theta = \dfrac{\mathrm{d}}{\mathrm{d}\theta} \ln p_\theta, \quad$ & $ \dot{s}_\theta = \left( \dfrac{\mathrm{d}}{\mathrm{d}\theta} \right)^T s_\theta,$ \\ 
@@ -346,7 +346,7 @@ In \cite{Vajda2009} author derives form of influence function for minimum \ren p
 	$c_\alpha(\theta) = \dfrac{\int p_\theta^{1+\alpha}s_\theta \mathrm{d}\lambda}{\int p_\theta^{1+\alpha} \mathrm{d}\lambda}, \quad$ & $\dot{c}_\alpha(\theta)= \left( \dfrac{\mathrm{d}}{\mathrm{d}\theta} \right)^T c_\alpha(\theta),$  \\ 
 	\end{tabular} 
 \end{center}
-then the influence function can be written by
+the influence function can be written according to theorem \ref{theo:IF} as
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\theta) = -\mathbf{I}^{-1}_{\alpha}(\theta) \left[ p_\theta^\alpha(x) (s_\theta (x) - c_\alpha (x)) \right], 
 	\label{eq:IF}
@@ -371,12 +371,12 @@ Minimum \ren distance estimator for $\alpha = 0$ coincides with maximum likeliho
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \text{argmax}_{\theta} \frac{1}{n\sigma^{\alpha/(1+\alpha)}}\sum_{i=1}^n\exp \biggl(-\alpha\frac{(X_i-\mu)^2}{2\sigma^2}\biggr).
 \end{equation}
 
-\noindent Influence function for estimator of the standard deviation $\sigma$ with the known mean $\mu = 0$ is derived in \cite{Vajda2009} and has the form
+\noindent Influence function for estimator of the standard deviation ($\hat{\theta} = \sigma$) with the known mean $\mu = 0$ is derived in \cite{Vajda2009} and has the form
 
 \begin{equation}
 	\text{IF}(x;T_{\mathfrak{R}_{\alpha}},\sigma) = \frac{(1+\alpha)^{5/2}\sigma}{2}\biggl[\biggl(\biggl(\frac{x}{\sigma}\biggr)^2-\frac{1}{1+\alpha}\biggr) \exp\biggl(-\frac{\alpha x^2}{2\sigma^2}\biggr)\biggr].
 \end{equation}
-For the estimator of mean $\mu$ with fixed $\sigma$ the influence function takes the form
+For the estimator of mean ($\hat{\theta} = \mu$) with fixed $\sigma$ the influence function takes the form
 \begin{equation}
 	\text{IF}(x;T_{\mathfrak{R}_{\alpha}},\mu) = (1+\alpha )^{3/2} (x-\mu ) \exp\left[{-\alpha\frac{(x-\mu )^2}{2 \sigma ^2}}\right].
 \end{equation}
