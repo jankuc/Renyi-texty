@@ -1,30 +1,30 @@
 
-In this section we will use \mRa-estimators for some specific families of probability distributions. As was stated above, results for normal model were already presented in  \cite{Vajda2009}, \cite{Demut2010}. Therefore we focused on exponential, Laplace, Cauchy and Weibull families. In case of these families we focused on deriving specific simple forms of estimator according to \eqref{eq:renEstimator} and also the form of influence function \eqref{eq:IF}.
+In this section we derive the \mRa-estimators for some specific families of probability distributions. As was stated above, results for normal model were already presented in  \cite{Vajda2009}, \cite{Demut2010}. Therefore we focused on exponential, Laplace, Cauchy and Weibull families. In case of these families we focused on deriving specific simple forms of the estimator according to \eqref{eq:renEstimator} and also the influence function relations \eqref{eq:IF}.
 
 \subsection{Laplace Distribution} 
 Here we use \mRa-estimators to estimate parameter $\hat{\theta} = (\mu,\lambda)$ in Laplace model. Laplace probability density function can be written as 
 \begin{equation}
 	p_\theta = \frac{1}{2\lambda} e^{-\frac{|x-\mu|}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0.
 \end{equation}
-For $\alpha = 0$ is the estimator \eqref{eq:renEstimator} equal to maximum likelihood estimator
+For $\alpha = 0$ the estimator \eqref{eq:renEstimator} is equal to maximum likelihood estimator
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{2\lambda}\exp \left[-\frac{|x_i-\mu|}{\lambda} \right] \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{2\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{|x_i-\mu|}{\lambda} \right].
 \end{align}
-Condition \ref{eq:betaCond} holds for all $\beta>0$, therefore we can \mRa-estimator \eqref{eq:renEstimator} of parameters of Laplace distribution write for $\alpha>0$ as
+Condition (\ref{eq:betaCond}) holds for all $\beta>0$, therefore we can rewrite the \mRa-estimator \eqref{eq:renEstimator} of parameters of Laplace distribution write for $\alpha>0$ as
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ (2\lambda)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\lambda} \right] \right].
 	\label{renyi-formula-laplace}
 \end{equation}
-Via this formula we can estimate simultaneously both parameters $\mu, \lambda$ of the model. If one of the parameters is known and therefore there isn't need for it's estimation, we can simply fix it's value and maximize over the second parameter.
+By means this formula we can estimate simultaneously both parameters $\mu, \lambda$ of the model. If one of the parameters is known, we can simply fix it's value and maximize over the second parameter.
 
-Here we present influence function for \mRa-estimator for Laplace model calculated from \eqref{eq:IF}. For the location estimator $(\hat{\theta} = \mu)$ with$\lambda$ known, we get influence function in the form
+Here we present influence function for \mRa-estimator for Laplace model calculated from \eqref{eq:IF}. For the location estimator $(\hat{\theta} = \mu)$ with $\lambda$ known, we get influence function
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
 	\label{IF-laplace-mu}
 \end{equation}
-If we switch the role of the parameters, meaning that we estimate the scale $\hat{\theta} = \lambda$, while fixing the $ \mu$, we get 
+If we switch the role of the parameters, meaning that we estimate the scale $\hat{\theta} = \lambda$, while fixing $ \mu$, we achieve to
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = (1 + \alpha)^2 \left(-\lambda + (1 + \alpha)|x-\mu|\right)  e^{-\frac{\alpha|x-\mu|}{\lambda}}	. % IF(x,sigma)
 	\label{IF-laplace-lambda}
@@ -47,39 +47,38 @@ If we switch the role of the parameters, meaning that we estimate the scale $\ha
 \end{center}
 %\label{fig:laplace-if}
 \end{figure}
-From \eqref{IF-laplace-mu} and \eqref{IF-laplace-lambda} we can see, that both influence functions are for $\alpha>0$ bounded, therefore B-robust. 
-
-Moreover for both functions it holds that 
+From \eqref{IF-laplace-mu} and \eqref{IF-laplace-lambda} we can see that both IF functions are bounded for $\alpha>0$, which implies B-robustness. Moreover, for both influence functions it holds that 
 
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0.
+	\label{eq:laplace-reject}
 \end{equation}
  
-\noindent Although the rejection points $\rho^*$ isn't finite, but the limits hold. We can see, that this convergence has exponential development in $\alpha$ due to the component  $e^{-\alpha x}$ in both functions. This means, that the estimator is more robust with higher value of $\alpha$. This can be also seen in the figure \ref{fig:laplace-if}, where the influence functions for both estimated parameters are shown separately for various $\alpha$.  We can see that maximum likelihood estimator $(\alpha = 0)$ isn't bounded and that the functions approach 0 faster with increasing $|x|$ for higher values of $\alpha$.
+\noindent Although the rejection point $\rho^*$ is not finite, the limit (\ref{eq:laplace-reject}) holds. This convergence is exponential in $\alpha$ due to the component  $e^{-\alpha x}$ in both functions. This means, that the estimator is more robust with higher value of $\alpha$. This can be also seen in Figure \ref{fig:laplace-if}, where the influence functions for both estimated parameters are shown separately for various $\alpha$.  We can see that maximum likelihood estimator $(\alpha = 0)$ is not bounded and that the IF functions approach $0$ faster with increasing $|x|$ for higher values of $\alpha$.
 
 \subsection{Exponential Distribution} 
-Here we use \mRa-estimators to estimate parameter $\hat{\theta} = (\mu,\lambda)$ of exponential distribution with probability density function 
+Here we use the \mRa-estimators for parameter $\hat{\theta} = (\mu,\lambda)$ of exponential distribution with probability density function 
 \begin{equation}
 	p_\theta = \frac{1}{\lambda} e^{-\frac{x-\mu}{\lambda}}, \qquad \mu\in \mathbb{R},\, \lambda>0, \, x\geq\mu.
 \end{equation}
-\noindent Exponential density's form is very similar to that of Laplace density. Below we will see, that even formulas for \mRa-estimators are very similar in both models. For $\alpha = 0$ we get \mRa-estimator in the form
+\noindent The form of exponential probability density is very similar to that of Laplace density. Below we see that also the formulas for \mRa-estimators are very similar in both models. For $\alpha = 0$ we get \mRa-estimator
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & =  \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{\lambda}\exp \left[-\frac{x_i-\mu}{\lambda} \right] \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{x_i-\mu}{\lambda} \right].
 \end{align}
 
-\noindent Condition \ref{eq:betaCond} holds again for all  $\beta>0$, therefore we can write \mRa-estimator for exponential family for $\alpha>0$ as
+\noindent Condition (\ref{eq:betaCond}) holds again for all  $\beta>0$, therefore we can write \mRa-estimator for exponential family for $\alpha>0$ as
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \lambda^{-\frac{\alpha}{1+\alpha}} \frac{1}{n}\sum_{i=1}^n \exp \left[-\alpha\frac{x_i-\mu}{\lambda} \right].
 	\label{renyi-formula-exponential}
 \end{equation}
-We can see, that the difference to \eqref{renyi-formula-laplace} is only in the use of absolute value in Laplace model. For  the estimator of location ($\hat{\theta} = \mu$) in case of known $\lambda$, the influence function is the same as in the Laplace family $\eqref{IF-laplace-mu}$, therefore it holds
+It differs from \eqref{renyi-formula-laplace} only in the use of absolute value in Laplace model. For  the estimator of location ($\hat{\theta} = \mu$) in the case of $\lambda$ known, the influence function is the same as in the Laplace family $\eqref{IF-laplace-mu}$, therefore it holds
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
 	\label{IF-exponential-mu}
 \end{equation}
-If we estimate parameter of scale ($\hat{\theta} = \lambda$) in case of known $ \mu $, we get formula
+If we estimate parameter of scale ($\hat{\theta} = \lambda$) in the case of known $ \mu $, we get formula
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) =	(1+\alpha )^2 \left( - \lambda +(1+ \alpha)(x-\mu)\right) e^{-\frac{\alpha (x-\mu)}{\lambda }}. % IF(x,lambda),
 	\label{IF-exponential-lambda}
@@ -102,12 +101,12 @@ If we estimate parameter of scale ($\hat{\theta} = \lambda$) in case of known $ 
 \end{center}
 \end{figure}
 
-\noindent We can see from \eqref{IF-exponential-mu} and \eqref{IF-exponential-lambda} that for both functions it holds, that
-
+\noindent It can be seen from \eqref{IF-exponential-mu} and \eqref{IF-exponential-lambda} that for both functions it holds that
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0,
+	\label{eq:exp-reject}
 \end{equation}
-therefore outliers will be partially ignored due to the convergence of influence functions to 0. Again it holds, that the convergence is faster with greater $\alpha$, which can be seen in figure \ref{fig-exp-if}, as well as the fact, that the functions are bounded for all $\alpha >0$.
+therefore possible outliers will be partially ignored due to the convergence of influence functions to 0. Again it holds, that the convergence in (\ref{eq:exp-reject}) is faster with greater $\alpha$, see Figure \ref{fig-exp-if}, as well as the fact that the functions are bounded for all $\alpha >0$.
 
 \subsection{Cauchy Distribution} 
 In this section we derive formulas for \mRa-estimators for Cauchy distribution with parameter $\hat{\theta} = (\mu,\sigma)$ and probability density function
@@ -119,7 +118,7 @@ Min $\mathfrak{R}_\alpha$-estimator for $\alpha=0$  coincides with the maximum l
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[  \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}   \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right].
 \end{align}
-Condition \ref{eq:betaCond} holds as in previous cases for all $\beta>0$. For $\alpha>0$ we get \mRa-estimator \eqref{eq:renEstimator} in Cauchy model in the form 
+Condition (\ref{eq:betaCond}) holds as in previous cases for all $\beta>0$. For $\alpha>0$ we get \mRa-estimator \eqref{eq:renEstimator} in Cauchy model in the form 
 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ \sigma^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \right].
@@ -176,7 +175,7 @@ where hypergeometric function is defined by
 (a)_n=\prod _{k=0}^{n-1} (a+k), \qquad n \in \mathbb{N}.
 \end{equation}
 
-\noindent Because of the definition of hypergeometric function this influence function doesn't make sense, because from definition constraints we get $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, thus  $\alpha < -2$, which contradicts the constraint  $\alpha>0$ from theorem \ref{eq:betaCond}. 
+\noindent Because of the definition of hypergeometric function this influence function doesn't make sense, because from definition constraints we get $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, thus  $\alpha < -2$, which contradicts the constraint  $\alpha>0$ from theorem (\ref{eq:betaCond}). 
 
 \subsection{Weibull Distribution} 
 
@@ -194,7 +193,7 @@ Last distribution where we got some results was three-parameter Weibull with $\t
 	\frac{1}{n} \sum^n_{i=1} \left(  \frac{x_i-\mu}{\lambda} \right)^k \right].
 \end{align}
 
-\noindent Condition \ref{eq:betaCond} holds again for all $\beta>0$. For $\alpha>0$ we get the \mRa-estimator \eqref{eq:renEstimator} in the form
+\noindent Condition (\ref{eq:betaCond}) holds again for all $\beta>0$. For $\alpha>0$ we get the \mRa-estimator \eqref{eq:renEstimator} in the form
 
 \begin{eqnarray}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} & = & \arg \max_{\theta \in \Theta} \left( \frac{k}{\lambda} \right)^\frac{\alpha}{1+\alpha} (1+\alpha)^{\frac{\alpha}{1+\alpha}\frac{1+\alpha+k}{k}} 

@@ -356,16 +356,16 @@ where
 \mathbf{I}_{\alpha}(\theta) = \int{ \left[\dot{s}_\theta - \dot{c}_\alpha(\theta) - \alpha(s_\theta - c_\alpha(\theta))(c^T_\alpha(\theta) - s^T_\theta) \right] p_\theta^{1+\alpha} \mathrm{d}\lambda}.
 \end{equation}
 
-\subsection{Applications for Normal Distribution}
+\subsection{Application to Normal Distribution}
 
-Results for normal model including specific forms of estimator \eqref{eq:renEstimator} and influence function \eqref{eq:IF} were already presented in \cite{Vajda2009} and \cite{Demut2010}. We are presenting them here for completeness and because we used them in simulations in which we tested the estimators on data samples with different kind of contamination from what was used in \cite{Demut2010}. 
+Results for normal model including specific forms of estimator \eqref{eq:renEstimator} and influence function \eqref{eq:IF} were already presented in \cite{Vajda2009} and \cite{Demut2010}. We present them here for the completeness and since we use them in simulations in which we tested the estimators on data samples with different kind of contamination.
 
 Minimum \ren distance estimator for $\alpha = 0$ coincides with maximum likelihood estimator
 \begin{equation}
 \hat{\theta}_{\mathfrak{R}_0,n} = \text{argmax}_{\theta} \frac{1}{n}\sum_{i=1}^n \ln \biggl[\frac{1}{\sqrt{2\pi \sigma^2}} \exp\biggl(-\frac{(X_i-\mu)^2}{2\sigma^2}\biggr)\biggr].
 \end{equation}
 
-\noindent Condition\ref{eq:betaCond} holds for all $\beta > 0$, therefore for $\alpha>0$ we can transform {\mRao} \eqref{eq:renEstimator} to
+\noindent Condition (\ref{eq:betaCond}) holds for all $\beta > 0$, therefore for $\alpha>0$ we can transform {\mRao} \eqref{eq:renEstimator} to
 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \text{argmax}_{\theta} \frac{1}{n\sigma^{\alpha/(1+\alpha)}}\sum_{i=1}^n\exp \biggl(-\alpha\frac{(X_i-\mu)^2}{2\sigma^2}\biggr).
