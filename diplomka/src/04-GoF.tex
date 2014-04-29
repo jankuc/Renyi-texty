@@ -12,7 +12,7 @@ neco o porovnani teoretickeho a root KS \\
 \\
 
 
-Conclusions from this chapter should be used for two things. For 
+
 \noindent Goal of this chapter is devising tools for measuring similarity of two data samples and for measuring their difference. There are number of two-sample goodness of fit  tests, e.g. Kolmogorov-Smirnov test, Cram\'{e}r-von Mises test and many others. 
 
 We need two-sample goodness of fit  tests in which we can use WECDF \ref{eq:wecdf} or incorporate the data weights by some other means.
@@ -39,14 +39,14 @@ and with its ECDF $H_{m+n}(x)$ and WECDF $H^w_{m+n}(x)$.
 
 The two-sample problem is to test
 \begin{equation}
-H_0: F = G \quad\: \text{vs.}\quad H_1: F \neq G \quad\text{ with significance level } \alpha
+H_0: F = G \quad\: \text{vs.}\quad H_1: F \neq G \quad\text{ at significance level } \alpha
 \end{equation} 
 Because we have to take into account weights associated with the data, the most convenient way is to use tests based on ECDFs which we can replace by WECDFs. 
 
 Lot of tests (including those mentioned below) are devised for relatively small data samples $m,n$. There usually is some exact theoretical distribution for sample sizes below 10. Sample sizes around 20 and more are often enough to use appropriate limiting distribution. Because we are dealing with sample sizes beginning at $m,n \geq 2000$ we are quite confident of using these limiting distributions.
 
 \section{Kolmogorov-Smirnov Test}
-Kolmogorov-Smirnov goodness of fit test is based on Glivenko-Cantelli theorem \ref{theo:glivenko-cantelli}. It uses statistic $D_{m,n}$ defined as Kolmogorov distance between ECDFs of analysed samples
+Kolmogorov-Smirnov (shortly KS) goodness of fit test is based on Glivenko-Cantelli theorem \ref{theo:glivenko-cantelli}. It uses statistic $D_{m,n}$ defined as Kolmogorov distance between ECDFs of analysed samples
 \begin{equation}
 D_{m,n} = \sup_{x \in \mathbb{R}} |F_m(x) - G_n(x)|.
 \end{equation}
@@ -59,27 +59,31 @@ If $H_0$ is true, then according to \ref{theo:glivenko-cantelli} it holds that $
 	\end{equation}
 	Then 
 	\begin{equation}
-	\lim_{m,n \rightarrow \infty} \mathrm{P}(\sqrt{\frac{mn}{m+n}}D_{m,n} < \lambda) = K(\lambda)
+	\lim_{m,n \rightarrow \infty} \mathrm{P}\left(\sqrt{\frac{mn}{m+n}}D_{m,n} < \lambda \right) = K(\lambda)
 	\end{equation}
 	holds for all $\lambda$.
 \end{theorem}
 \noindent Proof can be found in \cite{Smirnov1944}. 
+
+\noindent Kolmogorov Smirnov test is concluded by counting 
+\[\lambda_0 = \sqrt{\frac{mn}{m+n}}D_{m,n}\] and then counting $K\left( \lambda_0 \right)$. If $K\left( \lambda_0 \right) \geq 1 - \alpha$, we reject hypothesis $H_0$ at significance $\alpha$.
+
 As was stated above, we need to re-weight the MC entries, so they match the data events, therefore we have to replace the ECDFs in the statistic $D_{m,n}$ by appropriate WECDFs
 \begin{equation}
 D_{m,n} = \sup_{x \in \mathbb{R}} |F^w_m(x) - G^w_n(x)|.
 \end{equation}
 
-\section{Cram\'{e}r-von Mises}
-Two sample Cram\'{e}r-von Mises goodness of fit test is essentially similar to aforementioned Kolmogorov-Smirnov test. But instead of Kolmogorov distance, it is based on the $\omega^2$ criterion
+\section{Cram\'{e}r-von Mises test}
+Two sample Cram\'{e}r-von Mises (shortly CvM) goodness of fit test is similar to aforementioned KS test. But instead of Kolmogorov distance, it is based on the $\omega^2$ criterion
 \begin{equation}
 \omega^2 = \frac{mn}{m+n} \int_{-\infty}^\infty \left[F_m(x) - G_n(x) \right]^2 \,\mathrm{d} H_{m+n}(x).
 \end{equation} 
 Statistic derived from this integral described in \cite{Anderson1962} is
 \begin{align}
-T_{m,n} & = \frac{mn}{(m+n)^2}\left( \sum_{i=1}^m \left( F_m(X^F_i) - G_n(X^F_i)\right)^2 + \sum_{j=1}^n \left( F_m(X^G_j) - G_n(X^G_j)\right)^2 \right) \\
-& = \frac{mn}{(m+n)^2} \sum_{i=1}^{m+n} \left( F_m(X^{F\cup G}_i) - G_n(X^{F\cup G}_i)\right)^2 .
+T_{m,n} & = \frac{mn}{(m+n)^2}\left( \sum_{i=1}^m \left( F_m\left(X^F_i\right) - G_n\left(X^F_i\right)\right)^2 + \sum_{j=1}^n \left( F_m\left(X^G_j\right) - G_n\left(X^G_j\right)\right)^2 \right) \\
+& = \frac{mn}{(m+n)^2} \sum_{i=1}^{m+n} \left( F_m\left(X^{F\cup G}_i\right) - G_n\left(X^{F\cup G}_i\right)\right)^2 .
 \label{eq:CMstat} %\\
-%& = \frac{mn}{m+n} \sum_{i=1}^{m+n} \frac{1}{m+n} \left( F_m(X^{F\cup G}_i) - G_n(X^{F\cup %G}_i)\right)^2. 
+%& = \frac{mn}{m+n} \sum_{i=1}^{m+n} \frac{1}{m+n} \left( F_m\left(X^{F\cup G}_i\right) - G_n\left(X^{F\cup G}_i\right)\right)^2. 
 \end{align}
 %Here 1/(m+n) in the sum is weight equal for all data and it is the amount added to the ECDF at each data point. Because we don't have equally weighted data, we have to replace the fraction by weight ${w_i^{F\cup G}}$ specific for each data point. We can write the weighted statistic as
 %\begin{equation}
@@ -95,15 +99,49 @@ and
 \end{equation}
 We normalize the $T_{m,n}$ from \ref{eq:CMstat}
 \begin{equation}
-T_{m,n}^\mathrm{norm} = \frac{T_{m,n}-\mathrm{E}[T_{m,n}]}{\sqrt{45\mathrm{Var}[T_{m,n}]}} + \frac{1}{6},
+T_{m,n}^\mathrm{norm} = \frac{T_{m,n}-\mathrm{E}[T_{m,n}]}{\sqrt{45\mathrm{Var}[T_{m,n}]}} + \frac{1}{6}.
 \end{equation}
-so we can compare it with the values of limiting distribution $z$ tabulated in \cite{AndersonDarling1952}. We find the desired $p-$value $p_T$ by interpolation of $z$ at the point $T_{m,n}^\mathrm{norm}$. If $\alpha < p_T$ we reject the null hypothesis that $F = G $ with significance level $\alpha$.
+It has been shown in \cite{Rosenblatt1952} that for $m \rightarrow \infty$, $n \rightarrow \infty$ and for ${m}/{n} \rightarrow \lambda$, where $\lambda$ is positive finite constant, the  $T_{m,n}^\mathrm{norm}$ has the same limiting distribution $z$ as the one-sample variant of the test. Distribution $z$ is tabulated  in \cite{AndersonDarling1952}. We find the desired $p-$value $p_T$ by interpolation of $z$ at the point $T_{m,n}^\mathrm{norm}$. If $\alpha < p_T$ we reject the null hypothesis that $F = G $ at significance level $\alpha$.
 
 Again for use with the weighted samples which we need to analyze in case of \dzero data we replace the ECDFs in the statistic $T_{m,n}$ by appropriate WECDFs.
 
-\section{\ren Divergence Based Ranks}
-\ren divergence has proved in many fields of information theory as a very robust distance. 
+\section{Anderson-Darling test}
+Anderson-Darling two-sample goodness of fit test is essentially a generalization of the CvM test. Generalized CvM statistic can be written as 
+\begin{equation}
+\omega^2 = \frac{mn}{m+n} \int_{-\infty}^\infty w(x) \left[F_m(x) - G_n(x) \right]^2 \,\mathrm{d} H_{m+n}(x).
+\end{equation}
+in this formula $w(x)$ is weight function by which we can add importance to certain intervals. It is clear, that CvM is a special case with the choice $w(x) = 1 \:\: \forall x \in \mathbb{R}.$ Anderson and Darling   in \cite{AndersonDarling1954} introduced the statistic 
+\begin{equation}
+A^2_{N} = \frac{mn}{N} \int_{-\infty}^\infty \frac{\left[F_m(x) - G_n(x) \right]^2}{H_{N}(x)\left[ 1 - H_{N}(x)\right]} \,\mathrm{d} H_{N}(x),
+\end{equation}
+where $N = m+n$. The integrand is defined to be zero if $H_{N}(x) = 1$. For our purposes, we will again replace the ECDFs $F_m$ and $G_n$ by their weighted versions $F_m^w$ and $G_n^w$ respectively.
+According to Pettitt \cite{Pettitt1976} we reject hypothesis $H_0$ at significance level $\alpha$ whenever
+\begin{equation}
+\frac{A^2_{kN} - (k-1)}{\sigma_{N}} \geq z_{k-1}(1-\alpha).
+\end{equation}
+Here $k$ stands for number of the compared samples, therefore we use $k=2$. By $z_{(k-1)}(1-\alpha)$ we denote the $(1-\alpha)$-quantile of the standardized asymptotic distribution $Z_{k-1} = [A^2_{k-1} - (k-1)]/{\sigma}$, which is tabulated by Sholz and Stephens in \cite{Sholz1986} for typical values of $\alpha$.  Because the test isn't bound to two samples, they present values for up to ten compared samples.
+For standardization of $A^2_{N}$ we can use the results from \cite{Sholz1986} 
+\begin{equation}
+\sigma_{N}^2 = \mathrm{Var}\left[ A^2_{N}\right] = \frac{ aN^3 + bN^2 + cN + d
+ }{(N-1)(N-2)(N-3)},
+\end{equation}
+with 
+\begin{align*}
+a = & (4g - 6)k + (10 - 6g)H - 4g + 6, \\
+b = &(2g - 4)k 2 + 8hk + (2g - 14h - 4)H - 8h + 4g - 6, \\
+c = &(6h + 2g - 2)k2 + (4h - 4g + 6)k + (2h - 6)H + 4h,  \\
+d = &(2h + 6)k 2 - 4hk, 
+\end{align*}
+where
+\begin{equation}
+H = \frac{1}{m}+\frac{1}{n},\quad	h = \sum_{i=1}^{N-1}\frac{1}{i},\quad \mathrm{ and } \quad g = \sum_{i=1}^{N-2}\sum_{j=i+1}^{N-1}\frac{1}{(N-i)j}\rightarrow \frac{\pi^2}{6}.
+\end{equation}
+%Note that
+%\begin{equation}
+%g \rightarrow \int_0^1 \int_y^1 \frac{1}{x(1-y)}\,\mathrm{d}x \,\mathrm{d}y = \frac{\pi^2}{6}.
+%\end{equation}
 
+\section{\ren Divergence Based Ranks}
 Even though there haven't been devised any specific test to go with \ren divergence, we used it to rank the variables, so we had another measure to confirm our results. Moreover, we wanted not only to test similarity of MC and data, we also wanted to now the difference between signal and background channels and there are not tests for that purpose in the literature.
 
 %\ren divergence is a $\phi-$divergence 
