@@ -11,7 +11,7 @@ For $\alpha = 0$ the estimator \eqref{eq:renEstimator} is equal to maximum likel
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{1}{2\lambda}\exp \left[-\frac{|x_i-\mu|}{\lambda} \right] \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{2\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{|x_i-\mu|}{\lambda} \right].
 \end{align}
-Condition (\ref{eq:betaCond}) holds for all $\beta>0$, therefore we can rewrite the \mRa-estimator \eqref{eq:renEstimator} of parameters of Laplace distribution write for $\alpha>0$ as
+Condition \eqref{eq:betaCond} holds for all $\beta>0$, therefore we can rewrite the \mRa-estimator \eqref{eq:renEstimator} of parameters of Laplace distribution write for $\alpha>0$ as
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ (2\lambda)^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \exp \left[-\alpha\frac{|x_i-\mu|}{\lambda} \right] \right].
 	\label{renyi-formula-laplace}
@@ -37,9 +37,9 @@ If we switch the role of the parameters, meaning that we estimate the scale $\ha
 	&
 	\epsfig{file=Laplace-IF-lambda.eps, height=2.in} 
 	\\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu }= 0) $ in case of known $\lambda = 1$ 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu }= 0) $ in the case of $\lambda = 1$ known 
 	&
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1)$ in case of known $\mu = 0$ 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1)$ in the case of $\mu = 0$ known
 	\\
 \end{tabular}
 \caption{Influence function of \mRa-estimators of parameters of Laplace distribution}
@@ -54,7 +54,7 @@ From \eqref{IF-laplace-mu} and \eqref{IF-laplace-lambda} we can see that both IF
 	\label{eq:laplace-reject}
 \end{equation}
  
-\noindent Although the rejection point $\rho^*$ is not finite, the limit (\ref{eq:laplace-reject}) holds. This convergence is exponential in $\alpha$ due to the component  $e^{-\alpha x}$ in both functions. This means, that the estimator is more robust with higher value of $\alpha$. This can be also seen in Figure \ref{fig:laplace-if}, where the influence functions for both estimated parameters are shown separately for various $\alpha$.  We can see that maximum likelihood estimator $(\alpha = 0)$ is not bounded and that the IF functions approach $0$ faster with increasing $|x|$ for higher values of $\alpha$.
+\noindent Although the rejection point $\rho^*$ is not finite, the limit \eqref{eq:laplace-reject} holds. This convergence is exponential in $\alpha$ due to the component  $e^{-\alpha x}$ in both functions. This means, that the estimator is more robust with higher value of $\alpha$. This can be also seen in Figure \ref{fig:laplace-if}, where the influence functions for both estimated parameters are shown separately for various $\alpha$.  We can see that maximum likelihood estimator $(\alpha = 0)$ is not bounded and that the IF functions approach $0$ faster with increasing $|x|$ for higher values of $\alpha$.
 
 \subsection{Exponential Distribution} 
 Here we use the \mRa-estimators for parameter $\hat{\theta} = (\mu,\lambda)$ of exponential distribution with probability density function 
@@ -67,7 +67,7 @@ Here we use the \mRa-estimators for parameter $\hat{\theta} = (\mu,\lambda)$ of 
 	& =  \arg \max_{\theta \in \Theta} \left[ \ln \frac{1}{\lambda} - \frac{1}{n} \sum^n_{i=1} \frac{x_i-\mu}{\lambda} \right].
 \end{align}
 
-\noindent Condition (\ref{eq:betaCond}) holds again for all  $\beta>0$, therefore we can write \mRa-estimator for exponential family for $\alpha>0$ as
+\noindent Condition \eqref{eq:betaCond} holds again for all  $\beta>0$, therefore we can write \mRa-estimator for exponential family for $\alpha>0$ as
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \lambda^{-\frac{\alpha}{1+\alpha}} \frac{1}{n}\sum_{i=1}^n \exp \left[-\alpha\frac{x_i-\mu}{\lambda} \right].
 	\label{renyi-formula-exponential}
@@ -91,9 +91,9 @@ If we estimate parameter of scale ($\hat{\theta} = \lambda$) in the case of know
 	&
 	\epsfig{file=Exp-IF-lambda.eps, height=2.1in} 
 	\\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu} = 0) $ in case of known $\lambda = 1$
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu} = 0) $ in the case of $\lambda = 1$ known 
 	&
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1)$ in case of known $\mu = 0$
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1)$ in the case of $\mu = 0$ known 
 	\\
 \end{tabular}
 \caption{Influence function of \mRa-estimators of parameters of exponential distribution}
@@ -106,48 +106,49 @@ If we estimate parameter of scale ($\hat{\theta} = \lambda$) in the case of know
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\cdot) = 0,
 	\label{eq:exp-reject}
 \end{equation}
-therefore possible outliers will be partially ignored due to the convergence of influence functions to 0. Again it holds, that the convergence in (\ref{eq:exp-reject}) is faster with greater $\alpha$, see Figure \ref{fig-exp-if}, as well as the fact that the functions are bounded for all $\alpha >0$.
+therefore possible outliers will be partially ignored due to the convergence of influence functions to 0. Again it holds, that the convergence in \eqref{eq:exp-reject} is faster with greater $\alpha$, see Figure \ref{fig-exp-if}, as well as the fact that the functions are bounded for all $\alpha >0$.
 
 \subsection{Cauchy Distribution} 
 In this section we derive formulas for \mRa-estimators for Cauchy distribution with parameter $\hat{\theta} = (\mu,\sigma)$ and probability density function
 \begin{equation}
 	p_\theta = \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x-\mu}{\sigma} \right)^2 \right)^{-1}, \qquad \mu\in \mathbb{R},\, \sigma>0.
 \end{equation}
-Min $\mathfrak{R}_\alpha$-estimator for $\alpha=0$  coincides with the maximum likelihood estimator
+The min $\mathfrak{R}_\alpha$-estimator for $\alpha=0$  coincides with the maximum likelihood estimator
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[  \frac{1}{\pi\sigma} \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-1}   \right] \nonumber \\
 	& =  \arg \max_{\theta \in \Theta} \left[ -\ln \pi\sigma - \frac{1}{n} \sum^n_{i=1} \ln \left[ 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right] \right].
 \end{align}
-Condition (\ref{eq:betaCond}) holds as in previous cases for all $\beta>0$. For $\alpha>0$ we get \mRa-estimator \eqref{eq:renEstimator} in Cauchy model in the form 
+Condition \eqref{eq:betaCond} holds as in the previous two cases for all $\beta>0$. For $\alpha>0$ we get \mRa-estimator \eqref{eq:renEstimator} in Cauchy model in the form 
 
 \begin{equation}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} = \arg \max_{\theta \in \Theta} \left[ \sigma^{-\frac{\alpha}{1+\alpha}} \frac{1}{n} \sum_{i=1}^n \left( 1 + \left( \frac{x_i-\mu}{\sigma} \right)^2 \right)^{-\alpha} \right].
 	\label{renyi-formula-cauchy}
 \end{equation}
 
-\noindent We were able to calculate influence function \eqref{eq:IF} for \mRa-estimator only for parameter of location ($\hat{\theta} = \mu$). Assuming known scale $\sigma$, we get function
+\noindent We were able to calculate influence function \eqref{eq:IF} for \mRa-estimator only for parameter of location ($\hat{\theta} = \mu$). Assuming known scale $\sigma$, we obtain function
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \sqrt{\pi}\frac{\Gamma\left( 3 + \alpha \right)}{\Gamma\left( \frac{3}{2} + \alpha \right)} \left( \frac{\sigma^2}{\sigma^2 + (x-\mu)^2}\right)^{1+\alpha}(x-\mu).
 	\label{IF-cauchy-mu}
 \end{equation}
-We can see from  \eqref{IF-cauchy-mu} and figure \ref{fig:cauchy-if}, that the influence function is bounded for all $\alpha>0$. Rejection point $\rho^*$ is not finite, but for $\alpha>0$ at least the limit 
+
+Thus, the influence function is bounded for all $\alpha>0$, see Figure \ref{fig:cauchy-if}. Rejection point $\rho^*$ is not finite, but the limit 
 \begin{equation}
 	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0.
 \end{equation}
-holds.
+holds for $\alpha > 0$.
 \begin{figure}[htb]
 \begin{center}
 \begin{tabular}{c}
 	\epsfig{file=Cauchy-IF-mu.eps, height=2.6in} \\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu} = 0) $ in case of known $\sigma = 1$
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu} = 0) $ in the case of $\sigma = 1$ known
 \end{tabular}
-\caption{Influence function of \mRa-estimators of parameter of Cauchy distribution}
+\caption{Influence function of \mRa-estimators of parameter $\mu$ of Cauchy distribution}
 \label{fig:cauchy-if}
 \end{center}
 \end{figure}
 
-According to \eqref{eq:IF} we could find the formula for estimator of scale ($\hat{\theta} =  \sigma$) in case of known location $\mu$. The following result is obtained via computation in software tool \texttt{Wolfram Mathematica}
+By means of \eqref{eq:IF} we find formula for the estimator of scale parameter ($\hat{\theta} =  \sigma$) with location $\mu$ known. The following result is obtained via computation in software tool \texttt{Wolfram Mathematica}
 
 \begin{eqnarray}
 \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\sigma) &=& -\left[4 \sqrt{\pi } (1+\alpha )^2 \sigma ^{2+\alpha } \left(\frac{\sigma }{(x-\mu )^2+\sigma ^2}\right)^{\alpha} \right. \nonumber\\
@@ -169,13 +170,13 @@ where hypergeometric function is defined by
 	{_2\mathrm{F}_1}[a,b;c;z]=\sum _{n=0}^{\infty } \frac{(a)_n (b)_n z^n}{ (c)_n n!}, \qquad |z|<1, \, \text{ or } \, (|z|=1  \, \text{ and} \,\,  c>a+b),
 \end{equation}
 
-\noindent where $(a)_n$ is Pochhammer symbol defined by
+\noindent where $(a)_n$ is Pochhammer symbol defined as
 
 \begin{equation}
 (a)_n=\prod _{k=0}^{n-1} (a+k), \qquad n \in \mathbb{N}.
 \end{equation}
 
-\noindent Because of the definition of hypergeometric function this influence function doesn't make sense, because from definition constraints we get $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, thus  $\alpha < -2$, which contradicts the constraint  $\alpha>0$ from theorem (\ref{eq:betaCond}). 
+\noindent Because of the definition of hypergeometric function this influence function doesn't make sense, because from definition constraints we get $\frac{1}{2}+\alpha  + 1+\alpha < -\frac{1}{2}+\alpha $, thus  $\alpha < -2$, which contradicts the constraint  $\alpha>0$ required in theorem \ref{theo:renMDE}. 
 
 \subsection{Weibull Distribution} 
 
@@ -184,7 +185,7 @@ Last distribution where we got some results was three-parameter Weibull with $\t
 	p_\theta =  \frac{k}{\lambda} \left( \frac{x-\mu}{\lambda} \right)^{k-1} \exp \left[ -\left( \frac{x-\mu}{\lambda} \right)^k \right], \qquad \mu \in \mathbb{R}, \, \lambda>0, \, k>0, \, x \geq \mu.
 \end{equation}
 
-\noindent For $\alpha = 0$ is \mRa-estimator equal to
+\noindent For $\alpha = 0$ the \mRa-estimator is equal to
 
 \begin{align}
 	\hat{\theta}_{\mathfrak{R}_0,n} & = \arg \max_{\theta \in \Theta} \frac{1}{n} \sum^n_{i=1} \ln \left[ \frac{k}{\lambda} \left( \frac{x_i-\mu}{\lambda} \right)^{k-1} 
@@ -193,7 +194,7 @@ Last distribution where we got some results was three-parameter Weibull with $\t
 	\frac{1}{n} \sum^n_{i=1} \left(  \frac{x_i-\mu}{\lambda} \right)^k \right].
 \end{align}
 
-\noindent Condition (\ref{eq:betaCond}) holds again for all $\beta>0$. For $\alpha>0$ we get the \mRa-estimator \eqref{eq:renEstimator} in the form
+\noindent Condition \eqref{eq:betaCond} holds again for all $\beta>0$. For $\alpha>0$ we get the \mRa-estimator \eqref{eq:renEstimator}
 
 \begin{eqnarray}
 	\hat{\theta}_{\mathfrak{R}_\alpha,n} & = & \arg \max_{\theta \in \Theta} \left( \frac{k}{\lambda} \right)^\frac{\alpha}{1+\alpha} (1+\alpha)^{\frac{\alpha}{1+\alpha}\frac{1+\alpha+k}{k}} 
@@ -201,9 +202,9 @@ Last distribution where we got some results was three-parameter Weibull with $\t
 	&& \frac{1}{n}\sum_{i=1}^n \left( \frac{x_i-\mu}{\lambda}\right)^{\alpha(k-1)} \exp\left[-\alpha \left(\frac{x_i-\mu}{\lambda}\right)^k\right].
 \end{eqnarray}
 
-\noindent Because of use of $\Gamma$-function we get additional constraint  $1+\alpha+k>0$, thus $\alpha + k > -1$. This constraint is always satisfied, because both members on the left side are positive.
+\noindent From the definition of $\Gamma$-function we get additional constraint  $1+\alpha+k>0$, thus $\alpha + k > -1$. This constraint is always satisfied since $\alpha > 0, \:k > 0.$
 
-Influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} = \mu$ in case of known $\lambda, k $  can be written as
+The influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} = \mu$ in the case of known $\lambda, k $  can be written as
 
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \frac{(1+\alpha )^{\frac{-2-\alpha +k (3+\alpha )}{k}} \lambda \left(1+k \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right) 
@@ -212,10 +213,10 @@ Influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} = \mu
 	\label{IF-weibull-mu}
 \end{equation}
 
-\noindent From the use of $\Gamma$-function we get constraint $k > 1 + \frac{1}{1+\alpha}$, thus $(\forall \alpha> 0) (k > 1)$. Because of the exponential member, for $\alpha > 0$ we again get the limit
+\noindent Again, the  $\Gamma$-function gives the constraint $k > 1 + \frac{1}{1+\alpha}$,  i.e. $k>1$ for all $\alpha> 0$. Because of the exponential term, for $\alpha > 0$ we get the limit
 
 \begin{equation}
-	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0.
+	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0 \qquad \text{for } \alpha > 0.
 \end{equation}
 
 \begin{figure}[!htb]
@@ -235,9 +236,7 @@ Influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} = \mu
 \end{center}
 \end{figure}
 
-\noindent In the figure \ref{figJK:weibull-if} we can see, that influence function is again bounded. There is not function for $\alpha = 0$ in the left figure, because for $k=2$ we have to use $\alpha >0$.
-For the estimation of scale $\hat{\theta}= \lambda$ in case of known $\mu, k$, the influence function can be written as
-
+\noindent Figure \ref{figJK:weibull-if} shows that the influence function is again bounded. There is no line for $\alpha = 0$ in the left figure because we have to use $\alpha >0$ for $k=2$. For the estimation of scale $\hat{\theta}= \lambda$ under known parameters $\mu, k$, the influence function can be expressed  as
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = \frac{(1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \lambda  \left(\alpha +k (1+\alpha ) \left(-1+y^k\right)\right)
 	y^{\alpha( k-1)} \exp \left[-\alpha y^k\right]}
@@ -250,26 +249,27 @@ y = \frac{x-\mu}{\lambda}.
 \nonumber
 \end{equation}
 
-\noindent From the use of $\Gamma$-function we get additional constraint $k>\frac{\alpha}{2+\alpha}$. Function for $\alpha > 0$ and $x\rightarrow \pm \infty$ converges to $0$ and it is bounded, which we can see on figure \ref{figJK:weibull-if}. For the computation of influence function for the estimated parameter $\hat{\theta} = k$, \texttt{Wolfram Mathematica} was used to get to the result of
+\noindent The $\Gamma$-function implies the additional constraint $k>\frac{\alpha}{2+\alpha}$. For $\alpha > 0$ and $x\rightarrow \pm \infty$ the IF function converges to $0$ and it is bounded, see Figure \ref{figJK:weibull-if}. We used \texttt{Wolfram Mathematica} to compute IF function of  $\hat{\theta} = k$, 
 
 \begin{eqnarray}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},k)& = &\left(k^2 (1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \left(e^{-\left(\frac{x-\mu }{\lambda }\right)^k} \left(\frac{x-\mu }{\lambda }\right)^{-1+k}\right)^{\alpha } \right. \nonumber \\
 	&& \left(\alpha  \text{ln}[1+\alpha ]+k \left(1-k (1+\alpha ) \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right.\right. \nonumber \\
 	&& \left.\left.\left.\left.\text{ln}\left[\frac{x-\mu }{\lambda }\right]\right)-\alpha  \psi\left[0,1+\alpha -\frac{\alpha }{k}\right]\right)\right)\right/ \nonumber \\
-	&& \left(\Gamma\left[1+\alpha -\frac{\alpha }{k}\right] (k (k+\ln[1+\alpha ] \right.  \\
+	&& \left(\Gamma\left[1+\alpha -\frac{\alpha }{k}\right] (k (k+\ln[1+\alpha ] \right.  \label{IF-weibull-est-k}\\
 	&& (-2 k+2 \alpha +(k+(-1+k) \alpha ) \ln[1+\alpha ]))-2 k (-k+\alpha + \nonumber \\
 	&& (k+(-1+k) \alpha )\ln[1+\alpha ]) \psi\left[0,1+\alpha -\frac{\alpha }{k}\right]+k (k+(-1+k) \alpha ) \nonumber \\
 	&& \left.\left.\psi\left[0,1+\alpha -\frac{\alpha }{k}\right]^2+\left(k^2+(-1+k) k \alpha +\alpha ^2\right) \psi\left[1,1+\alpha -\frac{\alpha }{k}\right]\right)\right), \nonumber
 	\label{IF-weibull-k}
 \end{eqnarray}
 
-\noindent where $\psi(n,z)$ is $(n+1)^\text{th}$ differentiation of logarithm of $\Gamma(z)$, thus
+\noindent where $\psi(n,z)$ is $(n+1)^\text{th}$ derivative of  $\ln\Gamma(z)$, i.e.
 
 \begin{equation}
 	\psi(n,z) = \frac{\mathrm{d}^{n+1}}{\mathrm{d}z^{n+1}} \ln \Gamma(z).
+	\label{eq-weibull-psi}
 \end{equation}
 
-\noindent Because of the use of $\Gamma$-function we need $k > \frac{\alpha}{1+\alpha}$. Function is bounded for $\alpha>0$ and for $x$ going to infinity, the function converges to 0.
+\noindent Because of the use of $\Gamma$-function we need $k > \frac{\alpha}{1+\alpha}$. IF \eqref{IF-weibull-est-k} is bounded for $\alpha>0$ and it converges to $0$ for $x$ going to infinity.
 
 \begin{figure}[htb]
 \begin{center}
@@ -278,7 +278,7 @@ y = \frac{x-\mu}{\lambda}.
 	\\
 	\multicolumn{2}{c}{$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},k = 2) $, in case of known $\mu = 0, \: \lambda = 1$}
 \end{tabular}
-\caption{Influence function for \mRa-estimator of $k$ in Weibull distribution}
+\caption{Influence function for \mRa-estimator of Weibull parameter $k$}
 \label{figJK:weibull2-if}
 \end{center}
 \end{figure}
