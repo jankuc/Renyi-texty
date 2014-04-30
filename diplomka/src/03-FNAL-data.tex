@@ -1,23 +1,25 @@
 \chapter{Fermilab data and separation strategy}
 
-In this chapter we present data analyzed in this paper, which were obtained from experiment \dzero in Fermilab. In the following, we talk about different data sets distinguished by physical properties, completed analysis and so on. Let it be known, that by every mentioned set we actually mean two separate sets. The first one contains real data (or simply data) measured by the detector \dzero. The second set contains Monte Carlo simulations (so called Monte Carlo or shortly MC), which is generated, so that it corresponds with the measured data. It is used for training and testing methods for separating the data. 
+In this chapter we present data analyzed in this paper, which were obtained from experiment \dzero in Fermilab. In the following, we talk about different data sets distinguished by physical properties, completed analysis and so on. Let it be known, that by every mentioned set we actually mean two separate sets. The first one contains real data (or so called DATA) measured by the detector \dzero. The second set contains Monte Carlo simulations (so called Monte Carlo or shortly MC), which is generated, so that it corresponds with the measured data. It is used for training and testing methods for separating the data. 
 
 In order to cover all the possible effects, there are orders of magnitude more entries in the MC. Because of that, all the entries in MC are re-weighted, so that the volume of the MC set characterized by its weights corresponds to volume of data in the appropriate set. These re-weighted entries (and data entries) are then called events.
 
-\section{\texorpdfstring{\dzero}{D0} Experiment}
-\dzero was one of experiments on Tevatron. Main focus of the experiments on this synchrotron was discovery of top quark, particle which was predicted by Standard model and discovered by Tevatron in 1995. Its mass is the biggest of all the subatomic particles and it is subject to constant changes due to ongoing analyses. The latest value is $m_\mathrm{top} = 173.34 \pm 0.76 \,\mathrm{GeV/c}^2 $, which comes from international collaboration of CERN's experiments ATLAS, CMS on the synchrotron LHC and of Fermilab's CDF, \dzero on Tevatron \cite{jointMass}. Illustration of this result is shown in figure \ref{fig:jointMass}. 
+\section{\texorpdfstring{\dzero}{D0} Experiment at Tevatron}
+\dzero was one of experiments on Tevatron. Main focus of the \dzero experiment on this synchrotron was discovery of top quark, particle which was predicted by Standard model and discovered in Tevatron in 1995. 
+In 1995 it really appeared in the \dzero measurements.***
+Its mass is the biggest of all the subatomic particles and it is subject to constant/continual*** changes due to ongoing analyses. The latest value is $m_\mathrm{top} = 173.34 \pm 0.76 \,\mathrm{GeV/c}^2 $, which comes from international collaboration of CERN's experiments ATLAS, CMS on the synchrotron LHC and of Fermilab's CDF, \dzero on Tevatron \cite{jointMass}. Illustration of this result is shown in figure \ref{fig:jointMass}. 
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Top-Mass-graphic-hr.jpg}
-	\caption{World collaboration arrives at the new best value for mass of top quark.}
+	\caption{World collaboration arrives at the new best value for top quark mass.}
 	\label{fig:jointMass}
 \end{figure}
 
 The data samples analyzed here were collected with the \dzero experiment in run period designated as Run II, which started in July 2002 and ended in September 2011 \cite{Yuntse}.
 
 \section{Top Quark}
-Top quark is produced mostly in pairs top-antitop quark (written as $t\bar{t}$). In 2009 the collision was detected from which single top quark originated  (without its antiparticle). Because of its high mass, top quark (and antitop quark) decays in very short time, even before forming hadrons. It happens through weak interaction almost exclusively to $W-$boson and $b-$quark as can be seen in figure \ref{fig:feynman-ljets}. $W-$boson then decays in three different ways. It can form one of the leptons (electron, muon or tauon) and jets, two leptons or just jets. Figure \ref{fig:ttbarBranchingFrac} shows probability of these events. 
+Top quark is produced mostly in pairs top-antitop quark (written as $t\bar{t}$). In 2009 the collision from which single top quark originated  (without its antiparticle) was detected. Due to its of its high mass, the top quark (and antitop quark) decays in very short time, even before forming hadrons. It happens Through weak interaction top quark almost exclusively decays to $W-$boson and $b-$quark as can be seen in Figure \ref{fig:feynman-ljets}. $W-$boson then decays in three different ways: it can form one of the leptons (electron, muon or tauon) and jets, two leptons or just jets. Figure \ref{fig:ttbarBranchingFrac} shows probability of these events. 
 
 Another parameter which changes physical properties of the collision is the number of jets present in the decay of $W-$boson. We recognize three categories: $2$ jets, $3$ jets and more than $4$ jets (shortly $4+$ jets).
 
@@ -44,15 +46,14 @@ Another parameter which changes physical properties of the collision is the numb
   \caption{Decay of \ttbar pair}
 \end{figure} 
 
-All data are filtered many times. First preprocessing takes  place in the process of collecting data events, because the data flow was simply too large to store in time. Frequency of collisions recorded by \dzero was around 1.7 MHz, which was reduced by 3 levels of triggers to 150 Hz for storing on tapes \cite{Yuntse}. Other filtering processes took place in dependence on the following analysis. One of the event filters is so called $b-$tagging -- picking those events, in which $b-$quarks are present (with specific degree of certainty) as one of the results of top quark decay. This criterion ensures greater percentage of some signals in the data. According to this criterion, 3 groups are distinguished: events before tagging, events with $1\: b-$tag and $2\: b-$tags.
+All data are filtered many times due to many reasons. First preprocessing takes  place in the process of collecting data events, because the data flow was simply too large to store in time. The Frequency of collisions recorded by \dzero was around 1.7 MHz, which was reduced by 3 levels of triggers to 150 Hz for storing on tapes \cite{Yuntse}. Other filtering processes were carried out in consideration to the following analysis. One of the event filters is called $b-$tagging i.e. picking those events, in which $b-$quarks are present (with specific degree of certainty) as one of the results of top quark decay. This criterion ensures greater percentage of the required signals in the dataset. According to this criterion, 3 groups are distinguished: events before tagging, events with $1\: b-$tag and $2\: b-$tags.
 
 Our goal is to find separation criteria for the electron + jets and muon + jets data before $b-$tagging. As stated above, for both sets we recognize subsets with $2, \,3,\, 4+$ jets. That means we have six sets with slightly different physical properties and therefore we have to analyse them separately. 
 
 \section{Data Dimension}
-\dzero detector  produces high dimensional data (number of physical parameters  goes as high as $600$). Because a lot of the parameters are linked, badly modeled by the Monte-Carlo simulations and other reasons, there are steps to lower the dimension by transforming the data, leaving out certain variables. This process is again analysis-dependent.
+\dzero detector  produces high dimensional data (number of physical parameters  goes as high as $600$). Because a lot of these parameters are strongly correlated, or incorrectly modeled by the Monte-Carlo simulations, there are steps to decrease the dimension by transforming the data, leaving out selected variables. This process is again analysis-dependent.
 
-Data we've obtained contain 25 variables of which not all are useful or even defined in all samples. 
-
+Data we've obtained contains 25 variables of which not all are useful or even defined in all samples. 
 
 dimenze \\
 variables - jmena, nejake charakteristiky \\

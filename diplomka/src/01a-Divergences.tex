@@ -1,0 +1,42 @@
+\chapter{Divergences}
+Let $\mathcal{P}$ be set of probability distributions on measurable space $(\mathcal{X, A})$ and let $P,Q \in \mathcal{P} $ and let $p,q$ be their respective probability density functions.
+%Let $\mathbf{X}_n = (X_1, \ldots ,X_n)$ i.i.d. observations  with distribution $P_{0} \in \mathcal{F}$. 
+\section{Distances}
+\section{\ren Divergence}
+
+Kullback-Leibler divergence measure between probability distributions $P$ and $ Q$ is 
+\begin{align*}
+\mathfrak{D}_{KL}(P,Q) =  \int_\mathcal{X} p(x)\log\left( \frac{p(x)}{q(x)}\right) \mathrm{d}\mu  = \mathrm{E}_P\left[ \log \left( \frac{p(X)}{q(X)}\right) \right].
+\end{align*}
+\ren presented in \cite{Renyi1961} a parametric generalization of $\mathfrak{D}_{KL}$,
+\begin{align*}
+\mathfrak{R}_\alpha(P,Q) & = \frac{1}{r-1} \log\int_\mathcal{X} p(x)^\alpha q(x)^{1-\alpha}\mathrm{d}\mu 
+%& = \frac{1}{\alpha-1} \log \mathrm{E}_P\left[  \left( \frac{p(X)}{q(X)}\right)^{\alpha -1} \right] , \qquad \alpha >0, \alpha \neq 1.
+\end{align*}
+and Liese and Vajda \cite{LieseVajda1987} extended it for all $\alpha \neq 0,1,$ by
+\begin{equation}
+\begin{aligned}
+\mathfrak{R}_\alpha(P,Q)  = \frac{1}{\alpha(\alpha-1)} \log\int_\mathcal{X} p(x)^\alpha q(x)^{1-\alpha}\mathrm{d}\mu = \frac{1}{\alpha(\alpha-1)} \log \mathrm{E}_P\left[  \left( \frac{p(X)}{q(X)}\right)^{\alpha -1} \right].
+\label{eq:renDiv}
+\end{aligned}
+\end{equation}
+In the following, expression \eqref{eq:renDiv} will be refered to as \ren divergence.
+\ren divergence cannot be written in the form of $\phi-$divergence measure. 
+\begin{equation}
+\mathfrak{D}_\phi (P,Q) = \int q \,\phi\left( \frac{p}{q} \right)\mathrm{d}\mu,
+\end{equation}
+however, it can be written in the generalized form $\mathfrak{D}_\phi^h(P,Q) = h( \mathfrak{D}_{\phi}(P,Q)$, where  $h$ is differentiable, $h(0) = 0$, $h' (0) > 0 $,  \[h : \left[0,\phi(0) + \lim_{x\rightarrow \infty} \frac{\phi(x)}{x} \right] \rightarrow [0,\infty)\] and $\phi \in \Phi$. Functions $h(t), \phi(t)$ forming \ren divergence are 
+\begin{align*}
+h(t) = & \frac{1}{\alpha(\alpha-1)} \log\left[ \alpha(\alpha - 1)t + 1\right], \qquad \alpha \neq 0,1 \\
+\phi(t) = & \frac{t^\alpha - \alpha(t-1) -1}{\alpha(\alpha -1)} \qquad \alpha \neq 0,1.
+\end{align*}
+
+%\begin{definition}
+%The {\em \phidiv} measure between the probability distributions $P$ and $Q$ is defined by 
+%\begin{align*}
+%\mathfrak{D}_\phi(P,Q) & = \int q(x) \phi \left( \frac{p(x)}{q(x)}\right) \,\mathrm{d}\mu(x) \\
+%& = \mathrm{E}_Q\left[ \phi \left( \frac{p(X)}{q(X)}\right) \right] , \qquad \phi \in \Phi
+%\end{align*}
+%where $\Phi$ is the class of all functions  $\phi(x)$, $\phi : (0,\infty) \rightarrow \mathbb{R}$ convex on $(0,\infty)$, strictly convex at $x = 1$, and $\phi(1) = 0.$ 
+%
+%\end{definition}

@@ -12,10 +12,18 @@ neco o porovnani teoretickeho a root KS \\
 \\
 
 
+\noindent Goal of this chapter is devising tools for ranking and comparing variables and selecting the suitable ones for consequential analyses. There are number of reasons for decreasing the dimension of the problem at hand. 
 
-\noindent Goal of this chapter is devising tools for measuring similarity of two data samples and for measuring their difference. There are number of two-sample goodness of fit  tests, e.g. Kolmogorov-Smirnov test, Cram\'{e}r-von Mises test and many others. 
+One of them is so called {\em curse of dimensionality}. It stands for the phenomena which occurs in high-dimensional spaces. The problem is that with increasing dimension the volume of the analysed space increases so fast that the available data become sparse. Therefore any result of the analyses is statistically insignificant due to insufficient amount of data. Another, maybe less significant, reason is of course amount of time and resources needed to complete the computations relevant to the analysis. 
 
-We need two-sample goodness of fit  tests in which we can use WECDF \ref{eq:wecdf} or incorporate the data weights by some other means.
+There are two criteria which we used for comparing the variables. One of them is the similarity between DATA and MC. The similarity is needed, since most of the methods used for separation use the MC for training. That is process of associating specific features found in the data with required result of the method. The second criterion is the separating strength of the variable which is difference between the signals and the rest of the data.
+
+\noindent Goal of this chapter is devising tools for measuring similarity of two data samples and for measuring their difference. 
+
+
+There are number of two-sample goodness of fit  tests, e.g. Kolmogorov-Smirnov test, Cram\'{e}r-von Mises test and many others. 
+
+We need two-sample goodness of fit  tests in which we can use WECDF \eqref{eq:wecdf} or incorporate the data weights by some other means.
 
 In this chapter we consider two i.i.d. weighted random samples $\mathbf{X}^F = (X^F_1,\ldots, X^F_m)$ and $\mathbf{X}^G = (X^G_1, \ldots, X^G_n)$ with respective weights 
 \begin{align*}
@@ -43,7 +51,7 @@ H_0: F = G \quad\: \text{vs.}\quad H_1: F \neq G \quad\text{ at significance lev
 \end{equation} 
 Because we have to take into account weights associated with the data, the most convenient way is to use tests based on ECDFs which we can replace by WECDFs. 
 
-Lot of tests (including those mentioned below) are devised for relatively small data samples $m,n$. There usually is some exact theoretical distribution for sample sizes below 10. Sample sizes around 20 and more are often enough to use appropriate limiting distribution. Because we are dealing with sample sizes beginning at $m,n \geq 2000$ we are quite confident of using these limiting distributions.
+Lot of tests (including those mentioned below) are devised for relatively small data samples $m,n$. There usually is some exact theoretical distribution for sample sizes below 10. Sample sizes around 20 and more are often enough to use appropriate limiting distribution. Because we are dealing with sample sizes beginning at $m,n \geq 2000$ we are quite confident of using these asymptotic distributions.
 
 \section{Kolmogorov-Smirnov Test}
 Kolmogorov-Smirnov (shortly KS) goodness of fit test is based on Glivenko-Cantelli theorem \ref{theo:glivenko-cantelli}. It uses statistic $D_{m,n}$ defined as Kolmogorov distance between ECDFs of analysed samples
@@ -97,7 +105,7 @@ and
 \begin{equation}
 \mathrm{Var} [T_{m,n}] = \frac{1}{45} \cdot \frac{m+n+1}{(m+n)^2} \cdot \frac{4mn(m+n) - 3(m^2 + n^2)-2mn}{4mn}.
 \end{equation}
-We normalize the $T_{m,n}$ from \ref{eq:CMstat}
+We normalize the $T_{m,n}$ from \eqref{eq:CMstat}
 \begin{equation}
 T_{m,n}^\mathrm{norm} = \frac{T_{m,n}-\mathrm{E}[T_{m,n}]}{\sqrt{45\mathrm{Var}[T_{m,n}]}} + \frac{1}{6}.
 \end{equation}
@@ -119,7 +127,7 @@ According to Pettitt \cite{Pettitt1976} we reject hypothesis $H_0$ at significan
 \begin{equation}
 \frac{A^2_{kN} - (k-1)}{\sigma_{N}} \geq z_{k-1}(1-\alpha).
 \end{equation}
-Here $k$ stands for number of the compared samples, therefore we use $k=2$. By $z_{(k-1)}(1-\alpha)$ we denote the $(1-\alpha)$-quantile of the standardized asymptotic distribution $Z_{k-1} = [A^2_{k-1} - (k-1)]/{\sigma}$, which is tabulated by Sholz and Stephens in \cite{Sholz1986} for typical values of $\alpha$.  Because the test isn't bound to two samples, they present values for up to ten compared samples.
+Here $k$ stands for number of the compared samples, therefore we use $k=2$. By $z_{(k-1)}(1-\alpha)$ we denote the $(1-\alpha)$-quantile of the standardized asymptotic distribution $Z_{k-1} = [A^2_{k-1} - (k-1)]/{\sigma}$, which is tabulated by Sholz and Stephens in \cite{Sholz1986} for typical values of $\alpha$.  Because the test is not bound to two samples, they present values for up to ten compared samples.
 For standardization of $A^2_{N}$ we can use the results from \cite{Sholz1986} 
 \begin{equation}
 \sigma_{N}^2 = \mathrm{Var}\left[ A^2_{N}\right] = \frac{ aN^3 + bN^2 + cN + d
@@ -142,18 +150,7 @@ H = \frac{1}{m}+\frac{1}{n},\quad	h = \sum_{i=1}^{N-1}\frac{1}{i},\quad \mathrm{
 %\end{equation}
 
 \section{\ren Divergence Based Ranks}
-Even though there haven't been devised any specific test to go with \ren divergence, we used it to rank the variables, so we had another measure to confirm our results. Moreover, we wanted not only to test similarity of MC and data, we also wanted to now the difference between signal and background channels and there are not tests for that purpose in the literature.
+Even though there has not been devised any specific test which would use \ren divergence \eqref{eq:renDiv}, we use it as a statistic to compare the variables and rank them on the basis of this measure. We do so to have another measure to compare with our results. Also, there are two tasks for 
 
-%\ren divergence is a $\phi-$divergence 
-%\begin{equation}
-%\mathfrak{D}_\phi (P,Q) = \int q \,\phi\left( \frac{p}{q} \right)\,\mathrm{d}\mu
-%\end{equation}
-%with the choice 
-%\begin{equation}
-%\phi =  ,
-%\end{equation}
-%so the final form is 
-%\begin{equation}
-%\mathfrak{R}_\alpha = \frac{1}{a(a-1)} \int p^\alpha q^{1-\alpha}
-%\end{equation}
+Moreover, we wanted not only to test similarity of MC and data, we also wanted to now the difference between signal and background channels and there are not tests for that purpose in the literature.
 

@@ -1,5 +1,5 @@
 
-In this section we derive the \mRa-estimators for some specific families of probability distributions. As was stated above, results for normal model were already presented in  \cite{Vajda2009}, \cite{Demut2010}. Therefore we focused on exponential, Laplace, Cauchy and Weibull families. In case of these families we focused on deriving specific simple forms of the estimator according to \eqref{eq:renEstimator} and also the influence function relations \eqref{eq:IF}.
+In this section we derive the \mRa-estimators for some specific families of probability distributions. As was stated above, results for normal model were already presented in  \cite{Vajda2009}, \cite{Demut2010}. Therefore we focused on exponential, Laplace, Cauchy and Weibull families. In case of these families we focused on deriving specific simple forms of the estimators according to \eqref{eq:renEstimator} and also the influence function relations \eqref{eq:IF}.
 
 \subsection{Laplace Distribution} 
 Here we use \mRa-estimators to estimate parameter $\hat{\theta} = (\mu,\lambda)$ in Laplace model. Laplace probability density function can be written as 
@@ -31,20 +31,24 @@ If we switch the role of the parameters, meaning that we estimate the scale $\ha
 \end{equation}
 
 \begin{figure}[htb]
-\begin{center}
+%\begin{center}
 \begin{tabular}{c c}
 	\epsfig{file=Laplace-IF-mu.eps, height=2.in} 
 	&
 	\epsfig{file=Laplace-IF-lambda.eps, height=2.in} 
 	\\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu }= 0) $ in the case of $\lambda = 1$ known 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu }= 0) $ 
 	&
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1)$ in the case of $\mu = 0$ known
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1)$ 
 	\\
+	in the case of $\lambda = 1$ known 
+	& 
+	in the case of $\mu = 0$ known
+	
 \end{tabular}
 \caption{Influence function of \mRa-estimators of parameters of Laplace distribution}
 \label{fig:laplace-if}
-\end{center}
+%\end{center}
 %\label{fig:laplace-if}
 \end{figure}
 From \eqref{IF-laplace-mu} and \eqref{IF-laplace-lambda} we can see that both IF functions are bounded for $\alpha>0$, which implies B-robustness. Moreover, for both influence functions it holds that 
@@ -78,7 +82,7 @@ It differs from \eqref{renyi-formula-laplace} only in the use of absolute value 
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
 	\label{IF-exponential-mu}
 \end{equation}
-If we estimate parameter of scale ($\hat{\theta} = \lambda$) in the case of known $ \mu $, we get formula
+If we estimate parameter of scale ($\hat{\theta} = \lambda$) in the case of known $ \mu $, we arrive at
 \begin{equation}
 	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) =	(1+\alpha )^2 \left( - \lambda +(1+ \alpha)(x-\mu)\right) e^{-\frac{\alpha (x-\mu)}{\lambda }}. % IF(x,lambda),
 	\label{IF-exponential-lambda}
@@ -91,10 +95,13 @@ If we estimate parameter of scale ($\hat{\theta} = \lambda$) in the case of know
 	&
 	\epsfig{file=Exp-IF-lambda.eps, height=2.1in} 
 	\\
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu} = 0) $ in the case of $\lambda = 1$ known 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu} = 0) $ 
 	&
-	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1)$ in the case of $\mu = 0$ known 
+	$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda} = 1)$ 
 	\\
+	in the case of $\lambda = 1$ known 
+	&
+	in the case of $\mu = 0$ known 
 \end{tabular}
 \caption{Influence function of \mRa-estimators of parameters of exponential distribution}
 \label{fig-exp-if}
