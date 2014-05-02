@@ -8,7 +8,7 @@ Furthermore, we assume identifiability of the family $\mathcal{F}$, which means
 \begin{equation}
 \theta_1 \neq \theta_2 \Rightarrow F_{\theta_1} \neq F_{\theta_2}
 \end{equation}
-and also that all of $F_\theta(x), \, x \in \mathbb{R}$ are measurable. Our estimators will be calculated on the basis of i.i.d. observations $\mathbf{X}_n = (X_1, \ldots ,X_n)$ all distributed by distribution function $F_{\theta_0} \in \mathcal{F}$. Then $F_{\theta_0} \in \mathcal{F}$ is a true distribution function and $\theta_0 \in \Theta$ is a true parameter.
+and also that all of $F_\theta(x), \, x \in \mathbb{R}$ are measurable. Our estimators will be calculated on the basis of i.i.d.\nomenclature{i.i.d}{independent and identically distributed} observations $\mathbf{X}_n = (X_1, \ldots ,X_n)$ all distributed by distribution function $F_{\theta_0} \in \mathcal{F}$. Then $F_{\theta_0} \in \mathcal{F}$ is a true distribution function and $\theta_0 \in \Theta$ is a true parameter.
 
 We are interested in non-parametric estimates of the unknown distribution $F_{\theta_0}$ based on $\mathbf{X}_n$, which are sequences of mappings $ \mathbb{R}^n \rightarrow \mathcal{F}(\mathbb{R}) $ or directly in estimates of the unknown parameter $\theta_0$ (point estimator) based on the same sample $\mathbf{X}_n$, which is sequence of functions $\hat{\theta}_n : \mathbb{R}^n \rightarrow \Theta$. If $\mathcal{F}$ is dominated by a $\sigma$-finite measure $\lambda$ and we write \RN density as
 \begin{equation}
@@ -38,18 +38,19 @@ We say that an estimator $\hat{F}_n$ is {\em consistent estimator} of $F_{\theta
 %	Tuto skutečnost značíme $X_n = O_p(1)$.
 %\end{definition} 
 
-\noindent As an example of non-parametric estimator of cumulative distribution function (CDF) we can use empirical distribution function (ECDF).
+\noindent As an example of non-parametric estimator of cumulative distribution function (CDF) \nomenclature{CDF}{Cumulative distribution function} we can use empirical cumulative distribution function .
+
 \begin{definition}
-	Let $(X_1, \ldots,X_n)$ be i.i.d. observations. Then \emph{empirical distribution function} $F_n(x)$ is defined by 
+	Let $(X_1, \ldots,X_n)$ be i.i.d. observations. Then \emph{empirical distribution function} (ECDF) \nomenclature{ECDF}{Empirical cumulative distribution function} $F_n(x)$ is defined by 
 	\begin{equation}
-	F_n(x) = \frac{1}{n} \sum_{i=1}^n I_{X_i \leq x} \quad \forall x \in \mathbb{R},
+	F_n(x) = \frac{1}{n} \sum_{i=1}^n I_{(-\infty,x]}(X_i) \quad \forall x \in \mathbb{R},
 		\label{eq:ecdf}
 	\end{equation}
-	where $I_{X_i \leq x}$ is the indicator function defined by 
+	where $I_{(a,b]}(t)$ is the indicator function defined by 
 	\begin{equation}
-	I_{X_i \leq x} = 
+	I_{(a,b]}(t) = 
 		\begin{cases}
-			1 & \mathrm{if } \: X_i \leq x, \\
+			1 & \mathrm{if } \: t \in (a,b], \\
 			0 & \mathrm{otherwise}.
 		\end{cases}		
 	\end{equation}
@@ -69,9 +70,9 @@ We say that an estimator $\hat{F}_n$ is {\em consistent estimator} of $F_{\theta
 
 Later, for analysing FNAL data in chapter \ref{ch:GoF}, we will need weighted empirical distribution function.
 \begin{definition}
-	Let us have the assumptions from previous definition. Moreover, let us have vector of sample weights $(w_1, \ldots,w_n) \in \mathbb{R}$. Then \emph{weighted empirical distribution function (WECDF)} $F^w_n(x)$ is defined by 
+	Let us have the assumptions from previous definition. Moreover, let us have vector of sample weights $(w_1, \ldots,w_n) \in \mathbb{R}$. Then \emph{weighted empirical distribution function (WECDF)\nomenclature{WECDF}{Weighted empirical cumulative distribution function}} $F^w_n(x)$ is defined by 
 	\begin{equation}
-	F^w_n(x) = \frac{1}{W} \sum_{i=1}^n w_i I_{X_i \leq x} \qquad \forall  x \in \mathbb{R},\qquad \text{ where }  W = \sum_{i=1}^n w_i.
+	F^w_n(x) = \frac{1}{W} \sum_{i=1}^n w_i I_{(-\infty,x]}(X_i) \qquad \forall  x \in \mathbb{R},\qquad \text{ where }  W = \sum_{i=1}^n w_i.
 	\label{eq:wecdf} 
 	\end{equation}	
 	\label{def:wecdf}
@@ -91,7 +92,7 @@ Later, for analysing FNAL data in chapter \ref{ch:GoF}, we will need weighted em
 
 
 
-\noindent Now we can define minimum distance estimator (MDE) and asymptotically minimum distance estimator (AMDE).
+\noindent Now we can define minimum distance estimator (MDE)\nomenclature{MDE}{Minimum distance estimator} and asymptotically minimum distance estimator (AMDE).
 
 \begin{definition}\label{def-mde}
 	Let $\mathfrak{D}(\cdot, \cdot) $ be distance on $\mathcal{F}$ and $\hat{F}_n$ an estimator of distribution function $F_{\theta_0}$. A point estimator $\hat{\theta}_n$ measurable in $\Theta$ satisfying the condition
@@ -125,7 +126,7 @@ Let $\mathcal{P} = \lbrace P_\theta : \theta \in \Theta \subset \mathbb{R}^m \rb
 Here we define influence function by which we measure the effect of one measurement $x$ on the estimate obtained by functional $T$.
 
 \begin{definition}
-	Let $\delta_x$ denotes Dirac delta function at the point $x,\, x \in \mathcal{X}$. \emph{Influence function} $\IF{x}$ of functionals $T \in \mathcal{P},\, P \in \mathcal{P}$, is then defined by
+	Let $\delta_x$ denotes Dirac delta function at the point $x,\, x \in \mathcal{X}$. \emph{Influence function}\nomenclature{IF}{Influence  function} $\IF{x}$ of functionals $T \in \mathcal{P},\, P \in \mathcal{P}$, is then defined by
 	\begin{equation}
 		\IF{x} = \lim_{\varepsilon \rightarrow 0_+} \frac{T(P_\varepsilon(\delta_x)) - T(P)}{\varepsilon} = \lim_{\varepsilon \rightarrow 0_+} \frac{T((1-\varepsilon)P + \varepsilon\delta_x) - T(P)}{\varepsilon}.
 	\end{equation} 
