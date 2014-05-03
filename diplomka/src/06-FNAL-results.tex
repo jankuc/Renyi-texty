@@ -1,18 +1,62 @@
-\chapter{Application to Fermilab data}
+\chapter{Application to Fermilab Data}
 jak dopadly testy, srovnavani promennych, jak dopadly separace
 
 \noindent In this chapter we will present some results of methods described in chapters \ref{ch:GoF} and \ref{ch:DDT}. 
 
-\section{Variable ranking and testing}
-In this section we present results  of the use of methods presented in chapter \ref{ch:GoF}. As mentioned above, we rank available variables according on their similarity between DATA and MC and their difference between signal and background. In both cases we use all the methods presented in chapter \ref{ch:GoF}. We have studied six different physical configurations described in section \ref{sec:topQuark}, namely muon with $2, 3, 4+$ jets and electron with $2, 3, 4+$ jets.
-	
-Figures \ref{fig:e2j-KSR}, \ref{fig:e2j-med} and \ref{fig:e2j-SBG} show statistics relevant to data sample corresponding to collisions resulting in electron with $2$ jets. As can be seen in all the figures, variable HT3 (fifth from left) is missing. We did not shift the other variables in order to maintain a constant format of the figures.
+\section{Variable Ranking}
+In this section we present results  of the use of methods presented in chapter \ref{ch:GoF}. As mentioned above, we rank available variables according on their similarity between DATA and MC and their difference between signal and background. In both cases we use all the methods presented in chapter \ref{ch:GoF}. We have studied six different physical configurations described in section \ref{sec:topQuark}, namely muon with $2, 3, 4+$ jets and electron with $2, 3, 4+$ jets. 
 
-As can be seen in Figure \ref{fig:e2j-KSR-KS}, KS,  
+Results are presented by the means of figures depicting ranks of the variables and tables listing the statistics of the GoF tests. All the tests were carried out at a significance level $\alpha = 0.01.$ The tables list results of the KS, CM and AD tests. The number in the column labelled H stands for the winning hypothesis meaning, that if there is $1$, we reject $\mathrm{H}_0$. On the other hand, if the column contains $0$, we do not have enough evidence for rejecting it. Column containing the relevant statistics. For the KS test the statistic is $D_{m,n}$ from \eqref{eq:KSstat}, the CM statistic $T^{\mathrm{norm}}_{m,n}$ is defined in \eqref{eq:CMstat-lim} and statistic used for AD test is $A_N^2$ defined in \eqref{eq:ADstat}. 
 
-We are able to observe strong correlation between the results of KS, CM and AD statistics meaning, that their results are for a
+For KS and CM tests we also present their $p$-values. The $p$-value is the probability,under the assumption of null hypothesis, of obtaining a result equal to or more extreme than what was actually observed. 
 
-\ref{tab:muoYD4jetStats}
+Now we present results for the different sets:
+
+\subsection{Electron, 2 Jets}
+Collisions decaying to Electron with 2 jets form the largest studied dataset. Table \ref{tab:e2j-tests} shows results of GoF tests between Yield sample and Data sample, therefore we look for low values of statistics. We can see, that the most similar variables are \textsf{Mva\_max, Wmt, DiJetDrmin}, because their null hypothesis did not   get rejected by the KS and the CM tests. Other promising ones are \textsf{M01mall and DRminejet}. we can also see, that the results of the KS and the CM tests is very similar and that if we compare the values of AD statistic on said variables, we can see that it is significantly lower than the rest of the  variables. 
+
+\begin{table}[htbp] \footnotesize
+\caption{Electron, 2 jets, Goodness of fit tests between Yield sample and data.}
+\begin{center}
+\begin{tabular}{|l|r|r|r|r|r|r|r|r|}
+\hline
+ & \multicolumn{ 3}{c|}{\textbf{KS}} & \multicolumn{ 3}{c|}{\textbf{CM}} & \multicolumn{ 2}{c|}{\textbf{AD}} \\ \hline
+\textbf{Variable} & \multicolumn{1}{l|}{\textbf{H}} & \multicolumn{1}{l|}{\textbf{p-Val}} & \multicolumn{1}{l|}{\textbf{Stat}} & \multicolumn{1}{l|}{\textbf{H}} & \multicolumn{1}{l|}{\textbf{p-Val}} & \multicolumn{1}{l|}{\textbf{Stat}} & \multicolumn{1}{l|}{\textbf{H}} & \multicolumn{1}{l|}{\textbf{Stat}} \\ \hline
+\textbf{Apla} & 1 & 0.0 & 0.021 & 1 & 0.0 & 10.21 & 1 & 55.52 \\ \hline
+\textbf{Spher} & 1 & 0.0 & 0.031 & 1 & 0.0 & 21.64 & 1 & 230.08 \\ \hline
+\textbf{HTL} & 1 & 0.0 & 0.017 & 1 & 0.0 & 6.25 & 1 & 32.67 \\ \hline
+\textbf{JetMt} & 1 & 0.0 & 0.013 & 1 & 0.0 & 5.23 & 1 & 42.75 \\ \hline
+\textbf{MEvent} & 1 & 0.0 & 0.018 & 1 & 0.0 & 6.26 & 1 & 53.10 \\ \hline
+\textbf{MT1NL} & 1 & 0.0 & 0.015 & 1 & 0.0 & 3.40 & 1 & 17.12 \\ \hline
+\textbf{M01mall} & 1 & 0.003 & 0.008 & 0 & 0.031 & 0.545 & 1 & 6.00 \\ \hline
+\textbf{M0nl} & 1 & 0.0 & 0.021 & 1 & 0.0 & 8.33 & 1 & 61.09 \\ \hline
+\textbf{M1nl} & 1 & 0.0 & 0.009 & 1 & 0.0 & 1.26 & 1 & 6.39 \\ \hline
+\textbf{Mt0nl} & 1 & 0.0 & 0.023 & 1 & 0.0 & 10.64 & 1 & 81.19 \\ \hline
+\textbf{Met} & 1 & 0.0 & 0.015 & 1 & 0.0 & 4.50 & 1 & 24.81 \\ \hline
+\textbf{Mtt} & 1 & 0.0 & 0.018 & 1 & 0.0 & 6.93 & 1 & 57.18 \\ \hline
+\textbf{Mva\_max} & 0 & 0.010 & 0.009 & 0 & 0.033 & 0.532 & 1 & 7.04 \\ \hline
+\textbf{Wmt} & 0 & 0.244 & 0.004 & 0 & 0.679 & 0.082 & 0 & 0.757 \\ \hline
+\textbf{Wpt} & 1 & 0.0 & 0.021 & 1 & 0.0 & 9.10 & 1 & 43.86 \\ \hline
+\textbf{Centr} & 1 & 0.0 & 0.035 & 1 & 0.0 & 17.88 & 1 & 151.73 \\ \hline
+\textbf{DRminejet} & 1 & 0.009 & 0.007 & 1 & 0.007 & 0.889 & 1 & 5.70 \\ \hline
+\textbf{DiJetDrmin} & 0 & 0.035 & 0.006 & 0 & 0.026 & 0.575 & 1 & 5.20 \\ \hline
+\textbf{Ht} & 1 & 0.0 & 0.019 & 1 & 0.0 & 8.47 & 1 & 43.12 \\ \hline
+\textbf{Ht20} & 1 & 0.0 & 0.019 & 1 & 0.0 & 5.44 & 1 & 54.29 \\ \hline
+\textbf{Ktminp} & 1 & 0.0 & 0.010 & 1 & 0.0 & 1.73 & 1 & 8.00 \\ \hline
+\textbf{Lepdphimet} & 1 & 0.0 & 0.020 & 1 & 0.0 & 6.94 & 1 & 34.09 \\ \hline
+\textbf{Lepemv} & 1 & 0.0 & 0.166 & 0 & 0.732 & 0.073 & 1 & 9.55 \\ \hline
+\end{tabular}
+\end{center}
+\label{tab:e2j-tests}
+\end{table}
+
+Figures \ref{fig:e2j-KSR}, \ref{fig:e2j-RD} and \ref{fig:e2j-SBG} show statistics relevant to the electron with 2 jets dataset. As can be seen in all the figures, variable HT3 (fifth from left) is missing. We did not shift the other variables in order to maintain a constant format of the figures. 
+
+By looking at Figure \ref{fig:e2j-KSR-KS}, we can support the hypothesis that there is a strong correlation between the results of the KS, CM and AD statistics. From the deviations in Figure \ref{fig:e2j-RDH} we can see that RD counted on histograms with different number of bins is not very stable. We have tried to overcome this issue by sticking only to the \textsf{Sqrt, Rice} and \textsf{Sturge} criteria. The result of this  
+step can be seen in Figure \ref{fig:e2j-RDm}. We can see that it is not much better. The difference between the group $\lbrace$KS, CM, AD$\rbrace$ and \ren divergences can be also seen in Figure \ref{fig:e2j-med-med}. We have also tried to compute the RD on estimate provided by kernel density estimator with the epanechnikov kernel. It is shown in Figure \ref{fig:e2j-RDmed} for comparison with median of the rest of the RD ranks. We can see, that the difference is again substantial. 
+
+shrnoutjake teda promenne jsou hezke.  neco o poslednim obrazku.
+
 
 %% ele 2
 \begin{figure}[htb]
@@ -25,18 +69,18 @@ We are able to observe strong correlation between the results of KS, CM and AD s
 \end{figure}	
 
 \begin{figure}[htb]
-    \subfloat[][Ranks based on RD computed on different histograms with its median and standard deviation.]{\includegraphics[width=0.48\textwidth]{rankFigs/renyiH/renyiH-ele-data_4-njet_2-rotated90.pdf}\label{fig:e2j-KSR-RD}}
+    \subfloat[][Ranks based on RD computed on different histograms with its median and standard deviation.]{\includegraphics[width=0.48\textwidth]{rankFigs/renyiH/renyiH-ele-data_4-njet_2-rotated90.pdf}\label{fig:e2j-RDH}}
     \quad
-    \subfloat[][Yield vs. Data. Ranks based on RD computed on different histograms with its median and standard deviation.]{\includegraphics[width=0.48\textwidth]{rankFigs/renyiHristsq/renyiHristsq-ele-data_4-njet_2-rotated90.pdf}} 
+    \subfloat[][Yield vs. Data. Ranks based on RD computed on different histograms with its median and standard deviation.]{\includegraphics[width=0.48\textwidth]{rankFigs/renyiHristsq/renyiHristsq-ele-data_4-njet_2-rotated90.pdf}\label{fig:e2j-RDm}} 
     \caption{Yield vs. Data. Variable ranks for electron with 2 jets.}
-    \label{fig:e2j-med}
+    \label{fig:e2j-RD}
 \end{figure}
 
 \begin{figure}[htb]
-\subfloat[][ Median of ranks based on RD computed on different histograms and its standard deviation.]{\includegraphics[width=0.48\textwidth]{rankFigs/renyiHK/renyiHK-ele-data_4-njet_2-rotated90.pdf}\label{fig:e2j-med-med}} %
+\subfloat[][ Median of ranks based on RD computed on different histograms and its standard deviation.]{\includegraphics[width=0.48\textwidth]{rankFigs/renyiHK/renyiHK-ele-data_4-njet_2-rotated90.pdf}\label{fig:e2j-RDmed}} %
 \quad
     \subfloat[][Normalized statistics. Compared was signal channel $\lbrace ttA\_172, \,
-    ttAll\_172\rbrace$ against background channels.]{\includegraphics[width=0.48\textwidth]{normStats/normStats-ele-data_6-njet_2-rotated90.pdf}} 
+    ttAll\_172\rbrace$ against background channels.]{\includegraphics[width=0.48\textwidth]{normStats/normStats-ele-data_6-njet_2-rotated90.pdf}\label{fig:e2j-SBG}} 
     \caption{Statistics for electron with 2 jets.}
-    \label{fig:e2j-SBG}
+    \label{fig:e2j-SBGmed}
 \end{figure}

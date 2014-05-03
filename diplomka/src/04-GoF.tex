@@ -1,12 +1,9 @@
 \chapter{Goodness of Fit Tests}
 \label{ch:GoF}
 
-Vyber promennych \\
+
 testy zalozene na divergencnich vzdalenostech \\
-poradi promennych zalozene na div. vzdalenostech\\
- MC vs data\\
 signal vs background \\
-nekam zaradit neco o testu h0 vs h1 (v CM se odkazuju na hypotezu) \\
 neco o porovnani teoretickeho a root KS \\
 \\
 \\
@@ -16,7 +13,7 @@ neco o porovnani teoretickeho a root KS \\
 
 One of them is so called {\em curse of dimensionality}. It stands for the phenomena which occurs in high-dimensional spaces. The problem is that with increasing dimension the volume of the analysed space increases so fast that the available data become sparse. Therefore any result of the analyses is statistically insignificant due to insufficient amount of data. Another, maybe less significant, reason is of course amount of time and resources needed to complete the computations relevant to the analysis. 
 
-There are two criteria which we used for comparing the variables. One of them is the similarity between DATA and MC. The similarity is needed, since most of the methods used for separation use the MC for training. That is process of associating specific features found in the data with required result of the method. The second criterion is the separating strength of the variable. Therefore in both criteria we measure distance between distributions of different data sets. The similarity criterion implies the need of small distances which leads to goodness of fit tests. The second criterion on the other hand requires the distance to be as large as possible. 
+There are two criteria which we used for comparing the variables. One of them is the similarity between DATA and MC. The similarity is needed, since most of the methods used for separation use the MC for training. That is process of associating specific features found in the data with required result of the method. The second criterion is the separating strength of the variable. Therefore in both criteria we measure distance between distributions of different data sets. The similarity criterion implies the need of small distances which leads to goodness of fit (GoF) \nomenclature{GoF}{Goodness of fit} tests . The second criterion on the other hand requires the distance to be as large as possible. 
 
 There are number of two-sample goodness of fit  tests, e.g. Kolmogorov-Smirnov test, Cram\'{e}r-von Mises test and many others. There is one requirement we have to meet by the choice of the test. Because we have weighted data samples, we have to incorporate the data weights to the method. This can be done by the use of WECDF  \eqref{eq:wecdf} which is the basis of the statistics of aforementioned tests. 
 
@@ -50,9 +47,10 @@ Since we have to take into account the weights associated with dataset, the most
 Most tests (including those mentioned below) are devised for relatively small sample sizes $m,n$. There usually exists some exact theoretical distribution for sample sizes below 10. Sample sizes around 20 and more are often enough to use appropriate asymptotic distribution. Because we are dealing with the sample sizes $m,n \geq 2000$, we are quite confident of using these asymptotic distributions.
 
 \section{Kolmogorov-Smirnov Test}
-The Kolmogorov-Smirnov (shortly KS) goodness of fit test is based on Glivenko-Cantelli theorem \ref{theo:glivenko-cantelli}. Statistic $D_{m,n}$, defined as Kolmogorov distance between ECDFs of analysed samples
+The Kolmogorov-Smirnov (shortly KS) \nomenclature{KS}{Kolmogorov-Smirnov} goodness of fit test is based on Glivenko-Cantelli theorem \ref{theo:glivenko-cantelli}. Statistic $D_{m,n}$, defined as Kolmogorov distance between ECDFs of analysed samples
 \begin{equation}
 D_{m,n} = \sup_{x \in \mathbb{R}} |F_m(x) - G_n(x)|,
+\label{eq:KSstat}
 \end{equation}
 is used. If $H_0$ is true, then according to Theorem \ref{theo:glivenko-cantelli} it holds that $D_{m,n} \rightarrow 0$ almost surely for $m \rightarrow \infty$ and $n \rightarrow \infty$. Now we present theorem which servers for constructing the exact KS test.
 \begin{theorem}[Smirnov]
@@ -77,7 +75,7 @@ D_{m,n} = \sup_{x \in \mathbb{R}} |F^w_m(x) - G^w_n(x)|.
 \end{equation}
 
 \section{Cram\'{e}r-von Mises test}
-Two sample Cram\'{e}r-von Mises (shortly CM) goodness of fit test is similar to aforementioned KS test. Instead of Kolmogorov distance, CM test  is based on the $\omega^2$ criterion,
+Two sample Cram\'{e}r-von Mises (shortly CM) \nomenclature{CM}{Cram\'er-von Mises} goodness of fit test is similar to aforementioned KS test. Instead of Kolmogorov distance, CM test  is based on the $\omega^2$ criterion,
 \begin{equation}
 \omega^2 = \frac{mn}{m+n} \int_{-\infty}^\infty \left[F_m(x) - G_n(x) \right]^2 \,\mathrm{d} H_{m+n}(x).
 \end{equation} 
@@ -104,19 +102,21 @@ and
 see \cite{Anderson1962} for derivation. We normalize $T_{m,n}$ from \eqref{eq:CMstat} to
 \begin{equation}
 T_{m,n}^\mathrm{norm} = \frac{T_{m,n}-\mathrm{E}[T_{m,n}]}{\sqrt{45\mathrm{Var}[T_{m,n}]}} + \frac{1}{6}.
+\label{eq:CMstat-lim}
 \end{equation}
 It has been shown in \cite{Rosenblatt1952} that for $m \rightarrow \infty$, $n \rightarrow \infty$, and for ${m}/{n} \rightarrow \lambda$, where $\lambda$ is positive finite constant, the  $T_{m,n}^\mathrm{norm}$ has the same asymptotic distribution $z$ as the one-sample variant of the test. The distribution $z$ is tabulated  in \cite{AndersonDarling1952}. We find the desired $p-$value $p_T$ by interpolation of $z$ at the point $T_{m,n}^\mathrm{norm}$. If $\alpha < p_T$ we reject the null hypothesis that $F = G $ at significance level $\alpha$.
 
 Again for the reweighted samples, which we need to analyze in the case of \dzero data we replace the ECDFs in the statistic $T_{m,n}$ by appropriate WECDFs.
 
 \section{Anderson-Darling test}
-Anderson-Darling (shortly AD) two-sample goodness of fit test is essentially a generalization of the CM test. Generalized CM statistic can be written as 
+Anderson-Darling (shortly AD) \nomenclature{AD}{Anderson-Darling} two-sample goodness of fit test is essentially a generalization of the CM test. Generalized CM statistic can be written as 
 \begin{equation}
 \omega^2 = \frac{mn}{m+n} \int_{-\infty}^\infty w(x) \left[F_m(x) - G_n(x) \right]^2 \,\mathrm{d} H_{m+n}(x),
 \end{equation}
 where $w(x)$ is a weight function adjusting the importance of certain intervals of the sample space. It is obvious, that CM is a special case of AD test with the choice $w(x) = 1 \:\: \text{ for all } x \in \mathbb{R}.$ Anderson and Darling   in \cite{AndersonDarling1954} introduced the statistic 
 \begin{equation}
 A^2_{N} = \frac{mn}{N} \int_{-\infty}^\infty \frac{\left[F_m(x) - G_n(x) \right]^2}{H_{N}(x)\left[ 1 - H_{N}(x)\right]} \,\mathrm{d} H_{N}(x),
+\label{eq:ADstat}
 \end{equation}
 where $N = m+n$. The integrand is set to be zero if $H_{N}(x) = 1$. For our purposes, we again replace the ECDFs $F_m$ and $G_n$ by their weighted versions $F_m^w$ and $G_n^w$, respectively.
 According to Pettitt \cite{Pettitt1976} we reject hypothesis $H_0$ at significance level $\alpha$ whenever
@@ -146,14 +146,16 @@ H = \frac{1}{m}+\frac{1}{n},\quad	h = \sum_{i=1}^{N-1}\frac{1}{i},\quad \mathrm{
 %\end{equation}
 
 \section{\ren Divergence Based Ranks}
-Although there has not been devised any specific test applying the \ren divergence (RD) defined by \eqref{eq:renDiv}, we use RD as a statistic to compare the variables and rank them on the basis of this measure. % We do so to have another measure to compare with our results. Also, there are two tasks for 
+Although there has not been devised any specific test applying the \ren divergence (RD) \nomenclature{RD}{R\'enyi divergence} defined by \eqref{eq:renDiv}, we use RD as a statistic to compare the variables and rank them on the basis of this measure. % We do so to have another measure to compare with our results. Also, there are two tasks for 
 Moreover, apart from testing similarity of MC and data, we also want to know the difference between signal and background channels. There are not any tests for that purposes in the literature and therefore any statistic can be used as a relative measure. 
 
 Advantage of previous tests over RD is the use weighted empirical distribution functions. For using RD, we have to compute some estimator of p.d.f. In this work, we used equidistant histograms with various numbers of bins and kernel density estimator. Histogram is nonparametric estimator describing data through relative frequency in disjoint intervals called bins. Closed interval $[a,b]$ is divided to $m$ equidistant intervals defined by points $\lbrace t_0, \ldots, t_m \rbrace$, where $a = t_0 < \cdots < t_m = b.$ Histogram is then defined as 
 \begin{equation}
 \hat{f}_n(x) = \frac{1}{n} \sum_{i=1}^m \frac{N_i}{t_i - t_{i-1}} I_{(t_i, t_{i-1}]}(x),
 \end{equation}
-where $N_i$ is number of observations in interval $(t_i, t_{i-1}]$.
+where $N_i$ is number of observations in interval $(t_i, t_{i-1}]$. 
+
+Histograms are known to have issues with stability regarding varying number of bins and  the choice of the interval $[a,b]$.
 
 \begin{table}[ht]
 \centering
@@ -175,20 +177,3 @@ where $N_i$ is number of observations in interval $(t_i, t_{i-1}]$.
 \end{table}
 
 \noindent Functions for computing the number of bins are shown in Table \ref{tab:histNbin}, where \[ m_{\mathrm{Doane}}(n) = 1 + \log_2 (n) + \log_2 \left( 1 + \dfrac{|g_1|}{\sigma_{g_1}} \right), \quad   \text{ where } \sigma_{g_1} = \frac{6(n-2)}{(n+1)(n+3)}\] and $g_1$ is the estimated skewness of the dataset. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
