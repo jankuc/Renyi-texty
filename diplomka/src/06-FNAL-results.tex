@@ -4,8 +4,39 @@ jak dopadly testy, srovnavani promennych, jak dopadly separace
 \noindent In this chapter we will present some results of methods described in chapters \ref{ch:GoF} and \ref{ch:DDT}. 
 
 \section{Variable ranking and testing}
-In this section we present results  of the use of methods presented in chapter \ref{ch:GoF}. As was said earlier, we will rank available variables according on their similarity between DATA and MC and their difference between signal and background. In both cases, we use all the methods presented in chapter \ref{ch:GoF}.  
+In this section we present results  of the use of methods presented in chapter \ref{ch:GoF}. As mentioned above, we rank available variables according on their similarity between DATA and MC and their difference between signal and background. In both cases we use all the methods presented in chapter \ref{ch:GoF}. We have studied six different physical configurations described in section \ref{sec:topQuark}, namely muon with $2, 3, 4+$ jets and electron with $2, 3, 4+$ jets.
+	
+Figures \ref{fig:e2j-KSR}, \ref{fig:e2j-med} and \ref{fig:e2j-SBG} show statistics relevant to data sample corresponding to collisions resulting in electron with $2$ jets. As can be seen in all the figures, variable HT3 (fifth from left) is missing. We did not shift the other variables in order to maintain a constant format of the figures.
 
-\subsection{MC and DATA similarity}
+As can be seen in Figure \ref{fig:e2j-KSR-KS}, KS,  
 
-\subsection{Signal vs. background}
+We are able to observe strong correlation between the results of KS, CM and AD statistics meaning, that their results are for a
+
+\ref{tab:muoYD4jetStats}
+
+%% ele 2
+\begin{figure}[htb]
+    \centering
+    \subfloat[][Ranks based on KS, CM, AD statistics with its median and standard deviation.]{\includegraphics[width=0.48\textwidth]{rankFigs/KS_CM_AD/KS_CM_AD-ele-data_4-njet_2-rotated90.pdf} \label{fig:e2j-KSR-KS}} %
+	\quad
+	\subfloat[][Medians of ranks based on  KS, CM, AD statistics, respective RD histograms with standard deviations.]{\includegraphics[width=0.48\textwidth]{rankFigs/medianDiff/medianDiff-ele-data_4-njet_2-rotated90.pdf}\label{fig:e2j-med-med}}
+    \caption{Yield vs. Data. Variable ranks for electron with 2 jets.}
+     \label{fig:e2j-KSR}
+\end{figure}	
+
+\begin{figure}[htb]
+    \subfloat[][Ranks based on RD computed on different histograms with its median and standard deviation.]{\includegraphics[width=0.48\textwidth]{rankFigs/renyiH/renyiH-ele-data_4-njet_2-rotated90.pdf}\label{fig:e2j-KSR-RD}}
+    \quad
+    \subfloat[][Yield vs. Data. Ranks based on RD computed on different histograms with its median and standard deviation.]{\includegraphics[width=0.48\textwidth]{rankFigs/renyiHristsq/renyiHristsq-ele-data_4-njet_2-rotated90.pdf}} 
+    \caption{Yield vs. Data. Variable ranks for electron with 2 jets.}
+    \label{fig:e2j-med}
+\end{figure}
+
+\begin{figure}[htb]
+\subfloat[][ Median of ranks based on RD computed on different histograms and its standard deviation.]{\includegraphics[width=0.48\textwidth]{rankFigs/renyiHK/renyiHK-ele-data_4-njet_2-rotated90.pdf}\label{fig:e2j-med-med}} %
+\quad
+    \subfloat[][Normalized statistics. Compared was signal channel $\lbrace ttA\_172, \,
+    ttAll\_172\rbrace$ against background channels.]{\includegraphics[width=0.48\textwidth]{normStats/normStats-ele-data_6-njet_2-rotated90.pdf}} 
+    \caption{Statistics for electron with 2 jets.}
+    \label{fig:e2j-SBG}
+\end{figure}
