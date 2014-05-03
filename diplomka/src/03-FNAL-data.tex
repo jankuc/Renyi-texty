@@ -23,14 +23,11 @@ Another parameter which changes physical properties of the collision is the numb
 
 \begin{figure}[h]
   \centering
-  \begin{subfigure}{.55	\textwidth}\centering
-    \includegraphics[width=\textwidth]{top_pair_branching_frac.eps}
-    \caption{Top pair branching fractions}
-    \label{fig:ttbarBranchingFrac}
-  \end{subfigure}\hspace{3mm}
-  \begin{subfigure}{.4\textwidth}\centering
-    \includegraphics[width=\textwidth]{feynman_ttbar_ljets.png}
-    \caption{Feynman diagram of top pair decay to lepton+jets: 
+  \subfloat[t][Top pair branching fractions]{%
+  	\includegraphics[width=.55\textwidth]{top_pair_branching_frac.eps}%
+  	\label{fig:ttbarBranchingFrac}%
+  }%
+  \subfloat[t][Feynman diagram of top pair decay to lepton+jets: 
     $q - \text{quark}$,
     $\bar{q} - \text{antiquark}$,
 	$g - \text{gluon}$,
@@ -38,9 +35,10 @@ Another parameter which changes physical properties of the collision is the numb
     $W - \text{W--boson}$,
     $l - \text{lepton}$,
     $\nu - \text{neutrino}$,
-    $b - \text{bottom quark}$ \cite{Heinson}}
-   	\label{fig:feynman-ljets}
-  \end{subfigure}
+    $b - \text{bottom quark}$ \cite{Heinson}]{%
+  	\includegraphics[width=.4\textwidth]{feynman_ttbar_ljets.png}%
+  	\label{fig:feynman-ljets}%
+  }
   \caption{Decay of \ttbar pair}
 \end{figure} 
 
