@@ -4,7 +4,7 @@ HTL -  scalar sum of lead 4 jets + muon
 JetMt - is deﬁned as the transverse mass of the vector sum of all four leading jets in the event
 HT3 - is scalar sum of the transverse momentum of the three leading jets
 MEvent - The invariant mass of the lepton, the neutrino and leading jets. The energy of the neutrino is determined constraining the invariant mass of lepton and neutrino to the mass of the W boson;
-MT1NL - 
+MT1NL - transverse mass of next-to-leading jet, lepton and neutrino
 M01mall - invariant mass of leading and next-to leading jet divided by invariant mass of full event
 M0nl - invariant mass of leading jet, lepton and neutrino
 MT0nl - transverse mass of leading jet, lepton and neutrino
