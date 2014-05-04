@@ -16,11 +16,12 @@
     \subfloat[][Electron, 4 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/KS_CM_AD/KS_CM_AD-ele-data_4-njet_4-rotated90.pdf}} %
     \quad
     \subfloat[][Muon, 4 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/KS_CM_AD/KS_CM_AD-muo-data_4-njet_4-rotated90.pdf}}
-\caption{Ranks based on  KS, CM, AD statistics, with its median and standard deviation. Compared were Yield sample and DATA}
+\caption{Ranks based on  KS, CM, AD statistics, with its median and standard deviation. Compared were Yield sample and DATA.}
+\label{fig:app-YD-KSCMAD}
 \end{figure}
 
 
-%% Renyi
+%% Renyi YD
 \begin{figure}[t]
     \centering
     \subfloat[][Electron, 2 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/renyiH/renyiH-ele-data_4-njet_2-rotated90.pdf}} %
@@ -34,10 +35,11 @@
     \subfloat[][Electron, 4 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/renyiH/renyiH-ele-data_4-njet_4-rotated90.pdf}} %
     \quad
     \subfloat[][Muon, 4 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/renyiH/renyiH-muo-data_4-njet_4-rotated90.pdf}}
-\caption{Variable ranks based on R\'enyi histograms and their median with standard deviations. Compared were Yield sample and DATA}
+\caption{Variable ranks based on R\'enyi histograms and their median with standard deviations. Compared were Yield sample and DATA.}
+\label{fig:app-YD-RD}
 \end{figure}
 
-%% Renyi vs Renyi Kernel
+%% Renyi vs Renyi Kernel YD
 \begin{figure}[t]
     \centering
     \subfloat[][Electron, 2 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/renyiHK/renyiHK-ele-data_4-njet_2-rotated90.pdf}} %
@@ -51,11 +53,12 @@
     \subfloat[][Electron, 4 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/renyiHK/renyiHK-ele-data_4-njet_4-rotated90.pdf}} %
     \quad
     \subfloat[][Muon, 4 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/renyiHK/renyiHK-muo-data_4-njet_4-rotated90.pdf}}
-\caption{Variable ranks based on R\'enyi histograms and kernel estimator and their median with standard deviations. Compared were Yield sample and DATA}
+\caption{Variable ranks based on R\'enyi histograms and kernel estimator and their median with standard deviations. Compared were Yield sample and DATA.}
+\label{fig:app-YD-RDHK}
 \end{figure}
 
 
-%% MEDIANS
+%% MEDIANS YD
 \begin{figure}[t]
     \centering
     \subfloat[][Electron, 2 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/medianDiff/medianDiff-ele-data_4-njet_2-rotated90.pdf}} %
@@ -69,12 +72,73 @@
     \subfloat[][Electron, 4 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/medianDiff/medianDiff-ele-data_4-njet_4-rotated90.pdf}} %
     \quad
     \subfloat[][Muon, 4 jets]{\includegraphics[width=0.45\textwidth]{rankFigs/medianDiff/medianDiff-muo-data_4-njet_4-rotated90.pdf}}
-\caption{Medians of ranks based on  KS, CM, AD statistics, respective R\'enyi histograms with standard deviations. Compared were Yield sample and DATA}
+\caption{Medians of ranks based on  KS, CM, AD statistics, respective R\'enyi histograms with standard deviations. Compared were Yield sample and DATA.}
+\label{fig:app-YD-meds}
 \end{figure}
 %\input{src/0602-GoF-6fig-KSCMAD.tex}
 
 
-%% normalized statistics
+
+
+%% normalized statistics YD
+\begin{figure}[t]
+    \centering
+    \subfloat[][Electron, 2 jets]{\includegraphics[width=0.48\textwidth]{normStats-filtered/normStats-ele-data_4-njet_2-rotated90.pdf}} %
+	\quad
+    \subfloat[][Muon, 2 jets]{\includegraphics[width=0.48\textwidth]{normStats-filtered/normStats-muo-data_4-njet_2-rotated90.pdf}}
+	\\
+    \subfloat[][Electron, 3 jets]{\includegraphics[width=0.48\textwidth]{normStats-filtered/normStats-ele-data_4-njet_3-rotated90.pdf}} %
+    \quad
+    \subfloat[][Muon, 3 jets]{\includegraphics[width=0.48\textwidth]{normStats-filtered/normStats-muo-data_4-njet_3-rotated90.pdf}} 
+    \\
+    \subfloat[][Electron, 4 jets]{\includegraphics[width=0.48\textwidth]{normStats-filtered/normStats-ele-data_4-njet_4-rotated90.pdf}} %
+    \quad
+    \subfloat[][Muon, 4 jets]{\includegraphics[width=0.48\textwidth]{normStats-filtered/normStats-muo-data_4-njet_4-rotated90.pdf}}
+\caption{Normalized statistics. Compared were Yield sample and DATA.}
+\label{fig:app-YD-stat}
+\end{figure}
+
+%% normalized sorted statistics YD
+\begin{figure}[t]
+    \centering
+    \subfloat[][Electron, 2 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-ele-data_4-njet_2-rotated90.pdf}} %
+	\quad
+    \subfloat[][Muon, 2 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-muo-data_4-njet_2-rotated90.pdf}}
+	\\
+    \subfloat[][Electron, 3 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-ele-data_4-njet_3-rotated90.pdf}} %
+    \quad
+    \subfloat[][Muon, 3 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-muo-data_4-njet_3-rotated90.pdf}} 
+    \\
+    \subfloat[][Electron, 4 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-ele-data_4-njet_4-rotated90.pdf}} %
+    \quad
+    \subfloat[][Muon, 4 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-muo-data_4-njet_4-rotated90.pdf}}
+\caption{Normalized statistics. Compared were Yield sample and DATA. Variables are sorted according to RD based on doane's number of bins.}
+\label{fig:app-YD-statSort}
+\end{figure}
+
+
+%% Medians SB
+\begin{figure}[t]
+    \centering
+    \subfloat[][Electron, 2 jets]{\includegraphics[width=0.48\textwidth]{rankFigs/medianDiff/medianDiff-ele-data_6-njet_2-rotated90.pdf}} %
+	\quad
+    \subfloat[][Muon, 2 jets]{\includegraphics[width=0.48\textwidth]{rankFigs/medianDiff/medianDiff-muo-data_6-njet_2-rotated90.pdf}}
+	\\
+    \subfloat[][Electron, 3 jets]{\includegraphics[width=0.48\textwidth]{rankFigs/medianDiff/medianDiff-ele-data_6-njet_3-rotated90.pdf}} %
+    \quad
+    \subfloat[][Muon, 3 jets]{\includegraphics[width=0.48\textwidth]{rankFigs/medianDiff/medianDiff-muo-data_6-njet_3-rotated90.pdf}} 
+    \\
+    \subfloat[][Electron, 4 jets]{\includegraphics[width=0.48\textwidth]{rankFigs/medianDiff/medianDiff-ele-data_6-njet_4-rotated90.pdf}} %
+    \quad
+    \subfloat[][Muon, 4 jets]{\includegraphics[width=0.48\textwidth]{rankFigs/medianDiff/medianDiff-muo-data_6-njet_4-rotated90.pdf}}
+\caption{Signal channel $\lbrace$ \textsf{ttA\_172},  \textsf{ttAll\_172}$\rbrace$ against background channels. Medians of ranks based on  KS, CM, AD statistics, respective RD histograms with standard deviations.}
+\label{fig:app-SB-meds}
+\end{figure}
+
+
+
+
+%% normalized statistics SB
 \begin{figure}[t]
     \centering
     \subfloat[][Electron, 2 jets]{\includegraphics[width=0.48\textwidth]{normStats/normStats-ele-data_6-njet_2-rotated90.pdf}} %
@@ -88,9 +152,26 @@
     \subfloat[][Electron, 4 jets]{\includegraphics[width=0.48\textwidth]{normStats/normStats-ele-data_6-njet_4-rotated90.pdf}} %
     \quad
     \subfloat[][Muon, 4 jets]{\includegraphics[width=0.48\textwidth]{normStats/normStats-muo-data_6-njet_4-rotated90.pdf}}
-\caption{Normalized statistics. Compared was signal channel $\lbrace ttA\_172,
-    ttAll\_172\rbrace$ against background channels.}
+\caption{Normalized statistics. Compared was signal channel $\lbrace$ \textsf{ttA\_172},  \textsf{ttAll\_172}$\rbrace$ against background channels.}
+    \label{fig:app-SB-stat}
 \end{figure}
 
+%% normalized sorted statistics SB
+\begin{figure}[t]
+    \centering
+    \subfloat[][Electron, 2 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-ele-data_6-njet_2-rotated90.pdf}} %
+	\quad
+    \subfloat[][Muon, 2 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-muo-data_6-njet_2-rotated90.pdf}}
+	\\
+    \subfloat[][Electron, 3 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-ele-data_6-njet_3-rotated90.pdf}} %
+    \quad
+    \subfloat[][Muon, 3 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-muo-data_6-njet_3-rotated90.pdf}} 
+    \\
+    \subfloat[][Electron, 4 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-ele-data_6-njet_4-rotated90.pdf}} %
+    \quad
+    \subfloat[][Muon, 4 jets]{\includegraphics[width=0.48\textwidth]{normStats-sorted/normStats-muo-data_6-njet_4-rotated90.pdf}}
+\caption{Normalized statistics. Compared was signal channel $\lbrace$ \textsf{ttA\_172},  \textsf{ttAll\_172}$\rbrace$ against background channels. Variables are sorted according to RD based on doane's number of bins.}
+    \label{fig:app-SB-statSort}
+\end{figure}
 
 \end{appendices}
