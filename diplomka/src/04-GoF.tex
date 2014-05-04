@@ -1,8 +1,6 @@
 \chapter{Goodness of Fit Tests}
 \label{ch:GoF}
 
-
-testy zalozene na divergencnich vzdalenostech \\
 signal vs background \\
 neco o porovnani teoretickeho a root KS \\
 graf histogram-bins(n)\\ 2000 - 10000
@@ -74,6 +72,8 @@ As stated above, we need to reweight the MC entries so they match the data event
 \begin{equation}
 D_{m,n} = \sup_{x \in \mathbb{R}} |F^w_m(x) - G^w_n(x)|.
 \end{equation}
+
+
 
 \section{Cram\'{e}r-von Mises test}
 Two sample Cram\'{e}r-von Mises (shortly CM) \nomenclature{CM}{Cram\'er-von Mises} goodness of fit test is similar to aforementioned KS test. Instead of Kolmogorov distance, CM test  is based on the $\omega^2$ criterion,
@@ -178,3 +178,4 @@ Histograms are known to have issues with stability regarding varying number of b
 \end{table}
 
 \noindent Functions for computing the number of bins are shown in Table \ref{tab:histNbin}, where \[ m_{\mathrm{Doane}}(n) = 1 + \log_2 (n) + \log_2 \left( 1 + \dfrac{|g_1|}{\sigma_{g_1}} \right), \quad   \text{ where } \sigma_{g_1} = \frac{6(n-2)}{(n+1)(n+3)}\] and $g_1$ is the estimated skewness of the dataset. 
+

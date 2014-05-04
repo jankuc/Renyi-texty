@@ -4,16 +4,16 @@ jak dopadly testy, srovnavani promennych, jak dopadly separace
 \noindent In this chapter we will present some results of methods described in chapters \ref{ch:GoF} and \ref{ch:DDT}. 
 
 \section{Variable Ranking}
-In this section we present results  of the use of methods presented in chapter \ref{ch:GoF}. As mentioned above, we rank available variables according on their similarity between DATA and MC and their difference between signal and background. In both cases we use all the methods presented in chapter \ref{ch:GoF}. We have studied six different physical configurations described in section \ref{sec:topQuark}, namely muon with $2, 3, 4+$ jets and electron with $2, 3, 4+$ jets. 
+In this section we present results  of the methods presented in chapter \ref{ch:GoF}. As mentioned above, we rank available variables according to their similarity between DATA and MC and their difference between signal and background channels. In both cases we use all the methods presented in chapter \ref{ch:GoF}. We have studied six different physical configurations described in section \ref{sec:topQuark}, namely muon with $2, 3, 4+$ jets and electron with $2, 3, 4+$ jets. 
 
-Results are presented by the means of figures depicting ranks of the variables and tables listing the statistics of the GoF tests. All the tests were carried out at a significance level $\alpha = 0.01.$ The tables list results of the KS, CM and AD tests. The number in the column labelled H stands for the winning hypothesis meaning, that if there is $1$, we reject $\mathrm{H}_0$. On the other hand, if the column contains $0$, we do not have enough evidence for rejecting it. Column containing the relevant statistics. For the KS test the statistic is $D_{m,n}$ from \eqref{eq:KSstat}, the CM statistic $T^{\mathrm{norm}}_{m,n}$ is defined in \eqref{eq:CMstat-lim} and statistic used for AD test is $A_N^2$ defined in \eqref{eq:ADstat}. 
+Results are presented by the means of figures depicting ranks of the variables and tables listing the statistics of the GoF tests. All the tests were carried out at a significance level $\alpha = 0.01.$ The tables list results of the KS, CM and AD tests. The number in the column labelled \textbf{H} stands for the winning hypothesis. This means that if the column contains $1$, we reject $\mathrm{H}_0$, if it contains $0$, we do not have enough evidence for rejecting it. Column \textbf{Stat} contains the relevant statistic. For the KS test the statistic is $D_{m,n}$ from \eqref{eq:KSstat}, for the CM test the statistic $T^{\mathrm{norm}}_{m,n}$ is defined in \eqref{eq:CMstat-lim} and the statistic used for the AD test is $A_N^2$ defined in \eqref{eq:ADstat}. 
 
-For KS and CM tests we also present their $p$-values. The $p$-value is the probability, under the assumption of null hypothesis, of obtaining a result equal to or more extreme than what was actually observed. 
+For the KS and CM tests we also present their $p$-values. $P$-value is the probability, under the assumption of null hypothesis, of obtaining a result equal to or more extreme than what was actually observed. 
 
 Now we present results for the different sets:
 
 \subsection{Electron, 2 Jets}
-Collisions decaying to Electron with 2 jets form the largest studied dataset. Table \ref{tab:e2j-tests} shows results of GoF tests between Yield sample and DATA sample, therefore we look for low values of statistics. We can see, that the most similar variables are \textsf{Mva\_max, Wmt, DiJetDrmin}, because their null hypothesis did not   get rejected by the KS and the CM tests. Other promising ones are \textsf{M01mall and DRminejet}. we can also see, that the results of the KS and the CM tests is very similar and that if we compare the values of AD statistic on said variables, we can see that it is significantly lower than the rest of the  variables. 
+Collisions decaying to Electron with 2 jets form the largest studied dataset. Table \ref{tab:e2j-tests} shows results of GoF tests between Yield sample and DATA sample, therefore we look for low values of statistics. We can see, that the most similar variables are \textsf{Mva\_max, Wmt, DiJetDrmin}, because their null hypothesis did not   get rejected by the KS and the CM tests. Other promising ones are \textsf{M01mall and DRminejet}. we can also see, that the results of the KS and the CM tests is very similar and that if we compare the values of AD statistic on said variables, we can see that it is lower than the rest of the  variables. 
 
 \begin{table}[htbp] \footnotesize
 \caption{Electron, 2 jets, Goodness of fit tests between Yield sample and DATA.}
@@ -50,7 +50,7 @@ Collisions decaying to Electron with 2 jets form the largest studied dataset. Ta
 \label{tab:e2j-tests}
 \end{table}
 
-Figures \ref{fig:e2j-KSR}, \ref{fig:e2j-RD} and \ref{fig:e2j-SBG} show statistics relevant to the electron with 2 jets dataset. As can be seen in all the figures, variable HT3 (fifth from left) is missing. We did not shift the other variables in order to maintain a constant format of the figures. 
+Figures \ref{fig:e2j-KSR}, \ref{fig:e2j-RD},  \ref{fig:e2j-SBGmed} and \ref{fig:e2j-statsSort} show the ranks and statistics relevant to the electron with 2 jets dataset. As can be seen in all the figures, variable HT3 (fifth from left) is missing. We did not shift the other variables in order to maintain a constant format of the figures. 
 
 %% ele 2
 \begin{figure}[htb]
@@ -72,11 +72,11 @@ By looking at Figure \ref{fig:e2j-KSR-KS}, we can support the hypothesis that th
     \label{fig:e2j-RD}
 \end{figure}
 
-Up until now, all the figures regarded the similarity between Yield sample and DATA. Therefore the objective was to find the variables with the smallest values of the distance statistics which is equivalent to finding the the ones with the smallest ranks. In the last Figure \ref{fig:e2j-SBG} we show the values of all the statistics between the signal channels and the background. The statistics were all normalized for us to be able to compare them. If $\mathbf{S} = \lbrace s_i\rbrace_{i=1}^k$ is the vector of one statistic (it's dimension $k$ is the same as number of variables), then the normalized statistic is 
+Up until now, all the figures regarded the similarity between Yield sample and DATA. Therefore the objective was to find the variables with the smallest values of the distance statistics - those with the smallest ranks. In the last Figure \ref{fig:e2j-SBG} we show the values of all the statistics between the signal channels and the background. The statistics were all normalized for us to be able to compare them. If $\mathbf{S} = \lbrace s_i\rbrace_{i=1}^k$ is the vector of one statistic (it's dimension $k$ is the same as number of variables), then the normalized statistic is 
 \begin{equation*}
 \mathbf{S}_\mathrm{norm} = \dfrac{1}{\sum_{i=1}^k s_i} \mathbf{S}.
 \end{equation*}
-Therefore all the values of each statistic sum up to 1. Figure \ref{fig:e2j-SBG} shows that all the statistics have very similar development. That can be also seen in Figure \ref{fig:e2j-YDmeds} where the median of $\lbrace$KS, CM, AD$\rbrace$ and the median of RDs are compared. The ranks presented there show only a small difference and from the small values of standard deviation we can observe that even the ranks in the respective groups are very similar, in most cases the same. The only difference is the variable \textsf{Lepemv} which has very good separating power according to all RD statistics, but very poor one according to KS, CM and AD statistics, which ranked it sixth, first and first best matching respectively. CM test did not even reject the $H_0$ hypothesis that the samples come from the same distribution.  
+Therefore all the values of each statistic sum up to 1. Figure \ref{fig:e2j-SBG} shows that all the statistics have very similar development. That can be seen also in Figure \ref{fig:e2j-YDmeds} where the median of $\lbrace$KS, CM, AD$\rbrace$ and the median of RDs are compared. The ranks presented there show only a small difference and from the small values of standard deviation we can observe that even the ranks in the respective groups are very similar, in most cases identical. The only difference is the variable \textsf{Lepemv} which has very good separating power according to all RD statistics, but very poor one according to KS, CM and AD statistics, which ranked it sixth, first and first best matching respectively. CM test even accepted the $H_0$ hypothesis that the samples come from the same distribution.  
 \begin{figure}[h]
 \subfloat[][ Medians of ranks based on  KS, CM, AD statistics, respective RD histograms with standard deviations.]{\includegraphics[width=0.48\textwidth]{rankFigs/medianDiff/medianDiff-ele-data_6-njet_2-rotated90.pdf}\label{fig:e2j-YDmeds}} %
 \quad
@@ -94,7 +94,7 @@ The best ranked variables from the comparison of signal and background are very 
     \label{fig:e2j-statsSort}
 \end{figure}
 
-The ranks of variables regarding similarity of MC and DATA depend on the used statistic. Even though some general idea can be given by sorted variables in Figure  \ref{fig:e2j-YD-sort} There we can see, that variables available to our analyses have values of the statistics very similar for all the variables except for \textsf{Mt0nl, Spher} and \textsf{Centr}, where we can observe larger difference between MC and DATA. 
+The ranks of variables regarding similarity of MC and DATA depend much more on the used statistic. Still we can get some general idea by the  sorted variables in Figure  \ref{fig:e2j-YD-sort}. There we can see, that variables available to our analyses have values of the statistics very similar for all the variables except for \textsf{Mt0nl, Spher} and \textsf{Centr}, where we can observe larger difference between MC and DATA. 
 
-\section{Electron 3, 4+ Jets}
+%\section{Electron 3, 4+ Jets}
 
