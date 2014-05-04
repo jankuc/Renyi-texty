@@ -1,0 +1,25 @@
+Apla -  Aplanarity is defined as the smallest eigenvalue of the normalized laboratory-frame momentum tensor of  the jets and the W boson.
+Spher -  Sphericity is essentially a measure of the sum of the transverse momentum in the event with respect to the event axis
+HTL -  scalar sum of lead 4 jets + muon
+JetMt - is deﬁned as the transverse mass of the vector sum of all four leading jets in the event
+HT3 - is scalar sum of the transverse momentum of the three leading jets
+MEvent - The invariant mass of the lepton, the neutrino and leading jets. The energy of the neutrino is determined constraining the invariant mass of lepton and neutrino to the mass of the W boson;
+MT1NL - 
+M01mall - invariant mass of leading and next-to leading jet divided by invariant mass of full event
+M0nl - invariant mass of leading jet, lepton and neutrino
+MT0nl - transverse mass of leading jet, lepton and neutrino
+M1nl - invariant mass of next-to-leading jet, lepton and neutrino
+Met - missing transverse energy (imbalance in pT of event) due to neutrino(s)
+Mtt - invariant mass of top and anti-top quark pair candidate
+Mva_max - maximum mva output of jet, the higher the more likely to be that jet originates from b-quark. signal usually peaks at 1, bg like Wlp at 0.
+Wmt - transverse mass of W boson candidate, multijet/qcd bg peaks lower than signal
+Wpt - transverse momentum of W boson candidate
+Centr - centrality, ratio of scaler sum of transverse momentum of all jets to energy of all jets
+DRminejet - distance dR between electron cand and jet, used to suppress electron fakes
+DiJetDrmin - distance dR between jets
+Ht - scalar sum of transverse momentum of all jets
+Ht20 - same as above but only for jets with |eta| < 2
+Ktminp - minimal dR between 2 jets multiplied by minimal transverse momentum, than divided by scalar sum of lepton transverse momentum and missing transverse momentum
+Lepdphimet - dphi between lepton and missing energy
+Lepemv - output of electron discriminant, the closer to 1 the more likely to be an electron.
+
