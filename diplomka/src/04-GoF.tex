@@ -1,12 +1,8 @@
 \chapter{Goodness of Fit Tests}
 \label{ch:GoF}
 
-signal vs background \\
 neco o porovnani teoretickeho a root KS \\
-graf histogram-bins(n)\\ 2000 - 10000
-\\
-\\
-
+graf poctu binu \\
 
 \noindent The Goal of this chapter is to develop and test several tools for ranking and comparing variables and selecting the suitable ones for consequential analyses. There are number of reasons for decreasing the dimension of the problem at hand. 
 
@@ -148,7 +144,7 @@ H = \frac{1}{m}+\frac{1}{n},\quad	h = \sum_{i=1}^{N-1}\frac{1}{i},\quad \mathrm{
 
 \section{\ren Divergence Based Ranks}
 Although there has not been devised any specific test applying the \ren divergence (RD) \nomenclature{RD}{R\'enyi divergence} defined by \eqref{eq:renDiv}, we use RD as a statistic to compare the variables and rank them on the basis of this measure. % We do so to have another measure to compare with our results. Also, there are two tasks for 
-Moreover, apart from testing similarity of MC and data, we also want to know the difference between signal and background channels. There are not any tests for that purposes in the literature and therefore any statistic can be used as a relative measure. 
+Moreover, apart from testing similarity of MC and data, we also want to know the difference between signal and backgrounds. There are not any tests for that purposes in the literature and therefore any statistic can be used as a relative measure. 
 
 Advantage of previous tests over RD is the use weighted empirical distribution functions. For using RD, we have to compute some estimator of p.d.f. In this work, we used equidistant histograms with various numbers of bins and kernel density estimator. Histogram is nonparametric estimator describing data through relative frequency in disjoint intervals called bins. Closed interval $[a,b]$ is divided to $m$ equidistant intervals defined by points $\lbrace t_0, \ldots, t_m \rbrace$, where $a = t_0 < \cdots < t_m = b.$ Histogram is then defined as 
 \begin{equation}
