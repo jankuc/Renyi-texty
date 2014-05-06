@@ -1,9 +1,6 @@
 \chapter{Goodness of Fit Tests}
 \label{ch:GoF}
 
-neco o porovnani teoretickeho a root KS \\
-graf poctu binu \\
-
 \noindent The Goal of this chapter is to develop and test several tools for ranking and comparing variables and selecting the suitable ones for consequential analyses. There are number of reasons for decreasing the dimension of the problem at hand. 
 
 One of them is so called {\em curse of dimensionality}. It stands for the phenomena which occurs in high-dimensional spaces. The problem is that with increasing dimension the volume of the analysed space increases so fast that the available data become sparse. Therefore any result of the analyses is statistically insignificant due to insufficient amount of data. Another, maybe less significant, reason is of course amount of time and resources needed to complete the computations relevant to the analysis. 
@@ -71,7 +68,7 @@ D_{m,n} = \sup_{x \in \mathbb{R}} |F^w_m(x) - G^w_n(x)|.
 
 
 
-\section{Cram\'{e}r-von Mises test}
+\section{Cram\'{e}r-von Mises Test}
 Two sample Cram\'{e}r-von Mises (shortly CM) \nomenclature{CM}{Cram\'er-von Mises} goodness of fit test is similar to aforementioned KS test. Instead of Kolmogorov distance, CM test  is based on the $\omega^2$ criterion,
 \begin{equation}
 \omega^2 = \frac{mn}{m+n} \int_{-\infty}^\infty \left[F_m(x) - G_n(x) \right]^2 \,\mathrm{d} H_{m+n}(x).
@@ -105,7 +102,7 @@ It has been shown in \cite{Rosenblatt1952} that for $m \rightarrow \infty$, $n \
 
 Again for the reweighted samples, which we need to analyze in the case of \dzero data we replace the ECDFs in the statistic $T_{m,n}$ by appropriate WECDFs.
 
-\section{Anderson-Darling test}
+\section{Anderson-Darling Test}
 Anderson-Darling (shortly AD) \nomenclature{AD}{Anderson-Darling} two-sample goodness of fit test is essentially a generalization of the CM test. Generalized CM statistic can be written as 
 \begin{equation}
 \omega^2 = \frac{mn}{m+n} \int_{-\infty}^\infty w(x) \left[F_m(x) - G_n(x) \right]^2 \,\mathrm{d} H_{m+n}(x),

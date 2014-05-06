@@ -21,12 +21,12 @@ By means this formula we can estimate simultaneously both parameters $\mu, \lamb
 Here we present influence function for \mRa-estimator for Laplace model calculated from \eqref{eq:IF}. For the location estimator $(\hat{\theta} = \mu)$ with $\lambda$ known, we get influence function
 
 \begin{equation}
-	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu}) = (1+\alpha )^{\frac{3}{2}} (x-\hat{\mu} )  \exp \left[{-\frac{\alpha}{2} (x-\hat{\mu} )^2}\right]. % IF(x,mu)
 	\label{IF-laplace-mu}
 \end{equation}
 If we switch the role of the parameters, meaning that we estimate the scale $\hat{\theta} = \lambda$, while fixing $ \mu$, we achieve to
 \begin{equation}
-	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = (1 + \alpha)^2 \left(-\lambda + (1 + \alpha)|x-\mu|\right)  e^{-\frac{\alpha|x-\mu|}{\lambda}}	. % IF(x,sigma)
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda}) = (1 + \alpha)^2 \left(-\hat{\lambda} + (1 + \alpha)|x-\mu|\right)  \exp\left[{-\frac{\alpha|x-\mu|}{\hat{\lambda}}}\right]	. % IF(x,sigma)
 	\label{IF-laplace-lambda}
 \end{equation}
 
@@ -79,12 +79,12 @@ Here we use the \mRa-estimators for parameter $\hat{\theta} = (\mu,\lambda)$ of 
 It differs from \eqref{renyi-formula-laplace} only in the use of absolute value in Laplace model. For  the estimator of location ($\hat{\theta} = \mu$) in the case of $\lambda$ known, the influence function is the same as in the Laplace family $\eqref{IF-laplace-mu}$, therefore it holds
 
 \begin{equation}
-	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = (1+\alpha )^{\frac{3}{2}} (x-\mu )  e^{-\frac{\alpha}{2} (x-\mu )^2}. % IF(x,mu)
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu}) = (1+\alpha )^{\frac{3}{2}} (x-\hat{\mu} )  \exp\left[{-\frac{\alpha}{2} (x-\hat{\mu} )^2}\right]. % IF(x,mu)
 	\label{IF-exponential-mu}
 \end{equation}
 If we estimate parameter of scale ($\hat{\theta} = \lambda$) in the case of known $ \mu $, we arrive at
 \begin{equation}
-	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) =	(1+\alpha )^2 \left( - \lambda +(1+ \alpha)(x-\mu)\right) e^{-\frac{\alpha (x-\mu)}{\lambda }}. % IF(x,lambda),
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda}) =	(1+\alpha )^2 \left( - \hat{\lambda} +(1+ \alpha)(x-\mu)\right) \exp \left[{-\frac{\alpha (x-\mu)}{\hat{\lambda} }}\right]. % IF(x,lambda),
 	\label{IF-exponential-lambda}
 \end{equation}
 
@@ -135,13 +135,13 @@ Condition \eqref{eq:betaCond} holds as in the previous two cases for all $\beta>
 \noindent We were able to calculate influence function \eqref{eq:IF} for \mRa-estimator only for parameter of location ($\hat{\theta} = \mu$). Assuming known scale $\sigma$, we obtain function
 
 \begin{equation}
-	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \sqrt{\pi}\frac{\Gamma\left( 3 + \alpha \right)}{\Gamma\left( \frac{3}{2} + \alpha \right)} \left( \frac{\sigma^2}{\sigma^2 + (x-\mu)^2}\right)^{1+\alpha}(x-\mu).
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu}) = \sqrt{\pi}\frac{\Gamma\left( 3 + \alpha \right)}{\Gamma\left( \frac{3}{2} + \alpha \right)} \left( \frac{\sigma^2}{\sigma^2 + (x-\hat{\mu})^2}\right)^{1+\alpha}(x-\hat{\mu}).
 	\label{IF-cauchy-mu}
 \end{equation}
 
 Thus, the influence function is bounded for all $\alpha>0$, see Figure \ref{fig:cauchy-if}. Rejection point $\rho^*$ is not finite, but the limit 
 \begin{equation}
-	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = 0.
+	\lim_{x \rightarrow \pm\infty} \mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu}) = 0.
 \end{equation}
 holds for $\alpha > 0$.
 \begin{figure}[htb]
@@ -158,9 +158,9 @@ holds for $\alpha > 0$.
 By means of \eqref{eq:IF} we find formula for the estimator of scale parameter ($\hat{\theta} =  \sigma$) with location $\mu$ known. The following result is obtained via computation in software tool \texttt{Wolfram Mathematica}
 
 \begin{eqnarray}
-\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\sigma) &=& -\left[4 \sqrt{\pi } (1+\alpha )^2 \sigma ^{2+\alpha } \left(\frac{\sigma }{(x-\mu )^2+\sigma ^2}\right)^{\alpha} \right. \nonumber\\
-&&\left(\frac{1}{\sigma }+\frac{\alpha  \left(\frac{1}{\sigma }\right)^{\alpha } \sigma ^{-1+\alpha }}{1+\alpha }-\frac{2 \sigma }{(x-\mu )^2+\sigma ^2}\right) \left. \cos[\pi  \alpha ] \Gamma[\alpha ] \Gamma[1+\alpha ]  \frac{}{} \right] / \nonumber \\ %prázdný zlomek je tam kvůli roztažení koncové závorky
-&&\left(4^{1-\alpha } \sqrt{\pi } \left(\frac{1}{\sigma }\right)^{\alpha } \sigma ^{\alpha } \left(-1+\alpha  \left(-1+\alpha  \left(-2+\left(\frac{1}{\sigma }\right)^{\alpha } \sigma ^{\alpha }\right)\right)\right) \right.\nonumber \\ 
+\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\sigma}) &=& -\left[4 \sqrt{\pi } (1+\alpha )^2 \hat{\sigma} ^{2+\alpha } \left(\frac{\hat{\sigma} }{(x-\mu )^2+\hat{\sigma} ^2}\right)^{\alpha} \right. \nonumber\\
+&&\left(\frac{1}{\hat{\sigma} }+\frac{\alpha  \left(\frac{1}{\hat{\sigma} }\right)^{\alpha } \hat{\sigma} ^{-1+\alpha }}{1+\alpha }-\frac{2 \hat{\sigma} }{(x-\mu )^2+\hat{\sigma} ^2}\right) \left. \cos[\pi  \alpha ] \Gamma[\alpha ] \Gamma[1+\alpha ]  \frac{}{} \right] / \nonumber \\ %prázdný zlomek je tam kvůli roztažení koncové závorky
+&&\left(4^{1-\alpha } \sqrt{\pi } \left(\frac{1}{\hat{\sigma} }\right)^{\alpha } \hat{\sigma} ^{\alpha } \left(-1+\alpha  \left(-1+\alpha  \left(-2+\left(\frac{1}{\hat{\sigma} }\right)^{\alpha } \hat{\sigma} ^{\alpha }\right)\right)\right) \right.\nonumber \\ 
 &&\left. \cos[\pi  \alpha ] \Gamma[1+2 \alpha ]+1/(3 (3+4 \alpha  (2+\alpha )))\right. \nonumber \\
 && 8 \pi  (1+\alpha ) \left(-1+\alpha  (1+\alpha )^2\right) \Gamma[\alpha ] \nonumber \\
 && \left(6 (1+\alpha ) ^r_2\mathrm{F}_1\left[\frac{1}{2},2,\frac{1}{2}-\alpha ,1\right]-4^{-\alpha } \Gamma[4+2 \alpha ] \right. \nonumber \\
@@ -214,8 +214,8 @@ Last distribution where we got some results was three-parameter Weibull with $\t
 The influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} = \mu$ in the case of known $\lambda, k $  can be written as
 
 \begin{equation}
-	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\mu) = \frac{(1+\alpha )^{\frac{-2-\alpha +k (3+\alpha )}{k}} \lambda \left(1+k \left(-1+\left(\frac{x-\mu }{\lambda }\right)^k\right)\right) 
-	 \left(\frac{x-\mu }{\lambda }\right)^{\alpha k-\alpha-1}\exp \left[-\alpha\left(\frac{x-\mu }{\lambda }\right)^k\right]}
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\mu}) = \frac{(1+\alpha )^{\frac{-2-\alpha +k (3+\alpha )}{k}} \lambda \!\left(\!1+k \!\left(\!-1+\left(\frac{x-\hat{\mu} }{\lambda }\right)^k\right)\!\right) 
+	 \left(\frac{x-\hat{\mu} }{\lambda }\right)^{\alpha k-\alpha-1} \!\! \exp \left[-\alpha\left(\frac{x-\hat{\mu} }{\lambda }\right)^k\right]}
 	 {(-1+k) (-1+k+k \alpha ) \Gamma\left[\frac{-2+k+(-1+k) \alpha }{k}\right]}.
 	\label{IF-weibull-mu}
 \end{equation}
@@ -243,9 +243,9 @@ The influence function $\eqref{eq:IF}$ for estimator of location $\hat{\theta} =
 \end{center}
 \end{figure}
 
-\noindent Figure \ref{figJK:weibull-if} shows that the influence function is again bounded. There is no line for $\alpha = 0$ in the left figure because we have to use $\alpha >0$ for $k=2$. For the estimation of scale $\hat{\theta}= \lambda$ under known parameters $\mu, k$, the influence function can be expressed  as
+\noindent Figure \ref{figJK:weibull-if} shows that the influence function is again bounded. There is no line for $\alpha = 0$ in the left figure because we have to use $\alpha >0$ for $k=2$. For the estimation of scale $\hat{\theta}= \lambda$ under known parameters $\mu, k$, the influence function can be expressed  as \newline
 \begin{equation}
-	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\lambda) = \frac{(1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \lambda  \left(\alpha +k (1+\alpha ) \left(-1+y^k\right)\right)
+	\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{\lambda}) = \frac{(1+\alpha )^{2+\alpha -\frac{\alpha }{k}} \hat{\lambda}  \left(\alpha +k (1+\alpha ) \left(-1+y^k\right)\right)
 	y^{\alpha( k-1)} \exp \left[-\alpha y^k\right]}
 	{k^2 \Gamma\left[2+\alpha -\frac{\alpha }{k}\right]},
 	\label{IF-weibull-lambda}
@@ -283,7 +283,7 @@ y = \frac{x-\mu}{\lambda}.
 \begin{tabular}{cc}	
 	\multicolumn{2}{c}{\epsfig{file=Weib-IF-k.eps, height=2.5in}}
 	\\
-	\multicolumn{2}{c}{$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},k = 2) $, in case of known $\mu = 0, \: \lambda = 1$}
+	\multicolumn{2}{c}{$\mathrm{IF}(x;T_{\mathfrak{R}_\alpha},\hat{k} = 2) $, in case of known $\mu = 0, \: \lambda = 1$}
 \end{tabular}
 \caption{Influence function for \mRa-estimator of Weibull parameter $k$}
 \label{figJK:weibull2-if}

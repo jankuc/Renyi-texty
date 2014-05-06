@@ -375,11 +375,11 @@ Minimum \ren distance estimator for $\alpha = 0$ coincides with maximum likeliho
 \noindent Influence function for estimator of the standard deviation ($\hat{\theta} = \sigma$) with the known mean $\mu = 0$ is derived in \cite{Vajda2009} and has the form
 
 \begin{equation}
-	\text{IF}(x;T_{\mathfrak{R}_{\alpha}},\sigma) = \frac{(1+\alpha)^{5/2}\sigma}{2}\biggl[\biggl(\biggl(\frac{x}{\sigma}\biggr)^2-\frac{1}{1+\alpha}\biggr) \exp\biggl(-\frac{\alpha x^2}{2\sigma^2}\biggr)\biggr].
+	\text{IF}(x;T_{\mathfrak{R}_{\alpha}},\hat{\sigma}) = \frac{(1+\alpha)^{5/2}\hat{\sigma}}{2}\biggl[\biggl(\biggl(\frac{x}{\hat{\sigma}}\biggr)^2-\frac{1}{1+\alpha}\biggr) \exp\biggl(-\frac{\alpha x^2}{\hat{\sigma}^2}\biggr)\biggr].
 \end{equation}
 For the estimator of mean ($\hat{\theta} = \mu$) with fixed $\sigma$ the influence function takes the form
 \begin{equation}
-	\text{IF}(x;T_{\mathfrak{R}_{\alpha}},\mu) = (1+\alpha )^{3/2} (x-\mu ) \exp\left[{-\alpha\frac{(x-\mu )^2}{2 \sigma ^2}}\right].
+	\text{IF}(x;T_{\mathfrak{R}_{\alpha}},\hat{\mu}) = (1+\alpha )^{3/2} (x-\hat{\mu} ) \exp\left[{-\alpha\frac{(x-\hat{\mu} )^2}{2 \sigma ^2}}\right].
 \end{equation}
 Both functions are bounded for all possible $\alpha$, which means that the estimator is B-robust. Although we do not have finite rejection point $\rho^*$, we can see, that for $\alpha>0$ the limit 
 \begin{equation}
@@ -390,3 +390,82 @@ holds for influence functions for both parameters.
 	\section{Application to Specific Families}
 	\input{src/02a-Application_to_specific_families.tex}
 
+\section{Heuristic Approach}
+There is a small inconvenience with choice of "robust" $\alpha$ ($\alpha > 0.5$) in combination with small data samples, or very sparse or scattered data (data with high variance). This is illustrated in figures \ref{figJK:distRen} and \ref{figJK:distRenPlate}, where we used random set of 10 values $\mathbf{X} = (x_1, \ldots, x_{10}) \sim \mathrm{N}(0,2)$ and displayed two different functions.
+
+\begin{figure}[h]
+  \centering
+  \subfloat[t][Values of \ren distance.]{
+  	\includegraphics[width=.5\textwidth]{RenyiN02a07n10-eps-converted-to.pdf}%
+  	\label{figJK:distRen}%
+  }%
+  \:%
+  \subfloat[t][Values of \ren distance after averaging.]{
+  	\includegraphics[width=.5\textwidth]{RenyiPlate-average-eps-converted-to.pdf}%
+  	\label{figJK:distRenPlate}%
+  }%
+  \end{figure}
+
+Figure \ref{figJK:distRen} is an illustration of \ren distance between the empirical distribution of observations $\mathbf{X}$ and normal distribution with variable parameters $(\mu,\, \sigma)$. 
+
+We can see that there is large shallow minimum around point $(0.3, \, 2.3)$, but closer examination would show that all of the eight bright points close to the $y$ axis $(\sigma = 0.001)$ have steep minima with lower values of the distance function. These areas specify distributions which correspond to Dirac $\delta-$functions $\delta_{a_i}(x)$, where $a_i = x_i$ for $i \in \{1,\ldots,10\}$. Because of the value of distance function, \mRao\ would prefer these distributions instead of one describing all the data together. This one unifying distribution is represented by the area around $(0.3, \, 2.3)$. This is because the estimator is so robust and the data are so sparse, that the estimator always takes the single data point as the only representative of the estimated distribution and assumes that the rest of the dataset are outliers. 
+
+To overcome this, we developed a method inspired by image processing. The idea is to blur the resulting image, so there are not sharp and deep minima (edges from the viewpoint of image processing). Blurring was performed via convolution with averaging or Gaussian mask. If we denote $\mathfrak{R}_\alpha(F_n, \mathrm{N}(\mu,\sigma))$  \ren distance between the empirical distribution $F_n$ and $\mathrm{N}(\mu,\sigma)$, the distance after averaging is 
+\begin{equation}
+\overline{\mathfrak{R}}_\alpha(F_n, \mathrm{N}(\mu_k,\sigma_l)) = \dfrac{1}{r^2}\sum_{i=k-r}^{k+r} \sum_{j=l-r}^{l+r} \mathfrak{R}_\alpha(F_n, \mathrm{N}(\mu_i,\sigma_j)) ,
+\end{equation}
+where $r$ is the radius of the averaging mask.
+
+\ren distance after averaging is displayed in figure \ref{figJK:distRenPlate}. We can see, that the minima corresponding to the Dirac $\delta-$functions are after blurring flattened and their values are higher than the one of the minimum at point $(0.3, \, 2.3)$.
+
+Blurring not only flattens the image, but it also slightly moves the minima. To overcome this setback and refine the result we used two-step algorithm:
+\begin{enumerate}
+\item Minimize averaged distance $\overline{\mathfrak{R}}_\alpha(\cdot,\cdot)$,
+\item Minimize \ren distance $\mathfrak{R}_\alpha(\cdot,\cdot)$ in the local minima chosen by the step 1.
+\end{enumerate}
+So we use the average \ren distance to find the wide local minimum which describes the data as one distribution and then we calculate \ren distance to find the exact estimator. 
+
+\begin{table}[htb] 
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline  
+ &${\hat{\mu}}$ & ${\hat{\sigma}} $\\
+\hline
+\ren distance& 0.1742  &  0.3448 \\    
+Averaged \ren distance& 0.0058  &  2.8532 \\ 
+Two-step minimization& 0.0346  &  2.3832 \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Mean made from 100 estimators. Data: $(x_1,\ldots,x_{10}) \sim \mathrm{N}(0,2)$}
+\label{tabJK:RenPla}
+\end{table}
+\noindent Table \ref{tabJK:RenPla} shows differences between the used algorithms.  First row corresponds to the use of unaltered \mRao. We can see, that the mean of the estimated parameter $\sigma$ is very small, much smaller than the one of the theoretical distribution. In second row we used only the averaging algorithm. In this case we can see, that the estimator is preferring estimators with higher value of $\sigma$. Result of the two-step algorithm is showed in the third row. We can see, that it's results are closer to that of averaged version of the estimator, but are refined by the second step of the minimization algorithm.
+
+\section{Computer Simulations}
+Computer simulations are described to much larger extent in \cite{Kucera2012}, here we only present few tables to get the general idea about the estimators at hand. We will be talking about Tables \ref{tab:MDE1}--\ref{tab:MDE6}. In the tables we see estimates of the parameters of the exponential distribution. Estimates were computed from data generated as a convex mixture \ref{konvex-smes} of exponential distributions $(1-\varepsilon)\mathrm{E}(0,1) + \varepsilon\mathrm{E}(0,10)$  with $\varepsilon$ different for each table. In the tables we can find the following statistics:
+\begin{equation}
+	m(\gamma) = \frac{1}{K}\sum_{i=1}^K \widehat{\gamma}_{i}, \qquad s(\gamma) = \sqrt{\frac{1}{K}\sum_{i=1}^K (\widehat{\gamma}_{i}-{m(\gamma)})^2},\\
+	\label{stat1}
+\end{equation}
+where $\gamma $ is one of the estimated parameters. Moreover we defined empirical relative efficiency 
+\begin{equation}
+	\mathrm{eref}(\gamma) = \sqrt{\dfrac{\frac{1}{K}\sum_{i=1}^K (\widehat{\gamma}_{\mathrm{0} ,i} - \gamma_{\mathrm{real}})^2}{\frac{1}{i}\sum_{k=1}^K (\widehat{\gamma}_{\alpha,i} - \gamma_{\mathrm{real}})^2}},
+	\label{stat2}
+\end{equation}
+where $\gamma_\mathrm{real}$ is the value of the parameter of the contaminated distribution,  $K$ is number of repetitions of the estimator and $\widehat{\gamma}_{0,i}$ is MLE estimator for $\lambda$ and minimal $x$ present in the dataset.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.7\textwidth]{Eref-Exp-lambda-eps-converted-to.pdf}
+\caption{Empirical relative efficiency $\mathrm{eref}(\lambda)$ of \mRa-estimator of parameters $\mu, \lambda$ of exponential distribution of convex mixture $(1-\varepsilon)\mathrm{E}(0,1) + \varepsilon\mathrm{E}(0,10)$ for different contaminations $\varepsilon$ for $n=500.$}
+\label{fig:eref}
+\end{figure}
+
+The tables show the statistics of the estimator depending on the sample size $n$ and the parameter of the \mRao\ $\alpha$. for better visualisation we plot the empirical relative efficiency in Figure \ref{fig:eref}. We can see that the efficiency increases rapidly up to a certain point and then increases more slowly.
+
+
+
+
+
+
+ 

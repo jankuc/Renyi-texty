@@ -46,7 +46,7 @@ All data are filtered many times due to many reasons. First preprocessing takes 
 
 Our goal is to find separation criteria for the electron + jets and muon + jets channels before $b-$tagging. As stated above, we recognize subsets with $2, \,3,\, 4+$ jets for both channels. This means that we have six sets with slightly different physical characteristics and therefore we have to analyse them separately. 
 
-\section{Variables}
+\section{Variables}\label{sec:Variables}
 
 \dzero detector  produces high dimensional data (number of physical parameters  goes as high as $600$). Because a lot of these parameters are strongly correlated, or incorrectly modeled by the Monte-Carlo simulations (in the scope of needed accuracy), there are steps to decrease the dimension by transforming the data, leaving out selected variables and so on. This process is again analysis-dependent. Data used in this work contain 24 variables of which not all are useful or even defined in all datasets. For example since \textsf{HT3} is scalar sum of the transverse momentum of the three leading jets, it is not defined for lepton + 2 jets. Furthermore \textsf{Lepemv} is output of electron discriminant, which is probability that the lepton in the decay is electron. Therefore it is not defined for the muon channel. Number of variables depending on number of jets and type of lepton are listed in table \ref{tab:data-dims}.
 
