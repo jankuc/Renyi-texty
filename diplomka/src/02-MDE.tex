@@ -1,4 +1,83 @@
-\chapter{Minimum Distance  Estimation}
+\chapter{Minimum Distance  Estimation}\label{ch:MDE}
+\section{\ren Divergence}
+%Throughout this work we use \ren divergence in various 
+Let $\mathcal{P}$ be a set of probability distributions on measurable space $(\mathcal{X, A}), \: P,Q \in \mathcal{P},$ and let $p,q$ be their respective probability density functions. Furthermore we assume that $\mathcal{P}$ is dominated by $\sigma$-finite measure $\lambda$.
+%Let $\mathbf{X}_n = (X_1, \ldots ,X_n)$ i.i.d. observations  with distribution $P_{0} \in \mathcal{F}$. 
+
+%\begin{definition}
+%Let $\phi : (0,\infty) \rightarrow \mathbb{R}$ is convex on $(0,\infty)$, strictly convex at point point $t = 1$ and let $\phi(1) = 0$. %Let us denote $\phi(0) := \lim_{t\rightarrow 0_+} \phi(t)$ and $\phi(infty)/\infty  := \lim_{t\rightarrow +\infty} \phi(t)/t.$
+%
+%
+%\end{definition}
+
+
+\begin{definition}
+Let $\Phi$ be the class of all functions  $\phi(t)$, $\phi : (0,\infty) \rightarrow \mathbb{R},$ which are convex on $(0,\infty)$ and strictly convex at $t = 1$.  We define 
+\begin{equation}
+\phi(0) = \lim_{t \searrow 0} \phi(t), \quad \text{ and } \quad \frac{\phi(\infty)}{\infty} = \lim_{t\rightarrow \infty} \frac{\phi(t)}{t}.
+\end{equation}
+Suppose that $\phi(1) = 0$ and $\phi(0)$ exists. Then the {\em \phidiv} measure between the probability distributions $P$ and $Q$ is defined as 
+\begin{equation}
+\mathfrak{D}_\phi(P,Q) = \int_\mathcal{X} q(x) \phi \left( \frac{p(x)}{q(x)}\right) \,\mathrm{d}\lambda , \qquad \phi \in \Phi.
+\label{eq:phiDiv}
+\end{equation}
+We define the following values
+\begin{equation}
+q(x) \phi\left( \frac{p(x)}{q(x)}\right) = 
+\begin{cases}
+q(x)\phi(0) & \text{ if } p(x) = 0,  \\
+p(x) \dfrac{\phi(\infty)}{\infty} & \text{ if } q(x) = 0,
+\end{cases}
+\end{equation}
+where we use convention "$0\cdot\infty = 0$".
+
+
+\label{def:phiDiv}
+\end{definition}
+\noindent Example of \phidiv is the well-known  Kullback-Leibler divergence (or informational divergence) 
+\begin{equation}
+\mathfrak{D}_{KL}(P,Q) =  \int_\mathcal{X} p(x)\log\left( \frac{p(x)}{q(x)}\right) \mathrm{d}\lambda
+\end{equation}
+defined by $\phi(t) = t\log(t)$.
+
+\begin{theorem}
+Let $P,Q \in \mathcal{P}$ and let $\phi \in \Phi$ be differentiable at $t = 1$. Then
+\begin{equation}
+0 \leq \mathfrak{D}_\phi (P,Q) \leq \phi(0) + \frac{\phi(\infty)}{\infty},
+\end{equation}
+where
+\begin{equation}
+ \mathfrak{D}_\phi (P,Q) = 0 \quad \text{ if } P=Q, 
+\end{equation}
+and
+\begin{equation}
+\mathfrak{D}_\phi (P,Q) = \phi(0) + \frac{\phi(\infty)}{\infty} \quad \text{ if } S_P \cap S_Q = \emptyset,
+\end{equation}
+where $S_P, S_Q$  are supports of $P,Q$.
+\end{theorem}
+
+
+
+In this work we deal with even more general divergence presented by \ren in \cite{Renyi1961}. It was the first parametric generalization of $\mathfrak{D}_{KL}$, defined by
+\begin{align*}
+\mathfrak{R}_\alpha(P,Q) & = \frac{1}{\alpha-1} \log\int_\mathcal{X} p(x)^\alpha q(x)^{1-\alpha}\mathrm{d}\lambda , \qquad \alpha >0, \alpha \neq 1.
+%& = \frac{1}{\alpha-1} \log \mathrm{E}_P\left[  \left( \frac{p(X)}{q(X)}\right)^{\alpha -1} \right] 
+\end{align*}
+Liese and Vajda \cite{LieseVajda1987} later extended it for all $\alpha \neq 0,1,$ by
+\begin{equation}
+\begin{aligned}
+\mathfrak{R}_\alpha(P,Q)  = \frac{1}{\alpha(\alpha-1)} \log\int_\mathcal{X} p(x)^\alpha q(x)^{1-\alpha}\mathrm{d}\lambda.% = \frac{1}{\alpha(\alpha-1)} \log \mathrm{E}_P\left[  \left( \frac{p(X)}{q(X)}\right)^{\alpha -1} \right].
+\label{eq:renDiv}
+\end{aligned}
+\end{equation}
+In the following, expression \eqref{eq:renDiv} will be referred to as \ren divergence.
+\ren divergence cannot be written in the form of $\phi-$divergence measure, however, it can be written in more general form called $(h,\phi)$-divergence introduced  in \cite{Menendez1995}. It is defined by  $\mathfrak{D}_\phi^h(P,Q) = h( \mathfrak{D}_{\phi}(P,Q))$, where  $\phi \in \Phi$ and $ h$ is differentiable, $h(0) = 0$, $h' (0) > 0 $, with  \[h : \left[0,\phi(0) + \lim_{x\rightarrow \infty} \frac{\phi(x)}{x} \right] \rightarrow [0,\infty).\] For completeness we present functions $h(t), \phi(t)$ for the \ren divergence:
+\begin{align*}
+h(t) = & \frac{1}{\alpha(\alpha-1)} \log\left[ \alpha(\alpha - 1)t + 1\right], \qquad \alpha \neq 0,1, \\
+\phi(t) = & \frac{t^\alpha - \alpha(t-1) -1}{\alpha(\alpha -1)} \qquad \alpha \neq 0,1.
+\end{align*}
+
+
 \section{Minimum Distance Estimator}
 In this section we consider a parametric family $\mathcal{F} = \lbrace F_\theta : \theta \in \Theta \subset \mathbb{R}^m \rbrace$, of distribution functions on $\mathbb{R}$, where $\Theta \subset \mathbb{R}^m$ is metric space with Euclidean distance 
 \begin{equation}
@@ -461,7 +540,7 @@ where $\gamma_\mathrm{real}$ is the value of the parameter of the contaminated d
 \label{fig:eref}
 \end{figure}
 
-The tables show the statistics of the estimator depending on the sample size $n$ and the parameter of the \mRao\ $\alpha$. for better visualisation we plot the empirical relative efficiency in Figure \ref{fig:eref}. We can see that the efficiency increases rapidly up to a certain point and then increases more slowly.
+The tables show the statistics of the estimator depending on the sample size $n$ and the parameter of the \mRao\ $\alpha$. for better visualisation we plot the empirical relative efficiency in Figure \ref{fig:eref}. We can see that the efficiency for given contamination $\varepsilon$ increases with increasing $\alpha$ rapidly up to a certain point and then increases more slowly or even starts to decrease. This can be observed mainly for values $\varepsilon=0.05, 0.1$. In Tables \ref{tab:MDE1}--\ref{tab:MDE6} we can see decreasing efficiency with increasing  $\alpha$. After some experiments we decided that the value $\alpha = 0.2 $ is a good compromise between the efficiency and robustness of the estimator.
 
 
 

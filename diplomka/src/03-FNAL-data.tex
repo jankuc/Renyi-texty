@@ -1,16 +1,16 @@
-\chapter{Fermilab data and separation strategy}
+\chapter{Fermilab data and separation strategy}\label{ch:FNAL_data}
 
-In this chapter we present data which was analyzed in this work. They were obtained from the experiment \dzero in Fermilab. In the following, we talk about different data sets, because the data originate in different physical processes, some of them differ in significant physical properties and analyses which the data undertook also vary. By every mentioned set we actually mean two separate sets. The first one contains real data (or so called DATA\nomenclature{DATA}{Real measured data from experiment \dzero}) measured by the detector \dzero. The second set contains Monte Carlo simulations (so called Monte Carlo or shortly MC\nomenclature{MC}{Monte Carlo simulated data}), which is generated so that it corresponds to the measured data. Furthermore MC is divided into three more separate sets: {\em Training sample, Testing sample} and {\em Yield sample}. 
+In this chapter we present data which was analyzed in this work. They were obtained from the experiment \dzero in Fermilab. In the following, we deal with different data sets because the data originate from different physical processes. Some of them differ in significant physical properties and thus our data processing and analyses also vary. By every mentioned set we actually mean two separate sets. The first one contains real data (simply DATA\nomenclature{DATA}{Real measured data from experiment \dzero}) measured by the detector \dzero. The second set contains Monte Carlo simulations (so called Monte Carlo or shortly MC\nomenclature{MC}{Monte Carlo simulated data}), which is generated so that it corresponds to the measured data. Furthermore MC is divided into three more separate sets: {\em Training sample, Testing sample} and {\em Yield sample}. 
 \begin{itemize}
 \item {\em Training sample} is used for training supervised and unsupervised separation methods. 
 \item {\em Testing sample} can be also used for training of the unsupervised methods and for the testing phase of supervised methods. That is the part, when the supervisor (teacher) tells the separation algorithm how well it classifies some unknown data (data which it did not use for learning). Methods usually use it to prevent overfitting which occurs, when the classifier starts to memorize the training data rather then learning to generalize it.
 \item {\em Yield sample} is used for checking how the method performs on completely unknown data. It is used for "dry runs", before the classifier is used to separate actual DATA. This set is usually reweighted so it has the same volume as the DATA set.
 \end{itemize}
 
-In order to cover all the possible effects, there are orders of magnitude more entries in the MC. Because of that, all the entries in MC are reweighted so that the volume of the weighted MC set corresponds to the volume of data. These reweighted entries (and data entries) are then called events.
+In order to cover all the possible effects, there are many orders of magnitude more entries in the MC. Because of that, all the entries in MC are reweighted so that the volume of the weighted MC set corresponds to the volume of DATA. These reweighted entries (and data entries) are then called events.
 
 \section{\texorpdfstring{\dzero}{D0} Experiment at Tevatron}
-\dzero was one of the biggest experiments on Tevatron. Discovery of top quark was the main focus of the \dzero experiment on this synchrotron. Top quark was predicted by Standard model and discovered in Tevatron in 1995. Its mass is the biggest of all the subatomic particles and it is subject to constant changes due to ongoing analyses. The latest value is $m_\mathrm{top} = 173.34 \pm 0.76 \,\mathrm{GeV/c}^2 $, which comes from international collaboration of CERN's experiments ATLAS, CMS on the synchrotron LHC and of Fermilab's CDF, \dzero on Tevatron \cite{jointMass}. Illustration of this result is shown in Figure \ref{fig:jointMass}. 
+\dzero was one of the biggest experiments at Tevatron. Discovery of top quark was the main focus of the \dzero experiment on this synchrotron. Top quark was predicted by Standard model and discovered in Tevatron in 1995. Its mass is the biggest one of all the subatomic particles and it is subject to constant changes due to ongoing analyses. The latest value is $m_\mathrm{top} = 173.34 \pm 0.76 \,\mathrm{GeV/c}^2 $, which comes from international collaboration of CERN's experiments ATLAS, CMS at the synchrotron LHC and of Fermilab's CDF, \dzero at Tevatron \cite{jointMass}. Illustration of this result is shown in Figure \ref{fig:jointMass}. 
 
 \begin{figure}[h]
 	\centering
@@ -22,9 +22,9 @@ In order to cover all the possible effects, there are orders of magnitude more e
 The data samples analyzed here were collected at \dzero experiment in the run period called Run II, which started in July 2002 and ended in September 2011 \cite{Yuntse}.
 
 \section{Top Quark} \label{sec:topQuark}
-Top quark is produced mostly in pairs top-antitop quark (written as $t\bar{t}$). In 2009 the collision from which single top quark originated  (without its antiparticle) was detected. Due to its of its high mass, the top quark (and antitop quark) decays in very short time, even before forming hadrons. It happens through weak interaction top quark almost exclusively decays to $W-$boson and $b-$quark as can be seen in Figure \ref{fig:feynman-ljets}. $W-$boson then decays in three different ways: it can form one of the leptons (electron, muon or tauon) and jets, two leptons or just jets. Figure \ref{fig:ttbarBranchingFrac} shows probability of these events. 
+Top quark is produced mostly in pairs top-antitop quark (written as $t\bar{t}$). In 2009 the collision from which single top quark originated  (without its antiparticle) was detected. Due to its high mass, the top quark (and antitop quark) decays in very short time, even before forming hadrons. It happens through weak interaction when top quark almost exclusively decays to $W-$boson and $b-$quark as can be seen in Figure \ref{fig:feynman-ljets}. $W-$boson then decays in three different ways: it can form one of the leptons (electron, muon or tauon) and jets, two leptons or just jets. Figure \ref{fig:ttbarBranchingFrac} shows probability of these events. 
 
-Another parameter which changes physical properties of the collision is the number of jets present in the decay of $W-$boson. We recognize three categories: $2$ jets, $3$ jets and more than $4$ jets (shortly $4+$ jets).
+Another parameter which changes physical properties of the collision is the number of jets present in the decay of $W-$boson. We recognize three categories: $2$ jets, $3$ jets and more than $4$ jets (shortly denoted by $4+$ jets).
 
 \begin{figure}[thb]
   \centering
@@ -47,13 +47,13 @@ Another parameter which changes physical properties of the collision is the numb
   \caption{Decay of \ttbar pair}
 \end{figure} 
 
-All data are filtered many times due to many reasons. First preprocessing takes  place in the process of collecting data events, because the data flow was simply too large to store in time. The frequency of collisions recorded by \dzero was around 1.7 MHz, which was reduced by 3 levels of triggers to 150 Hz for storing on tapes \cite{Yuntse}. Other filtering processes were carried out in consideration to the following analysis. One of the event filters is called $b-$tagging i.e. picking those events, in which $b-$quarks are present (with specific degree of certainty) as one of the results of top quark decay. This criterion ensures greater percentage of the required signals in the dataset. According to this criterion, three groups are distinguished: events before tagging, events with one $b-$tag and two $b-$tags.
+All data are filtered many times due to many reasons. First preprocessing takes  place in the process of collecting data events, because the data flow was simply too large to store in time. The frequency of collisions recorded by \dzero was around 1.7 MHz, which was reduced by 3 levels of triggers to 150 Hz for storing on tapes \cite{Yuntse}. Other filtering processes were carried out in consideration to the following analysis. One of the event filters is called $b-$tagging, i.e. picking those events in which $b-$quarks appeared (with specific degree of certainty) as one of the results of top quark decay. This criterion ensures greater percentage of the required signals in the dataset. According to this criterion, three groups are distinguished: events before tagging, events with one $b-$tag (1b) and two $b-$tags (2b).
 
-Our goal is to find separation criteria for the electron + jets and muon + jets channels before $b-$tagging. As stated above, we recognize subsets with $2, \,3,\, 4+$ jets for both channels. This means that we have six sets with slightly different physical characteristics and therefore we have to analyse them separately. 
+Our goal is to find separation criteria for the electron + jets and muon + jets channels before $b-$tagging. As stated above, we recognize subsets with $2, \,3,\, 4+$ jets for both channels. This means that we have six datasets with slightly different physical characteristics and therefore we have to analyse them separately. 
 
 \section{Variables}\label{sec:Variables}
 
-\dzero detector  produces high dimensional data (number of physical parameters  goes as high as $600$). Because a lot of these parameters are strongly correlated, or incorrectly modeled by the Monte-Carlo simulations (in the scope of needed accuracy), there are steps to decrease the dimension by transforming the data, leaving out selected variables and so on. This process is again analysis-dependent. Data used in this work contain 24 variables of which not all are useful or even defined in all datasets. For example since \textsf{HT3} is scalar sum of the transverse momentum of the three leading jets, it is not defined for lepton + 2 jets. Furthermore \textsf{Lepemv} is output of electron discriminant, which is probability that the lepton in the decay is electron. Therefore it is not defined for the muon channel. Number of variables depending on number of jets and type of lepton are listed in table \ref{tab:data-dims}.
+\dzero detector  produces high dimensional data (number of physical parameters  goes as high as $600$ items). Since a lot of these parameters are strongly correlated, or incorrectly modeled by the Monte-Carlo simulations (in the scope of needed accuracy), there are steps to decrease the dimension by transforming the data, leaving out selected variables and so on. This process is again analysis-dependent. Data used in this work contain 24 variables of which not all are useful or even defined in all datasets. For example, since the variable called \textsf{HT3} is the scalar sum of the transverse momentum of the three leading jets, it is not defined for lepton + 2 jets decay channel. Furthermore, the variable called \textsf{Lepemv} is the output of electron discriminant, which is probability that the lepton in the decay is electron. Therefore it is not defined for the muon channel. Number of variables depending on number of jets and type of lepton are listed in Table \ref{tab:data-dims}.
 
 \begin{table}[htb]
 \caption{Dimension of datasets with respect to number of jets and observed lepton.}
@@ -72,7 +72,7 @@ Our goal is to find separation criteria for the electron + jets and muon + jets 
 \label{tab:data-dims}
 \end{table}
 
-Variables are listed and briefly explained in appendix in Table \ref{tab:vars}. This selection comes from  FNAL personnel and contains these 24 variables, because they present good enough separation strength, good similarity of MC and DATA and they are in some sense complementary to the variables used by other analyses. This is required due to the possibility of combination of the analyses which benefits more from uncorrelated variables than it does from correlated. 
+Variables are listed and briefly explained in Table \ref{tab:vars}. This selection comes from  FNAL personnel and contains these 24 variables, because they present good enough separation strength, good similarity of MC and DATA and they are in some sense complementary to the variables used by other analyses. This is required due to the possibility of combination of the analyses which benefits more from uncorrelated variables than it does from correlated. 
 
 Former analyses were using the first 7 variables: \textsf{Apla, Spher, HTL, JetMt, HT3, MEvent, MT1NL}. One of our goals is to argue if there are variables with better separation strength or with some other better properties. 
 
@@ -81,7 +81,13 @@ Former analyses were using the first 7 variables: \textsf{Apla, Spher, HTL, JetM
 
 The final purpose of the analyses is to separate certain required signal from the background events comprising of other collisions, other decays and so on. Our dataset comprises of 2 signals (\textsf{ttA\_172, ttAll\_172}) and 15 backgrounds. Their list can be found in appendix in Tables \ref{tab:chnl-ele} and \ref{tab:chnl-muo}. There we can also find their proportional representation in the MC depending on the lepton and number of jets. Columns next to the percentages are number of entries (before re-weighting). Percentages in the lower part of the tables are the ratio of MC to DATA and DATA to MC respectively.
 
-Proportional representation of the signal and backgrounds in MC can be also showed via histograms, so called control plots e.g. in the top part of Figure \ref{fig:contrPlots}. The lower part shows the similarity of MC and DATA via the ratio
+\input{tables/tab-vars.tex}
+
+\input{tables/tab-channels-muo.tex}
+
+
+
+Proportional representation of the signal and backgrounds in MC can be also showed via histograms, so called control plots e.g. in the top part of Figures  \ref{fig:contrPlots1} and \ref{fig:contrPlots2}. The lower part shows the similarity of MC and DATA via the ratio
 \begin{equation*}
 \frac{number\:of\:data\:in\:the\:bin - weights\:of\:MC\:in\:the\:bin}{number\:of\:data\:in\:the\:bin}.
 \end{equation*}
@@ -97,8 +103,23 @@ Proportional representation of the signal and backgrounds in MC can be also show
   	\includegraphics[width=.65\textheight]{samples_plots-png/yield/muo/3jet/muo_3jet_Ht20.png}%
   	\label{fig:contr-muo}%
   }
-  \caption{So called control plots show proportional representation of signal and backgrounds in the MC and compare it to DATA.}
-  \label{fig:contrPlots}
+  \caption{Control plots of the proportional representation of signal and backgrounds in the MC compared to DATA.}
+  \label{fig:contrPlots1}
+\end{figure} 
+
+\begin{figure}[thb]
+  \centering
+  \subfloat[t][Lepdphimet, 2 jets, electron ]{%
+  	\includegraphics[width=.65\textheight]{samples_plots-png/yield/ele/2jet/ele_2jet_Lepdphimet.png}%
+  	\label{fig:contr-ele}%
+  }%
+  \\
+  \subfloat[t][Lepdphimet, 2 jets, muon]{%
+  	\includegraphics[width=.65\textheight]{samples_plots-png/yield/muo/2jet/muo_2jet_Lepdphimet.png}%
+  	\label{fig:contr-muo}%
+  }
+  \caption{Control plots of the proportional representation of signal and backgrounds in the MC compared to DATA.}
+  \label{fig:contrPlots2}
 \end{figure} 
 
 Figure \ref{fig:hists-9fig} depicts signal and background for 3 selected variables in 2, 3 and 4+ jets. We can see that the signal-to-background ratio increases with increasing number of jets. This phenomenon  can also be observed in Tables \ref{tab:chnl-ele} and \ref{tab:chnl-muo}. 
