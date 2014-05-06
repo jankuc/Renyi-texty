@@ -1,2 +1,43 @@
-\chapter{Divergence Trees modification}\label{ch:DDT}
+\chapter{Divergence Trees}\label{ch:DDT}
+
+Divergence decision tree (DDT) \nomenclature{DDT}{Divergence decision tree} is relatively new method of unsupervised classification. It was presented in 2005 in \cite{Karakos2005}, our algorithm is inspired by \cite{Karakos2008}. It is type of Integrating Sensing and Processing Decision Trees (ISPDTs). It  begins with the whole data sample at the root node. 
+
+The growing algorithm is as follows. The data in each node can be transformed into a lower dimensional space and divided into two clusters according to an optimization criterion via arbitrary classification method. Each node therefore represents a subset of the data of its parent node.  There is a possibility of adding a supervisor in this step. If there are training data present, the transformation and clustering may be optimized to maximize the separation criterion between the classes. The separation criterion can be for example maximization of the minimum distance between data points in different clusters or the maximization of the distance between clusters. 
+
+Stopping criterion is used to mark the nodes that should not be divided further, therefore they become leaves. This criterion can be some level of purity of the node. Node becomes "pure" when all the data in the node belong to one class. Another criterion could be some minimal amount of data in the node. When one of the defined stopping criteria is met, the node becomes leave and is not eligible for splitting any more. 
+
+Let $\mathcal{C}$ be collection of data points $X_1,\ldots,X_n \in \mathcal{X}^d.$
+
+\begin{definition}
+The \ren divergence $\mathfrak{R}_\alpha(S)$ of set $S\in \mathcal{C}$ of data points is defined as 
+\begin{equation}
+\mathfrak{R}_\alpha(S) = \min_Q \sum_{X \in S} \mathfrak{R}_ \alpha(P_X, Q),
+\end{equation}
+where $P_X$ is the empirical marginal distribution function derived from $X$ and $Q$ is a distribution function on $\mathcal{X}.$ 
+\end{definition}
+
+\noindent $\mathfrak{R}_\alpha(S)$ provides an indication of homogeneity of set $S$. For example $\mathfrak{R}_\alpha(S) = 0$ means that all elements of $S$ have the same distribution. Therefore we look for a partition $A_1,\ldots,A_m$ of $\mathcal{C}$ with the smallest possible $m$, such that
+\begin{equation}
+\sum_{i=1}^m \mathfrak{R}_\alpha(A_i) < \varepsilon \qquad \text{ for some } \varepsilon > 0.
+\end{equation}
+Without the requirement of smallest possible $m$, we would always arrive at partition $A_1,\ldots,A_n$, where $A_i = \lbrace X_i\rbrace$ for all $i=1,\ldots,n.$ 
+
+Algorithm
+\begin{enumerate}
+\item find node $S$ with the highest $\mathfrak{R}_\alpha(S)$
+\begin{enumerate}
+\item if $\mathfrak{R}_\alpha(S) < \varepsilon$, declare $S$ as pure
+\item if $|S| \leq n_\mathrm{min}$, declare $S$ as pure
+\item otherwise split the node into two subsets $A_1, A_2 $ such that $\mathfrak{R}_\alpha(A_1) + \mathfrak{R}_\alpha(A_2)$ is as small as possible \label{step}
+\end{enumerate}
+\end{enumerate}
+
+\noindent The iteration continues until all leaves meet one of the stopping criteria or a desired number $m$ of nodes has been reached. 
+
+It is clear that the splitting in the step \ref{step} can be done via large number of already used classification methods. We used some basic unsupervised clustering techniques like $k$-means and a few of their more advanced modifications like  \emph{DBSCAN} \cite{Ester} or its more advanced version \emph{SUBCLU} \cite{Kailing}. These methods  participated very poorly on the high dimensional FNAL datasets due to the lack of supervisor. Tests are therefore in progress with the use of \emph{Support Vector Machine} supervised learning model and also with the \emph{Model Based Clustering}. 
+
+
+
+
+
 

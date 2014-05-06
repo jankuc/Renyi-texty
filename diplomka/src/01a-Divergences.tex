@@ -16,13 +16,26 @@ Let $\Phi$ be class of all functions  $\phi(t)$, $\phi : (0,\infty) \rightarrow 
 \mathfrak{D}_\phi(P,Q) = \int_\mathcal{X} q(x) \phi \left( \frac{p(x)}{q(x)}\right) \,\mathrm{d}\lambda , \qquad \phi \in \Phi.
 \label{eq:phiDiv}
 \end{equation}
+We define the following values
+\begin{equation}
+q(x) \phi\left( \frac{p(x)}{q(x)}\right) = 
+\begin{cases}
+q(x)\phi(0) & \text{ if } p(x) = 0,  \\
+p(x) \dfrac{\phi(\infty)}{\infty} & \text{ if } q(x) = 0,
+\end{cases}
+\end{equation}
+where we define
+\[ \frac{\phi(\infty)}{\infty} = \lim_{t\rightarrow \infty} \frac{\phi(t)}{t}\]
+and we use convention "$0\cdot\infty = 0$".
+
+
 \label{def:phiDiv}
 \end{definition}
-\noindent Kullback-Leibler divergence measure 
+\noindent Example of \phidiv is Kullback-Leibler divergence (or informational divergence) 
 \begin{equation}
 \mathfrak{D}_{KL}(P,Q) =  \int_\mathcal{X} p(x)\log\left( \frac{p(x)}{q(x)}\right) \mathrm{d}\lambda
 \end{equation}
-is classic example of \phidiv defined by $\phi(t) = t\log(t)$.
+defined by $\phi(t) = t\log(t)$.
 
 We will be examining even more general divergence presented by \ren in \cite{Renyi1961}. It was the first parametric generalization of $\mathfrak{D}_{KL}$, defined by
 \begin{align*}
