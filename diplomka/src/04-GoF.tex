@@ -1,11 +1,11 @@
 \chapter{Goodness of Fit Tests}
 \label{ch:GoF}
 
-\noindent The Goal of this chapter is to develop and test several tools for ranking and comparing variables and selecting the suitable ones for consequential analyses. There are number of reasons for decreasing the dimension of the problem at hand. 
+\noindent The Goal of this chapter is to develop and test several tools for ranking and comparing variables and selecting the suitable ones for consequent analyses. There are number of reasons for decreasing the dimension of the problem at hand. 
 
-One of them is so called {\em curse of dimensionality}. It stands for the phenomena which occurs in high-dimensional spaces. The problem is that with increasing dimension the volume of the analysed space increases so fast that the available data become sparse. Therefore any result of the analyses is statistically insignificant due to insufficient amount of data. Another, maybe less significant, reason is of course amount of time and resources needed to complete the computations relevant to the analysis. 
+One of them is so called {\em curse of dimensionality}. It stands for the phenomena which occurs in high-dimensional spaces. The problem is that with increasing dimension the volume of the analysed space increases so fast that the available data become sparse. Therefore any result of the analyses is statistically insignificant due to insufficient amount of data. Another reason , maybe less significant, is of course amount of time and resources needed to complete the computations relevant to the analysis. 
 
-There are two criteria which we used for comparing the variables. One of them is the similarity between DATA and MC. The similarity is needed, since most of the methods used for separation use the MC for training. That is process of associating specific features found in the data with required result of the method. The second criterion is the separating strength of the variable. Therefore in both criteria we measure distance between distributions of different data sets. The similarity criterion implies the need of small distances which leads to goodness of fit (GoF) \nomenclature{GoF}{Goodness of fit} tests . The second criterion on the other hand requires the distance to be as large as possible. 
+There are two criteria which were used for comparing the variables. One of them is the similarity between DATA and MC. The similarity is needed, since most of the methods of separation use the MC for training. This is the process of associating specific features found in the data with required result of the method. The second criterion is the separating strength of the variable. Therefore in both criteria we measure distance between distributions of different data sets. The similarity criterion implies the need of small distances which leads to goodness of fit (GoF) \nomenclature{GoF}{Goodness of fit} tests. On the other hand, the second criterion requires the distance to be as large as possible. 
 
 There are number of two-sample goodness of fit  tests, e.g. Kolmogorov-Smirnov test, Cram\'{e}r-von Mises test and many others. There is one requirement we have to meet by the choice of the test. Because we have weighted data samples, we have to incorporate the data weights to the method. This can be done by the use of WECDF  \eqref{eq:wecdf} which is the basis of the statistics of aforementioned tests. 
 
@@ -140,19 +140,21 @@ H = \frac{1}{m}+\frac{1}{n},\quad	h = \sum_{i=1}^{N-1}\frac{1}{i},\quad \mathrm{
 %\end{equation}
 
 \section{\ren Divergence Based Ranks}
-Although there has not been devised any specific test applying the \ren divergence (RD) \nomenclature{RD}{R\'enyi divergence} defined by \eqref{eq:renDiv}, we use RD as a statistic to compare the variables and rank them on the basis of this measure. % We do so to have another measure to compare with our results. Also, there are two tasks for 
-Moreover, apart from testing similarity of MC and data, we also want to know the difference between signal and backgrounds. There are not any tests for that purposes in the literature and therefore any statistic can be used as a relative measure. 
+Although there has not been devised any specific test applying the \ren divergence (RD) \nomenclature{RD}{R\'enyi divergence} defined by \eqref{eq:renDiv}, we use RD as a statistic measure for variable comparison, to obtain the ranks of variables on the basis of this measure. % We do so to have another measure to compare with our results. Also, there are two tasks for 
+Moreover, apart from testing similarity of MC and data, we also want to know the dissimilarity between signal and backgrounds. There are not any tests for that purposes in the literature and therefore any statistic can be used as a relative measure. 
 
-Advantage of previous tests over RD is the use weighted empirical distribution functions. For using RD, we have to compute some estimator of p.d.f. In this work, we used equidistant histograms with various numbers of bins and kernel density estimator. Histogram is nonparametric estimator describing data through relative frequency in disjoint intervals called bins. Closed interval $[a,b]$ is divided to $m$ equidistant intervals defined by points $\lbrace t_0, \ldots, t_m \rbrace$, where $a = t_0 < \cdots < t_m = b.$ Histogram is then defined as 
+The advantage of previous tests (KS, CM, AD) over RD is the direct incorporation of weighted empirical distribution functions into the test algorithm. For using RD, we have to compute some estimator of p.d.f. In this work, we used equidistant histograms with various numbers of bins and kernel density estimator. The histogram is nonparametric estimator describing data through relative frequencies in disjoint intervals called bins. Closed interval $[a,b]$ is divided to $m$ equidistant intervals defined by the points $\lbrace t_0, \ldots, t_m \rbrace$, where $a = t_0 < \cdots < t_m = b.$ Histogram is then defined as 
 \begin{equation}
-\hat{f}_n(x) = \frac{1}{n} \sum_{i=1}^m \frac{N_i}{t_i - t_{i-1}} I_{(t_i, t_{i-1}]}(x),
+\hat{f}_n(x) = \frac{1}{n} \sum_{i=1}^m \frac{N_i}{t_i - t_{i-1}} I_{(t_{i-1}, t_i]}(x),
 \end{equation}
-where $N_i$ is number of observations in interval $(t_i, t_{i-1}]$. 
+where $N_i$ is the number of observations in interval $(t_{i-1}, t_i]$. 
 
-Histograms are known to have issues with stability regarding varying number of bins and  the choice of the interval $[a,b]$.
+Histograms are known to have issues concerning the stability regarding varying number of bins or the choice of interval $[a,b]$.
 
 \begin{table}[ht]
 \centering
+\caption{Formulas for computing number of bins in equidistant histograms, where $n$ is the sample size, $m$ is the desired number of bins.}
+
 \begin{tabular}{|l | c|}
 \hline 
 \rule{0pt}{2.4ex} Square root & {$ m = \sqrt{n}$} \\% [1.1ex]
@@ -166,9 +168,8 @@ Histograms are known to have issues with stability regarding varying number of b
 \rule{0pt}{4ex} Scott \cite{Scott1979} &  $m = \dfrac{3.49 \hat{\sigma}}{\sqrt[3]{n}}$ \\
 \hline
 \end{tabular} 
-\caption{Formulas for computing number of bins in equidistant histograms, where $n$ is the sample size, $m$ is the desired number of bins.}
 \label{tab:histNbin}
 \end{table}
 
-\noindent Functions for computing the number of bins are shown in Table \ref{tab:histNbin}, where \[ m_{\mathrm{Doane}}(n) = 1 + \log_2 (n) + \log_2 \left( 1 + \dfrac{|g_1|}{\sigma_{g_1}} \right), \quad   \text{ where } \sigma_{g_1} = \frac{6(n-2)}{(n+1)(n+3)}\] and $g_1$ is the estimated skewness of the dataset. 
+\noindent Functions for computing the number of bins are shown in Table \ref{tab:histNbin}, where \[ m_{\mathrm{Doane}}(n) = 1 + \log_2 (n) + \log_2 \left( 1 + \dfrac{|g_1|}{\sigma_{g_1}} \right), \quad   \text{ where } \sigma_{g_1} = \frac{6(n-2)}{(n+1)(n+3)},\] and $g_1$ is the estimated skewness of the dataset. 
 
