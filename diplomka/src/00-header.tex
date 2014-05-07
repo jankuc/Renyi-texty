@@ -16,7 +16,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 %\usepackage{subcaption}
-\usepackage{subfig}
+\usepackage[subrefformat=parens,labelformat=parens]{subfig}
 
 \PassOptionsToPackage{hyphens}{url}
 \usepackage{hyperref}
@@ -26,6 +26,15 @@
 \renewcommand{\nomname}{List of Symbols}
 
 \usepackage{tabularx}
+
+\usepackage{listings}
+\usepackage{lmodern}
+\newcommand\Small{\fontsize{9}{9.2}\selectfont}
+\newcommand*\LSTfont{\Small\ttfamily\SetTracking{encoding=*}{-60}\lsstyle}
+\lstset{
+basicstyle=\ttfamily \tiny
+}
+\usepackage{minted}
 
 %% Nastavení zrcadla sazby
 \usepackage{calc}

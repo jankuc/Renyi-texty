@@ -470,7 +470,7 @@ holds for influence functions for both parameters.
 	\input{src/02a-Application_to_specific_families.tex}
 
 \section{Heuristic Approach}
-There is a small inconvenience with the choice of "robust" $\alpha$ ($\alpha > 0.5$) in combination with small data samples, or very sparse or scattered data (data with high variance). This is illustrated in Figures \ref{figJK:distRen} and \ref{figJK:distRenPlate}, where we used a set of 10 random values $\mathbf{X} = (x_1, \ldots, x_{10}) \sim \mathrm{N}(0,2)$.
+There is a small inconvenience with the choice of "robust" $\alpha$ ($\alpha > 0.5$) in combination with small data samples, or very sparse or scattered data (data with high variance). This is illustrated in Figures \subref*{figJK:distRen} and \subref*{figJK:distRenPlate}, where we used a set of 10 random values $\mathbf{X} = (x_1, \ldots, x_{10}) \sim \mathrm{N}(0,2)$.
 
 \begin{figure}[htb]
   \centering
@@ -486,7 +486,7 @@ There is a small inconvenience with the choice of "robust" $\alpha$ ($\alpha > 0
   \caption{\ren distance in case of $\mathrm{N}(0,2)$ distribution.}
   \end{figure}
 
-Figure \ref{figJK:distRen} shows the \ren distance between the empirical distribution of observations $\mathbf{X}$ and normal distribution with parameters $(\mu,\, \sigma)$ varying in the interval $[-4,4]\times[0,8].$ We can see that there is large shallow minimum around the point $(0.3, \, 2.3)$, but closer examination would show that all of the eight bright points close to the $y$ axis $(\sigma = 0.001)$ have steep minima with lower values of the \ren distance function. These areas specify distributions which correspond to Dirac $\delta-$functions $\delta_{a_i}(x)$, where $a_i = x_i$ for $i \in \{1,\ldots,10\}$. Because of these singular values of the distance function, \mRao\ would prefer these distributions instead of that describing all the data together. This unifying distribution is represented by the dark blue area around $(0.3, \, 2.3)$. Thus the estimator is so robust and the data are so sparse that the estimator always picks up some single data point as the only representative of the estimated distribution and assumes that the rest of the samples are outliers. 
+Figure \subref*{figJK:distRen} shows the \ren distance between the empirical distribution of observations $\mathbf{X}$ and normal distribution with parameters $(\mu,\, \sigma)$ varying in the interval $[-4,4]\times[0,8].$ We can see that there is large shallow minimum around the point $(0.3, \, 2.3)$, but closer examination would show that all of the eight bright points close to the $y$ axis $(\sigma = 0.001)$ have steep minima with lower values of the \ren distance function. These areas specify distributions which correspond to Dirac $\delta-$functions $\delta_{a_i}(x)$, where $a_i = x_i$ for $i \in \{1,\ldots,10\}$. Because of these singular values of the distance function, \mRao\ would prefer these distributions instead of that describing all the data together. This unifying distribution is represented by the dark blue area around $(0.3, \, 2.3)$. Thus the estimator is so robust and the data are so sparse that the estimator always picks up some single data point as the only representative of the estimated distribution and assumes that the rest of the samples are outliers. 
 
 To overcome this problem, we developed a method inspired by image processing. The idea is to blur the resulting image so that there are not sharp and deep minima (edges from the viewpoint of image processing). Blurring was performed via convolution with averaging or Gaussian mask. If we denote $\mathfrak{R}_\alpha(F_n, \mathrm{N}(\mu,\sigma))$  \ren distance between the empirical distribution $F_n$ and $\mathrm{N}(\mu,\sigma)$, the distance after averaging is 
 \begin{equation}
@@ -494,7 +494,7 @@ To overcome this problem, we developed a method inspired by image processing. Th
 \end{equation}
 where $r$ is the radius of the averaging mask.
 
-\ren distance after averaging is displayed in Figure \ref{figJK:distRenPlate}. We can see that the former minima corresponding to the Dirac $\delta-$functions are flattened after blurring and their values are higher than the minimum at point $(0.3, \, 2.3)$.
+\ren distance after averaging is displayed in Figure \subref*{figJK:distRenPlate}. We can see that the former minima corresponding to the Dirac $\delta-$functions are flattened after blurring and their values are higher than the minimum at point $(0.3, \, 2.3)$.
 
 Blurring not only flattens the image, but it also slightly moves the minima. To overcome this setback and refine the result we used two-step algorithm:
 \begin{enumerate}
