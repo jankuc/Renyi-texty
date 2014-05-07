@@ -1,13 +1,16 @@
-\chapter*{Introduction}
+\chapter*{Introduction} \label{ch:intro}
 \addcontentsline{toc}{chapter}{Introduction}
 
-In this work we study statistical estimators with minimum \ren pseudodistance, mainly their robustness. In real world applications we use contaminated data quite often and some estimators, like MLE, are very inaccurate. This is motive to develop robust estimators which are immune to some kinds of contamination. Estimators based on minimization of \ren pseudodistance definitely belong to this category. In chapter \ref{ch:MDE} we derive explicit formulas for computing these estimators in various distribution families. We also propose heuristic for computation of robust minimum \ren distance estimator on small data samples, where the estimator leads to $\delta$-functions.
+In this work we study parametric statistical estimators with minimum \ren pseudodistance, mainly their robustness. In real world applications we have to deal with contaminated data quite often and some estimators, like MLE, are very inaccurate when used on these data. This is our motivation to develop robust estimators which are immune to some kinds of contamination. Estimators based on minimization of \ren pseudodistance definitely belong to this category. In chapter \ref{ch:MDE} we derive explicit formulas for computing these estimators in various distribution families together with their influence functions applying the theory of $M$-estimators. We also propose heuristic for computation of minimum \ren distance estimators with choices of robust parameter $\alpha$ on small data samples, where the estimator leads to $\delta$-functions. We present some results from a simulation study at the end of the chapter.
 
-In chapter \ref{ch:FNAL_data} we describe data obtained from particle accelerator in Fermilab. We provide insight into the structure of the data, we briefly talk about the physical meaning.
+In chapter \ref{ch:FNAL_data} we describe data obtained from experiment \dzero at particle accelerator in Fermilab. We provide insight into the structure of the data, we briefly talk about the physical meaning. 
 
-Further, in chapter \ref{ch:GoF} we study possibilities of using statistical hypothesis tests and their use on weighted data. This is not an easy task, because the used statistic has to be able to use the weights to change the distribution of the data. Kolmogorov-Smirnov, Cramér-von Misses and Anderson-Darling tests are good candidates since their statistics use empirical c.d.f. which can be reweighted. We also study  \ren divergence as a possible statistic for comparing similarity or difference of two datasets.
+We also present divergence decision trees, an unsupervised classification method, which could be with some modifications used as a tool for separating the signal from the backgrounds of the presented data.
 
-We also briefly present divergence decision trees as a possible method for separation of signal.
+Further, in chapter \ref{ch:GoF} we study possibilities of using statistical hypothesis tests and their use on weighted data. This is not an easy task, since the used statistic has to be able to use the weights to change the distribution of the data. Kolmogorov-Smirnov, Cramér-von Misses and Anderson-Darling tests are good candidates since their statistics use empirical c.d.f. which can be reweighted. We also study the usage of \ren divergence as a possible statistic for comparing similarity or dissimilarity of two datasets.
 
+In chapter \ref{ch:FNAL_results} we present results obtained by the use of methods discussed in chapter \ref{ch:GoF} on data from Fermilab. We compare the methods and discuss possible conclusions.
+
+In chapter \ref{ch:software} we briefly describe software tools that we  created for testing the methods presented in this work. We also provide references, so the software can be obtained and used. 
 
 
